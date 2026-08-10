@@ -1,14 +1,16 @@
-import { getDynamicMetadata } from '@/lib/metadata';
+import IndustriesClient from '@/components/industries-client';
+import { Metadata } from 'next';
 
-export async function generateMetadata() {
-  return await getDynamicMetadata('/industries');
-}
+export const metadata: Metadata = {
+  title: 'Software Development Across Industries | Neologicx',
+  description: 'Neologicx software experience across education, manufacturing, FMCG, retail, construction, hospitality, events and professional workflows.',
+  openGraph: {
+    title: 'Software Development Across Industries | Neologicx',
+    description: 'Neologicx software experience across education, manufacturing, FMCG, retail, construction, hospitality, events and professional workflows.',
+    images: [{ url: '/images/og-default.jpg' }],
+  },
+};
 
 export default function IndustriesPage() {
-  return (
-    <div className="flex min-h-screen flex-col items-center justify-center p-24">
-      <h1 className="text-4xl font-bold text-primary">/industries</h1>
-      <p className="mt-4 text-muted-foreground">This is a placeholder page. The SEO metadata has been dynamically injected via the mock API.</p>
-    </div>
-  );
+  return <IndustriesClient />;
 }

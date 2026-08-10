@@ -1,5 +1,8 @@
+'use client';
+
 import React from 'react';
 import Link from 'next/link';
+import { motion, Variants } from 'framer-motion';
 import { 
   Layers, 
   Code2, 
@@ -49,35 +52,95 @@ const features = [
   }
 ];
 
+const containerVariants: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1
+    }
+  }
+};
+
+const itemVariants: Variants = {
+  hidden: { y: 20, opacity: 0 },
+  visible: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      type: "spring",
+      stiffness: 100,
+      damping: 15
+    }
+  }
+};
+
 export default function Features() {
   return (
-    <section className="w-full py-20 bg-background border-b border-border">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="mb-16">
-          <h2 className="text-3xl font-bold text-foreground mb-4">What we build</h2>
-          <div className="h-1 w-12 bg-primary rounded-full"></div>
+    <section className="relative w-full py-24 bg-background overflow-hidden">
+      {/* Background ambient light */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-full pointer-events-none">
+        <div className="absolute top-[-10%] left-[-10%] w-96 h-96 bg-primary/10 rounded-full blur-3xl opacity-50"></div>
+        <div className="absolute bottom-[-10%] right-[-10%] w-[30rem] h-[30rem] bg-blue-500/10 rounded-full blur-[100px] opacity-40"></div>
+      </div>
+
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="mb-20 text-center max-w-3xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+          >
+            <h2 className="text-4xl md:text-5xl font-extrabold text-foreground tracking-tight mb-6">
+              What We <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-blue-600">Build</span>
+            </h2>
+            <p className="text-lg text-muted-foreground">
+              We craft robust digital solutions tailored to your unique business needs, combining cutting-edge technology with intuitive design.
+            </p>
+          </motion.div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12">
+        <motion.div 
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+        >
           {features.map((feature, index) => (
-            <div key={index} className="group relative flex flex-col items-start">
-              <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-6 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors duration-300">
-                <feature.icon className="w-6 h-6" />
-              </div>
-              <h3 className="text-xl font-semibold text-foreground mb-3">{feature.title}</h3>
-              <p className="text-muted-foreground leading-relaxed mb-6 flex-grow">
-                {feature.description}
-              </p>
-              <Link 
-                href={feature.link}
-                className="inline-flex items-center text-sm font-medium text-primary hover:text-primary/80 transition-colors"
-              >
-                Learn more
-                <ArrowRight className="w-4 h-4 ml-1.5 transition-transform group-hover:translate-x-1" />
+            <motion.div key={index} variants={itemVariants} className="h-full">
+              <Link href={feature.link} className="group block h-full">
+                <div className="relative h-full flex flex-col p-8 rounded-3xl bg-card border border-border/40 shadow-sm hover:shadow-2xl hover:border-primary/20 transition-all duration-500 overflow-hidden z-10">
+                  {/* Subtle gradient hover background */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+                  
+                  {/* Icon Container */}
+                  <div className="relative w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mb-8 text-primary group-hover:scale-110 group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-500 ease-out shadow-sm">
+                    <feature.icon className="w-7 h-7" strokeWidth={1.5} />
+                  </div>
+                  
+                  {/* Content */}
+                  <div className="flex-grow flex flex-col relative z-20">
+                    <h3 className="text-xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors duration-300">{feature.title}</h3>
+                    <p className="text-muted-foreground leading-relaxed mb-8 flex-grow text-[15px]">
+                      {feature.description}
+                    </p>
+                    
+                    {/* Action Link */}
+                    <div className="flex items-center text-sm font-semibold text-primary mt-auto">
+                      <span className="relative overflow-hidden flex h-5 items-center">
+                        <span className="inline-block transition-transform duration-300 group-hover:-translate-y-full">Learn more</span>
+                        <span className="absolute top-0 left-0 inline-block transition-transform duration-300 translate-y-full group-hover:translate-y-0">Learn more</span>
+                      </span>
+                      <ArrowRight className="w-4 h-4 ml-2 transition-transform duration-300 group-hover:translate-x-2" />
+                    </div>
+                  </div>
+                </div>
               </Link>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

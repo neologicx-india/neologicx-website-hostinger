@@ -1,14 +1,16 @@
-import { getDynamicMetadata } from '@/lib/metadata';
+import ProductsClient from '@/components/products-client';
+import { Metadata } from 'next';
 
-export async function generateMetadata() {
-  return await getDynamicMetadata('/products');
-}
+export const metadata: Metadata = {
+  title: 'Configurable Business Software Solutions | Neologicx',
+  description: 'Explore configurable software foundations for construction operations, complaint management, order workflows and education administration.',
+  openGraph: {
+    title: 'Configurable Business Software Solutions | Neologicx',
+    description: 'Explore configurable software foundations for construction operations, complaint management, order workflows and education administration.',
+    images: [{ url: '/images/og-default.jpg' }],
+  },
+};
 
 export default function ProductsPage() {
-  return (
-    <div className="flex min-h-screen flex-col items-center justify-center p-24">
-      <h1 className="text-4xl font-bold text-primary">/products</h1>
-      <p className="mt-4 text-muted-foreground">This is a placeholder page. The SEO metadata has been dynamically injected via the mock API.</p>
-    </div>
-  );
+  return <ProductsClient />;
 }

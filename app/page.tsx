@@ -12,6 +12,7 @@ import PortfolioSlider from '@/components/portfolio-slider'
 import Process from '@/components/process'
 import GlobalDelivery from '@/components/global-delivery'
 import CTASection from '@/components/cta-section'
+import InsightsSlider from '@/components/insights-slider'
 
 export default function Home() {
   return (
@@ -22,7 +23,7 @@ export default function Home() {
       <PortfolioSlider />
       <Process />
       <GlobalDelivery />
-      <CTASection />
+      <InsightsSlider />
     </main>
   )
 }

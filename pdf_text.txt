@@ -1,0 +1,2589 @@
+NEOLOGICX  •  WEBSITE CONTENT MASTER 
+DESIGNER / DEVELOPER HANDOFF   •   1 
+NEOLOGICX  •  WEBSITE REBUILD 
+Designer-Ready Website 
+Content Master 
+Page-by-page launch copy, URL strategy, SEO migration notes and proof 
+references 
+Prepared for Neologicx Resources Pvt Ltd 
+6 August 2026  •  Designer / Developer Handoff 
+Source base: Neologicx Enterprise Solutions Portfolio • prior Global Market Website Audit • Google Search 
+Console 3-month export • verified live-page references 
+ 
+ 
+ 
+NEOLOGICX  •  WEBSITE CONTENT MASTER 
+DESIGNER / DEVELOPER HANDOFF   •   2 
+How to Use This Content Master 
+This is a build document, not another audit. The text under each website-page heading is proposed 
+launch copy. The implementation footer at the end of every website page is for the designer, developer 
+and SEO team only; it must not appear on the public website. 
+1. Copy can be designed, broken into cards or shortened responsively, but its meaning and evidence 
+boundaries should be preserved. 
+2. Where a claim is marked for confirmation, the team should verify it before launch rather than 
+replacing it with generic marketing language. 
+3. Existing URLs are intentionally retained wherever practical. A technology change to Next.js does 
+not require a URL change. 
+4. Case studies avoid invented performance metrics. Add results only when a client or internal 
+record can substantiate them. 
+5. Use US English consistently across the new site. 
+Recommended Global Navigation 
+Services  •  Solutions  •  Industries  •  Case Studies  •  Insights  •  About  •  Contact     |     Primary CTA: Discuss 
+Your Project 
+ 
+Services mega-menu 
+6. Product Engineering → SaaS Development, MVP Development 
+7. Custom Software Development → Custom Business Software & ERP, Custom CRM 
+8. Web Application Development 
+9. Mobile App Development 
+10. E-commerce Engineering → WordPress & WooCommerce where relevant 
+11. API, Integration & Automation → WhatsApp Business Platform Integration 
+Site-wide Public Footer Copy 
+Neologicx Resources Pvt Ltd 
+Custom Software & Product Engineering • Established 2000 
+Bikaner, Rajasthan, India 
+ 
+Services • Solutions • Case Studies • Insights • About • Contact 
+Privacy Policy • Terms • Cookie Policy 
+NEOLOGICX  •  WEBSITE CONTENT MASTER 
+DESIGNER / DEVELOPER HANDOFF   •   3 
+ 
+Contact email/phone and social links should be added only after the team confirms the public sales mailbox, current 
+numbers and LinkedIn URL. 
+Technology Display — Confirm Before Publishing 
+The earlier audit recommended replacing vague ‘cutting-edge technology’ language with a specific, 
+honest stack. The following is the working list to validate with engineering before the designer turns it 
+into a logo wall: 
+Frontend 
+React, Next.js, Angular, TypeScript 
+Mobile 
+Flutter, Android, iOS 
+Backend 
+Node.js / NestJS, PHP / Laravel 
+CMS & Commerce 
+WordPress, WooCommerce, Magento Open Source / Adobe Commerce, Shopify 
+Data 
+PostgreSQL, MySQL, MongoDB, Firebase 
+Cloud & Delivery 
+AWS, Azure, DigitalOcean, Docker, CI/CD 
+Do not publish a technology simply because it appears here; engineering must confirm active delivery capability and 
+ownership depth. 
+ 
+ 
+NEOLOGICX  •  WEBSITE CONTENT MASTER 
+DESIGNER / DEVELOPER HANDOFF   •   4 
+Next.js Rebuild — SEO Rules That Protect Existing Google Equity 
+Moving from the current technology to Next.js is a reasonable rebuild choice if the team can maintain it. 
+The framework change itself is not the primary SEO risk. The migration risk comes from changing URLs, 
+removing useful content, returning the wrong status codes, blocking crawlers, weakening internal links 
+or shipping pages that Google cannot reliably render/index. 
+Non-negotiable migration rules 
+12. Retained pages must resolve at the same public URL wherever practical, including trailing-slash 
+behavior and HTTPS canonicalization. 
+13. Merged pages need one-hop permanent 301 redirects to the closest materially equivalent 
+successor. Do not mass-redirect unrelated retired pages to Home. 
+14. If a page is genuinely discontinued and has no equivalent successor, use a real 404/410 rather 
+than a soft 404 or misleading redirect. 
+15. Core page copy and metadata should be present in server-rendered/pre-rendered HTML; do not 
+make critical content depend on client-only execution. 
+16. Carry over or improve title tags, meta descriptions, canonical tags, heading structure, image alt 
+text, breadcrumbs and meaningful internal links. 
+17. Generate an accurate XML sitemap containing only canonical, indexable URLs; keep robots.txt 
+and page-level robots directives intentional. 
+18. Preserve the indexed portfolio PDF at /Neologicx_Enterprise_Solutions_Portfolio.pdf unless a 
+deliberate replacement plan is tested. 
+19. Implement Organization/LocalBusiness details consistently (Neologicx Resources Pvt Ltd; 
+Bikaner, Rajasthan, India) and Breadcrumb structured data where appropriate. 
+20. Preserve analytics and Search Console verification. Annotate launch date and compare 
+coverage, clicks, impressions and top landing pages after release. 
+21. Crawl staging and production before DNS/launch sign-off: no redirect chains, accidental 
+noindex, broken canonicals, orphan pages, mixed protocols or 404 assets on key templates. 
+What Search Console says to protect 
+Whole site 
+129 clicks • 7,608 impressions in the supplied last-3-month export. 
+Home 
+108 clicks • 2,215 impressions — 83.7% of all clicks. Highest migration priority. 
+/about-us/ 
+1,408 impressions. Preserve path and entity/history signals. 
+NEOLOGICX  •  WEBSITE CONTENT MASTER 
+DESIGNER / DEVELOPER HANDOFF   •   5 
+/home/contact/ 
+6 clicks • 251 impressions. 301 directly to /contact/. 
+/portfolio/e-parchi-android/ 
+3 clicks • 278 impressions • avg position 5.43. Preserve 1:1. 
+/portfolio/rajuvas/ 
+1 click • 72 impressions • avg position 3.74. Preserve 1:1. 
+Local entity signal 
+‘it companies in bikaner’ — 8 clicks / 156 impressions; keep Bikaner/India identity in 
+About, footer and structured data. 
+International reality 
+India produced 122 of 129 clicks. The content rebuild should improve global relevance, 
+but overseas impressions should not be treated as proof of qualified traffic. 
+Launch monitoring 
+22. Day 0–2: submit sitemap, inspect Home and priority service/case-study URLs, verify redirects 
+and indexing directives. 
+23. Week 1–2: watch crawl/index coverage and any sharp drop in impressions for preserved URLs. 
+24. Week 3–6: compare page/query patterns, fix unexpected 404s/canonicalization issues, and 
+strengthen internal linking where new cluster pages are not being discovered. 
+25. Week 6–12: evaluate qualified international impressions/clicks and lead quality before adding 
+country-specific landing pages. 
+ 
+ 
+NEOLOGICX  •  WEBSITE CONTENT MASTER 
+DESIGNER / DEVELOPER HANDOFF   •   6 
+Final Website Page Inventory 
+The pages below have complete launch-copy briefs in this document. ‘Conditional’ means the copy is 
+prepared, but the page should not go live until the stated evidence/support check is complete. 
+# 
+Website page 
+Final URL 
+1 
+Home 
+https://neologicx.com/ 
+2 
+About 
+https://neologicx.com/about-us/ 
+3 
+Services Hub 
+https://neologicx.com/services/ 
+4 
+Solutions Hub 
+https://neologicx.com/products/ 
+5 
+Case Studies Hub 
+https://neologicx.com/portfolio/ 
+6 
+Industries 
+https://neologicx.com/industries/ 
+7 
+Engagement Models 
+https://neologicx.com/engagement-models/ 
+8 
+Insights 
+https://neologicx.com/blog/ 
+9 
+Contact 
+https://neologicx.com/contact/ 
+10 
+Product Engineering 
+https://neologicx.com/product-engineering/ 
+11 
+Custom Software Development 
+https://neologicx.com/custom-software-development/ 
+12 
+Web Application Development 
+https://neologicx.com/web-development-design-website/ 
+13 
+Mobile App Development 
+https://neologicx.com/mobile-app-development-android-ios-flutter/ 
+14 
+E-commerce Engineering 
+https://neologicx.com/ecommerce-website-development-shoppingcart/ 
+15 
+API, Integration & Automation 
+https://neologicx.com/api-development-services/ 
+16 
+WhatsApp Business Platform Integration 
+https://neologicx.com/whatsapp-chatbot-development/ 
+17 
+SaaS Development 
+https://neologicx.com/saas-development-services/ 
+18 
+MVP Development 
+https://neologicx.com/mvp-development-startup/ 
+19 
+Custom CRM Development 
+https://neologicx.com/crm-development-custom-software/ 
+20 
+Custom Business Software & ERP 
+https://neologicx.com/custom-erp-software-service/ 
+21 
+WordPress & WooCommerce 
+Development 
+https://neologicx.com/wordpress-development-services/ 
+22 
+Construction Operations Software 
+https://neologicx.com/construction-software-mobileapp/ 
+23 
+Complaint Management Software 
+https://neologicx.com/complaint-management-software/ 
+24 
+Order Management System 
+https://neologicx.com/order-management-system/ 
+NEOLOGICX  •  WEBSITE CONTENT MASTER 
+DESIGNER / DEVELOPER HANDOFF   •   7 
+# 
+Website page 
+Final URL 
+25 
+School Management System — 
+Conditional 
+https://neologicx.com/school-management-software/ 
+26 
+Case Study — BIKAJI 
+https://neologicx.com/portfolio/bikaji/ 
+27 
+Case Study — ECK–RTU Alumni Connect 
+https://neologicx.com/portfolio/eck-alumni-connect/ 
+28 
+Case Study — E‑ Parchi 
+https://neologicx.com/portfolio/e-parchi-android/ 
+29 
+Case Study — RAJUVAS 
+https://neologicx.com/portfolio/rajuvas/ 
+30 
+Case Study — SKRAU 
+https://neologicx.com/portfolio/swami-keshwanand-rajasthan-agricultural-
+university-skrau/ 
+31 
+Case Study — Election Commission of 
+India 
+https://neologicx.com/portfolio/eci-app/ 
+32 
+Case Study — Heritage Olympiad 
+https://neologicx.com/portfolio/culture-heritage/ 
+33 
+Case Study — The Jazz Café, UK 
+https://neologicx.com/portfolio/jazz-cafe/ 
+34 
+Case Study — WUS App 
+https://neologicx.com/portfolio/wus-app-android/ 
+ 
+ 
+NEOLOGICX  •  WEBSITE CONTENT MASTER 
+DESIGNER / DEVELOPER HANDOFF   •   8 
+WEBSITE PAGE 01 OF 34  •  HOME 
+Custom Software & Product Engineering for Growing Businesses 
+We design, build and modernize web platforms, mobile applications, SaaS products and 
+business software for startups, SMEs and institutions—backed by more than 25 years of 
+delivery experience. 
+Discuss Your Project  •  View Case Studies 
+ 
+Build software around the way your business actually works 
+Off-the-shelf tools are useful until your workflows, integrations or growth plans stop fitting the 
+template. Neologicx helps teams turn those operational gaps into practical digital products—from the 
+first discovery conversation through design, engineering, deployment and ongoing improvement. 
+What we build 
+Product Engineering 
+MVPs, SaaS products and digital platforms built around a clear product roadmap, usable interfaces and 
+an architecture that can evolve. 
+Custom Business Software 
+ERP-style systems, CRM workflows, operations platforms, dashboards and portals tailored to the 
+processes your team needs to run. 
+Web Applications 
+Responsive web platforms, customer portals, content-rich institutional websites and workflow 
+applications connected to your existing systems. 
+Mobile Applications 
+iOS, Android and Flutter applications for customer experiences, field teams, communities and 
+operational workflows. 
+E-commerce Engineering 
+Storefronts and commerce workflows across Magento Open Source / Adobe Commerce, 
+WooCommerce, Shopify and custom platforms. 
+NEOLOGICX  •  WEBSITE CONTENT MASTER 
+DESIGNER / DEVELOPER HANDOFF   •   9 
+Integration & Automation 
+APIs, payment and third-party integrations, WhatsApp Business Platform workflows and automation 
+that reduce disconnected manual work. 
+Experience grounded in real operations 
+Our portfolio spans education and public institutions, FMCG and manufacturing, retail and e-commerce, 
+construction, hospitality, events and professional services. The common thread is operational 
+complexity: multiple users, approvals, data, transactions and systems that need to work together. 
+26. BIKAJI — e-commerce, mobile commerce and a structured customer-care portal with complaint 
+tracking and WhatsApp notifications. 
+27. Public universities — content-driven web platforms and administration-focused systems for 
+institutions including RAJUVAS and SKRAU. 
+28. The Jazz Café, Reading, UK — restaurant and event management workflows covering bookings, 
+payments and event operations. 
+29. ECK–RTU Alumni Connect — alumni discovery, events, donations and notifications across 
+Android and iOS. 
+A delivery process designed for clarity 
+1. Discover — align on the business problem, users, workflows, constraints and success criteria. 
+2. Define — turn requirements into scope, priorities, architecture and a realistic delivery plan. 
+3. Design — map user journeys, wireframes and interfaces before expensive rework reaches 
+engineering. 
+4. Build — develop in reviewable increments with source control, peer review and documented 
+decisions. 
+5. Validate — test critical flows, integrations, devices and release candidates against agreed 
+acceptance criteria. 
+6. Launch & improve — deploy, monitor, support and evolve the product as real usage creates new 
+priorities. 
+Working with teams beyond our time zone 
+A good offshore relationship depends on visibility, not proximity. We structure projects around agreed 
+milestones, documented decisions, shared project communication and planned overlap for the 
+conversations that matter. Engagements can be shaped around a defined scope, an ongoing product 
+team or time-and-materials delivery. 
+NEOLOGICX  •  WEBSITE CONTENT MASTER 
+DESIGNER / DEVELOPER HANDOFF   •   10 
+Have a product, platform or process that needs better software? 
+Tell us what you are trying to improve. We will help you identify the right starting point and a practical 
+path to delivery. 
+Section CTA: Discuss Your Project 
+ 
+DESIGNER NOTE 
+Confident, technical and spacious. One hero message; no rotating service carousel. Use real product/workflow screens 
+rather than generic stock-code imagery. 
+Implementation footer — not website-visible 
+Final URL 
+https://neologicx.com/ 
+Earlier reference 
+https://neologicx.com/ 
+Migration / launch 
+KEEP URL. Full rewrite. This is the highest-value organic landing page; do not change its path. 
+GSC — last 3 
+months 
+/: 108 clicks • 2,215 impressions • avg position 6.86 
+SEO title 
+Neologicx | Custom Software & Product Engineering Company 
+Meta description 
+Custom software and product engineering for web, mobile, SaaS, business systems, e-commerce and 
+integrations. Established in 2000. 
+Sources / evidence 
+Portfolio PDF pp. 2–5, 31–39; prior Global Market Website Audit; current home/site portfolio; Search 
+Console export 6 Aug 2026. 
+Publish checks 
+Confirm any client logos/testimonials before reuse. Do not publish conflicting client/project counters until 
+management supplies one verified set of numbers. 
+ 
+ 
+NEOLOGICX  •  WEBSITE CONTENT MASTER 
+DESIGNER / DEVELOPER HANDOFF   •   11 
+WEBSITE PAGE 02 OF 34  •  ABOUT 
+25+ Years of Building Software Around Real Operations 
+Neologicx Resources Pvt Ltd is a software engineering company established in 2000 in Bikaner, 
+Rajasthan, India. We build digital products and business systems for organizations that need 
+technology to fit the way they actually operate. 
+Explore Our Work  •  Discuss Your Project 
+ 
+From websites to connected business platforms 
+Our work has evolved with the web itself: from content-driven websites and early business applications 
+to mobile products, e-commerce, ERP-style platforms, APIs, automation and SaaS. What has stayed 
+consistent is our focus on solving a concrete business problem before choosing the technology. 
+Where our experience comes from 
+Over the years we have worked across public institutions and education, FMCG and manufacturing, 
+retail and e-commerce, construction, hospitality and events, professional services and workforce-
+focused platforms. That breadth helps us recognize the operational patterns that repeat across 
+industries—approvals, roles, transactions, reporting, communication and integrations—while still 
+respecting the details that make each business different. 
+Local roots. Global working mindset. 
+Our delivery base is in Bikaner, India, and our portfolio includes work for organizations in India as well as 
+international engagements such as The Jazz Café in Reading, UK and an event marketplace spanning 
+India and Singapore. For remote engagements, we emphasize clear ownership, documented scope, 
+planned communication and practical time-zone overlap. 
+How we approach a project 
+Understand before prescribing 
+We start with users, workflows, constraints and outcomes instead of forcing every problem into the 
+same product template. 
+Make complexity visible 
+Flows, roles, data and integrations are mapped early so technical decisions have business context. 
+NEOLOGICX  •  WEBSITE CONTENT MASTER 
+DESIGNER / DEVELOPER HANDOFF   •   12 
+Deliver in reviewable increments 
+Regular demonstrations and acceptance points make progress easier to evaluate and reduce late 
+surprises. 
+Build for handover and continuity 
+Documentation, source ownership, access and post-launch support should be agreed as part of the 
+engagement—not discovered at the end. 
+Proof should be specific 
+Our new website deliberately avoids claims such as “best,” “top-tier,” “bug-free” or “100% secure.” 
+Instead, explore the case studies to see the business context, workflows and solution scope behind 
+selected projects. 
+Section CTA: View Case Studies 
+ 
+DESIGNER NOTE 
+Use a restrained timeline, real team/work imagery and a proof strip. Keep Bikaner/India visible for entity/local SEO 
+without making the page feel locally limited. 
+Implementation footer — not website-visible 
+Final URL 
+https://neologicx.com/about-us/ 
+Earlier reference 
+https://neologicx.com/about-us/ 
+Migration / launch 
+KEEP URL. Replace generic claims and broken counters with evidence-led company positioning. 
+GSC — last 3 
+months 
+/about-us/: 0 clicks • 1,408 impressions • avg position 6.42 
+SEO title 
+About Neologicx | Software Engineering Company Since 2000 
+Meta description 
+Meet Neologicx, a software engineering company established in 2000, building web, mobile and business 
+platforms from Bikaner, India. 
+Sources / evidence 
+Portfolio PDF pp. 2–4, 32–39; current About page; prior audit; Search Console export 6 Aug 2026. 
+Publish checks 
+Current site contains conflicting 250/≈500 client counts and broken counters. Publish only figures that 
+finance/management can substantiate. Confirm permission for named international-client logos. 
+ 
+ 
+NEOLOGICX  •  WEBSITE CONTENT MASTER 
+DESIGNER / DEVELOPER HANDOFF   •   13 
+WEBSITE PAGE 03 OF 34  •  SERVICES HUB 
+Software Engineering Services from Discovery to Support 
+Whether you are validating a new product, replacing a legacy workflow or connecting systems 
+that no longer work well together, we can take responsibility for the path from discovery and 
+UX through engineering, release and ongoing improvement. 
+Discuss Your Project  •  View Case Studies 
+ 
+Core capabilities 
+Product Engineering 
+Discovery, MVP development, SaaS engineering, product modernization and ongoing product 
+enhancement. 
+Custom Software Development 
+Business applications, ERP-style platforms, CRM workflows, operational dashboards, portals and 
+workflow automation. 
+Web Application Development 
+Customer-facing platforms, enterprise portals, institutional websites, content platforms and responsive 
+web applications. 
+Mobile App Development 
+iOS, Android and Flutter applications for customers, communities, field teams and business operations. 
+E-commerce Engineering 
+Commerce platforms, catalogs, checkout, payments, order and inventory integrations, and platform 
+modernization. 
+API, Integration & Automation 
+APIs, webhooks, third-party systems, payments, WhatsApp Business Platform workflows and data 
+synchronization. 
+Specialist services 
+7. SaaS product development and modernization 
+8. MVP development for startups and new initiatives 
+9. Custom CRM and sales workflow automation 
+NEOLOGICX  •  WEBSITE CONTENT MASTER 
+DESIGNER / DEVELOPER HANDOFF   •   14 
+10. Custom business software and ERP development 
+11. WhatsApp Business Platform integration and automation 
+12. WordPress and WooCommerce development for content and commerce use cases 
+How an engagement moves 
+1. Discovery and requirements — users, workflows, priorities, constraints and success criteria. 
+2. UX and solution definition — journeys, interfaces, data, integrations and technical approach. 
+3. Incremental engineering — reviewable builds, demos and transparent issue tracking. 
+4. Quality engineering — functional, integration, device/browser and release validation matched to 
+project risk. 
+5. Deployment and support — release planning, production handover, monitoring and agreed 
+maintenance. 
+Start with the problem, not the service label 
+If your requirement crosses several categories, that is normal. Share the business goal and current 
+constraints; we will help shape the right combination of product, software, integration and support 
+work. 
+Section CTA: Tell Us What You Need 
+ 
+DESIGNER NOTE 
+Use six primary capability cards, then a smaller ‘specialist services’ row. Do not present every technology as an equal 
+top-level service. 
+NEOLOGICX  •  WEBSITE CONTENT MASTER 
+DESIGNER / DEVELOPER HANDOFF   •   15 
+Implementation footer — not website-visible 
+Final URL 
+https://neologicx.com/services/ 
+Earlier reference 
+https://neologicx.com/services/ 
+https://neologicx.com/home/services-we-offer/ 
+Migration / launch 
+KEEP /services/. 301 legacy /home/services-we-offer/ directly to /services/. Replace the old 13-item flat 
+catalog with capability clusters. 
+GSC — last 3 
+months 
+/services/: 0 clicks • 56 impressions • avg position 3.12; /home/services-we-offer/: 1 click • 109 
+impressions • avg position 1.86 
+SEO title 
+Software Engineering Services | Neologicx 
+Meta description 
+Product engineering, custom software, web and mobile development, e-commerce, APIs, integrations and 
+automation from Neologicx. 
+Sources / evidence 
+Prior audit service architecture; portfolio PDF pp. 5–39; current Services page; Search Console export 6 Aug 
+2026. 
+Publish checks 
+Remove Digital Marketing and Game Development from primary global navigation. Remove the “bug-free” 
+QA claim. Confirm actual technologies before displaying stack logos. 
+ 
+ 
+NEOLOGICX  •  WEBSITE CONTENT MASTER 
+DESIGNER / DEVELOPER HANDOFF   •   16 
+WEBSITE PAGE 04 OF 34  •  SOLUTIONS HUB 
+Configurable Software Solutions Built Around Real Workflows 
+Some business problems do not need to start from a blank page. Neologicx has developed 
+reusable foundations for recurring operational needs that can be configured around your users, 
+approvals, reporting and integrations. 
+Request a Walkthrough  •  Discuss a Custom Requirement 
+ 
+Launch solutions 
+Construction Operations 
+Coordinate multiple sites, material movement, workforce records, petty expenses and vendor payments 
+from a shared operational view. 
+Complaint Management 
+Capture customer issues, categorize and prioritize complaints, track resolution and keep customers 
+informed through structured notifications. 
+Distributor–Retailer Order Management 
+Centralize order intake, inventory visibility, fulfillment status, shipping/returns workflows and connected 
+reporting. 
+School Management — conditional 
+Admissions, attendance, academic records, fees, communications and parent/teacher workflows. 
+Publish only after confirming that this remains an actively supported solution. 
+Configuration, not a one-size-fits-all promise 
+A solution foundation can shorten discovery and development, but your roles, approvals, integrations, 
+reports and deployment environment still matter. We begin with a fit assessment, identify what can be 
+reused, and make the customization boundary explicit before implementation. 
+Need something more specific? 
+Our custom software team also builds ERP-style operations platforms, CRM workflows, portals and 
+industry-specific systems when a configurable foundation is not the right fit. 
+Section CTA: Explore Custom Software Development 
+NEOLOGICX  •  WEBSITE CONTENT MASTER 
+DESIGNER / DEVELOPER HANDOFF   •   17 
+ 
+DESIGNER NOTE 
+Position these as proven configurable foundations—not app clones. Each card should show target user, workflow scope 
+and a ‘Request a walkthrough’ CTA. 
+Implementation footer — not website-visible 
+Final URL 
+https://neologicx.com/products/ 
+Earlier reference 
+https://neologicx.com/products/ 
+https://neologicx.com/home/our-products/ 
+Migration / launch 
+KEEP URL for SEO, but label the navigation and H1 as Solutions. 301 /home/our-products/ to /products/. 
+GSC — last 3 
+months 
+/products/: 0 clicks • 204 impressions • avg position 2.89; /home/our-products/: 0 clicks • 2 impressions • 
+avg position 4.00 
+SEO title 
+Configurable Business Software Solutions | Neologicx 
+Meta description 
+Explore configurable software foundations for construction operations, complaint management, order 
+workflows and education administration. 
+Sources / evidence 
+Portfolio PDF pp. 5–15, 19, 39; current Products pages; prior audit; Search Console export 6 Aug 2026. 
+Publish checks 
+Do not describe every solution as ‘ready-to-use’ unless it can actually be demonstrated, licensed, 
+supported and deployed today. School solution is conditional pending commercial/support confirmation. 
+ 
+ 
+NEOLOGICX  •  WEBSITE CONTENT MASTER 
+DESIGNER / DEVELOPER HANDOFF   •   18 
+WEBSITE PAGE 05 OF 34  •  CASE STUDIES HUB 
+Software Built for Real-World Workflows 
+Selected projects from more than two decades of software delivery—shown through the 
+business problem, the workflow we helped digitize and the solution that was delivered. 
+Discuss a Similar Project  •  Explore Services 
+ 
+Featured work 
+BIKAJI — Customer Care & Commerce 
+E-commerce and customer-care workflows, including structured complaint handling, severity tracking, 
+an administration dashboard and WhatsApp notifications. 
+ECK–RTU — Alumni Connect 
+Android and iOS alumni experience covering registration, discovery by batch/city/industry, events, 
+donations and push notifications. 
+Election Commission of India — Mobile Service Platform 
+A public-facing mobile application bringing election information and citizen-facing utilities into a 
+consolidated experience. 
+RAJUVAS & SKRAU — University Web Platforms 
+Content-rich, responsive public university websites and CMS/backend workflows designed for complex 
+institutional information. 
+The Jazz Café, UK — Restaurant & Event Operations 
+A web-based system supporting bookings, events, payments, reminders and back-office coordination. 
+Heritage Olympiad — Culture & Learning 
+A mobile learning and quiz experience focused on tangible, intangible and natural heritage, with 
+competitive play and leaderboards. 
+More work worth preserving 
+The rebuilt site should also preserve the indexed portfolio URLs for E‑ Parchi, WUS App, university work 
+and other legitimate projects even when they are not featured in the primary grid. Historical URLs can 
+continue to carry search value and deepen credibility when their content is accurate. 
+NEOLOGICX  •  WEBSITE CONTENT MASTER 
+DESIGNER / DEVELOPER HANDOFF   •   19 
+Have a similar workflow? 
+Use these examples as a starting point—not a promise that your project will look the same. Tell us your 
+users, constraints and systems, and we will map the right approach for your context. 
+Section CTA: Discuss Your Project 
+ 
+DESIGNER NOTE 
+Use filterable proof cards by capability/industry, not a wall of screenshots. Each card should show client/context, 
+problem, solution scope and one concrete delivered workflow. 
+Implementation footer — not website-visible 
+Final URL 
+https://neologicx.com/portfolio/ 
+Earlier reference 
+https://neologicx.com/portfolio/ 
+https://neologicx.com/project-showcase/ 
+https://neologicx.com/home/our-portfolio/ 
+https://neologicx.com/portfolio-category/website/ 
+Migration / launch 
+KEEP /portfolio/ URL, label it Case Studies. 301 Project Showcase and obsolete portfolio/archive 
+equivalents to the closest relevant case-study destination. 
+GSC — last 3 
+months 
+/portfolio/: 0 clicks • 110 impressions • avg position 3.92; /project-showcase/: 0 clicks • 51 impressions • 
+avg position 2.20; /home/our-portfolio/: 0 clicks • 39 impressions • avg position 4.44; /portfolio-
+category/website/: 0 clicks • 66 impressions • avg position 3.36 
+SEO title 
+Software Development Case Studies | Neologicx 
+Meta description 
+See selected Neologicx work across mobile apps, web platforms, business systems, e-commerce, 
+education, government and international projects. 
+Sources / evidence 
+Portfolio PDF pp. 6–39; live portfolio entries; prior audit; Search Console export 6 Aug 2026. 
+Publish checks 
+Before publishing named client stories, confirm logo/name permission and current factual accuracy. Never 
+invent metrics. Add quantified outcomes only when a client or internal record can substantiate them. 
+ 
+ 
+NEOLOGICX  •  WEBSITE CONTENT MASTER 
+DESIGNER / DEVELOPER HANDOFF   •   20 
+WEBSITE PAGE 06 OF 34  •  INDUSTRIES 
+Software Experience Across Operationally Complex Industries 
+Industry knowledge matters most when it helps a team ask better questions. Our experience 
+spans environments where roles, approvals, transactions, reporting and communication need 
+to work reliably across many stakeholders. 
+View Case Studies  •  Discuss Your Industry 
+ 
+Where we have worked 
+Education & Public Institutions 
+University websites and portals, institute operations, school administration, recruitment workflows, 
+examinations, learning and alumni engagement. 
+FMCG & Manufacturing 
+Customer-care workflows, inventory, billing, production visibility, procurement and operational systems 
+for manufacturing environments. 
+Retail & E-commerce 
+Commerce platforms, catalogs, payments, orders, inventory and customer-service integrations for 
+brands and retailers. 
+Construction & Field Operations 
+Multi-site workflows covering supervisors, materials, workforce records, petty expenses and vendor 
+payments. 
+Hospitality & Events 
+Restaurant/event booking and management, event marketplaces, online payments, reminders and 
+stakeholder dashboards. 
+Professional & Member Organizations 
+Legal case management, clubs, associations, business directories and member/community platforms. 
+Your domain will still be different 
+We use prior experience to accelerate discovery, not to assume your process. Every engagement begins 
+by mapping the roles, rules, exceptions, data and integrations that are specific to your organization. 
+NEOLOGICX  •  WEBSITE CONTENT MASTER 
+DESIGNER / DEVELOPER HANDOFF   •   21 
+Section CTA: Talk Through Your Workflow 
+ 
+DESIGNER NOTE 
+Use six industry panels with one real project example per panel. Link to case studies and relevant service pages. 
+Implementation footer — not website-visible 
+Final URL 
+https://neologicx.com/industries/ 
+Earlier reference 
+New page — no earlier public URL. 
+Migration / launch 
+NEW PAGE. Add after launch architecture is stable. It consolidates genuine domain evidence without 
+creating thin country/industry microsites. 
+GSC — last 3 
+months 
+New page / no matching historical URL in the supplied 3-month export. 
+SEO title 
+Software Development Across Industries | Neologicx 
+Meta description 
+Neologicx software experience across education, manufacturing, FMCG, retail, construction, hospitality, 
+events and professional workflows. 
+Sources / evidence 
+Portfolio PDF pp. 3–39; prior audit industry recommendation. 
+Publish checks 
+Only include industries backed by real work. Keep healthcare wording to workflow/support software unless 
+clinical claims have been separately reviewed. 
+ 
+ 
+NEOLOGICX  •  WEBSITE CONTENT MASTER 
+DESIGNER / DEVELOPER HANDOFF   •   22 
+WEBSITE PAGE 07 OF 34  •  ENGAGEMENT MODELS 
+A Delivery Model That Fits the Work 
+A well-structured software engagement makes ownership, priorities, communication and cost 
+easier to manage. We can shape the working model around the maturity of your scope and the 
+continuity your product needs. 
+Discuss the Right Model  •  View Our Process 
+ 
+Ways to engage 
+Defined Scope 
+Best when requirements and acceptance criteria are sufficiently clear. Scope, milestones, assumptions 
+and change control are agreed before delivery begins. 
+Dedicated Product Team 
+Best for products with an ongoing roadmap. A stable team works through prioritized outcomes over 
+successive delivery cycles. 
+Time & Materials 
+Best when requirements will evolve or discovery is part of the work. Priorities can change while effort 
+and progress remain visible. 
+Support & Modernization 
+Best for an existing application that needs maintenance, upgrades, integrations, performance work or a 
+staged modernization plan. 
+What should be clear before kickoff 
+6. Scope, assumptions, exclusions and acceptance criteria 
+7. Team roles and decision owners on both sides 
+8. Communication rhythm, demonstrations and escalation path 
+9. Source repository, environments and access ownership 
+10. Quality, security and release responsibilities appropriate to the project 
+11. Documentation, IP/code handover and post-launch support expectations 
+NEOLOGICX  •  WEBSITE CONTENT MASTER 
+DESIGNER / DEVELOPER HANDOFF   •   23 
+Not sure which model fits? 
+Start with the uncertainty. If scope is clear, we can discuss a defined delivery plan; if the product is still 
+evolving, a more flexible model is usually more realistic. 
+Section CTA: Book a Discovery Conversation 
+ 
+DESIGNER NOTE 
+A comparison layout works well here. Keep legal/commercial detail concise and link to a discovery call rather than 
+publishing unapproved contract terms. 
+Implementation footer — not website-visible 
+Final URL 
+https://neologicx.com/engagement-models/ 
+Earlier reference 
+New page — no earlier public URL. 
+Migration / launch 
+NEW PAGE. Recommended for international buyers who need to understand commercial and delivery 
+structure before a first call. 
+GSC — last 3 
+months 
+New page / no matching historical URL in the supplied 3-month export. 
+SEO title 
+Software Development Engagement Models | Neologicx 
+Meta description 
+Choose a fixed-scope, dedicated-team, time-and-materials or ongoing support model for your Neologicx 
+software engagement. 
+Sources / evidence 
+Prior Global Market Website Audit; global-buyer trust requirements identified in the audit. 
+Publish checks 
+Management/delivery leadership must confirm the exact commercial terms, minimum team sizes, billing 
+cadence, time-zone overlap, SLA language, IP transfer and NDA process before publication. 
+ 
+ 
+NEOLOGICX  •  WEBSITE CONTENT MASTER 
+DESIGNER / DEVELOPER HANDOFF   •   24 
+WEBSITE PAGE 08 OF 34  •  INSIGHTS 
+Practical Thinking on Building and Improving Software 
+Lessons, patterns and decision guides from product delivery, custom software, mobile 
+development, integrations, automation and modernization. 
+Explore Latest Insights  •  Discuss a Project 
+ 
+Editorial categories 
+Product Engineering 
+Discovery, MVP scope, SaaS architecture, product roadmaps and launch decisions. 
+Custom Software & Modernization 
+Workflow design, legacy replacement, architecture, data migration and operational systems. 
+Mobile & Web Engineering 
+Platform choices, UX, performance, release planning and maintainability. 
+Integration & Automation 
+APIs, messaging, WhatsApp Business Platform workflows, payments and connected business processes. 
+E-commerce 
+Commerce architecture, platform choices, checkout, operations and system integration. 
+Delivery & Quality 
+How to scope, govern, test, release and support software with a remote engineering partner. 
+Editorial standard 
+Every article should answer a real buyer or practitioner question, include concrete examples, and link to 
+relevant proof. Avoid articles written only to repeat high-volume keywords without a useful point of 
+view. 
+DESIGNER NOTE 
+Editorial grid with category filters, author/date/read time, and strong related-service/case-study links. Avoid WordPress 
+archive clutter in the primary UX. 
+NEOLOGICX  •  WEBSITE CONTENT MASTER 
+DESIGNER / DEVELOPER HANDOFF   •   25 
+Implementation footer — not website-visible 
+Final URL 
+https://neologicx.com/blog/ 
+Earlier reference 
+https://neologicx.com/blog/ 
+Migration / launch 
+KEEP URL, relabel navigation as Insights. Retain useful existing article URLs; remove/noindex thin 
+archive/tag pages where they add no search or user value. 
+GSC — last 3 
+months 
+/blog/: 0 clicks • 96 impressions • avg position 37.17 
+SEO title 
+Software Engineering Insights | Neologicx 
+Meta description 
+Practical perspectives from Neologicx on product engineering, custom software, mobile, integrations, e-
+commerce and software modernization. 
+Sources / evidence 
+Prior audit; Search Console export 6 Aug 2026; current Blog page and indexed article/archive URLs. 
+Publish checks 
+Editorial calendar should favor demonstrated engineering/business expertise over generic SEO posts. 
+Preserve any individual article URL that already ranks or earns qualified traffic. 
+ 
+ 
+NEOLOGICX  •  WEBSITE CONTENT MASTER 
+DESIGNER / DEVELOPER HANDOFF   •   26 
+WEBSITE PAGE 09 OF 34  •  CONTACT 
+Tell Us What You’re Building 
+Share the problem, product or workflow you want to improve. A short description is enough to 
+start—we can work through scope, constraints and the right engagement model together. 
+Send Project Brief  •  Book a Discovery Call 
+ 
+Project inquiry form 
+12. Name 
+13. Work email 
+14. Company / website 
+15. Country and time zone 
+16. What do you need? — Product engineering / Custom software / Web / Mobile / E-commerce / 
+Integration & automation / Other 
+17. Briefly describe the problem or project 
+18. Indicative budget range — optional 
+19. Expected start window — optional 
+20. File or brief upload — optional 
+21. Privacy consent 
+What happens next 
+1. We review the context you share. 
+2. If there is a reasonable fit, we arrange a discovery conversation with the right technical/business 
+owner. 
+3. We clarify scope, unknowns, delivery model and the next useful artifact—estimate, discovery plan 
+or proposal. 
+Direct contact 
+Neologicx Resources Pvt Ltd • Bikaner, Rajasthan, India 
+Email: rajeev@neologicx.com • Phone / WhatsApp: +91 94141 38694 / +91 94141 38620 
+For international calls, use the scheduling link to choose a mutually workable time. 
+NEOLOGICX  •  WEBSITE CONTENT MASTER 
+DESIGNER / DEVELOPER HANDOFF   •   27 
+DESIGNER NOTE 
+One short form, one calendar option, visible India location/time zone and a clear expectation of what happens next. Do 
+not show a 14-service checkbox wall. 
+Implementation footer — not website-visible 
+Final URL 
+https://neologicx.com/contact/ 
+Earlier reference 
+https://neologicx.com/contact/ 
+https://neologicx.com/home/contact/ 
+Migration / launch 
+KEEP /contact/. 301 legacy /home/contact/ directly to /contact/; that legacy URL currently carries more 
+Search Console clicks than the newer path. 
+GSC — last 3 
+months 
+/contact/: 0 clicks • 36 impressions • avg position 5.47; /home/contact/: 6 clicks • 251 impressions • avg 
+position 2.85 
+SEO title 
+Contact Neologicx | Discuss Your Software Project 
+Meta description 
+Tell Neologicx about your software, mobile, SaaS, e-commerce or integration requirement and start a 
+discovery conversation. 
+Sources / evidence 
+Portfolio PDF p. 40; current Contact page; prior audit; Search Console export 6 Aug 2026. 
+Publish checks 
+Confirm the public sales email, phone numbers, calendar URL, response-time promise and privacy consent 
+text before launch. The portfolio lists rajeev@neologicx.com and +91 94141 38694 / +91 94141 38620. 
+ 
+ 
+NEOLOGICX  •  WEBSITE CONTENT MASTER 
+DESIGNER / DEVELOPER HANDOFF   •   28 
+WEBSITE PAGE 10 OF 34  •  PRODUCT ENGINEERING 
+Product Engineering for SaaS, MVPs & Digital Platforms 
+Turn a product idea, an evolving SaaS platform or an aging digital product into a clear roadmap 
+and a maintainable software system. We can support the full journey from discovery and UX 
+through engineering, release and iteration. 
+Discuss Your Product  •  Explore Case Studies 
+ 
+Where we can help 
+Product Discovery 
+Clarify users, workflows, product risks, priorities, assumptions and what must be learned before 
+committing to a large build. 
+MVP Development 
+Define a focused first release that tests the product’s core value without treating ‘minimum’ as an 
+excuse for fragile engineering. 
+SaaS Engineering 
+Build role-based platforms, subscription/payment integrations, workflows, reporting and APIs around 
+the product’s operating model. 
+Product Modernization 
+Improve an existing product through staged UX, architecture, performance, integration and 
+maintainability work rather than an automatic big-bang rewrite. 
+Ongoing Product Delivery 
+Maintain a prioritized roadmap, ship reviewable increments and continue improving the product after 
+launch. 
+From idea to production 
+1. Frame the problem and identify the riskiest assumptions. 
+2. Map the primary user journeys, roles and business rules. 
+3. Prioritize the release and define acceptance criteria. 
+4. Design and build in increments that can be demonstrated and reviewed. 
+5. Validate critical flows and integrations before release. 
+NEOLOGICX  •  WEBSITE CONTENT MASTER 
+DESIGNER / DEVELOPER HANDOFF   •   29 
+6. Use feedback and operating data to shape the next roadmap decisions. 
+Built for products with more than one stakeholder 
+Our portfolio includes platforms for organizers and attendees, institutions and students, alumni 
+communities, authors and editors, and operational teams with role-based responsibilities. Those 
+projects reinforce an important product lesson: the difficult part is often not the screen—it is the 
+interaction between roles, rules, transactions and information. 
+Section CTA: Plan Your Product Roadmap 
+ 
+DESIGNER NOTE 
+Use a product lifecycle visual: Discover → Validate → Build → Scale. Feature proof from the event marketplace, alumni 
+platform and conference/paper-submission platform. 
+Implementation footer — not website-visible 
+Final URL 
+https://neologicx.com/product-engineering/ 
+Earlier reference 
+New page — no earlier public URL. 
+Migration / launch 
+NEW PRIMARY CAPABILITY PAGE. Make this the parent for SaaS and MVP pages; link both existing URLs as 
+specialist services. 
+GSC — last 3 
+months 
+New page / no matching historical URL in the supplied 3-month export. 
+SEO title 
+Product Engineering Services | Neologicx 
+Meta description 
+Product discovery, MVP development, SaaS engineering, modernization and ongoing product delivery from 
+Neologicx. 
+Sources / evidence 
+Prior audit recommended service architecture; portfolio PDF examples across SaaS-like multi-stakeholder 
+platforms, mobile and web products. 
+Publish checks 
+Engineering leadership should approve the architecture/DevOps language and the exact technology stack 
+before publishing technology badges. 
+ 
+ 
+NEOLOGICX  •  WEBSITE CONTENT MASTER 
+DESIGNER / DEVELOPER HANDOFF   •   30 
+WEBSITE PAGE 11 OF 34  •  CUSTOM SOFTWARE DEVELOPMENT 
+Custom Software Development for Complex Business Workflows 
+When spreadsheets, disconnected tools or generic software create more work than they 
+remove, custom software can bring the workflow, data and decisions into one coherent system. 
+Map Your Workflow  •  View Business Software Work 
+ 
+Software shaped around your operations 
+Operations & ERP-style Platforms 
+Connect processes such as procurement, inventory, production, billing, projects, documents and 
+approvals according to the way your organization runs. 
+CRM & Customer Workflows 
+Bring leads, accounts, conversations, tasks, service requests, pipeline stages and reporting into a 
+workflow your team can actually adopt. 
+Portals & Role-based Systems 
+Give staff, customers, vendors, members or partners the right information and actions based on their 
+role. 
+Dashboards & Reporting 
+Turn operational data into views that help teams monitor status, exceptions and work that needs 
+attention. 
+Integrations & Automation 
+Connect payments, messaging, email, vendors, logistics and existing applications so people are not re-
+entering the same information across systems. 
+Examples from our portfolio 
+7. Manufacturing operations — milk collection, inventory, billing and production tracking in a 
+connected web/mobile workflow. 
+8. Engineering & consultancy — project planning, procurement, documentation, shipping, approvals 
+and cross-department visibility. 
+9. Legal case management — centralized case records, cause-list workflows, team allocation and 
+mobile updates. 
+NEOLOGICX  •  WEBSITE CONTENT MASTER 
+DESIGNER / DEVELOPER HANDOFF   •   31 
+10. Institute operations — inquiries, counseling, tutor availability and matching, scheduling, 
+enrollment, attendance and content workflows. 
+Modernize without losing business knowledge 
+If an existing system already contains years of process knowledge, replacement should be planned 
+carefully. We can map current workflows, dependencies and data, identify what should be retained, and 
+stage the migration around business risk. 
+Section CTA: Discuss Your Current System 
+ 
+DESIGNER NOTE 
+Lead with operational workflows and system maps, not laptops/code. Use manufacturing, engineering consultancy, legal 
+and institute-management examples as proof. 
+Implementation footer — not website-visible 
+Final URL 
+https://neologicx.com/custom-software-development/ 
+Earlier reference 
+New page — no earlier public URL. 
+Migration / launch 
+NEW PRIMARY CAPABILITY PAGE. Parent page for Custom Business Software & ERP and Custom CRM. Do 
+not redirect the established ERP/CRM child URLs away. 
+GSC — last 3 
+months 
+New page / no matching historical URL in the supplied 3-month export. 
+SEO title 
+Custom Software Development Services | Neologicx 
+Meta description 
+Custom business applications, workflow systems, ERP-style platforms, CRM, portals, dashboards and 
+automation built around your operations. 
+Sources / evidence 
+Portfolio PDF pp. 5–15; prior audit service architecture. 
+Publish checks 
+Do not imply prebuilt modules that do not exist. Describe finance/payroll/security features only where the 
+proposed system actually includes them. 
+ 
+ 
+NEOLOGICX  •  WEBSITE CONTENT MASTER 
+DESIGNER / DEVELOPER HANDOFF   •   32 
+WEBSITE PAGE 12 OF 34  •  WEB APPLICATION DEVELOPMENT 
+Custom Web Application Development 
+We build web platforms that do more than publish pages—customer portals, operational 
+systems, dashboards, institutional platforms and digital products designed around users, data 
+and integrations. 
+Discuss Your Web Platform  •  View Web Case Studies 
+ 
+What we build 
+Business Web Applications 
+Role-based applications for internal operations, approvals, reporting and cross-team workflows. 
+Customer & Partner Portals 
+Secure experiences for customers, vendors, members or partners to access information, transactions 
+and services. 
+Institutional Web Platforms 
+Structured, content-rich platforms for universities, public institutions and organizations with complex 
+information architecture. 
+Dashboards & Administration 
+Operational views and admin tools for managing content, users, transactions, exceptions and reporting. 
+Modernization 
+Incremental redesign, architecture and performance improvements for web applications that have 
+outgrown their original implementation. 
+Designed as a system, not a collection of pages 
+Good web engineering starts with content or data models, user roles, key workflows, integrations, 
+performance needs and the way the application will be operated after launch. The interface should 
+make that underlying system easier to use—not hide complexity behind visual effects. 
+Technology approach 
+We choose the implementation around the product’s requirements and your team’s long-term 
+maintainability. For the new Neologicx capability presentation, the engineering team should approve 
+the exact current stack before publishing named frameworks and cloud platforms. 
+NEOLOGICX  •  WEBSITE CONTENT MASTER 
+DESIGNER / DEVELOPER HANDOFF   •   33 
+Section CTA: Start with a Technical Discovery 
+ 
+DESIGNER NOTE 
+Show dashboards, portals and institutional interfaces. Differentiate ‘web application’ from brochure website; route 
+simple CMS work to the WordPress page. 
+Implementation footer — not website-visible 
+Final URL 
+https://neologicx.com/web-development-design-website/ 
+Earlier reference 
+https://neologicx.com/web-development-design-website/ 
+Migration / launch 
+KEEP URL. Reposition from generic website design to custom web applications, portals and content 
+platforms. 
+GSC — last 3 
+months 
+/web-development-design-website/: 0 clicks • 49 impressions • avg position 15.84 
+SEO title 
+Custom Web Application Development | Neologicx 
+Meta description 
+Custom web applications, portals, dashboards and content platforms designed for business workflows, 
+institutions and digital products. 
+Sources / evidence 
+Portfolio PDF pp. 31–37; RAJUVAS/SKRAU/Jazz Café live case studies; prior audit; Search Console export 6 
+Aug 2026. 
+Publish checks 
+Publish named technology logos only after engineering confirms current in-house capability. Proposed 
+stack vocabulary should be reviewed at launch and periodically thereafter. 
+ 
+ 
+NEOLOGICX  •  WEBSITE CONTENT MASTER 
+DESIGNER / DEVELOPER HANDOFF   •   34 
+WEBSITE PAGE 13 OF 34  •  MOBILE APP DEVELOPMENT 
+Mobile App Development for iOS, Android & Flutter 
+We design and build mobile applications for customer experiences, public services, 
+communities and field workflows—with the backend, APIs and administration tools needed to 
+make the app useful in real operations. 
+Discuss Your Mobile App  •  View Mobile Case Studies 
+ 
+From the app screen to the system behind it 
+Customer & Community Apps 
+Registration, profiles, discovery, communication, transactions and engagement experiences. 
+Field & Operational Apps 
+Mobile workflows for teams that need to capture, retrieve or update business information away from a 
+desk. 
+Connected Mobile Products 
+Apps integrated with web platforms, APIs, payments, notifications and administration dashboards. 
+App Evolution & Maintenance 
+Release updates, UX improvements, compatibility work and backend/integration changes as the product 
+evolves. 
+Selected mobile work 
+11. ECK–RTU Alumni Connect — alumni discovery, events, donations and notifications on Android 
+and iOS. 
+12. Election Commission of India — a mobile service platform consolidating election information 
+and citizen-facing utilities. 
+13. E‑ Parchi — a Red Cross Society pilot mobile initiative intended to improve access to private 
+medical services for underserved users. 
+14. Heritage Olympiad — culture and heritage learning with quiz-based participation and 
+leaderboards. 
+A practical mobile delivery path 
+1. Define the mobile use case and what must work offline/online. 
+NEOLOGICX  •  WEBSITE CONTENT MASTER 
+DESIGNER / DEVELOPER HANDOFF   •   35 
+2. Map the backend, data, notifications, payments and external integrations. 
+3. Prototype critical journeys and validate them before full engineering. 
+4. Build, test on representative devices and prepare store/release assets. 
+5. Monitor, maintain and evolve the app after launch. 
+Section CTA: Plan Your Mobile Product 
+ 
+DESIGNER NOTE 
+Use real mobile screens from 3–4 credible projects. Avoid a wall of platform logos. Pair each screenshot with the 
+workflow it supports. 
+Implementation footer — not website-visible 
+Final URL 
+https://neologicx.com/mobile-app-development-android-ios-flutter/ 
+Earlier reference 
+https://neologicx.com/mobile-app-development-android-ios-flutter/ 
+Migration / launch 
+KEEP URL. Rewrite with specific iOS/Android/Flutter language and case-study evidence. Remove generic 
+‘cutting-edge’ wording. 
+GSC — last 3 
+months 
+/mobile-app-development-android-ios-flutter/: 0 clicks • 23 impressions • avg position 16.83 
+SEO title 
+Mobile App Development for iOS, Android & Flutter | Neologicx 
+Meta description 
+Design and development of iOS, Android and Flutter apps for customers, communities, field teams and 
+connected business workflows. 
+Sources / evidence 
+Portfolio PDF pp. 16–26; ECI, E‑ Parchi, ECK Alumni, Culture Heritage and WUS live portfolio pages; Search 
+Console export 6 Aug 2026. 
+Publish checks 
+Confirm whether native iOS/native Android are actively staffed versus Flutter-first delivery. Keep all App 
+Store/Play Store links current. 
+ 
+ 
+NEOLOGICX  •  WEBSITE CONTENT MASTER 
+DESIGNER / DEVELOPER HANDOFF   •   36 
+WEBSITE PAGE 14 OF 34  •  E-COMMERCE ENGINEERING 
+E-commerce Engineering for Growing Retail & D2C Businesses 
+A commerce site is only one part of the operation. We build and improve storefronts together 
+with the product, payment, order, inventory and integration workflows that keep the business 
+moving after checkout. 
+Discuss Your Commerce Platform  •  View E-commerce Work 
+ 
+Commerce capabilities 
+Storefront Development 
+Responsive catalogs, product discovery, cart and checkout experiences aligned to your brand and buying 
+journey. 
+Platform Engineering 
+Implementation and customization across Magento Open Source / Adobe Commerce, WooCommerce, 
+Shopify and custom commerce when appropriate. 
+Payments & Integrations 
+Payment gateways and connections to order, inventory, CRM, messaging or other business systems. 
+Order & Inventory Workflows 
+Operational integration after the purchase so teams can manage fulfillment, stock, status and 
+exceptions with less re-entry. 
+Modernization & Support 
+Platform upgrades, performance work, integration changes and staged improvements for existing 
+commerce operations. 
+Selected commerce experience 
+The portfolio includes enterprise and mid-market commerce work for food/FMCG and retail businesses, 
+including BIKAJI, Bhikharam Chandmal, Panchranga Garments, Mota’s Chips and God’s Treat. Present 
+these as evidence of delivered work—not as performance guarantees. 
+Beyond the browser 
+Commerce can also move into conversational channels. Our portfolio includes WhatsApp-based 
+ordering, support and complaint workflows that connect customer conversations to business systems. 
+NEOLOGICX  •  WEBSITE CONTENT MASTER 
+DESIGNER / DEVELOPER HANDOFF   •   37 
+Section CTA: Explore WhatsApp Integration & Automation 
+ 
+DESIGNER NOTE 
+Lead with commerce architecture and operations, then platforms. Use real storefront/client imagery for 
+Bikaji/Bhikharam/Panchranga/Mota’s/God’s Treat where permission is current. 
+Implementation footer — not website-visible 
+Final URL 
+https://neologicx.com/ecommerce-website-development-shoppingcart/ 
+Earlier reference 
+https://neologicx.com/ecommerce-website-development-shoppingcart/ 
+https://neologicx.com/magento-development-services/ 
+https://neologicx.com/ecommerce-shopping-portal-woocommerce-magento/ 
+Migration / launch 
+KEEP primary e-commerce URL. 301 Magento and generic e-commerce-product pages directly here. Keep 
+WordPress/WooCommerce child page for CMS-led commerce work. 
+GSC — last 3 
+months 
+/ecommerce-website-development-shoppingcart/: 0 clicks • 12 impressions • avg position 4.17; /magento-
+development-services/: 0 clicks • 264 impressions • avg position 49.98; /ecommerce-shopping-portal-
+woocommerce-magento/: 0 clicks • 136 impressions • avg position 54.93 
+SEO title 
+E-commerce Development & Engineering | Neologicx 
+Meta description 
+E-commerce engineering across Magento Open Source / Adobe Commerce, WooCommerce, Shopify and 
+custom commerce integrations. 
+Sources / evidence 
+Portfolio PDF pp. 38–39; Bikaji live case study; current E-commerce/Magento pages; prior audit; Search 
+Console export 6 Aug 2026. 
+Publish checks 
+Use ‘Adobe Commerce’ and ‘Magento Open Source’ accurately. Confirm current platform 
+certifications/versions before claiming them. Do not promise guaranteed sales or security. 
+ 
+ 
+NEOLOGICX  •  WEBSITE CONTENT MASTER 
+DESIGNER / DEVELOPER HANDOFF   •   38 
+WEBSITE PAGE 15 OF 34  •  API, INTEGRATION & AUTOMATION 
+API Development, Systems Integration & Automation 
+Connect the systems your business already depends on. We design APIs and integration 
+workflows that move data and actions between applications, reduce duplicate manual work 
+and make new digital products possible. 
+Discuss an Integration  •  Explore WhatsApp Automation 
+ 
+Integration work we can support 
+API Design & Development 
+Application interfaces for web, mobile, partner and internal systems with clear data contracts and 
+access rules. 
+Third-party Integrations 
+Connect payments, messaging, email, vendor, logistics and platform services to the workflows that need 
+them. 
+Data Synchronization 
+Move and reconcile information between systems where teams currently depend on exports, re-entry 
+or manual status updates. 
+Webhooks & Event-driven Workflows 
+Trigger downstream actions when orders, payments, messages or operational states change. 
+Integration Testing & Support 
+Validate failure paths, retries, permissions and real production edge cases—not only the happy-path API 
+call. 
+Examples from our work 
+Our portfolio includes engineering/consultancy workflows connected with vendors, logistics and email, 
+as well as WhatsApp ordering, payment and customer-support flows. These are the kinds of cross-
+system problems where integration becomes part of the product experience rather than a back-office 
+detail. 
+Section CTA: Map Your Systems 
+ 
+NEOLOGICX  •  WEBSITE CONTENT MASTER 
+DESIGNER / DEVELOPER HANDOFF   •   39 
+DESIGNER NOTE 
+Use a simple system-integration diagram: apps ↔ API/integration layer ↔ payments/messaging/business systems. 
+Keep code snippets secondary. 
+Implementation footer — not website-visible 
+Final URL 
+https://neologicx.com/api-development-services/ 
+Earlier reference 
+https://neologicx.com/api-development-services/ 
+Migration / launch 
+KEEP URL. Broaden the positioning from standalone API development to systems integration and 
+automation while retaining API intent. 
+GSC — last 3 
+months 
+/api-development-services/: 0 clicks • 21 impressions • avg position 6.24 
+SEO title 
+API Development, Systems Integration & Automation | Neologicx 
+Meta description 
+Design APIs, connect business systems and automate workflows across payments, messaging, vendors, 
+platforms and internal applications. 
+Sources / evidence 
+Portfolio PDF pp. 8, 30; prior audit; current API page; Search Console export 6 Aug 2026. 
+Publish checks 
+Confirm supported API styles/authentication/cloud tooling with engineering. Do not publish uptime or 
+security guarantees unless contractually supported. 
+ 
+ 
+NEOLOGICX  •  WEBSITE CONTENT MASTER 
+DESIGNER / DEVELOPER HANDOFF   •   40 
+WEBSITE PAGE 16 OF 34  •  WHATSAPP BUSINESS PLATFORM INTEGRATION 
+WhatsApp Business Platform Integration & Automation 
+Turn WhatsApp from a standalone inbox into part of the business workflow. We connect 
+customer conversations with ordering, support, notifications, payments and internal systems so 
+the channel can do useful operational work. 
+Discuss a WhatsApp Workflow  •  Explore Integration Services 
+ 
+Use cases 
+Customer Support 
+Structure inquiries and complaint workflows, route information to the right team and send relevant 
+status updates. 
+Ordering & Commerce 
+Support conversational product/order flows and connect them to payments or commerce operations 
+where appropriate. 
+Transactional Notifications 
+Send approved workflow notifications triggered by events in your application or business system. 
+System-connected Conversations 
+Link WhatsApp interactions to CRM, order, complaint or administration workflows instead of managing 
+them as isolated chats. 
+Rule-based or AI-assisted Flows 
+Use deterministic flows where rules matter and AI assistance only where the use case, data and 
+guardrails justify it. 
+Evidence from the portfolio 
+6. BIKAJI complaint management — WhatsApp notifications connected to a structured customer-
+care workflow. 
+7. WhatsApp commerce concept — ordering, payment and complaint/support journeys through a 
+conversational interface. 
+8. Health-worker support chatbot — AI-assisted learning/support concept with explicit guardrails; 
+publish as a separate proof story only after domain/compliance review. 
+NEOLOGICX  •  WEBSITE CONTENT MASTER 
+DESIGNER / DEVELOPER HANDOFF   •   41 
+Section CTA: Design the Conversation and the Workflow 
+ 
+DESIGNER NOTE 
+Show a conversation beside the connected workflow (order/support/CRM), not a floating chatbot icon. Include clear 
+‘human handoff’ where the actual solution supports it. 
+Implementation footer — not website-visible 
+Final URL 
+https://neologicx.com/whatsapp-chatbot-development/ 
+Earlier reference 
+https://neologicx.com/whatsapp-chatbot-development/ 
+https://neologicx.com/neologicx-whatsapp-chatbot-development/ 
+Migration / launch 
+KEEP primary URL. 301 duplicate WhatsApp promo URL here. Reposition from generic ‘chatbot toolkit’ to 
+WhatsApp Business Platform integration and automation. 
+GSC — last 3 
+months 
+/whatsapp-chatbot-development/: 0 clicks • 54 impressions • avg position 27.33; /neologicx-whatsapp-
+chatbot-development/: 0 clicks • 3 impressions • avg position 1.00 
+SEO title 
+WhatsApp Business Platform Integration & Automation | Neologicx 
+Meta description 
+Connect WhatsApp Business Platform to ordering, support, notifications, payments and business 
+workflows with Neologicx. 
+Sources / evidence 
+Portfolio PDF pp. 27–30; Bikaji complaint workflow p. 6; prior audit terminology validation; Search Console 
+export 6 Aug 2026. 
+Publish checks 
+Use Meta/WhatsApp terminology and trademarks accurately. Confirm current platform/BSP setup, 
+message-template/compliance process and any AI functionality before publishing. Do not imply affiliation 
+with WhatsApp/Meta. 
+ 
+ 
+NEOLOGICX  •  WEBSITE CONTENT MASTER 
+DESIGNER / DEVELOPER HANDOFF   •   42 
+WEBSITE PAGE 17 OF 34  •  SAAS DEVELOPMENT 
+SaaS Product Development & Modernization 
+Build a SaaS product around the users, roles, workflows and commercial model it actually 
+needs—from an early release through ongoing product evolution. 
+Discuss Your SaaS Product  •  Explore Product Engineering 
+ 
+SaaS capabilities 
+Product & Workflow Definition 
+Clarify user roles, core jobs, permissions, plan boundaries and the workflows that create value. 
+Platform Architecture 
+Choose data, tenancy and application patterns that fit the product’s current stage and expected growth. 
+Billing & Third-party Integrations 
+Connect subscription/payment services and the external tools the product requires. 
+Administration & Reporting 
+Give operators the visibility and controls needed to manage users, configuration, exceptions and 
+product activity. 
+Modernization 
+Improve older SaaS applications through staged architecture, UX, performance and maintainability 
+work. 
+Start with the product model 
+The right SaaS architecture depends on more than expected traffic. Tenant boundaries, permissions, 
+data isolation, billing, integrations, onboarding and support workflows should be understood before 
+engineering decisions harden. 
+Section CTA: Plan Your SaaS Architecture 
+ 
+DESIGNER NOTE 
+Use platform layers and product workflows, not cloud-stock imagery. Link clearly back to Product Engineering and 
+forward to MVP Development. 
+NEOLOGICX  •  WEBSITE CONTENT MASTER 
+DESIGNER / DEVELOPER HANDOFF   •   43 
+Implementation footer — not website-visible 
+Final URL 
+https://neologicx.com/saas-development-services/ 
+Earlier reference 
+https://neologicx.com/saas-development-services/ 
+Migration / launch 
+KEEP URL as a specialist child of Product Engineering. Rewrite around SaaS product lifecycle and platform 
+architecture—not generic cloud adjectives. 
+GSC — last 3 
+months 
+/saas-development-services/: 0 clicks • 18 impressions • avg position 5.72 
+SEO title 
+SaaS Product Development & Modernization | Neologicx 
+Meta description 
+Build or modernize SaaS products with role-based workflows, integrations, billing, reporting, APIs and an 
+architecture matched to your product model. 
+Sources / evidence 
+Prior audit; portfolio PDF multi-stakeholder platform examples; current SaaS page; Search Console export 6 
+Aug 2026. 
+Publish checks 
+Confirm current cloud/DevOps practices. Use ‘multi-tenant’ only where the proposed architecture actually 
+is multi-tenant. Confirm any compliance/security claims project by project. 
+ 
+ 
+NEOLOGICX  •  WEBSITE CONTENT MASTER 
+DESIGNER / DEVELOPER HANDOFF   •   44 
+WEBSITE PAGE 18 OF 34  •  MVP DEVELOPMENT 
+MVP Development for Startups & New Digital Products 
+An MVP should reduce uncertainty—not simply reduce the feature list. We help teams identify 
+what the first release must prove, then design and build a focused product that can be tested 
+with real users. 
+Scope Your MVP  •  Explore Product Engineering 
+ 
+A useful MVP answers a question 
+Before estimating screens, we define the customer problem, target user, critical journey and the 
+assumptions that create the most risk. That gives the first release a job: validate a behavior, workflow or 
+commercial premise that matters to the product roadmap. 
+Our MVP path 
+1. Discovery — users, problem, assumptions and constraints. 
+2. Scope — must-have journeys, data, integrations and acceptance criteria. 
+3. Prototype — validate important interaction choices before engineering. 
+4. Build — deliver the smallest coherent release that can test the product premise. 
+5. Release & learn — collect feedback and convert what you learn into the next roadmap decision. 
+Think beyond version one 
+We make deliberate trade-offs in an MVP, but we also identify which shortcuts are temporary and which 
+architectural decisions will be expensive to reverse. That makes the next phase a planned evolution 
+rather than an emergency rewrite. 
+Section CTA: Discuss Your Product Idea 
+ 
+DESIGNER NOTE 
+Show a scope funnel from problem → must learn → MVP → evidence → roadmap. Avoid rocket/startup clichés. 
+NEOLOGICX  •  WEBSITE CONTENT MASTER 
+DESIGNER / DEVELOPER HANDOFF   •   45 
+Implementation footer — not website-visible 
+Final URL 
+https://neologicx.com/mvp-development-startup/ 
+Earlier reference 
+https://neologicx.com/mvp-development-startup/ 
+Migration / launch 
+KEEP URL as a Product Engineering child page. Rewrite to emphasize learning, scope discipline and a 
+credible path beyond version one. 
+GSC — last 3 
+months 
+/mvp-development-startup/: 0 clicks • 9 impressions • avg position 52.78 
+SEO title 
+MVP Development for Startups & New Products | Neologicx 
+Meta description 
+Define, design and build a focused MVP that tests the core product value and creates a practical 
+foundation for the next release. 
+Sources / evidence 
+Prior audit; current MVP page; portfolio PDF product/platform examples; Search Console export 6 Aug 
+2026. 
+Publish checks 
+Do not promise a fixed ‘fast’ timeline or minimal cost without scope. Confirm whether 
+discovery/prototyping is separately billable before publishing commercial details. 
+ 
+ 
+NEOLOGICX  •  WEBSITE CONTENT MASTER 
+DESIGNER / DEVELOPER HANDOFF   •   46 
+WEBSITE PAGE 19 OF 34  •  CUSTOM CRM DEVELOPMENT 
+Custom CRM & Sales Workflow Automation 
+When a standard CRM creates workarounds instead of adoption, a tailored system can align 
+customer information, tasks, pipeline stages and service workflows with the way your team 
+actually sells and supports. 
+Map Your CRM Workflow  •  Explore Custom Software 
+ 
+Build around the customer lifecycle 
+Lead & Inquiry Management 
+Capture, assign, qualify and follow up on inquiries with clear ownership and status. 
+Accounts & Contacts 
+Centralize customer context, activities, documents and the information teams need at the point of work. 
+Pipeline & Tasks 
+Model stages, actions, reminders, approvals and exceptions around your actual sales process. 
+Service & Complaint Workflows 
+Connect post-sale support and complaint status to a structured customer record where the use case 
+requires it. 
+Reporting & Integrations 
+Create operational views and connect the CRM with messaging, payments, ERP or other business 
+applications. 
+Custom does not have to mean complicated 
+The goal is not to reproduce every feature in a large commercial CRM. It is to identify the workflows that 
+matter, remove unnecessary steps and give teams a system they can understand and maintain. 
+Section CTA: Discuss Your Current CRM Gaps 
+ 
+DESIGNER NOTE 
+Use a workflow/pipeline diagram and a clean admin dashboard example. Show integration points rather than generic 
+salespeople photography. 
+NEOLOGICX  •  WEBSITE CONTENT MASTER 
+DESIGNER / DEVELOPER HANDOFF   •   47 
+Implementation footer — not website-visible 
+Final URL 
+https://neologicx.com/crm-development-custom-software/ 
+Earlier reference 
+https://neologicx.com/crm-development-custom-software/ 
+Migration / launch 
+KEEP URL. Position as Custom CRM & Sales Workflow Automation and link it under Custom Software 
+Development. 
+GSC — last 3 
+months 
+/crm-development-custom-software/: 0 clicks • 53 impressions • avg position 27.83 
+SEO title 
+Custom CRM & Sales Workflow Automation | Neologicx 
+Meta description 
+Custom CRM software for lead, account, pipeline, task, customer-service and reporting workflows that 
+need to fit your business process. 
+Sources / evidence 
+Prior audit; current CRM page; portfolio customer-care/workflow evidence; Search Console export 6 Aug 
+2026. 
+Publish checks 
+Only list marketing automation, telephony, WhatsApp or ERP integrations that the team can implement for 
+the specific project. Avoid ‘AI CRM’ claims without a delivered example. 
+ 
+ 
+NEOLOGICX  •  WEBSITE CONTENT MASTER 
+DESIGNER / DEVELOPER HANDOFF   •   48 
+WEBSITE PAGE 20 OF 34  •  CUSTOM BUSINESS SOFTWARE & ERP 
+Custom Business Software & ERP Development 
+Bring disconnected operational processes into software designed around your roles, approvals 
+and information flow—from inventory and production to projects, documents, workforce 
+workflows and reporting. 
+Discuss Your Operations  •  View Business Software Examples 
+ 
+Typical workflow areas 
+Operations & Production 
+Production tracking, operational status, resource movement and process visibility matched to the 
+business. 
+Inventory, Procurement & Vendors 
+Purchasing, materials, stock, vendor activity and approvals connected to downstream work. 
+Projects & Documentation 
+Planning, milestones, documents, shipping/logistics and cross-department status for project-driven 
+organizations. 
+Billing & Financial Workflows 
+Operational billing, expenses, collections or approvals where they form part of the solution scope. 
+Workforce & HR Workflows 
+Attendance, leave, performance or workforce administration where a business system needs these 
+functions. 
+Dashboards & Reporting 
+Role-specific operational visibility, status, exceptions and reports built from the shared workflow data. 
+Portfolio examples 
+6. Manufacturing — mobile milk collection plus inventory, billing and production tracking. 
+7. Engineering & consultancy — project planning, procurement, documentation, shipping, role-based 
+approvals and status visibility. 
+8. Institute operations — inquiry, counseling, tutor pool, scheduling, enrollment and attendance. 
+NEOLOGICX  •  WEBSITE CONTENT MASTER 
+DESIGNER / DEVELOPER HANDOFF   •   49 
+9. Legal case management — case records, cause-list workflows, client/team coordination and daily 
+updates. 
+10. Club management — member services, facilities, bookings, usage charges and monthly billing. 
+Replace spreadsheets in stages 
+Business software succeeds when the rollout respects the people and processes already doing the work. 
+We can prioritize the highest-friction workflow first, integrate what must remain, and expand the 
+system as adoption and requirements become clearer. 
+Section CTA: Map Your Business Workflow 
+ 
+DESIGNER NOTE 
+Use operational modules around a shared data core. Feature manufacturing and engineering/consultancy proof 
+prominently; these are stronger than a generic ERP icon grid. 
+Implementation footer — not website-visible 
+Final URL 
+https://neologicx.com/custom-erp-software-service/ 
+Earlier reference 
+https://neologicx.com/custom-erp-software-service/ 
+https://neologicx.com/hrms-services-software/ 
+https://neologicx.com/employee-performance-evaluation-system/ 
+Migration / launch 
+KEEP ERP URL and broaden its content to Custom Business Software & ERP. 301 HRMS and Employee 
+Performance pages here when their useful content has been absorbed. 
+GSC — last 3 
+months 
+/custom-erp-software-service/: 0 clicks • 74 impressions • avg position 14.69; /hrms-services-software/: 0 
+clicks • 17 impressions • avg position 8.06; /employee-performance-evaluation-system/: 0 clicks • 29 
+impressions • avg position 25.41 
+SEO title 
+Custom Business Software & ERP Development | Neologicx 
+Meta description 
+Custom ERP-style software for manufacturing, projects, institutes, workforce, inventory, billing, approvals, 
+reporting and connected operations. 
+Sources / evidence 
+Portfolio PDF pp. 5–15; prior audit; current ERP/HRMS pages; Search Console export 6 Aug 2026. 
+Publish checks 
+Do not imply every listed module is part of one standard ERP. Describe modules as configurable/custom 
+scope. Validate payroll/accounting/statutory features before claiming compliance. 
+ 
+ 
+NEOLOGICX  •  WEBSITE CONTENT MASTER 
+DESIGNER / DEVELOPER HANDOFF   •   50 
+WEBSITE PAGE 21 OF 34  •  WORDPRESS & WOOCOMMERCE DEVELOPMENT 
+WordPress & WooCommerce Development 
+For content-led websites and WooCommerce stores, WordPress can be a practical, 
+maintainable choice when the information architecture, content model, performance and 
+update process are designed properly from the start. 
+Discuss Your WordPress Project  •  Explore Web Applications 
+ 
+WordPress work 
+Custom Content Websites 
+Information architecture, reusable page components and content models aligned to how editors 
+actually publish. 
+Institutional Platforms 
+Structured public websites for organizations with departments, programs, notices and large content 
+sets. 
+WooCommerce 
+Product catalogs, checkout, payments and extensions/integrations for suitable commerce use cases. 
+Migration & Redesign 
+Move or restructure an existing site while protecting useful content, URLs and search equity. 
+Maintenance & Improvement 
+Planned updates, compatibility work, performance improvements and content/system enhancements. 
+When WordPress is not the right answer 
+If the requirement is primarily a workflow-heavy product, complex operational system or deeply 
+integrated application, we will recommend a custom web application instead of forcing the project into 
+a CMS. 
+Section CTA: Choose the Right Web Approach 
+ 
+DESIGNER NOTE 
+Position WordPress as the right tool for content/CMS needs—not as the company’s identity. Feature RAJUVAS and 
+Rajasthan Kabir Yatra as concrete examples. 
+NEOLOGICX  •  WEBSITE CONTENT MASTER 
+DESIGNER / DEVELOPER HANDOFF   •   51 
+Implementation footer — not website-visible 
+Final URL 
+https://neologicx.com/wordpress-development-services/ 
+Earlier reference 
+https://neologicx.com/wordpress-development-services/ 
+Migration / launch 
+KEEP as a secondary specialist service. Do not give it equal top-nav prominence with product 
+engineering/custom software. 
+GSC — last 3 
+months 
+/wordpress-development-services/: 0 clicks • 13 impressions • avg position 9.00 
+SEO title 
+WordPress & WooCommerce Development | Neologicx 
+Meta description 
+Custom WordPress and WooCommerce development for content-rich sites, institutional platforms, 
+migrations, commerce and ongoing improvement. 
+Sources / evidence 
+RAJUVAS live portfolio page; Rajasthan Kabir Yatra and e-commerce evidence in portfolio PDF; prior audit; 
+Search Console export 6 Aug 2026. 
+Publish checks 
+Confirm current WordPress/WooCommerce maintenance offering, hosting responsibility and 
+security/update process. Avoid blanket security guarantees. 
+ 
+ 
+NEOLOGICX  •  WEBSITE CONTENT MASTER 
+DESIGNER / DEVELOPER HANDOFF   •   52 
+WEBSITE PAGE 22 OF 34  •  CONSTRUCTION OPERATIONS SOFTWARE 
+Construction Site Operations & Project Control Software 
+Give owners and supervisors a shared operational view across multiple construction sites—
+covering materials, workforce records, daily expenses and vendor payments without relying on 
+disconnected registers and spreadsheets. 
+Request a Walkthrough  •  Discuss Your Workflow 
+ 
+Built around daily site operations 
+Multi-site Visibility 
+View project/site activity from a centralized administration layer while supervisors work with their 
+assigned site data. 
+Materials 
+Record and review material supplied, procured or used across sites so operational teams have a 
+consistent trail. 
+Workforce Records 
+Manage attendance and related workforce information such as salary/leave workflows where 
+configured. 
+Petty Expenses 
+Capture routine site expenses by category instead of reconstructing them later from cash notes and 
+messages. 
+Vendors & Payments 
+Track vendor/subcontractor payment information and project-level expenses in the same operational 
+context. 
+Configure it around your project controls 
+Construction businesses differ in cost heads, approval rules, reporting and responsibility across sites. 
+The implementation begins by mapping your current registers and approvals, then configuring the 
+system around the controls that matter to management and site teams. 
+Section CTA: See Whether the Solution Fits 
+ 
+NEOLOGICX  •  WEBSITE CONTENT MASTER 
+DESIGNER / DEVELOPER HANDOFF   •   53 
+DESIGNER NOTE 
+Show the actual supervisor/admin flows: site selector, workforce/material entry, expense/vendor view. Use a product 
+walkthrough CTA rather than generic ‘contact us’. 
+Implementation footer — not website-visible 
+Final URL 
+https://neologicx.com/construction-software-mobileapp/ 
+Earlier reference 
+https://neologicx.com/construction-software-mobileapp/ 
+Migration / launch 
+KEEP URL and rewrite as a clear B2B operations solution. Retain the existing product demo/video if still 
+accurate. 
+GSC — last 3 
+months 
+/construction-software-mobileapp/: 0 clicks • 130 impressions • avg position 21.44 
+SEO title 
+Construction Operations & Site Management Software | Neologicx 
+Meta description 
+Coordinate multi-site construction operations including materials, workforce records, petty expenses, 
+vendors and project-level financial visibility. 
+Sources / evidence 
+Portfolio PDF p. 19; current Construction Software page; prior audit; Search Console export 6 Aug 2026. 
+Publish checks 
+Confirm the currently supported feature set, mobile platforms, multi-language support and demo 
+availability. Do not add scheduling/GPS/BIM claims unless the product actually supports them. 
+ 
+ 
+NEOLOGICX  •  WEBSITE CONTENT MASTER 
+DESIGNER / DEVELOPER HANDOFF   •   54 
+WEBSITE PAGE 23 OF 34  •  COMPLAINT MANAGEMENT SOFTWARE 
+Complaint Management Software for Structured Customer Service 
+Move complaints out of scattered calls, messages and spreadsheets into a workflow where 
+each issue can be captured, categorized, prioritized, assigned, tracked and communicated to 
+the customer. 
+Request a Walkthrough  •  Discuss Your Complaint Workflow 
+ 
+A clear path from complaint to resolution 
+Complaint Capture 
+Create a structured record with the information your team needs to understand and act on the issue. 
+Category & Severity 
+Classify complaints so teams can prioritize, route and report on recurring types of problems. 
+Ownership & Status 
+Track who is responsible, what stage the complaint has reached and where follow-up is required. 
+Customer Notifications 
+Keep customers informed through configured notification channels, including WhatsApp workflows 
+where implemented and approved. 
+Administration & Reporting 
+Use dashboards to review complaint status, categories, patterns and unresolved work. 
+Proven in an FMCG customer-care context 
+The portfolio includes a complaint-management portal for BIKAJI in which customers could raise 
+complaints, administrators could categorize and track severity/status, and WhatsApp notifications were 
+used to keep the customer informed. 
+Section CTA: View the BIKAJI Case Study 
+ 
+DESIGNER NOTE 
+Use a ticket lifecycle visual and actual admin dashboard screens. Make ‘severity/category/status/notification’ the proof, 
+not AI imagery. 
+NEOLOGICX  •  WEBSITE CONTENT MASTER 
+DESIGNER / DEVELOPER HANDOFF   •   55 
+Implementation footer — not website-visible 
+Final URL 
+https://neologicx.com/complaint-management-software/ 
+Earlier reference 
+https://neologicx.com/complaint-management/ 
+https://neologicx.com/complaint-management-software/ 
+Migration / launch 
+USE /complaint-management-software/ as canonical. Preserve/confirm the existing redirect from 
+/complaint-management/ to this URL. 
+GSC — last 3 
+months 
+/complaint-management-software/: 0 clicks • 59 impressions • avg position 33.42 
+SEO title 
+Complaint Management Software & Customer Care Workflow | Neologicx 
+Meta description 
+Capture, categorize, prioritize and track customer complaints with dashboards, status workflows and 
+configurable notifications. 
+Sources / evidence 
+Portfolio PDF p. 6 (BIKAJI customer-care portal); current canonical Search Console URL; prior audit. 
+Publish checks 
+Confirm configurable channels, roles, reports and WhatsApp notification setup in the current product. 
+Omit the portfolio’s ‘future ML model’ wording—it is not a current feature claim. 
+ 
+ 
+NEOLOGICX  •  WEBSITE CONTENT MASTER 
+DESIGNER / DEVELOPER HANDOFF   •   56 
+WEBSITE PAGE 24 OF 34  •  ORDER MANAGEMENT SYSTEM 
+Distributor–Retailer Order Management System 
+Centralize the order lifecycle between distributors and retailers so teams can see orders, stock 
+context, fulfillment status and exceptions without coordinating everything through calls, 
+spreadsheets and disconnected messages. 
+Request a Product Demo  •  Discuss Your Order Flow 
+ 
+Bring the order lifecycle into one workflow 
+Order Processing 
+Capture and manage orders through clear states from placement through fulfillment and delivery. 
+Inventory Visibility 
+Connect stock information to order decisions and surface low-stock conditions where configured. 
+Fulfillment & Dispatch 
+Track processing and shipping status so internal teams and trading partners share the same operational 
+view. 
+Returns 
+Manage return requests through a defined status workflow where the business process requires it. 
+Connected Systems 
+Integrate e-commerce, CRM, accounting or other systems when they need to exchange order/customer 
+information. 
+Reporting 
+Review order volume, status and exceptions through role-appropriate operational reports. 
+Fit the system to your channel model 
+Distributor, dealer and retailer networks differ in pricing, territories, approvals and fulfillment rules. We 
+begin by mapping those rules so the configured product reflects the way orders actually move through 
+your business. 
+Section CTA: Map Your Order Workflow 
+ 
+NEOLOGICX  •  WEBSITE CONTENT MASTER 
+DESIGNER / DEVELOPER HANDOFF   •   57 
+DESIGNER NOTE 
+Show lifecycle: retailer order → distributor review → inventory/fulfillment → dispatch → status/return. Use actual 
+product UI and a demo CTA. 
+Implementation footer — not website-visible 
+Final URL 
+https://neologicx.com/order-management-system/ 
+Earlier reference 
+https://neologicx.com/order-management-system/ 
+Migration / launch 
+KEEP URL. Simplify the current page and remove unsupported ‘predictive analytics’ language unless the live 
+product demonstrably includes it. 
+GSC — last 3 
+months 
+/order-management-system/: 0 clicks • 36 impressions • avg position 20.03 
+SEO title 
+Distributor–Retailer Order Management System | Neologicx 
+Meta description 
+Centralize distributor-to-retailer orders, inventory status, fulfillment, shipping/returns and connected 
+reporting in a configurable OMS. 
+Sources / evidence 
+Current Order Management System page; Products hub; prior audit; Search Console export 6 Aug 2026. 
+Publish checks 
+Confirm real-time synchronization, shipping integrations, returns, low-stock alerts and integrations in the 
+current version. Remove predictive analytics unless it is a delivered, demonstrable feature. 
+ 
+ 
+NEOLOGICX  •  WEBSITE CONTENT MASTER 
+DESIGNER / DEVELOPER HANDOFF   •   58 
+WEBSITE PAGE 25 OF 34  •  SCHOOL MANAGEMENT SYSTEM — CONDITIONAL 
+School Management System for Connected Administration 
+Bring student administration, attendance, academic information, communication and 
+parent/teacher workflows into one configurable platform designed around the way your 
+institution operates. 
+Request a Walkthrough  •  Discuss Your Institution 
+ 
+Core workflow areas 
+Admissions & Student Records 
+Manage application/admission information, documents and centralized student records. 
+Attendance 
+Record and report attendance through configured digital workflows and keep relevant stakeholders 
+informed. 
+Academic Progress 
+Manage grades/results and share appropriate progress information with students and parents. 
+Teacher & Timetable Workflows 
+Support classes, scheduling and teacher-facing administration where included in scope. 
+Fees & Communication 
+Connect fee status and institutional notifications where payment/communication functions are 
+configured. 
+Parent Access 
+Provide parents with appropriate visibility into attendance, progress, fees and announcements. 
+Education experience beyond one product 
+Neologicx’s portfolio also includes institute operations, university websites and portals, alumni 
+engagement, online assessment/heritage learning and public-sector education workflows. That 
+experience can inform configuration without assuming every institution follows the same process. 
+Section CTA: Review the Education Portfolio 
+ 
+NEOLOGICX  •  WEBSITE CONTENT MASTER 
+DESIGNER / DEVELOPER HANDOFF   •   59 
+DESIGNER NOTE 
+Clearly badge this as a configurable education solution. Use role tabs for administrator / teacher / parent rather than an 
+overlong feature list. 
+Implementation footer — not website-visible 
+Final URL 
+https://neologicx.com/school-management-software/ 
+Earlier reference 
+https://neologicx.com/school-management-software/ 
+https://neologicx.com/online-quiz-application-software/ 
+Migration / launch 
+CONDITIONAL. Publish only if this is an actively supported/demonstrable solution. If approved, 301 the old 
+Online Quiz product page here after its useful assessment content is absorbed. 
+GSC — last 3 
+months 
+/school-management-software/: 0 clicks • 17 impressions • avg position 17.65; /online-quiz-application-
+software/: 1 click • 467 impressions • avg position 24.01 
+SEO title 
+School Management System for Education Operations | Neologicx 
+Meta description 
+Manage admissions, attendance, academic records, fees, communication and parent/teacher workflows 
+through a configurable school platform. 
+Sources / evidence 
+Portfolio PDF p. 11 (School ERP) and p. 17 (Heritage Olympiad); current School Management page; prior 
+audit; Search Console export 6 Aug 2026. 
+Publish checks 
+Management must confirm active support, demo environment and feature set. Confirm biometrics, online 
+classes/exams, payroll and payment features before listing them. Do not redirect Online Quiz here until 
+this page is live and materially covers that intent. 
+ 
+ 
+NEOLOGICX  •  WEBSITE CONTENT MASTER 
+DESIGNER / DEVELOPER HANDOFF   •   60 
+WEBSITE PAGE 26 OF 34  •  CASE STUDY — BIKAJI 
+Customer Care & Digital Commerce for BIKAJI 
+A connected set of digital experiences spanning e-commerce, mobile commerce and a 
+structured customer-care workflow for an established FMCG brand. 
+Discuss a Similar Workflow  •  Explore Complaint Management 
+ 
+The context 
+BIKAJI needed digital customer experiences that went beyond a storefront. Commerce, mobile access 
+and post-purchase/customer-care interactions created multiple workflows that had to be managed 
+coherently. 
+The customer-care workflow 
+Neologicx developed a complaint-management portal designed to give customers a structured way to 
+raise issues and give the internal team a clearer process for review and follow-up. 
+11. Complaint capture through a structured digital workflow 
+12. Categorization and severity tracking for administration teams 
+13. Dashboard visibility into complaint status and handling 
+14. WhatsApp notifications used to keep customers informed through the process 
+Commerce scope 
+The wider engagement also included e-commerce and mobile-commerce work. On the new site, show 
+only the components/screens that are still factually attributable to Neologicx and approved for public 
+use. 
+What this project demonstrates 
+The project is useful proof of Neologicx’s ability to connect customer-facing experiences with the 
+operational systems behind them—commerce, customer service, workflow status and messaging rather 
+than a standalone front end. 
+Section CTA: Talk About Your Customer Workflow 
+ 
+NEOLOGICX  •  WEBSITE CONTENT MASTER 
+DESIGNER / DEVELOPER HANDOFF   •   61 
+DESIGNER NOTE 
+Use one hero product/dashboard image plus a complaint lifecycle graphic. Put ‘E-commerce • Customer Care • 
+WhatsApp’ as small capability tags. 
+Implementation footer — not website-visible 
+Final URL 
+https://neologicx.com/portfolio/bikaji/ 
+Earlier reference 
+https://neologicx.com/portfolio/bikaji/ 
+Migration / launch 
+KEEP URL. Rewrite as an evidence-led case study and feature it on Home / Case Studies / Complaint 
+Management / E-commerce. 
+GSC — last 3 
+months 
+/portfolio/bikaji/: 0 clicks • 25 impressions • avg position 7.68 
+SEO title 
+BIKAJI Customer Care & E-commerce Case Study | Neologicx 
+Meta description 
+See Neologicx work for BIKAJI across e-commerce, mobile commerce and a structured customer-care 
+portal with WhatsApp notifications. 
+Sources / evidence 
+Portfolio PDF p. 6; live BIKAJI portfolio page; Search Console export 6 Aug 2026. 
+Publish checks 
+Confirm current permission to use BIKAJI name/logo/screens. Verify which commerce components remain 
+accurate. Do not carry over unsubstantiated traffic/conversion claims or future-ML wording. 
+ 
+ 
+NEOLOGICX  •  WEBSITE CONTENT MASTER 
+DESIGNER / DEVELOPER HANDOFF   •   62 
+WEBSITE PAGE 27 OF 34  •  CASE STUDY — ECK–RTU ALUMNI CONNECT 
+Alumni Engagement App for ECK–RTU 
+A mobile platform designed to help alumni join the community, discover one another, stay 
+informed about events and support alumni initiatives. 
+Discuss a Community App  •  Explore Mobile Development 
+ 
+The challenge 
+Alumni communities span graduating years, cities and industries. Useful engagement requires more 
+than an announcement feed: members need a way to identify one another, while administrators need 
+tools to coordinate communication and activities. 
+The solution 
+15. Alumni registration and authenticated access 
+16. Search/discovery by batch, city or industry 
+17. Push notifications for important updates 
+18. Event management and communication 
+19. Donation-drive support 
+20. Mobile delivery for Android and iOS 
+What this project demonstrates 
+The project combines community discovery, administration, notifications and transaction-oriented 
+activity in one mobile experience—useful proof for associations, membership organizations, universities 
+and professional communities. 
+Section CTA: Plan Your Member Experience 
+ 
+DESIGNER NOTE 
+Phone UI carousel with four labelled journeys: Join • Discover alumni • Events • Give/Donate. Show Android/iOS badges 
+only if live links work. 
+NEOLOGICX  •  WEBSITE CONTENT MASTER 
+DESIGNER / DEVELOPER HANDOFF   •   63 
+Implementation footer — not website-visible 
+Final URL 
+https://neologicx.com/portfolio/eck-alumni-connect/ 
+Earlier reference 
+https://neologicx.com/portfolio/eck-alumni-connect/ 
+Migration / launch 
+KEEP URL. Feature as a current-looking mobile/community case study and preserve Android/iOS store links 
+if they remain active. 
+GSC — last 3 
+months 
+/portfolio/eck-alumni-connect/: 0 clicks • 13 impressions • avg position 6.38 
+SEO title 
+ECK–RTU Alumni Connect Mobile App Case Study | Neologicx 
+Meta description 
+An Android and iOS alumni engagement app supporting discovery, events, donations and push 
+notifications for the ECK–RTU community. 
+Sources / evidence 
+Portfolio PDF p. 22; live ECK Alumni Connect portfolio page; Search Console export 6 Aug 2026. 
+Publish checks 
+Test both app-store links at launch; confirm ECK–RTU naming/logo permission and whether 
+donation/event functions remain current. 
+ 
+ 
+NEOLOGICX  •  WEBSITE CONTENT MASTER 
+DESIGNER / DEVELOPER HANDOFF   •   64 
+WEBSITE PAGE 28 OF 34  •  CASE STUDY — E‑ PARCHI 
+E‑ Parchi: Mobile Access to Medical Services 
+An Android initiative developed as a Red Cross Society pilot, intended to help underserved 
+users access medical services from private doctors through a mobile channel. 
+Discuss a Public-Service App  •  Explore Mobile Development 
+ 
+Project context 
+The E‑ Parchi project focused on a specific access problem: using mobile technology to make a medical-
+service initiative easier to reach for people who might otherwise face barriers to private care. 
+Neologicx’s role 
+Neologicx developed the Android application for the Red Cross Society pilot project. The project was 
+publicly inaugurated at an International Red Cross Society function in Chandigarh, according to the 
+existing Neologicx project record. 
+What this project demonstrates 
+E‑ Parchi is best presented as evidence of mobile product delivery in a public/social-impact context. The 
+new case study should stay factual and compact unless the client can provide validated usage or 
+outcome data. 
+Section CTA: Talk About Your Mobile Use Case 
+ 
+DESIGNER NOTE 
+Keep the recognizable E‑ Parchi project identity for search continuity. Use a short factual story; do not pad the page with 
+generic healthcare/AI copy. 
+NEOLOGICX  •  WEBSITE CONTENT MASTER 
+DESIGNER / DEVELOPER HANDOFF   •   65 
+Implementation footer — not website-visible 
+Final URL 
+https://neologicx.com/portfolio/e-parchi-android/ 
+Earlier reference 
+https://neologicx.com/portfolio/e-parchi-android/ 
+Migration / launch 
+KEEP URL WITHOUT CHANGE. This is the strongest non-home portfolio URL in Search Console and should 
+be migrated 1:1 with its topic intact. 
+GSC — last 3 
+months 
+/portfolio/e-parchi-android/: 3 clicks • 278 impressions • avg position 5.43 
+SEO title 
+E‑ Parchi Android App — Red Cross Pilot | Neologicx 
+Meta description 
+E‑ Parchi is an Android mobile initiative developed as a Red Cross Society pilot to help underserved users 
+access private medical services. 
+Sources / evidence 
+Live E‑ Parchi portfolio page; Search Console export 6 Aug 2026. The supplied portfolio PDF does not 
+provide a separate E‑ Parchi slide. 
+Publish checks 
+Verify current Red Cross naming/permission and the exact official event wording. Remove the old ‘under 
+consideration for PAN India implementation’ statement unless there is current evidence. Avoid medical 
+outcome claims. 
+ 
+ 
+NEOLOGICX  •  WEBSITE CONTENT MASTER 
+DESIGNER / DEVELOPER HANDOFF   •   66 
+WEBSITE PAGE 29 OF 34  •  CASE STUDY — RAJUVAS 
+University Web Platform for RAJUVAS 
+A responsive WordPress website designed to make a large public university’s academic and 
+institutional information easier to organize, publish and access across devices. 
+Discuss an Institutional Website  •  Explore Web Development 
+ 
+The challenge 
+Public university websites serve many audiences and large volumes of changing information—students, 
+faculty, administrators, programs, notices and institutional content. The platform has to make that 
+complexity navigable without making publishing harder for the organization. 
+The solution 
+21. Responsive experience across desktop and mobile 
+22. Structured presentation of courses, departments and institutional information 
+23. WordPress-based content management for maintainable publishing 
+24. Information architecture designed for students, faculty and administrative audiences 
+What this project demonstrates 
+RAJUVAS is strong evidence for content-rich institutional web work: the engineering task is not merely 
+visual redesign, but organizing a large information environment so that publishing and discovery can 
+coexist. 
+Section CTA: Plan Your Institutional Platform 
+ 
+DESIGNER NOTE 
+Show desktop/mobile views plus an information-architecture snapshot. Make the content-management challenge visible 
+rather than calling it simply a ‘website’. 
+NEOLOGICX  •  WEBSITE CONTENT MASTER 
+DESIGNER / DEVELOPER HANDOFF   •   67 
+Implementation footer — not website-visible 
+Final URL 
+https://neologicx.com/portfolio/rajuvas/ 
+Earlier reference 
+https://neologicx.com/portfolio/rajuvas/ 
+Migration / launch 
+KEEP URL WITHOUT CHANGE. It already earns organic clicks and a strong average position; expand the 
+content without changing the topic. 
+GSC — last 3 
+months 
+/portfolio/rajuvas/: 1 click • 72 impressions • avg position 3.74 
+SEO title 
+RAJUVAS University Website Case Study | Neologicx 
+Meta description 
+A responsive WordPress web platform for Rajasthan University of Veterinary & Animal Sciences, designed 
+for complex institutional content and stakeholders. 
+Sources / evidence 
+Portfolio PDF p. 32; live RAJUVAS portfolio page; Search Console export 6 Aug 2026. 
+Publish checks 
+Confirm the university’s current name/accreditation wording and permission to show screens/logo. Avoid 
+claiming administrative modules that are not part of this web project. 
+ 
+ 
+NEOLOGICX  •  WEBSITE CONTENT MASTER 
+DESIGNER / DEVELOPER HANDOFF   •   68 
+WEBSITE PAGE 30 OF 34  •  CASE STUDY — SKRAU 
+Website & CMS Modernization for SKRAU 
+A redesigned public website and backend content-management experience for Swami 
+Keshwanand Rajasthan Agricultural University, built around the demands of a large academic 
+institution. 
+Discuss a University Platform  •  Explore Web Development 
+ 
+The challenge 
+A university website must serve fast-changing public information while reflecting a complex organization 
+of programs, departments, notices and academic administration. The backend matters as much as the 
+public interface because institutional teams need a dependable way to keep information current. 
+The delivered direction 
+Neologicx revamped the website and backend/CMS environment. The existing project record describes 
+support for institutional information and administration workflows including instructions, examinations 
+and degree-related information. 
+What this project demonstrates 
+Together with RAJUVAS, this project demonstrates repeat experience in large public-university web 
+environments where content structure, publishing control and stakeholder usability matter more than 
+visual novelty. 
+Section CTA: Modernize Your Institutional Website 
+ 
+DESIGNER NOTE 
+Pair public-site screens with a small CMS/content workflow diagram. Do not use the same layout/image sequence as 
+RAJUVAS; make the backend/CMS angle distinct. 
+NEOLOGICX  •  WEBSITE CONTENT MASTER 
+DESIGNER / DEVELOPER HANDOFF   •   69 
+Implementation footer — not website-visible 
+Final URL 
+https://neologicx.com/portfolio/swami-keshwanand-rajasthan-agricultural-university-skrau/ 
+Earlier reference 
+https://neologicx.com/portfolio/swami-keshwanand-rajasthan-agricultural-university-skrau/ 
+Migration / launch 
+KEEP URL. Rewrite as an institutional CMS/backend modernization story and cross-link with RAJUVAS and 
+Web Application Development. 
+GSC — last 3 
+months 
+/portfolio/swami-keshwanand-rajasthan-agricultural-university-skrau/: 0 clicks • 17 impressions • avg 
+position 9.76 
+SEO title 
+SKRAU Website & CMS Modernization Case Study | Neologicx 
+Meta description 
+Website and backend/CMS modernization for Swami Keshwanand Rajasthan Agricultural University, 
+supporting complex institutional information workflows. 
+Sources / evidence 
+Portfolio PDF p. 32; live SKRAU portfolio page; Search Console export 6 Aug 2026. 
+Publish checks 
+Confirm the exact administration functions attributable to the delivered system and current permission for 
+university branding/screens. 
+ 
+ 
+NEOLOGICX  •  WEBSITE CONTENT MASTER 
+DESIGNER / DEVELOPER HANDOFF   •   70 
+WEBSITE PAGE 31 OF 34  •  CASE STUDY — ELECTION COMMISSION OF INDIA 
+Mobile Service Platform for the Election Commission of India 
+A mobile application designed to bring multiple election-information and citizen-service 
+functions into one accessible experience for different stakeholders. 
+Discuss a Public-Service Platform  •  Explore Mobile Development 
+ 
+The context 
+Election information serves citizens, candidates, political stakeholders and media, often across different 
+services and data sources. The application concept was to consolidate useful public-facing functions into 
+a single mobile experience. 
+Functions described in the project record 
+25. Candidate search and affidavit information 
+26. Past election data, trends and results 
+27. Digital voter-slip functionality 
+28. Polling-booth location support 
+29. Complaint submission 
+What this project demonstrates 
+The project is strong evidence of Neologicx’s experience designing mobile workflows for a complex 
+public-information environment with multiple stakeholder needs. 
+Section CTA: Talk About Your Public-Facing App 
+ 
+DESIGNER NOTE 
+Use factual government-project presentation—no patriotic stock imagery, no implied endorsement. Show service 
+categories and interface evidence. 
+NEOLOGICX  •  WEBSITE CONTENT MASTER 
+DESIGNER / DEVELOPER HANDOFF   •   71 
+Implementation footer — not website-visible 
+Final URL 
+https://neologicx.com/portfolio/eci-app/ 
+Earlier reference 
+https://neologicx.com/portfolio/eci-app/ 
+Migration / launch 
+KEEP URL. Rewrite carefully as a public-service mobile project; avoid implying current official endorsement 
+or ongoing operation unless verified. 
+GSC — last 3 
+months 
+/portfolio/eci-app/: 0 clicks • 25 impressions • avg position 30.48 
+SEO title 
+Election Commission of India Mobile App Case Study | Neologicx 
+Meta description 
+A mobile service application designed for the Election Commission of India, bringing election information 
+and citizen utilities into one experience. 
+Sources / evidence 
+Live ECI App portfolio page; portfolio PDF client list p. 4; Search Console export 6 Aug 2026. 
+Publish checks 
+High-sensitivity proof claim: confirm contract/project records, permission for name/logo/screens and 
+historic/current status. Keep inauguration wording only if documentation supports it. 
+ 
+ 
+NEOLOGICX  •  WEBSITE CONTENT MASTER 
+DESIGNER / DEVELOPER HANDOFF   •   72 
+WEBSITE PAGE 32 OF 34  •  CASE STUDY — HERITAGE OLYMPIAD 
+Heritage Olympiad Mobile Learning Experience 
+A mobile quiz and learning experience created for Heritage Olympiad, focused on helping young 
+participants engage with India’s tangible, intangible and natural heritage. 
+Discuss a Learning Experience  •  Explore Mobile Development 
+ 
+The idea 
+Heritage Olympiad was created to make culture and heritage education more participatory. The mobile 
+experience needed to translate a broad subject into an accessible learning and competition format. 
+The experience 
+30. Content spanning tangible, intangible and natural heritage 
+31. Quiz-based learning and participation 
+32. Single-player and multiplayer modes described in the portfolio 
+33. Leaderboards to support competition and engagement 
+What this project demonstrates 
+This is a better proof point for education/quiz capability than a generic ‘online quiz software’ product 
+page because it shows a real audience, subject and engagement model. 
+Section CTA: Design a Learning Product 
+ 
+DESIGNER NOTE 
+Use cultural content/app screens and the three heritage categories. Avoid presenting it as a generic quiz template. 
+NEOLOGICX  •  WEBSITE CONTENT MASTER 
+DESIGNER / DEVELOPER HANDOFF   •   73 
+Implementation footer — not website-visible 
+Final URL 
+https://neologicx.com/portfolio/culture-heritage/ 
+Earlier reference 
+https://neologicx.com/portfolio/culture-heritage/ 
+https://neologicx.com/online-quiz-application-software/ 
+Migration / launch 
+KEEP Culture Heritage URL. Use this real project as the proof destination for quiz/learning capability; retire 
+the generic Online Quiz product page once the School/Education migration decision is confirmed. 
+GSC — last 3 
+months 
+/portfolio/culture-heritage/: 0 clicks • 6 impressions • avg position 10.67; /online-quiz-application-
+software/: 1 click • 467 impressions • avg position 24.01 
+SEO title 
+Heritage Olympiad Mobile Learning App Case Study | Neologicx 
+Meta description 
+A mobile culture and heritage learning experience covering tangible, intangible and natural heritage with 
+quiz-based participation and leaderboards. 
+Sources / evidence 
+Portfolio PDF p. 17; live Culture Heritage portfolio page; Search Console export 6 Aug 2026. 
+Publish checks 
+Confirm Cultre naming/logo permission, app availability and exact Olympiad status. Do not imply IIT 
+Kanpur sponsorship/partnership from presentation imagery unless documented. 
+ 
+ 
+NEOLOGICX  •  WEBSITE CONTENT MASTER 
+DESIGNER / DEVELOPER HANDOFF   •   74 
+WEBSITE PAGE 33 OF 34  •  CASE STUDY — THE JAZZ CAFÉ, UK 
+Restaurant & Event Management Platform for The Jazz Café, UK 
+A web-based system designed to bring restaurant bookings and event operations into a more 
+coordinated back-office workflow for The Jazz Café in Reading, UK. 
+Discuss an Operations Platform  •  Explore Custom Software 
+ 
+The challenge 
+Restaurant reservations and event operations create overlapping workflows across bookings, menu 
+choices, payments, reminders and different event formats. The goal was to unify those back-office 
+activities instead of managing them as disconnected processes. 
+The solution scope 
+34. Restaurant booking management 
+35. Menu selection and payment-related workflows 
+36. Event hosting with partial-payment booking 
+37. Notifications and periodic reminders 
+38. Support for private parties, corporate events and festival/event formats 
+What this project demonstrates 
+The Jazz Café is valuable global-facing proof because it shows Neologicx working on a business 
+operations platform for a UK client, not simply delivering a marketing website. 
+Section CTA: Modernize Your Booking or Event Workflow 
+ 
+DESIGNER NOTE 
+This should visibly signal international delivery. Combine real venue/event imagery with product screens for reservations 
+and events. 
+NEOLOGICX  •  WEBSITE CONTENT MASTER 
+DESIGNER / DEVELOPER HANDOFF   •   75 
+Implementation footer — not website-visible 
+Final URL 
+https://neologicx.com/portfolio/jazz-cafe/ 
+Earlier reference 
+https://neologicx.com/portfolio/jazz-cafe/ 
+Migration / launch 
+KEEP URL and feature prominently as international proof. Rewrite as a restaurant/event operations 
+platform story. 
+GSC — last 3 
+months 
+New page / no matching historical URL in the supplied 3-month export. 
+SEO title 
+The Jazz Café UK — Restaurant & Event Platform Case Study | Neologicx 
+Meta description 
+Restaurant and event-management software for The Jazz Café in Reading, UK, covering bookings, event 
+workflows, payments and reminders. 
+Sources / evidence 
+Portfolio PDF p. 33; live Jazz Café portfolio page. 
+Publish checks 
+Confirm current client naming/logo permission and whether the system remains in use. Do not imply the 
+London venue; the portfolio specifies Reading, UK. 
+ 
+ 
+NEOLOGICX  •  WEBSITE CONTENT MASTER 
+DESIGNER / DEVELOPER HANDOFF   •   76 
+WEBSITE PAGE 34 OF 34  •  CASE STUDY — WUS APP 
+Worker Community Mobile App for WUS 
+A mobile community project developed for WUS / Worker Union Support to support digital 
+connection and inclusion for workers through a unified platform. 
+Discuss a Workforce App  •  Explore Mobile Development 
+ 
+Project context 
+The existing Neologicx project record describes WUS / Worker Union Support as a worker–trade-union 
+digital community intended to support digital and financial inclusion and help workers address personal 
+and professional needs. 
+What to show on the new site 
+Use verified screenshots and a concise description of Neologicx’s development role. Expand this story 
+only after the team can document specific app workflows and outcomes. 
+Section CTA: Talk About Your Community Platform 
+ 
+DESIGNER NOTE 
+Keep this page short until better screenshots/project facts are supplied. A concise legitimate case study is stronger than 
+invented detail. 
+NEOLOGICX  •  WEBSITE CONTENT MASTER 
+DESIGNER / DEVELOPER HANDOFF   •   77 
+Implementation footer — not website-visible 
+Final URL 
+https://neologicx.com/portfolio/wus-app-android/ 
+Earlier reference 
+https://neologicx.com/portfolio/wus-app-android/ 
+Migration / launch 
+KEEP URL for index continuity. It does not need homepage prominence, but should be migrated and 
+cleaned rather than discarded. 
+GSC — last 3 
+months 
+/portfolio/wus-app-android/: 0 clicks • 36 impressions • avg position 7.33 
+SEO title 
+WUS Worker Community Android App Case Study | Neologicx 
+Meta description 
+A mobile community initiative for WUS / Worker Union Support, designed around digital connection and 
+inclusion for workers. 
+Sources / evidence 
+Live WUS App portfolio page; portfolio PDF client list p. 4; Search Console export 6 Aug 2026. 
+Publish checks 
+The existing public page has limited functional detail. Confirm feature scope, current client naming and app 
+status before expanding beyond the factual copy below. 
+ 
+ 
+NEOLOGICX  •  WEBSITE CONTENT MASTER 
+DESIGNER / DEVELOPER HANDOFF   •   78 
+Legacy URL Migration Matrix 
+This matrix covers the 32 URLs from the earlier audit plus high-value legacy/indexed paths found in 
+Search Console. Apply redirects at launch and test them individually. ‘Retire’ never means ‘redirect 
+everything to Home.’ 
+Legacy path 
+Decision 
+Target 
+Important note 
+/ 
+KEEP 
+/ 
+Highest-value landing 
+page: preserve path 
+exactly. 
+/about-us/ 
+KEEP 
+/about-us/ 
+High impressions; rewrite, 
+do not rename path. 
+/project-showcase/ 
+MERGE 
+/portfolio/ 
+Case Studies replaces 
+duplicated showcase. 
+/services/ 
+KEEP 
+/services/ 
+Replace flat catalog with 
+capability clusters. 
+/portfolio/ 
+KEEP 
+/portfolio/ 
+Label as Case Studies; 
+preserve canonical URL. 
+/products/ 
+KEEP 
+/products/ 
+Label as Solutions; 
+preserve canonical URL. 
+/contact/ 
+KEEP 
+/contact/ 
+Canonical contact 
+destination. 
+/blog/ 
+KEEP 
+/blog/ 
+Label as Insights; preserve 
+useful article URLs. 
+/mobile-app-development-android-ios-flutter/ 
+KEEP 
+same 
+Rewrite around iOS, 
+Android, Flutter + proof. 
+/web-development-design-website/ 
+KEEP 
+same 
+Reposition to Custom 
+Web Application 
+Development. 
+/ecommerce-website-development-
+shoppingcart/ 
+KEEP 
+same 
+Primary E-commerce 
+Engineering landing page. 
+/whatsapp-chatbot-development/ 
+KEEP 
+same 
+Reposition to WhatsApp 
+Business Platform 
+integration. 
+/digital-marketing-social-media-services/ 
+RETIRE 
+410 if discontinued 
+Do not redirect to Home. 
+Retain only if genuinely 
+staffed/proven. 
+/wordpress-development-services/ 
+KEEP 
+same 
+Secondary specialist 
+service, not top-nav peer. 
+NEOLOGICX  •  WEBSITE CONTENT MASTER 
+DESIGNER / DEVELOPER HANDOFF   •   79 
+Legacy path 
+Decision 
+Target 
+Important note 
+/api-development-services/ 
+KEEP 
+same 
+Broaden to API, 
+integration & automation. 
+/game-development-services/ 
+RETIRE 
+410 if discontinued 
+3 clicks in GSC; still retire 
+if capability is not 
+strategic/active. 
+/saas-development-services/ 
+KEEP 
+same 
+Child of Product 
+Engineering. 
+/hrms-services-software/ 
+MERGE 
+/custom-erp-software-service/ 
+Absorb workforce/HR 
+workflow content first. 
+/crm-development-custom-software/ 
+KEEP 
+same 
+Custom CRM & Sales 
+Workflow Automation. 
+/mvp-development-startup/ 
+KEEP 
+same 
+Child of Product 
+Engineering. 
+/custom-erp-software-service/ 
+KEEP 
+same 
+Broaden to Custom 
+Business Software & ERP. 
+/magento-development-services/ 
+MERGE 
+/ecommerce-website-development-
+shoppingcart/ 
+Absorb platform content; 
+permanent direct redirect. 
+/school-management-software/ 
+CONDITIONA
+L 
+same if approved 
+Publish only if product is 
+active, demonstrable and 
+supported. 
+/construction-software-mobileapp/ 
+KEEP 
+same 
+Retain as a launch 
+Solution. 
+/complaint-management/ 
+MERGE 
+/complaint-management-software/ 
+Use existing canonical 
+destination consistently. 
+/food-delivery-software-driverapp-
+restaurantapp/ 
+RETIRE 
+410 or exact case study 
+Do not keep as generic 
+clone/product page. 
+/matrimonial-mobile-app/ 
+RETIRE 
+410 or exact case study 
+Remove product 
+positioning; case study 
+only after privacy/claim 
+review. 
+/order-management-system/ 
+KEEP 
+same 
+Retain as a launch 
+Solution. 
+/ecommerce-shopping-portal-woocommerce-
+magento/ 
+MERGE 
+/ecommerce-website-development-
+shoppingcart/ 
+One authoritative 
+commerce landing page. 
+/daily-task-management-mobileapp/ 
+RETIRE 
+410 or exact case study 
+3 clicks in GSC; no generic 
+redirect to 
+Home/services. 
+NEOLOGICX  •  WEBSITE CONTENT MASTER 
+DESIGNER / DEVELOPER HANDOFF   •   80 
+Legacy path 
+Decision 
+Target 
+Important note 
+/employee-performance-evaluation-system/ 
+MERGE 
+/custom-erp-software-service/ 
+Absorb 
+workforce/performance 
+workflow content first. 
+/online-quiz-application-software/ 
+MERGE 
+Education successor 
+1 click / 467 impressions. 
+Redirect only after a 
+materially equivalent 
+education page is live. 
+/home/contact/ 
+301 
+/contact/ 
+6 clicks / 251 impressions; 
+high-priority direct 
+redirect. 
+/home/services-we-offer/ 
+301 
+/services/ 
+Legacy indexed services 
+path. 
+/home/our-portfolio/ 
+301 
+/portfolio/ 
+Legacy indexed portfolio 
+path. 
+/portfolio-category/website/ 
+301 
+/portfolio/ 
+Archive path; use case-
+study hub if no closer 
+successor. 
+/home/our-products/ 
+301 
+/products/ 
+Legacy products path. 
+/neologicx-whatsapp-chatbot-development/ 
+301 
+/whatsapp-chatbot-development/ 
+Duplicate WhatsApp 
+landing URL. 
+/Neologicx_Enterprise_Solutions_Portfolio.pdf 
+PRESERVE 
+same 
+Indexed PDF: keep 
+publicly accessible at the 
+same case-sensitive URL. 
+ 
+ 
+NEOLOGICX  •  WEBSITE CONTENT MASTER 
+DESIGNER / DEVELOPER HANDOFF   •   81 
+Pre-Launch Content & Design Sign-off 
+Before the new website is made public, one owner should sign off each of these categories. 
+Claims & proof 
+39. Verify all client names, logos, screenshots and case-study facts; obtain permission where 
+required. 
+40. Resolve conflicting client/project statistics. Publish one verified set or omit counters entirely. 
+41. Remove future/experimental features from current capability language unless they are now 
+delivered and demonstrable. 
+42. Do not use ‘best’, ‘leading’, ‘bug-free’, ‘100% secure’, ‘guaranteed’ or similar claims without 
+defensible evidence. 
+Delivery & commercial 
+43. Confirm engagement models, minimum commitments, time-zone overlap, NDA/IP process, 
+source-code ownership and handover practices. 
+44. Confirm the public sales email, phone/WhatsApp numbers, calendar URL and response-time 
+promise. 
+45. Confirm post-launch support/maintenance wording and any SLA commitments. 
+Technology 
+46. Engineering approves every technology logo/name shown publicly and removes stacks that are 
+no longer actively supported. 
+47. Next.js build passes server-rendering, canonical, sitemap, robots, structured-data, performance 
+and accessibility checks. 
+48. App-store, product-demo, social and external links are tested and current. 
+SEO migration 
+49. Every retained URL is present in the new route inventory and every merge/retire decision has a 
+tested status code. 
+50. Legacy /home/contact/, service, portfolio and product paths redirect directly to their canonical 
+successors. 
+51. The indexed portfolio PDF remains accessible at the same URL. 
+52. Search Console and analytics verification work in production; staging noindex/blocking rules are 
+removed deliberately at launch. 
+NEOLOGICX  •  WEBSITE CONTENT MASTER 
+DESIGNER / DEVELOPER HANDOFF   •   82 
+Legal & privacy 
+53. Publish reviewed Privacy Policy, Terms and Cookie Policy pages; do not copy generic legal text 
+from another company. 
+54. Contact forms collect only necessary information, explain consent/processing appropriately and 
+route submissions securely. 
+Source Register 
+55. Neologicx Enterprise Solutions Portfolio (attached PDF, 40 pages; reviewed page by page). 
+56. Neologicx Global Market Website Content Audit (earlier team-ready report; decisions reconciled 
+into this master). 
+57. Google Search Console export: neologicx.com-Performance-on-Search-2026-08-06.xlsx — 
+Search type Web, last 3 months. 
+58. Neologicx live website and selected portfolio/service/product pages, checked 6 August 2026 for 
+factual/reference continuity. 
+59. Prior terminology validation: WhatsApp Business Platform and current Adobe Commerce / 
+Magento naming. 

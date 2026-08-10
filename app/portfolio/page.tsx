@@ -1,4 +1,6 @@
 import { getDynamicMetadata } from '@/lib/metadata';
+import PortfolioClient from '@/components/portfolio-client';
+import CTASection from '@/components/cta-section';
 
 export async function generateMetadata() {
   return await getDynamicMetadata('/portfolio');
@@ -6,9 +8,14 @@ export async function generateMetadata() {
 
 export default function PortfolioPage() {
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center p-24">
-      <h1 className="text-4xl font-bold text-primary">/portfolio</h1>
-      <p className="mt-4 text-muted-foreground">This is a placeholder page. The SEO metadata has been dynamically injected via the mock API.</p>
-    </div>
+    <main className="w-full overflow-x-hidden">
+      <PortfolioClient />
+      <CTASection 
+        title={<>Have a <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-200 to-primary drop-shadow-lg">similar workflow?</span></>}
+        description="Use these examples as a starting point—not a promise that your project will look the same. Tell us your users, constraints and systems, and we will map the right approach for your context."
+        ctaText="Discuss Your Project"
+        ctaLink="/contact"
+      />
+    </main>
   );
 }

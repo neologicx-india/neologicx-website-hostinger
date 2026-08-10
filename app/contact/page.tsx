@@ -1,4 +1,5 @@
 import { getDynamicMetadata } from '@/lib/metadata';
+import ContactClient from '@/components/contact-client';
 
 export async function generateMetadata() {
   return await getDynamicMetadata('/contact');
@@ -6,9 +7,9 @@ export async function generateMetadata() {
 
 export default function ContactPage() {
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center p-24">
-      <h1 className="text-4xl font-bold text-primary">/contact</h1>
-      <p className="mt-4 text-muted-foreground">This is a placeholder page. The SEO metadata has been dynamically injected via the mock API.</p>
-    </div>
+    <main className="w-full overflow-x-hidden">
+      <ContactClient />
+    </main>
   );
 }
+

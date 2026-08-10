@@ -180,29 +180,6 @@ export default function ContactClient() {
         </motion.div>
       </div>
 
-      {/* Our Locations */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl font-extrabold text-foreground">Our Locations</h2>
-          <p className="text-muted-foreground mt-3">Find us across key cities to serve you better.</p>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
-          {officeLocations.map((loc, idx) => (
-            <div key={idx} className="bg-card border border-border/50 rounded-2xl p-6 shadow-sm hover:shadow-md hover:border-primary/30 transition-all duration-300 flex flex-col">
-              <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary mb-5">
-                <MapPin className="w-6 h-6" />
-              </div>
-              <h3 className="text-lg font-bold text-foreground mb-2">{loc.city}</h3>
-              <p className="text-sm text-muted-foreground leading-relaxed mb-6 flex-1">{loc.address}</p>
-              <a href={`tel:${loc.phone.replace(/[^0-9+]/g, '')}`} className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:text-primary/80 transition-colors mt-auto">
-                <Phone className="w-4 h-4" />
-                {loc.phone}
-              </a>
-            </div>
-          ))}
-        </div>
-      </div>
-
       {/* Main Content: Form + Side Info */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
@@ -511,14 +488,37 @@ export default function ContactClient() {
         </div>
       </div>
 
+      {/* Our Locations */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl font-extrabold text-foreground">Our Locations</h2>
+          <p className="text-muted-foreground mt-3">Find us across key cities to serve you better.</p>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
+          {officeLocations.map((loc, idx) => (
+            <div key={idx} className="bg-card border border-border/50 rounded-2xl p-6 shadow-sm hover:shadow-md hover:border-primary/30 transition-all duration-300 flex flex-col">
+              <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary mb-5">
+                <MapPin className="w-6 h-6" />
+              </div>
+              <h3 className="text-lg font-bold text-foreground mb-2">{loc.city}</h3>
+              <p className="text-sm text-muted-foreground leading-relaxed mb-6 flex-1">{loc.address}</p>
+              <a href={`tel:${loc.phone.replace(/[^0-9+]/g, '')}`} className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:text-primary/80 transition-colors mt-auto">
+                <Phone className="w-4 h-4" />
+                {loc.phone}
+              </a>
+            </div>
+          ))}
+        </div>
+      </div>
+
       {/* Map Section */}
-      <div className="w-full h-[450px] relative border-t border-border/50">
-        <iframe 
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3522.0021667234846!2d73.31716039999999!3d28.024409600000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x393fdd70b06eb227%3A0xb876dfcceb70afec!2sNeologicx%20Resources%20India%20Pvt%20Ltd!5e0!3m2!1sen!2sin!4v1786360621537!5m2!1sen!2sin" 
-          className="absolute inset-0 w-full h-full grayscale opacity-80 hover:grayscale-0 hover:opacity-100 transition-all duration-700" 
-          style={{ border: 0 }} 
-          allowFullScreen 
-          loading="lazy" 
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 rounded-lg overflow-hidden h-[450px] relative border-t border-border/50">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3522.0021667234846!2d73.31716039999999!3d28.024409600000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x393fdd70b06eb227%3A0xb876dfcceb70afec!2sNeologicx%20Resources%20India%20Pvt%20Ltd!5e0!3m2!1sen!2sin!4v1786360621537!5m2!1sen!2sin"
+          className="absolute inset-0 w-full h-full transition-all duration-700"
+          style={{ border: 0 }}
+          allowFullScreen
+          loading="lazy"
           referrerPolicy="no-referrer-when-downgrade"
         />
       </div>

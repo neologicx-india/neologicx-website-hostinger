@@ -127,7 +127,7 @@ export default function Navbar() {
         {/* DESKTOP NAV */}
         <ul className="hidden lg:flex items-center gap-2 list-none m-0 p-0">
           {/* Services Dropdown */}
-          <li className="relative" onMouseEnter={() => setServicesDropdown(true)} onMouseLeave={() => setServicesDropdown(false)}>
+          <li onMouseEnter={() => setServicesDropdown(true)} onMouseLeave={() => setServicesDropdown(false)}>
             <button className={cn(
               "group relative inline-flex items-center gap-1.5 px-4 py-2 rounded-md text-sm font-medium transition-colors",
               "text-foreground hover:text-muted-foreground hover:bg-muted/50",
@@ -139,11 +139,11 @@ export default function Navbar() {
 
             {/* Mega Menu Dropdown */}
             <div className={cn(
-              "absolute top-[calc(100%+8px)] left-1/2 -translate-x-1/2 w-[900px] bg-background border border-border/50 rounded-xl shadow-2xl transition-all duration-200 overflow-hidden",
-              servicesDropdown ? "opacity-100 visible translate-y-0" : "opacity-0 invisible translate-y-2 pointer-events-none"
+              "absolute top-[calc(100%-10px)] left-1/2 -translate-x-1/2 w-[900px] bg-background border border-border/50 rounded-xl shadow-2xl transition-all duration-200 overflow-hidden",
+              servicesDropdown ? "opacity-100 visible translate-y-0" : "opacity-0 invisible translate-y-4 pointer-events-none"
             )}>
               {/* Invisible bridge to keep hover active */}
-              <div className="absolute -top-4 left-0 right-0 h-4 bg-transparent" />
+              <div className="absolute -top-16 left-0 right-0 h-16 bg-transparent" />
 
               <div className="flex min-h-[400px]">
                 {/* Left Column - Service List */}

@@ -4,11 +4,8 @@ export async function generateMetadata() {
   return await getDynamicMetadata('/complaint-management-software');
 }
 
+import ComplaintClient from '@/components/complaint-client';
+
 export default function ComplaintManagementSoftwarePage() {
-  return (
-    <div className="flex min-h-screen flex-col items-center justify-center p-24">
-      <h1 className="text-4xl font-bold text-primary">/complaint-management-software</h1>
-      <p className="mt-4 text-muted-foreground">This is a placeholder page. The SEO metadata has been dynamically injected via the mock API.</p>
-    </div>
-  );
+  return <ComplaintClient />;
 }

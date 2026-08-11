@@ -147,8 +147,8 @@ export default function InsightsClient() {
                         alt={insight.title}
                         fill
                         className="object-cover transition-transform duration-700 group-hover:scale-110"
+                        priority={idx <= 2}
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent opacity-80 group-hover:opacity-60 transition-opacity" />
                       <div className="absolute bottom-4 left-6">
                         <span className="px-3 py-1 bg-primary/90 backdrop-blur-sm text-primary-foreground text-xs font-bold rounded-full">
                           {insight.category}
@@ -160,17 +160,17 @@ export default function InsightsClient() {
                       <h2 className="text-xl md:text-2xl font-extrabold text-foreground mb-4 leading-snug group-hover:text-primary transition-colors line-clamp-2">
                         {insight.title}
                       </h2>
-                      <p className="text-muted-foreground text-sm leading-relaxed mb-6 line-clamp-3 flex-1">
+                      <p className="text-foreground text-sm leading-relaxed mb-6 line-clamp-3 flex-1">
                         {insight.excerpt}
                       </p>
 
-                      <div className="flex items-center gap-4 text-xs font-semibold text-muted-foreground pt-6 border-t border-border/50">
+                      <div className="flex items-center gap-4 text-xs font-semibold text-foreground pt-6 border-t border-border/50">
                         <div className="flex items-center gap-1.5">
                           <User className="w-4 h-4 text-primary/70" />
                           <span>{insight.author}</span>
                         </div>
                         <div className="flex items-center gap-1.5">
-                          <Clock className="w-4 h-4 text-primary/70" />
+                          <Clock className="w-4 h-4 text-primary" />
                           <span>{insight.readTime}</span>
                         </div>
                       </div>
@@ -199,8 +199,8 @@ export default function InsightsClient() {
                   key={i}
                   onClick={() => setCurrentPage(i + 1)}
                   className={`w-10 h-10 rounded-full text-sm font-bold transition-all duration-300 ${currentPage === i + 1
-                      ? 'bg-primary text-primary-foreground shadow-md shadow-primary/20 scale-110'
-                      : 'bg-card text-foreground hover:bg-muted border border-border/50 hover:border-primary/50'
+                    ? 'bg-primary text-primary-foreground shadow-md shadow-primary/20 scale-110'
+                    : 'bg-card text-foreground hover:bg-muted border border-border/50 hover:border-primary/50'
                     }`}
                 >
                   {i + 1}

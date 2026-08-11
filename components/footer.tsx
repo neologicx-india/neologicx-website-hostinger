@@ -71,6 +71,7 @@ export default function Footer() {
               width={180}
               height={50}
               className="h-8 md:h-10 w-auto mb-6"
+              priority
             />
             <h3 className="text-lg font-semibold text-foreground mb-1">
               Neologicx Resources Pvt Ltd

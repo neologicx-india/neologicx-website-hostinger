@@ -51,7 +51,7 @@ export default function PageHero({
             transition={{ duration: 0.5 }}
             className="mb-6 inline-flex items-center justify-center px-4 py-1.5 rounded-full border border-primary/50 bg-primary/10 backdrop-blur-sm"
           >
-            <span className="text-sm font-semibold tracking-wider text-primary uppercase">{badge}</span>
+            <span className="text-sm font-semibold tracking-wider text-blue-400 uppercase">{badge}</span>
           </motion.div>
         )}
 
@@ -88,8 +88,8 @@ export default function PageHero({
                 key={idx}
                 href={link.href}
                 className={`px-8 py-3.5 rounded-full font-bold shadow-xl hover:shadow-2xl transition-all hover:-translate-y-1 text-center w-full sm:w-auto ${idx === 0
-                    ? "bg-primary text-primary-foreground hover:bg-primary/90"
-                    : "bg-white text-slate-900 border-2 border-transparent hover:bg-slate-100"
+                  ? "bg-primary text-primary-foreground hover:bg-primary/90"
+                  : "bg-white text-slate-900 border-2 border-transparent hover:bg-slate-100"
                   }`}
               >
                 {link.label}

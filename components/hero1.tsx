@@ -175,7 +175,7 @@ export default function HeroNew() {
                                                     alt={`${slide.title} ${slide.highlight}`}
                                                     fill
                                                     className="object-contain object-center mix-blend-multiply"
-                                                    priority={index === 0}
+                                                    priority
                                                 />
                                             </motion.div>
                                         )}

@@ -15,6 +15,7 @@ const solutions = [
     image: '/images/solution_construction.png',
     features: ['Multi-site Coordination', 'Workforce & Expense Tracking', 'Vendor Management'],
     targetUser: 'Site Managers & Operations Directors',
+    href: '/construction-software-mobileapp'
   },
   {
     title: 'Complaint Management',
@@ -23,6 +24,7 @@ const solutions = [
     image: '/images/solution_complaint.png',
     features: ['Structured Ticketing', 'Priority Routing', 'Automated Notifications'],
     targetUser: 'Customer Support & Success Teams',
+    href: '/complaint-management-software'
   },
   {
     title: 'Distributor-Retailer Order Management',
@@ -31,6 +33,7 @@ const solutions = [
     image: '/images/solution_order.png',
     features: ['Centralized Order Intake', 'Inventory Visibility', 'Fulfillment Workflows'],
     targetUser: 'Supply Chain & Sales Operations',
+    href: '/order-management-system'
   },
   {
     title: 'School Management',
@@ -40,6 +43,7 @@ const solutions = [
     features: ['Admissions & Fees', 'Academic Records', 'Parent-Teacher Communication'],
     targetUser: 'School Administrators & Teachers',
     conditional: true, // Display conditionally based on the spec
+    href: '/school-management-software'
   }
 ];
 
@@ -77,6 +81,9 @@ export default function ProductsClient() {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="group relative bg-card rounded-3xl border border-border/50 overflow-hidden hover:border-primary/50 hover:shadow-xl transition-all flex flex-col h-full"
               >
+                {/* Absolute link to make the whole card clickable */}
+                <Link href={solution.href} className="absolute inset-0 z-10" aria-hidden="true" />
+
                 {/* Conditional Badge */}
                 {solution.conditional && (
                   <div className="absolute top-4 right-4 z-20 px-3 py-1 bg-yellow-500/90 text-white text-xs font-bold rounded-full shadow-lg backdrop-blur-sm">
@@ -89,6 +96,7 @@ export default function ProductsClient() {
                   <Image
                     src={solution.image}
                     alt={solution.title}
+                    priority
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-700"
                   />
@@ -131,10 +139,10 @@ export default function ProductsClient() {
                     </div>
 
                     <Link
-                      href="/contact"
-                      className="inline-flex items-center justify-center w-full gap-2 px-6 py-3 bg-primary/10 text-primary font-bold rounded-xl hover:bg-primary hover:text-primary-foreground transition-all mt-4"
+                      href={solution.href}
+                      className="inline-flex items-center justify-center w-full gap-2 px-6 py-3 bg-primary/10 text-primary font-bold rounded-xl hover:bg-primary hover:text-primary-foreground transition-all mt-4 relative z-20"
                     >
-                      Request a Walkthrough
+                      View Solution Details
                       <ArrowRight className="w-4 h-4" />
                     </Link>
                   </div>

@@ -52,17 +52,17 @@ const officeLocations = [
   },
   {
     city: 'Mumbai',
-    address: '9TH FLOOR, REGUS PLATINA, BANDRA KURLA COMPLEX, MUMBAI-400051',
+    address: 'Pranava Bhargava 4th floor Plot A-59 Road Number 1 MIDC Marol Industrial Area Andheri East Mumbai 400093',
     phone: '+91-7014156602'
   },
   {
     city: 'Gujrat',
-    address: '12, SULAY ROW HOUSE, BAKERI CITY, VEJALPUR, AHMEDABAD-380051',
+    address: 'Gogoonj Mediacrafts LLP 1107, STC(Shivam Trade Centre), NH147, Ambli, Ahmedabad 380058',
     phone: '+91-9099960099'
   },
   {
     city: 'Gurgaon',
-    address: 'N-4/5, Off Jacaranda Marg, DLF City Phase-2, Gurgaon',
+    address: 'Building No, 1970, 2nd floor, Block A, Greenwood City, Sector 45, Gurugram, Haryana 122003',
     phone: '+91-9414138694'
   },
   {
@@ -319,7 +319,7 @@ export default function ContactClient() {
                   {/* Budget & Start Window (both optional) */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                     <div>
-                      <label htmlFor="contact-budget" className="block text-sm font-semibold text-foreground mb-2">Indicative Budget Range <span className="text-muted-foreground font-normal">(optional)</span></label>
+                      <label htmlFor="contact-budget" className="block text-sm font-semibold text-foreground mb-2">Indicative Budget Range <span className="text-foreground font-normal">(optional)</span></label>
                       <select
                         id="contact-budget"
                         name="budget"
@@ -336,7 +336,7 @@ export default function ContactClient() {
                       </select>
                     </div>
                     <div>
-                      <label htmlFor="contact-start-window" className="block text-sm font-semibold text-foreground mb-2">Expected Start Window <span className="text-muted-foreground font-normal">(optional)</span></label>
+                      <label htmlFor="contact-start-window" className="block text-sm font-semibold text-foreground mb-2">Expected Start Window <span className="text-foreground font-normal">(optional)</span></label>
                       <select
                         id="contact-start-window"
                         name="startWindow"
@@ -356,7 +356,7 @@ export default function ContactClient() {
 
                   {/* File Upload (optional) */}
                   <div>
-                    <label htmlFor="contact-file" className="block text-sm font-semibold text-foreground mb-2">File or Brief Upload <span className="text-muted-foreground font-normal">(optional)</span></label>
+                    <label htmlFor="contact-file" className="block text-sm font-semibold text-foreground mb-2">File or Brief Upload <span className="text-foreground font-normal">(optional)</span></label>
                     <div className="relative">
                       <input
                         id="contact-file"
@@ -366,7 +366,7 @@ export default function ContactClient() {
                         className="w-full px-4 py-3 rounded-xl border border-border bg-background text-foreground text-sm file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-primary/10 file:text-primary hover:file:bg-primary/20 transition-all cursor-pointer"
                       />
                     </div>
-                    <p className="text-xs text-muted-foreground mt-1.5">PDF, DOC, PPT, images or ZIP — max 10 MB</p>
+                    <p className="text-xs text-foreground mt-1.5">PDF, DOC, PPT, images or ZIP — max 10 MB</p>
                   </div>
 
                   {/* Privacy Consent */}
@@ -380,7 +380,7 @@ export default function ContactClient() {
                       required
                       className="mt-1 w-4 h-4 rounded border-border text-primary focus:ring-primary/50 cursor-pointer accent-primary"
                     />
-                    <label htmlFor="contact-privacy" className="text-sm text-muted-foreground leading-snug cursor-pointer">
+                    <label htmlFor="contact-privacy" className="text-sm text-foreground leading-snug cursor-pointer">
                       I agree that Neologicx may store and process my data to respond to this inquiry. We will not share your information with third parties. *
                     </label>
                   </div>
@@ -423,7 +423,7 @@ export default function ContactClient() {
                     </div>
                     <div>
                       <h4 className="text-sm font-bold text-foreground mb-1">{item.title}</h4>
-                      <p className="text-xs text-muted-foreground leading-relaxed">{item.desc}</p>
+                      <p className="text-xs text-foreground leading-relaxed">{item.desc}</p>
                     </div>
                   </div>
                 ))}
@@ -459,7 +459,7 @@ export default function ContactClient() {
               </div>
 
               <p className="text-sm font-bold text-foreground mb-1">Neologicx Resources Pvt Ltd</p>
-              <p className="text-sm text-muted-foreground mb-5">Bikaner, Rajasthan, India</p>
+              <p className="text-sm text-foreground mb-5">Bikaner, Rajasthan, India</p>
 
               <div className="space-y-3">
                 <div className="flex items-start gap-3">
@@ -478,7 +478,7 @@ export default function ContactClient() {
                 </div>
               </div>
 
-              <p className="text-xs text-muted-foreground mt-5 leading-relaxed">
+              <p className="text-xs text-foreground mt-5 leading-relaxed">
                 For international calls, use the scheduling link to choose a mutually workable time.
               </p>
             </div>
@@ -492,7 +492,7 @@ export default function ContactClient() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-extrabold text-foreground">Our Locations</h2>
-          <p className="text-muted-foreground mt-3">Find us across key cities to serve you better.</p>
+          <p className="text-foreground mt-3">Find us across key cities to serve you better.</p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
           {officeLocations.map((loc, idx) => (
@@ -501,8 +501,8 @@ export default function ContactClient() {
                 <MapPin className="w-6 h-6" />
               </div>
               <h3 className="text-lg font-bold text-foreground mb-2">{loc.city}</h3>
-              <p className="text-sm text-muted-foreground leading-relaxed mb-6 flex-1">{loc.address}</p>
-              <a href={`tel:${loc.phone.replace(/[^0-9+]/g, '')}`} className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:text-primary/80 transition-colors mt-auto">
+              <p className="text-sm text-foreground leading-relaxed mb-6 flex-1">{loc.address}</p>
+              <a href={`tel:${loc.phone.replace(/[^0-9+]/g, '')}`} className="inline-flex items-center gap-2 text-sm font-semibold text-foreground hover:text-primary/80 transition-colors mt-auto">
                 <Phone className="w-4 h-4" />
                 {loc.phone}
               </a>

@@ -1,14 +1,11 @@
-import { getDynamicMetadata } from '@/lib/metadata';
+import ServicesClient from '@/components/services-client';
+import { Metadata } from 'next';
 
-export async function generateMetadata() {
-  return await getDynamicMetadata('/services');
-}
+export const metadata: Metadata = {
+  title: 'Software Engineering Services | Neologicx',
+  description: 'Product engineering, custom software, web and mobile development, e-commerce, APIs, integrations and automation from Neologicx.',
+};
 
 export default function ServicesPage() {
-  return (
-    <div className="flex min-h-screen flex-col items-center justify-center p-24">
-      <h1 className="text-4xl font-bold text-primary">/services</h1>
-      <p className="mt-4 text-muted-foreground">This is a placeholder page. The SEO metadata has been dynamically injected via the mock API.</p>
-    </div>
-  );
+  return <ServicesClient />;
 }

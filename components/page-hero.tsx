@@ -51,7 +51,7 @@ export default function PageHero({
             transition={{ duration: 0.5 }}
             className="mb-6 inline-flex items-center justify-center px-4 py-1.5 rounded-full border border-primary/50 bg-primary/10 backdrop-blur-sm"
           >
-            <span className="text-sm font-semibold tracking-wider text-blue-400 uppercase">{badge}</span>
+            <span className="text-sm font-semibold tracking-wider text-secondary uppercase">{badge}</span>
           </motion.div>
         )}
 

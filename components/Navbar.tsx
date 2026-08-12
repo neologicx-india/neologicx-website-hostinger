@@ -197,19 +197,23 @@ export default function Navbar() {
                     const ActiveIcon = activeCat.icon;
                     return (
                       <div className="animate-in fade-in slide-in-from-right-4 duration-300 fill-mode-both" key={activeServiceIdx}>
-                        <div className="flex items-start gap-5 mb-8">
-                          <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center text-primary shrink-0">
+                        <Link 
+                          href={activeCat.route}
+                          onClick={() => setServicesDropdown(false)}
+                          className="group flex items-start gap-5 mb-8 p-3 -m-3 rounded-xl hover:bg-muted/30 transition-colors"
+                        >
+                          <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center text-primary shrink-0 transition-colors group-hover:bg-primary/20">
                             <ActiveIcon className="w-7 h-7" />
                           </div>
                           <div className="flex flex-col pt-1">
-                            <h3 className="text-xl font-bold text-foreground mb-2">
+                            <h3 className="text-xl font-bold text-foreground mb-2 transition-colors group-hover:text-primary">
                               {activeCat.title}
                             </h3>
                             <p className="text-sm text-muted-foreground leading-relaxed">
                               {activeCat.description}
                             </p>
                           </div>
-                        </div>
+                        </Link>
 
                         {activeCat.subLinks.length > 0 && (
                           <>

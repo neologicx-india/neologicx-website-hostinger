@@ -1,11 +1,11 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { 
-  Briefcase, 
-  Users, 
-  Landmark, 
-  LayoutDashboard, 
+import {
+  Briefcase,
+  Users,
+  Landmark,
+  LayoutDashboard,
   RefreshCw,
   ArrowRight,
   Monitor,
@@ -62,7 +62,7 @@ export default function WebDevelopmentClient() {
       {/* What we build */}
       <section className="py-24 relative overflow-hidden">
         <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[120px] -z-10 translate-x-1/3 -translate-y-1/3" />
-        
+
         <div className="container mx-auto px-6 max-w-7xl">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-3xl md:text-5xl font-bold font-serif text-foreground mb-6">
@@ -103,7 +103,7 @@ export default function WebDevelopmentClient() {
         <div className="container mx-auto px-6 max-w-7xl">
           <div className="flex flex-col lg:flex-row gap-16 items-center">
             <div className="w-full lg:w-1/2 order-2 lg:order-1">
-              <motion.h2 
+              <motion.h2
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
@@ -111,8 +111,8 @@ export default function WebDevelopmentClient() {
               >
                 Designed as a system, not a <span className="text-primary">collection of pages</span>
               </motion.h2>
-              
-              <motion.p 
+
+              <motion.p
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
@@ -121,7 +121,7 @@ export default function WebDevelopmentClient() {
               >
                 Good web engineering starts with content or data models, user roles, key workflows, integrations, performance needs and the way the application will be operated after launch. The interface should make that underlying system easier to use—not hide complexity behind visual effects.
               </motion.p>
-              
+
               <motion.div
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -163,7 +163,7 @@ export default function WebDevelopmentClient() {
       {/* Technology approach */}
       <section className="py-24 relative overflow-hidden">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-primary/5 rounded-[100%] blur-[120px] -z-10" />
-        
+
         <div className="container mx-auto px-6 max-w-7xl">
           <div className="max-w-4xl mx-auto text-center">
             <motion.div
@@ -175,8 +175,8 @@ export default function WebDevelopmentClient() {
               <Code2 className="w-4 h-4" />
               Technology Approach
             </motion.div>
-            
-            <motion.h2 
+
+            <motion.h2
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -185,8 +185,8 @@ export default function WebDevelopmentClient() {
             >
               Built for long-term maintainability
             </motion.h2>
-            
-            <motion.p 
+
+            <motion.p
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -195,7 +195,7 @@ export default function WebDevelopmentClient() {
             >
               We choose the implementation around the product's requirements and your team's long-term maintainability. For the new Neologicx capability presentation, the engineering team should approve the exact current stack before publishing named frameworks and cloud platforms.
             </motion.p>
-            
+
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -203,15 +203,15 @@ export default function WebDevelopmentClient() {
               transition={{ delay: 0.3 }}
               className="flex justify-center gap-6 text-muted-foreground"
             >
-               <div className="w-16 h-16 rounded-full border border-border/50 bg-card/50 flex items-center justify-center shadow-sm">
-                 <Server className="w-6 h-6" />
-               </div>
-               <div className="w-16 h-16 rounded-full border border-border/50 bg-card/50 flex items-center justify-center shadow-sm">
-                 <Code2 className="w-6 h-6" />
-               </div>
-               <div className="w-16 h-16 rounded-full border border-border/50 bg-card/50 flex items-center justify-center shadow-sm">
-                 <Monitor className="w-6 h-6" />
-               </div>
+              <div className="w-16 h-16 rounded-full border border-border/50 bg-card/50 flex items-center justify-center shadow-sm">
+                <Server className="w-6 h-6" />
+              </div>
+              <div className="w-16 h-16 rounded-full border border-border/50 bg-card/50 flex items-center justify-center shadow-sm">
+                <Code2 className="w-6 h-6" />
+              </div>
+              <div className="w-16 h-16 rounded-full border border-border/50 bg-card/50 flex items-center justify-center shadow-sm">
+                <Monitor className="w-6 h-6" />
+              </div>
             </motion.div>
           </div>
         </div>
@@ -219,7 +219,7 @@ export default function WebDevelopmentClient() {
 
       {/* Footer CTA */}
       <CTASection
-        title={<>Start with a <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-200 to-primary drop-shadow-lg">Technical Discovery</span></>}
+        title="Start with a Technical Discovery"
         description="Let's discuss how we can engineer your custom web platform."
         ctaText="Start with a Technical Discovery"
         ctaLink="/contact"

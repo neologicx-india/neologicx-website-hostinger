@@ -38,11 +38,12 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="bg-muted/30 border-t border-border pt-16 font-sans">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <footer className="bg-muted/30 font-sans">
+      <div className="w-full h-px bg-gradient-to-r from-transparent via-border to-transparent"></div>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16">
 
         {/* TOP SECTION: Call to action */}
-        <div className="flex flex-col md:flex-row items-center justify-between bg-primary/5 rounded-2xl p-8 md:p-12 mb-16 border border-primary/10">
+        {/* <div className="flex flex-col md:flex-row items-center justify-between bg-primary/5 rounded-2xl p-8 md:p-12 mb-16 border border-primary/10">
           <div className="mb-6 md:mb-0 text-center md:text-left">
             <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-2">
               Ready to build your next product?
@@ -58,7 +59,7 @@ export default function Footer() {
             Discuss Your Project
             <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
           </Link>
-        </div>
+        </div> */}
 
         {/* MAIN FOOTER CONTENT */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 mb-16">

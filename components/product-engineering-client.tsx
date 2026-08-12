@@ -1,11 +1,11 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { 
-  Lightbulb, 
-  Target, 
-  Layers, 
-  RefreshCw, 
+import {
+  Lightbulb,
+  Target,
+  Layers,
+  RefreshCw,
   Rocket,
   ArrowRight,
   CheckCircle2,
@@ -81,7 +81,7 @@ export default function ProductEngineeringClient() {
       {/* Where we can help */}
       <section className="py-24 relative overflow-hidden">
         <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[120px] -z-10 translate-x-1/3 -translate-y-1/3" />
-        
+
         <div className="container mx-auto px-6 max-w-7xl">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-3xl md:text-5xl font-bold font-serif text-foreground mb-6">
@@ -123,9 +123,9 @@ export default function ProductEngineeringClient() {
           <div className="flex flex-col md:flex-row items-center justify-between gap-8 md:gap-4 relative">
             {/* Connecting Line for desktop */}
             <div className="hidden md:block absolute top-1/2 left-0 w-full h-[2px] bg-border -translate-y-1/2 z-0" />
-            
+
             {lifecycleStages.map((stage, idx) => (
-              <motion.div 
+              <motion.div
                 key={idx}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -151,7 +151,7 @@ export default function ProductEngineeringClient() {
         <div className="container mx-auto px-6 max-w-7xl">
           <div className="flex flex-col lg:flex-row gap-16 items-center">
             <div className="w-full lg:w-1/2">
-              <motion.h2 
+              <motion.h2
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
@@ -159,10 +159,10 @@ export default function ProductEngineeringClient() {
               >
                 From idea to <span className="text-primary">production</span>
               </motion.h2>
-              
+
               <div className="space-y-6">
                 {productionSteps.map((step, idx) => (
-                  <motion.div 
+                  <motion.div
                     key={idx}
                     initial={{ opacity: 0, x: -20 }}
                     whileInView={{ opacity: 1, x: 0 }}
@@ -180,7 +180,7 @@ export default function ProductEngineeringClient() {
                 ))}
               </div>
             </div>
-            
+
             <div className="w-full lg:w-1/2">
               <motion.div
                 initial={{ opacity: 0, scale: 0.95 }}
@@ -224,8 +224,8 @@ export default function ProductEngineeringClient() {
               <Users className="w-4 h-4" />
               Multi-Stakeholder Platforms
             </motion.div>
-            
-            <motion.h2 
+
+            <motion.h2
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -234,8 +234,8 @@ export default function ProductEngineeringClient() {
             >
               Built for products with more than one stakeholder
             </motion.h2>
-            
-            <motion.p 
+
+            <motion.p
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -244,7 +244,7 @@ export default function ProductEngineeringClient() {
             >
               Our portfolio includes platforms for organizers and attendees, institutions and students, alumni communities, authors and editors, and operational teams with role-based responsibilities. Those projects reinforce an important product lesson: the difficult part is often not the screen—it is the interaction between roles, rules, transactions and information.
             </motion.p>
-            
+
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -265,7 +265,7 @@ export default function ProductEngineeringClient() {
 
       {/* Footer CTA */}
       <CTASection
-        title={<>Plan Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-200 to-primary drop-shadow-lg">Product Roadmap</span></>}
+        title="Plan Your Product Roadmap"
         description="Share your product goals and challenges with our engineering team."
         ctaText="Discuss Your Product"
         ctaLink="/contact"

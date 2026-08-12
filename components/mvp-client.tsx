@@ -190,7 +190,7 @@ export default function MvpClient() {
                 initial={{ opacity: 0, scale: 0.95 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
-                className="relative aspect-square lg:aspect-auto lg:h-[500px] w-full rounded-[3rem] overflow-hidden shadow-2xl bg-gradient-to-br from-blue-600 to-primary flex items-center justify-center p-12 text-center"
+                className="relative aspect-square lg:aspect-auto lg:h-[500px] w-full rounded-[3rem] overflow-hidden shadow-2xl bg-gradient-to-br from-foreground to-primary flex items-center justify-center p-12 text-center"
               >
                 <div className="absolute inset-0 bg-[url('/images/noise.png')] opacity-20 mix-blend-overlay"></div>
                 <div className="relative z-10 flex flex-col items-center">

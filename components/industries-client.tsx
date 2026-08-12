@@ -139,7 +139,7 @@ export default function IndustriesClient() {
               <Briefcase className="w-10 h-10 text-primary" />
             </div>
             <h2 className="text-3xl md:text-5xl font-extrabold text-foreground mb-8">
-              Your domain will still be <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-primary">different</span>
+              Your domain will still be different
             </h2>
             <p className="text-xl text-muted-foreground leading-relaxed md:px-12">
               We use prior experience to accelerate discovery, not to assume your process. Every engagement begins by mapping the roles, rules, exceptions, data and integrations that are specific to your organization.
@@ -150,7 +150,7 @@ export default function IndustriesClient() {
 
       {/* Footer CTA */}
       <CTASection
-        title={<>Talk Through Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-200 to-primary drop-shadow-lg">Workflow</span></>}
+        title="Talk Through Your Workflow"
         description="Tell us about the operational challenges in your industry. We will help you identify the right technical approach and a practical path to delivery."
         ctaText="Discuss Your Industry"
       />

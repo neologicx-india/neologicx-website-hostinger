@@ -150,12 +150,12 @@ export default function AboutClient() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="group relative flex flex-col p-8 md:p-10 rounded-3xl bg-card border border-border/50 shadow-sm hover:shadow-2xl hover:border-primary/30 transition-all duration-500 overflow-hidden hover:-translate-y-2"
           >
-            <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/5 rounded-full blur-[40px] -mr-10 -mt-10 transition-all duration-500 group-hover:bg-blue-500/20"></div>
+            <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full blur-[40px] -mr-10 -mt-10 transition-all duration-500 group-hover:bg-primary/20"></div>
 
-            <div className="relative z-10 w-16 h-16 rounded-2xl bg-blue-500/10 flex items-center justify-center text-blue-500 mb-8 shadow-sm group-hover:scale-110 group-hover:bg-blue-500 group-hover:text-white transition-all duration-500">
+            <div className="relative z-10 w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center text-primary mb-8 shadow-sm group-hover:scale-110 group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-500">
               <Building2 className="w-8 h-8" />
             </div>
-            <h3 className="relative z-10 text-2xl font-bold text-foreground mb-4 leading-tight group-hover:text-blue-500 transition-colors">Where our experience comes from</h3>
+            <h3 className="relative z-10 text-2xl font-bold text-foreground mb-4 leading-tight group-hover:text-primary transition-colors">Where our experience comes from</h3>
             <p className="relative z-10 text-foreground leading-relaxed">
               Over the years we have worked across public institutions and education, FMCG and manufacturing, retail and e-commerce, construction, hospitality and events, professional services and workforce-focused platforms. That breadth helps us recognize the operational patterns that repeat across industries—while still respecting the details that make each business different.
             </p>
@@ -169,12 +169,12 @@ export default function AboutClient() {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="group relative flex flex-col p-8 md:p-10 rounded-3xl bg-card border border-border/50 shadow-sm hover:shadow-2xl hover:border-primary/30 transition-all duration-500 overflow-hidden hover:-translate-y-2"
           >
-            <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/5 rounded-full blur-[40px] -mr-10 -mt-10 transition-all duration-500 group-hover:bg-blue-500/20"></div>
+            <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full blur-[40px] -mr-10 -mt-10 transition-all duration-500 group-hover:bg-primary/20"></div>
 
-            <div className="relative z-10 w-16 h-16 rounded-2xl bg-blue-500/10 flex items-center justify-center text-blue-500 mb-8 shadow-sm group-hover:scale-110 group-hover:bg-blue-500 group-hover:text-white transition-all duration-500">
+            <div className="relative z-10 w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center text-primary mb-8 shadow-sm group-hover:scale-110 group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-500">
               <Globe2 className="w-8 h-8" />
             </div>
-            <h3 className="relative z-10 text-2xl font-bold text-foreground mb-4 leading-tight group-hover:text-blue-500 transition-colors">Local roots. Global working mindset.</h3>
+            <h3 className="relative z-10 text-2xl font-bold text-foreground mb-4 leading-tight group-hover:text-primary transition-colors">Local roots. Global working mindset.</h3>
             <p className="relative z-10 text-foreground leading-relaxed">
               Our delivery base is in Bikaner, India, and our portfolio includes work for organizations in India as well as international engagements such as The Jazz Café in Reading, UK and an event marketplace spanning India and Singapore. For remote engagements, we emphasize clear ownership, documented scope, planned communication and practical time-zone overlap.
             </p>

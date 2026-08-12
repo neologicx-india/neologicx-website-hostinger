@@ -85,7 +85,7 @@ export default function HeroNew() {
                                                 {/* Badge */}
                                                 <div className="inline-flex items-center gap-2 rounded-full border border-border bg-muted/50 px-4 py-1.5 mb-7">
                                                     <span className="h-1.5 w-1.5 rounded-full bg-primary" />
-                                                    <span className="text-xs font-medium tracking-wide text-muted-foreground">
+                                                    <span className="text-sm font-medium tracking-wide text-muted-foreground">
                                                         {slide.badge}
                                                     </span>
                                                 </div>

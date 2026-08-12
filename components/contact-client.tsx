@@ -127,7 +127,7 @@ export default function ContactClient() {
             transition={{ duration: 0.5 }}
             className="mb-6 inline-flex items-center justify-center px-4 py-1.5 rounded-full border border-primary/50 bg-primary/10 backdrop-blur-sm"
           >
-            <span className="text-sm font-semibold tracking-wider text-primary uppercase">Start a Conversation</span>
+            <span className="text-sm font-semibold tracking-wider text-blue-200 uppercase">Start a Conversation</span>
           </motion.div>
 
           <motion.h1
@@ -136,7 +136,7 @@ export default function ContactClient() {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-white mb-6 tracking-tight drop-shadow-lg leading-tight"
           >
-            Tell Us What You Are <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-200 to-blue-400">Building</span>
+            Tell Us What You Are <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-600">Building</span>
           </motion.h1>
 
           <motion.p

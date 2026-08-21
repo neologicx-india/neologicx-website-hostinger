@@ -47,11 +47,10 @@ export default function PortfolioClient() {
           </div>
         )}
 
-        {/* Case Studies List */}
+        {/* Case Studies Grid */}
         {!isLoading && !error && (
-          <div className="space-y-32">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
             {caseStudies.map((study: any, index: number) => {
-              const isEven = index % 2 === 0;
               const num = (index + 1).toString().padStart(2, '0');
               const category = study.category || study.clientName || 'Case Study';
               const link = `/portfolio/${study.slug}`;
@@ -59,100 +58,88 @@ export default function PortfolioClient() {
               const iconUrl = study.categoryIcon?.url ? `${STRAPI_URL}${study.categoryIcon.url}` : null;
 
               return (
-                <div key={study.id || index} className="relative flex flex-col lg:flex-row items-center gap-0 lg:gap-0">
-
-                  {/* Image Section */}
-                  <motion.div
-                    initial={{ opacity: 0, x: isEven ? -50 : 50 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true, margin: "-100px" }}
-                    transition={{ duration: 0.7, ease: "easeOut" }}
-                    className={`w-full lg:w-[60%] relative h-[50vh] md:h-[70vh] lg:h-[87vh] rounded-3xl overflow-hidden shadow-2xl z-0 ${!isEven ? 'lg:order-2' : 'lg:order-1'}`}
-                  >
+                <motion.div
+                  key={study.id || index}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  transition={{ duration: 0.5, delay: index * 0.1, ease: "easeOut" }}
+                  className="group flex flex-col bg-card border border-border/50 rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300"
+                >
+                  {/* Image Section (Top) */}
+                  <div className="relative w-full h-64 sm:h-72 overflow-hidden bg-muted/20">
                     <Image
                       src={imageUrl}
                       alt={study.title || 'Case Study'}
                       fill
-                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 100vw, 60vw"
-                      className="object-cover"
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                      className="object-cover transition-transform duration-700 group-hover:scale-105"
                     />
                     {/* Floating Number Badge on Image */}
-                    <div className={`absolute top-6 ${isEven ? 'left-6' : 'right-6'} bg-background/90 backdrop-blur-md px-4 py-2 rounded-full font-bold text-foreground shadow-sm`}>
+                    <div className="absolute top-5 left-5 bg-background/95 backdrop-blur-md px-3.5 py-1.5 rounded-full font-bold text-sm text-foreground shadow-sm">
                       {num}
                     </div>
-                  </motion.div>
+                  </div>
 
-                  {/* Content Card Section (Overlapping) */}
-                  <motion.div
-                    initial={{ opacity: 0, y: 50 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, margin: "-100px" }}
-                    transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
-                    className={`w-full lg:w-[45%] relative z-10 -mt-16 lg:mt-0 ${isEven ? 'lg:-ml-20 lg:order-2' : 'lg:-mr-20 lg:order-1'
-                      }`}
-                  >
-                    <div className="bg-card border border-border/50 rounded-3xl p-8 md:p-12 shadow-xl hover:shadow-2xl transition-shadow duration-500 flex flex-col h-full">
-
-                      {/* Icon & Category */}
-                      <div className="flex items-center gap-4 mb-8">
-                        <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary flex-shrink-0">
-                          {iconUrl ? (
-                            <Image src={iconUrl} alt="category" width={24} height={24} className="object-contain" />
-                          ) : (
-                            <ShoppingCart className="w-6 h-6" />
-                          )}
-                        </div>
-                        <span className="text-sm font-bold text-primary uppercase tracking-wider">
-                          {category}
-                        </span>
+                  {/* Content Section (Bottom) */}
+                  <div className="p-8 md:p-10 flex flex-col flex-grow">
+                    {/* Icon & Category */}
+                    <div className="flex items-center gap-3 mb-6">
+                      <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary flex-shrink-0">
+                        {iconUrl ? (
+                          <Image src={iconUrl} alt="category" width={20} height={20} className="object-contain" />
+                        ) : (
+                          <ShoppingCart className="w-5 h-5" />
+                        )}
                       </div>
-
-                      {/* Title & Description */}
-                      <h3 className="text-3xl font-extrabold text-foreground mb-4 leading-tight">
-                        {study.title}
-                      </h3>
-                      <p className="text-muted-foreground leading-relaxed mb-10 text-[15px]">
-                        {study.summary}
-                      </p>
-
-                      {/* Features Grid */}
-                      {study.keyFeatures && study.keyFeatures.length > 0 && (
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-4 gap-x-6 mb-10">
-                          {study.keyFeatures.map((feature: string, idx: number) => (
-                            <div key={idx} className="flex items-start gap-3">
-                              <CheckCircle2 className="w-5 h-5 text-primary shrink-0 mt-0.5" />
-                              <span className="text-sm text-foreground/80 leading-snug">{feature}</span>
-                            </div>
-                          ))}
-                        </div>
-                      )}
-
-                      {/* Pill Tags */}
-                      {study.tags && study.tags.length > 0 && (
-                        <div className="flex flex-wrap gap-2 mb-10">
-                          {study.tags.map((tag: string, idx: number) => (
-                            <span key={idx} className="px-3 py-1 bg-muted/50 text-muted-foreground text-xs font-semibold rounded-full border border-border/50">
-                              {tag}
-                            </span>
-                          ))}
-                        </div>
-                      )}
-
-                      {/* CTA Link */}
-                      <div className="mt-auto pt-4 border-t border-border/50">
-                        <Link
-                          href={link}
-                          className="inline-flex items-center text-primary font-bold text-sm group/link hover:text-primary/80 transition-colors"
-                        >
-                          Learn More
-                          <ArrowRight className="w-4 h-4 ml-2 transition-transform duration-300 group-hover/link:translate-x-1" />
-                        </Link>
-                      </div>
-
+                      <span className="text-xs font-bold text-primary uppercase tracking-wider">
+                        {category}
+                      </span>
                     </div>
-                  </motion.div>
 
-                </div>
+                    {/* Title & Description */}
+                    <h3 className="text-2xl font-extrabold text-foreground mb-3 leading-tight group-hover:text-primary transition-colors">
+                      {study.title}
+                    </h3>
+                    <p className="text-muted-foreground leading-relaxed mb-8 text-[15px] line-clamp-3">
+                      {study.summary}
+                    </p>
+
+                    {/* Features Grid */}
+                    {study.keyFeatures && study.keyFeatures.length > 0 && (
+                      <div className="grid grid-cols-1 gap-y-3 mb-8">
+                        {study.keyFeatures.slice(0, 3).map((feature: string, idx: number) => (
+                          <div key={idx} className="flex items-start gap-3">
+                            <CheckCircle2 className="w-4 h-4 text-primary shrink-0 mt-0.5" />
+                            <span className="text-sm text-foreground/80 leading-snug line-clamp-1">{feature}</span>
+                          </div>
+                        ))}
+                      </div>
+                    )}
+
+                    {/* Pill Tags */}
+                    {study.tags && study.tags.length > 0 && (
+                      <div className="flex flex-wrap gap-2 mb-8 mt-auto">
+                        {study.tags.slice(0, 3).map((tag: string, idx: number) => (
+                          <span key={idx} className="px-3 py-1 bg-muted/50 text-muted-foreground text-[11px] font-semibold rounded-full border border-border/50">
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+                    )}
+
+                    {/* CTA Link */}
+                    <div className="pt-5 border-t border-border/50 mt-auto">
+                      <Link
+                        href={link}
+                        className="inline-flex items-center text-primary font-bold text-sm group/link hover:text-primary/80 transition-colors"
+                      >
+                        Read Case Study
+                        <ArrowRight className="w-4 h-4 ml-2 transition-transform duration-300 group-hover/link:translate-x-1" />
+                      </Link>
+                    </div>
+                  </div>
+                </motion.div>
               );
             })}
           </div>

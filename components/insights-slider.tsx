@@ -105,8 +105,9 @@ export default function InsightsSlider({ blogs = [] }: InsightsSliderProps) {
             className="w-full !pb-12 !pt-4 -mt-4 px-4 sm:px-0"
           >
             {blogs.map((blog, index) => {
+              const baseUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:1337';
               const imageUrl = blog.featuredImage?.url 
-                ? (blog.featuredImage.url.startsWith('http') ? blog.featuredImage.url : `http://localhost:1337${blog.featuredImage.url}`)
+                ? (blog.featuredImage.url.startsWith('http') ? blog.featuredImage.url : `${baseUrl}${blog.featuredImage.url}`)
                 : '/images/placeholder.jpg';
                 
               const dateObj = new Date(blog.publishedAt || Date.now());

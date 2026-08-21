@@ -1,13 +1,16 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
-import { Calendar, Clock, User, ArrowRight, ArrowLeft, Loader2, Sparkles } from 'lucide-react';
+import { Calendar, Clock, User, ArrowRight, ArrowLeft } from 'lucide-react';
 import Image from 'next/image';
 import PageHero from '@/components/page-hero';
+import Loader from '@/components/loader';
+import { strapiService } from '@/services/strapiService';
+import { useQuery } from '@tanstack/react-query';
 
-interface Insight {
+export interface Insight {
   slug: string;
   title: string;
   category: string;
@@ -18,55 +21,46 @@ interface Insight {
   excerpt: string;
 }
 
-const categories = [
-  'All',
-  'Product Engineering',
-  'Custom Software & Modernization',
-  'Mobile & Web Engineering',
-  'Integration & Automation',
-  'E-commerce',
-  'Delivery & Quality'
-];
+interface InsightsClientProps {
+  initialCategories: string[];
+}
 
-export default function InsightsClient() {
-  const [insights, setInsights] = useState<Insight[]>([]);
-  const [loading, setLoading] = useState(true);
+export default function InsightsClient({ initialCategories = ['All'] }: InsightsClientProps) {
   const [activeCategory, setActiveCategory] = useState('All');
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 6;
 
-  useEffect(() => {
-    const fetchInsights = async () => {
-      try {
-        // Simulated network delay for premium loader effect
-        await new Promise(resolve => setTimeout(resolve, 800));
-        const res = await fetch('/api/insights');
-        if (res.ok) {
-          const data = await res.json();
-          setInsights(data);
-        }
-      } catch (error) {
-        console.error('Failed to fetch insights', error);
-      } finally {
-        setLoading(false);
-      }
+  const { data: queryData, isLoading: loading } = useQuery({
+    queryKey: ['blogs', currentPage, activeCategory],
+    queryFn: () => strapiService.getAllBlogs(currentPage, itemsPerPage, activeCategory),
+    staleTime: 5 * 60 * 1000, // Keep data fresh for 5 minutes
+  });
+
+  const STRAPI_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:1337';
+
+  // Safely map the returned data
+  const insights: Insight[] = queryData?.data?.map((blog: any) => {
+    const cat = blog.categories && blog.categories.length > 0 ? blog.categories[0].name : 'Uncategorized';
+    const dateObj = new Date(blog.publishedDate || blog.createdAt);
+    const formattedDate = dateObj.toLocaleDateString('en-US', {
+      year: 'numeric', month: 'long', day: 'numeric'
+    });
+
+    return {
+      slug: blog.slug,
+      title: blog.title,
+      category: cat,
+      date: formattedDate,
+      author: blog.author || 'Neologicx',
+      readTime: blog.readingTime || '5 mins',
+      heroImage: blog.featuredImage?.url ? `${STRAPI_URL}${blog.featuredImage.url}` : '/images/placeholder.jpg',
+      excerpt: blog.excerpt || ''
     };
+  }) || [];
 
-    fetchInsights();
-  }, []);
-
-  const filteredInsights = activeCategory === 'All'
-    ? insights
-    : insights.filter(insight => insight.category === activeCategory);
-
-  const totalPages = Math.ceil(filteredInsights.length / itemsPerPage);
-  const paginatedInsights = filteredInsights.slice(
-    (currentPage - 1) * itemsPerPage,
-    currentPage * itemsPerPage
-  );
-
+  const totalPages = queryData?.meta?.pagination?.pageCount || 1;
   return (
-    <div className="min-h-screen bg-background pt-24 pb-20">
+    <div className="min-h-screen bg-background">
       <PageHero
         badge="Insights Hub"
         title={<>Practical Thinking on Building and Improving <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-200 to-blue-400 drop-shadow-md">Software</span></>}
@@ -79,15 +73,15 @@ export default function InsightsClient() {
       />
 
       {/* Main Content */}
-      <div id="insights-grid" className="container mx-auto px-6 max-w-7xl pt-10 ">
+      <div id="insights-grid" className="container mx-auto px-6 max-w-7xl py-10 ">
         {/* Categories Filter */}
         <div className="flex flex-wrap gap-3 mb-12">
-          {categories.map((category) => (
+          {initialCategories.map((category) => (
             <button
               key={category}
               onClick={() => {
                 setActiveCategory(category);
-                setCurrentPage(1);
+                setCurrentPage(1); // Reset page on category change
               }}
               className={`px-5 py-2.5 rounded-full text-sm font-bold transition-all duration-300 ${activeCategory === category
                 ? 'bg-primary text-primary-foreground shadow-md shadow-primary/20 scale-105'
@@ -99,31 +93,10 @@ export default function InsightsClient() {
           ))}
         </div>
 
-        {/* Loader or Grid */}
+        {/* Grid or Loader */}
         {loading ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[1, 2, 3, 4, 5, 6].map((i) => (
-              <div key={i} className="flex flex-col bg-card rounded-3xl overflow-hidden border border-border/50 h-[500px]">
-                <div className="h-56 bg-muted/30 animate-pulse relative overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-full animate-[shimmer_1.5s_infinite]" />
-                </div>
-                <div className="p-8 flex-1 flex flex-col justify-between">
-                  <div>
-                    <div className="h-6 w-32 bg-muted/30 rounded-full mb-4 animate-pulse" />
-                    <div className="h-8 w-full bg-muted/30 rounded-lg mb-3 animate-pulse" />
-                    <div className="h-8 w-3/4 bg-muted/30 rounded-lg mb-6 animate-pulse" />
-                    <div className="space-y-2">
-                      <div className="h-4 w-full bg-muted/30 rounded animate-pulse" />
-                      <div className="h-4 w-5/6 bg-muted/30 rounded animate-pulse" />
-                    </div>
-                  </div>
-                  <div className="flex gap-4 mt-8 pt-6 border-t border-border/30">
-                    <div className="h-4 w-20 bg-muted/30 rounded animate-pulse" />
-                    <div className="h-4 w-20 bg-muted/30 rounded animate-pulse" />
-                  </div>
-                </div>
-              </div>
-            ))}
+          <div className="flex justify-center items-center py-24">
+            <Loader />
           </div>
         ) : (
           <motion.div
@@ -131,7 +104,7 @@ export default function InsightsClient() {
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
           >
             <AnimatePresence mode="popLayout">
-              {paginatedInsights.map((insight, idx) => (
+              {insights.map((insight, idx) => (
                 <motion.div
                   key={insight.slug}
                   layout
@@ -146,6 +119,7 @@ export default function InsightsClient() {
                         src={insight.heroImage}
                         alt={insight.title}
                         fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                         className="object-cover transition-transform duration-700 group-hover:scale-110"
                         priority={idx <= 2}
                       />

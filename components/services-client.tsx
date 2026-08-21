@@ -10,7 +10,8 @@ import {
   ShoppingCart,
   Zap,
   ArrowRight,
-  CheckCircle2
+  CheckCircle2,
+  Bot
 } from 'lucide-react';
 import PageHero from '@/components/page-hero';
 import CTASection from '@/components/cta-section';
@@ -51,6 +52,12 @@ const coreCapabilities = [
     description: 'APIs, webhooks, third-party systems, payments, WhatsApp Business Platform workflows and data synchronization.',
     icon: Zap,
     href: '/api-development-services'
+  },
+  {
+    title: 'AI Solutions & Intelligent Automation',
+    description: 'AI knowledge assistants, connected workflows, document intelligence and AI features integrated with business systems.',
+    icon: Bot,
+    href: '/ai-development-services'
   }
 ];
 
@@ -265,7 +272,7 @@ export default function ServicesClient() {
 
       {/* Footer CTA */}
       <CTASection
-        title={<>Start with the <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-200 to-primary drop-shadow-lg">problem</span>, not the service label</>}
+        title={<>Start with the problem, not the service label</>}
         description="If your requirement crosses several categories, that is normal. Share the business goal and current constraints; we will help shape the right combination of product, software, integration and support work."
         ctaText="Tell Us What You Need"
         ctaLink="/contact"

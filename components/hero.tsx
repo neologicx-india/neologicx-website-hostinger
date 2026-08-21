@@ -68,7 +68,8 @@ export default function Hero() {
               <Image 
                 src={slide.image} 
                 alt={slide.title} 
-                fill 
+                fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" 
                 className="object-cover object-center" 
                 priority={index === 0} 
               />

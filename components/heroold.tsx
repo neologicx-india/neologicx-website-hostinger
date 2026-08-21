@@ -215,6 +215,7 @@ export default function HeroNew() {
                                                         src={slide.image}
                                                         alt={slide.title}
                                                         fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                                                         className="object-cover object-center opacity-[0.92]"
                                                         priority={index === 0}
                                                     />

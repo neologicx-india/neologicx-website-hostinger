@@ -26,6 +26,8 @@ export const viewport: Viewport = {
   maximumScale: 1,
 }
 
+import WhatsAppWidget from '@/components/whatsapp-widget'
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -38,6 +40,7 @@ export default function RootLayout({
           <Navbar />
           {children}
           <Footer />
+          <WhatsAppWidget />
         </QueryProvider>
       </body>
     </html>

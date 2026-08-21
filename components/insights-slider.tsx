@@ -12,46 +12,11 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
-const insights = [
-  {
-    title: "The Future of AI in Enterprise Software",
-    category: "Technology Trends",
-    date: "Aug 10, 2026",
-    readTime: "5 min read",
-    description: "Discover how artificial intelligence is reshaping enterprise workflows, automating mundane tasks, and driving unprecedented productivity.",
-    link: "/insights/ai-enterprise-software",
-    image: "/images/insights/tech-trends.png"
-  },
-  {
-    title: "Modern Cloud Architecture Patterns",
-    category: "Engineering",
-    date: "Aug 02, 2026",
-    readTime: "8 min read",
-    description: "A deep dive into building scalable, resilient, and cost-effective cloud architectures for high-traffic web applications.",
-    link: "/insights/cloud-architecture",
-    image: "/images/insights/cloud-architecture.png"
-  },
-  {
-    title: "Navigating Digital Transformation",
-    category: "Business Strategy",
-    date: "Jul 25, 2026",
-    readTime: "6 min read",
-    description: "Key strategies for legacy businesses to successfully adopt digital-first operational models without disrupting core services.",
-    link: "/insights/digital-transformation",
-    image: "/images/insights/digital-transformation.png"
-  },
-  {
-    title: "Agile Teams in a Remote World",
-    category: "Team Culture",
-    date: "Jul 15, 2026",
-    readTime: "4 min read",
-    description: "Best practices for maintaining high-velocity agile development cycles when your engineering team is spread across multiple time zones.",
-    link: "/insights/agile-remote-teams",
-    image: "/images/insights/agile-teams.png"
-  }
-];
+interface InsightsSliderProps {
+  blogs?: any[];
+}
 
-export default function InsightsSlider() {
+export default function InsightsSlider({ blogs = [] }: InsightsSliderProps) {
   const prevRef = useRef<HTMLButtonElement>(null);
   const nextRef = useRef<HTMLButtonElement>(null);
 
@@ -139,64 +104,76 @@ export default function InsightsSlider() {
             }}
             className="w-full !pb-12 !pt-4 -mt-4 px-4 sm:px-0"
           >
-            {insights.map((insight, index) => (
-              <SwiperSlide key={index} className="h-auto">
-                <div className="h-full group flex flex-col rounded-3xl bg-card border border-border/50 shadow-sm hover:shadow-2xl hover:border-primary/30 transition-all duration-500 overflow-hidden">
+            {blogs.map((blog, index) => {
+              const imageUrl = blog.featuredImage?.url 
+                ? (blog.featuredImage.url.startsWith('http') ? blog.featuredImage.url : `http://localhost:1337${blog.featuredImage.url}`)
+                : '/images/placeholder.jpg';
+                
+              const dateObj = new Date(blog.publishedAt || Date.now());
+              const formattedDate = dateObj.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
+              
+              const categoryName = blog.categories?.[0]?.name || 'Technology';
 
-                  {/* Image Container */}
-                  <div className="relative w-full h-60 overflow-hidden">
-                    <div className="absolute inset-0 bg-primary/10 group-hover:bg-transparent transition-colors duration-500 z-10"></div>
-                    <Image
-                      src={insight.image}
-                      alt={insight.title}
-                      fill
-                      className="object-cover transform transition-transform duration-700 group-hover:scale-110"
-                    />
-                    <div className="absolute top-4 left-4 z-20">
-                      <span className="inline-block px-3 py-1.5 rounded-full bg-background/80 backdrop-blur-md text-foreground text-xs font-bold tracking-wider uppercase border border-border/50 shadow-sm">
-                        {insight.category}
-                      </span>
-                    </div>
-                  </div>
+              return (
+                <SwiperSlide key={index} className="h-auto">
+                  <div className="h-full group flex flex-col rounded-3xl bg-card border border-border/50 shadow-sm hover:shadow-2xl hover:border-primary/30 transition-all duration-500 overflow-hidden">
 
-                  {/* Content Container */}
-                  <div className="p-8 flex flex-col flex-grow relative">
-                    {/* Subtle gradient hover background */}
-                    <div className="absolute inset-0 bg-gradient-to-b from-transparent to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
-
-                    <div className="flex items-center gap-4 text-xs font-medium text-muted-foreground mb-4">
-                      <div className="flex items-center gap-1.5">
-                        <Calendar className="w-3.5 h-3.5" />
-                        <span>{insight.date}</span>
-                      </div>
-                      <div className="flex items-center gap-1.5">
-                        <Clock className="w-3.5 h-3.5" />
-                        <span>{insight.readTime}</span>
+                    {/* Image Container */}
+                    <div className="relative w-full h-60 overflow-hidden">
+                      <div className="absolute inset-0 bg-primary/10 group-hover:bg-transparent transition-colors duration-500 z-10"></div>
+                      <Image
+                        src={imageUrl}
+                        alt={blog.title || 'Blog Post'}
+                        fill
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        className="object-cover transform transition-transform duration-700 group-hover:scale-110"
+                      />
+                      <div className="absolute top-4 left-4 z-20">
+                        <span className="inline-block px-3 py-1.5 rounded-full bg-background/80 backdrop-blur-md text-foreground text-xs font-bold tracking-wider uppercase border border-border/50 shadow-sm">
+                          {categoryName}
+                        </span>
                       </div>
                     </div>
 
-                    <h3 className="text-2xl font-bold text-foreground mb-4 group-hover:text-primary transition-colors duration-300 line-clamp-2">
-                      {insight.title}
-                    </h3>
+                    {/* Content Container */}
+                    <div className="p-8 flex flex-col flex-grow relative">
+                      {/* Subtle gradient hover background */}
+                      <div className="absolute inset-0 bg-gradient-to-b from-transparent to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
 
-                    <p className="text-muted-foreground leading-relaxed flex-grow mb-8 line-clamp-3 text-[15px]">
-                      {insight.description}
-                    </p>
+                      <div className="flex items-center gap-4 text-xs font-medium text-muted-foreground mb-4">
+                        <div className="flex items-center gap-1.5">
+                          <Calendar className="w-3.5 h-3.5" />
+                          <span>{formattedDate}</span>
+                        </div>
+                        <div className="flex items-center gap-1.5">
+                          <Clock className="w-3.5 h-3.5" />
+                          <span>{blog.readTime || '5 min read'}</span>
+                        </div>
+                      </div>
 
-                    <Link
-                      href={insight.link}
-                      className="inline-flex items-center text-sm font-bold text-primary mt-auto group/btn"
-                    >
-                      <span className="relative overflow-hidden flex h-5 items-center">
-                        <span className="inline-block transition-transform duration-300 group-hover/btn:-translate-y-full">Read Article</span>
-                        <span className="absolute top-0 left-0 inline-block transition-transform duration-300 translate-y-full group-hover/btn:translate-y-0 text-primary/80">Read Article</span>
-                      </span>
-                      <ArrowRight className="w-5 h-5 ml-2 transition-transform duration-300 group-hover/btn:translate-x-2" />
-                    </Link>
+                      <h3 className="text-2xl font-bold text-foreground mb-4 group-hover:text-primary transition-colors duration-300 line-clamp-2">
+                        {blog.title}
+                      </h3>
+
+                      <p className="text-muted-foreground leading-relaxed flex-grow mb-8 line-clamp-3 text-[15px]">
+                        {blog.excerpt || 'Read more about this topic...'}
+                      </p>
+
+                      <Link
+                        href={`/blog/${blog.slug}`}
+                        className="inline-flex items-center text-sm font-bold text-primary mt-auto group/btn"
+                      >
+                        <span className="relative overflow-hidden flex h-5 items-center">
+                          <span className="inline-block transition-transform duration-300 group-hover/btn:-translate-y-full">Read Article</span>
+                          <span className="absolute top-0 left-0 inline-block transition-transform duration-300 translate-y-full group-hover/btn:translate-y-0 text-primary/80">Read Article</span>
+                        </span>
+                        <ArrowRight className="w-5 h-5 ml-2 transition-transform duration-300 group-hover/btn:translate-x-2" />
+                      </Link>
+                    </div>
                   </div>
-                </div>
-              </SwiperSlide>
-            ))}
+                </SwiperSlide>
+              );
+            })}
           </Swiper>
         </motion.div>
       </div>

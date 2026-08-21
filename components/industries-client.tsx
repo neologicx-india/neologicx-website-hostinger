@@ -104,20 +104,11 @@ export default function IndustriesClient() {
                   <h3 className="text-2xl font-bold text-foreground mb-4 group-hover:text-primary transition-colors">
                     {industry.title}
                   </h3>
-                  <p className="text-muted-foreground leading-relaxed mb-8 flex-1">
+                  <p className="text-muted-foreground leading-relaxed  flex-1">
                     {industry.description}
                   </p>
 
-                  <div className="pt-6 border-t border-border/50 mt-auto">
-                    <p className="text-xs font-bold uppercase tracking-wider text-primary mb-2">Example Project</p>
-                    <Link
-                      href={industry.link}
-                      className="inline-flex items-center gap-2 text-sm font-semibold text-foreground hover:text-primary transition-colors"
-                    >
-                      {industry.example}
-                      <ArrowRight className="w-4 h-4" />
-                    </Link>
-                  </div>
+
                 </div>
               </motion.div>
             ))}

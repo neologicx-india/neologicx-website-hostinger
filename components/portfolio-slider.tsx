@@ -11,38 +11,11 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
-const portfolioItems = [
-  {
-    title: "BIKAJI",
-    category: "Customer Care & Commerce",
-    description: "e-commerce, mobile commerce and a structured customer-care portal with complaint tracking and WhatsApp notifications.",
-    link: "/portfolio/bikaji",
-    image: "/images/portfolio/bikaji.png"
-  },
-  {
-    title: "Public Universities",
-    category: "Web Platforms & CMS",
-    description: "Content-driven web platforms and administration-focused systems for institutions including RAJUVAS and SKRAU.",
-    link: "/portfolio/rajuvas",
-    image: "/images/portfolio/public_universities.png"
-  },
-  {
-    title: "The Jazz Café, UK",
-    category: "Operations Platform",
-    description: "Restaurant and event management workflows covering bookings, payments and event operations.",
-    link: "/portfolio/jazz-cafe",
-    image: "/images/portfolio/jazz_cafe.png"
-  },
-  {
-    title: "ECK–RTU Alumni Connect",
-    category: "Mobile App",
-    description: "Alumni discovery, events, donations and notifications across Android and iOS.",
-    link: "/portfolio/eck-alumni-connect",
-    image: "/images/portfolio/alumni_connect.png"
-  }
-];
+interface PortfolioSliderProps {
+  caseStudies?: any[];
+}
 
-export default function PortfolioSlider() {
+export default function PortfolioSlider({ caseStudies = [] }: PortfolioSliderProps) {
   const prevRef = useRef<HTMLButtonElement>(null);
   const nextRef = useRef<HTMLButtonElement>(null);
 
@@ -109,43 +82,50 @@ export default function PortfolioSlider() {
             }}
             className="w-full pb-16 px-4 sm:px-0"
           >
-            {portfolioItems.map((item, index) => (
-              <SwiperSlide key={index} className="h-auto">
-                <Link href={item.link} className="block h-[450px] group relative rounded-3xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-500">
-                  {/* Background Image */}
-                  <Image
-                    src={item.image}
-                    alt={item.title}
-                    fill
-                    className="object-cover transition-transform duration-700 group-hover:scale-110"
-                  />
+            {caseStudies.map((study, index) => {
+              const imageUrl = study.featuredImage?.url 
+                ? (study.featuredImage.url.startsWith('http') ? study.featuredImage.url : `http://localhost:1337${study.featuredImage.url}`)
+                : '/images/placeholder.jpg';
+                
+              return (
+                <SwiperSlide key={index} className="h-auto">
+                  <Link href={`/portfolio/${study.slug}`} className="block h-[450px] group relative rounded-3xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-500">
+                    {/* Background Image */}
+                    <Image
+                      src={imageUrl}
+                      alt={study.title || 'Case Study'}
+                      fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      className="object-cover transition-transform duration-700 group-hover:scale-110"
+                    />
 
-                  {/* Gradient Overlay for Text Readability */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-500"></div>
+                    {/* Gradient Overlay for Text Readability */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-500"></div>
 
-                  {/* Content Container */}
-                  <div className="absolute inset-0 p-8 flex flex-col justify-end z-10">
-                    <div className="transform transition-transform duration-500 translate-y-4 group-hover:translate-y-0">
-                      <span className="inline-block px-4 py-1.5 rounded-full bg-white/20 backdrop-blur-md text-white text-xs font-bold tracking-wider uppercase mb-4 border border-white/20">
-                        {item.category}
-                      </span>
-                      <h3 className="text-3xl font-extrabold text-white mb-3 drop-shadow-sm">{item.title}</h3>
-                      <p className="text-white/80 leading-relaxed mb-6 line-clamp-3 text-sm md:text-base">
-                        {item.description}
-                      </p>
-
-                      <div className="inline-flex items-center text-sm font-bold text-white group/btn">
-                        <span className="relative overflow-hidden flex h-5 items-center">
-                          <span className="inline-block transition-transform duration-300 group-hover/btn:-translate-y-full">View Case Study</span>
-                          <span className="absolute top-0 left-0 inline-block transition-transform duration-300 translate-y-full group-hover/btn:translate-y-0 text-primary-300">View Case Study</span>
+                    {/* Content Container */}
+                    <div className="absolute inset-0 p-8 flex flex-col justify-end z-10">
+                      <div className="transform transition-transform duration-500 translate-y-4 group-hover:translate-y-0">
+                        <span className="inline-block px-4 py-1.5 rounded-full bg-white/20 backdrop-blur-md text-white text-xs font-bold tracking-wider uppercase mb-4 border border-white/20">
+                          {study.category || 'Case Study'}
                         </span>
-                        <ArrowRight className="w-5 h-5 ml-2 transition-transform duration-300 group-hover/btn:translate-x-2 text-primary-300" />
+                        <h3 className="text-3xl font-extrabold text-white mb-3 drop-shadow-sm">{study.clientName || study.title}</h3>
+                        <p className="text-white/80 leading-relaxed mb-6 line-clamp-3 text-sm md:text-base">
+                          {study.title}
+                        </p>
+
+                        <div className="inline-flex items-center text-sm font-bold text-white group/btn">
+                          <span className="relative overflow-hidden flex h-5 items-center">
+                            <span className="inline-block transition-transform duration-300 group-hover/btn:-translate-y-full">View Case Study</span>
+                            <span className="absolute top-0 left-0 inline-block transition-transform duration-300 translate-y-full group-hover/btn:translate-y-0 text-primary-300">View Case Study</span>
+                          </span>
+                          <ArrowRight className="w-5 h-5 ml-2 transition-transform duration-300 group-hover/btn:translate-x-2 text-primary-300" />
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </Link>
-              </SwiperSlide>
-            ))}
+                  </Link>
+                </SwiperSlide>
+              );
+            })}
           </Swiper>
         </div>
       </div>

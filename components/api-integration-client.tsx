@@ -158,6 +158,7 @@ export default function ApiIntegrationClient() {
                   src="/images/api_integration_mockup.png"
                   alt="API System Integration Diagram"
                   fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   className="object-cover"
                   priority
                 />

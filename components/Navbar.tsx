@@ -49,6 +49,13 @@ const serviceCategories = [
     ],
   },
   {
+    title: 'AI & Intelligent Automation',
+    route: '/ai-development-services',
+    icon: Cpu,
+    description: 'AI knowledge assistants, connected workflows, document intelligence and AI features integrated with business systems.',
+    subLinks: [],
+  },
+  {
     title: 'Web Application Development',
     route: '/web-development-design-website',
     icon: Globe,

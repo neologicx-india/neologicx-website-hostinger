@@ -8,6 +8,8 @@ import {
   Mail, Phone, MapPin, Clock, Send, ArrowRight,
   MessageSquare, Building2, Globe2, CheckCircle2
 } from 'lucide-react';
+import OurLocations from './OurLocations';
+import GlobalLocations from './GlobalLocations';
 
 const contactInfo = [
   {
@@ -44,33 +46,6 @@ const contactInfo = [
   },
 ];
 
-const officeLocations = [
-  {
-    city: 'Rajasthan',
-    address: 'T-11128, Rangoli Garden, Near Vaishali Nagar, Maharana Pratap Road, Jaipur – 302034',
-    phone: '+91-9414138694/620'
-  },
-  {
-    city: 'Mumbai',
-    address: 'Pranava Bhargava 4th floor Plot A-59 Road Number 1 MIDC Marol Industrial Area Andheri East Mumbai 400093',
-    phone: '+91-7014156602'
-  },
-  {
-    city: 'Gujrat',
-    address: 'Gogoonj Mediacrafts LLP 1107, STC(Shivam Trade Centre), NH147, Ambli, Ahmedabad 380058',
-    phone: '+91-9099960099'
-  },
-  {
-    city: 'Gurgaon',
-    address: 'Building No, 1970, 2nd floor, Block A, Greenwood City, Sector 45, Gurugram, Haryana 122003',
-    phone: '+91-9414138694'
-  },
-  {
-    city: 'Singapore',
-    address: '177 TANJONG RHU ROAD, #07-13, SINGAPORE-436607',
-    phone: '+65 91294058'
-  }
-];
 
 
 export default function ContactClient() {
@@ -113,6 +88,7 @@ export default function ContactClient() {
             src="/images/2151893431.jpg"
             alt="Contact Neologicx"
             fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             className="object-cover opacity-80"
             priority
           />
@@ -181,7 +157,7 @@ export default function ContactClient() {
       </div>
 
       {/* Main Content: Form + Side Info */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24">
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
 
           {/* Contact Form — 3 columns */}
@@ -488,28 +464,8 @@ export default function ContactClient() {
         </div>
       </div>
 
-      {/* Our Locations */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl font-extrabold text-foreground">Our Locations</h2>
-          <p className="text-foreground mt-3">Find us across key cities to serve you better.</p>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
-          {officeLocations.map((loc, idx) => (
-            <div key={idx} className="bg-card border border-border/50 rounded-2xl p-6 shadow-sm hover:shadow-md hover:border-primary/30 transition-all duration-300 flex flex-col">
-              <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary mb-5">
-                <MapPin className="w-6 h-6" />
-              </div>
-              <h3 className="text-lg font-bold text-foreground mb-2">{loc.city}</h3>
-              <p className="text-sm text-foreground leading-relaxed mb-6 flex-1">{loc.address}</p>
-              <a href={`tel:${loc.phone.replace(/[^0-9+]/g, '')}`} className="inline-flex items-center gap-2 text-sm font-semibold text-foreground hover:text-primary/80 transition-colors mt-auto">
-                <Phone className="w-4 h-4" />
-                {loc.phone}
-              </a>
-            </div>
-          ))}
-        </div>
-      </div>
+      {/* Our Locations Section */}
+      <GlobalLocations />
 
       {/* Map Section */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 rounded-lg overflow-hidden h-[450px] relative border-t border-border/50">

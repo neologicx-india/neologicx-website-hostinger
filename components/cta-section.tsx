@@ -29,6 +29,7 @@ export default function CTASection({
           src="/images/cta.jpg"
           alt="Call to action background"
           fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           className="object-cover opacity-80"
         />
         {/* Premium Dark Overlay */}

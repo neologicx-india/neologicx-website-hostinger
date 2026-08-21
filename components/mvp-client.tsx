@@ -70,7 +70,7 @@ export default function MvpClient() {
         backgroundImage="/images/insights_hero_bg.png"
         actionLinks={[
           { label: "Scope Your MVP", href: "/contact" },
-          { label: "Explore Product Engineering", href: "/product-engineering-services" }
+          { label: "Explore Product Engineering", href: "/product-engineering" }
         ]}
       />
 
@@ -124,6 +124,7 @@ export default function MvpClient() {
                   src="/images/mvp_scope_funnel.png"
                   alt="MVP Scope Funnel mapping problem to roadmap"
                   fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   className="object-cover"
                   priority
                 />

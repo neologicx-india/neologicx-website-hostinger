@@ -121,6 +121,7 @@ export default function EcommerceClient() {
                   src="/images/ecommerce_mockups.png"
                   alt="E-commerce Storefront Mockups"
                   fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   className="object-cover"
                   priority
                 />

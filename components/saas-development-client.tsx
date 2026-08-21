@@ -1,11 +1,11 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { 
-  Users, 
-  Layers, 
-  CreditCard, 
-  BarChart, 
+import {
+  Users,
+  Layers,
+  CreditCard,
+  BarChart,
   Wrench,
   ArrowRight,
   Server
@@ -52,14 +52,14 @@ export default function SaasDevelopmentClient() {
         backgroundImage="/images/insights_hero_bg.png"
         actionLinks={[
           { label: "Discuss Your SaaS Product", href: "/contact" },
-          { label: "Explore Product Engineering", href: "/product-engineering-services" }
+          { label: "Explore Product Engineering", href: "/product-engineering" }
         ]}
       />
 
       {/* SaaS Capabilities Grid */}
       <section className="py-24 relative overflow-hidden">
         <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[120px] -z-10 translate-x-1/3 -translate-y-1/3" />
-        
+
         <div className="container mx-auto px-6 max-w-7xl">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-3xl md:text-5xl font-bold font-serif text-foreground mb-6">
@@ -98,12 +98,12 @@ export default function SaasDevelopmentClient() {
       {/* Architecture & CTA Section */}
       <section className="py-24 relative overflow-hidden bg-muted/20 border-y border-border/50">
         <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[100px] -z-10 -translate-x-1/4 translate-y-1/4" />
-        
+
         <div className="container mx-auto px-6 max-w-7xl">
           <div className="flex flex-col lg:flex-row gap-16 items-center mb-0">
             {/* Left Side: Product Model Text & CTA */}
             <div className="w-full lg:w-1/2">
-              <motion.h2 
+              <motion.h2
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
@@ -111,8 +111,8 @@ export default function SaasDevelopmentClient() {
               >
                 Start with the <span className="text-primary">product model</span>
               </motion.h2>
-              
-              <motion.p 
+
+              <motion.p
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
@@ -122,7 +122,7 @@ export default function SaasDevelopmentClient() {
                 The right SaaS architecture depends on more than expected traffic.
               </motion.p>
 
-              <motion.p 
+              <motion.p
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
@@ -160,6 +160,7 @@ export default function SaasDevelopmentClient() {
                   src="/images/saas_architecture.png"
                   alt="SaaS Platform Architecture Layers"
                   fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   className="object-cover"
                   priority
                 />

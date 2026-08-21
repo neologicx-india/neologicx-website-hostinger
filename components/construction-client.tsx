@@ -163,6 +163,7 @@ export default function ConstructionClient() {
                   src="/images/construction_dashboard_mockup.png"
                   alt="Construction Operations Rugged Dashboard Mockup"
                   fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   className="object-cover"
                   priority
                 />

@@ -200,6 +200,7 @@ export default function MobileAppClient() {
                   src="/images/mobile_mockups.png"
                   alt="Mobile Portfolio Examples"
                   fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   className="object-contain p-8 drop-shadow-2xl"
                   priority
                 />

@@ -56,6 +56,7 @@ export default function AboutClient() {
             src="/images/about_team.png"
             alt="Neologicx Team"
             fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             className="object-cover opacity-80"
             priority
           />

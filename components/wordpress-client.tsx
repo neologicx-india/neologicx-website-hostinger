@@ -153,6 +153,7 @@ export default function WordpressClient() {
                   src="/images/wordpress_cms_mockup.png"
                   alt="Modern Content Management System Mockup"
                   fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   className="object-cover"
                   priority
                 />

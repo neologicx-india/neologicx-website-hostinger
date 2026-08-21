@@ -225,6 +225,7 @@ export default function ErpClient() {
                   src="/images/erp_data_core.png"
                   alt="Custom ERP Data Core with Manufacturing and Engineering Modules"
                   fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   className="object-cover"
                   priority
                 />

@@ -186,6 +186,7 @@ export default function CustomSoftwareClient() {
                   src="/iso2.png"
                   alt="System Maps and Workflows"
                   fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   className="object-cover mix-blend-multiply bg-background"
                   priority
                 />

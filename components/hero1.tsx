@@ -174,6 +174,7 @@ export default function HeroNew() {
                                                     src={slide.image}
                                                     alt={`${slide.title} ${slide.highlight}`}
                                                     fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                                                     className="object-contain object-center mix-blend-multiply"
                                                     priority
                                                 />

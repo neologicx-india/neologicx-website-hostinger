@@ -117,6 +117,7 @@ export default function GlobalDelivery() {
                src="/images/global_delivery.png"
                alt="Global Delivery and Remote Offshore Teams"
                fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                className="object-cover transform transition-transform duration-1000 group-hover:scale-110"
                priority
              />

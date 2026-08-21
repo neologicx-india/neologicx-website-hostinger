@@ -163,6 +163,7 @@ export default function CrmClient() {
                   src="/images/crm_dashboard_pipeline.png"
                   alt="Custom CRM Dashboard and Workflow Pipeline"
                   fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   className="object-cover"
                   priority
                 />

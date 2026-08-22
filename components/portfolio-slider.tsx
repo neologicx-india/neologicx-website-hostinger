@@ -83,10 +83,11 @@ export default function PortfolioSlider({ caseStudies = [] }: PortfolioSliderPro
             className="w-full pb-16 px-4 sm:px-0"
           >
             {caseStudies.map((study, index) => {
-              const imageUrl = study.featuredImage?.url 
-                ? (study.featuredImage.url.startsWith('http') ? study.featuredImage.url : `http://localhost:1337${study.featuredImage.url}`)
+              const baseUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:1337';
+              const imageUrl = study.featuredImage?.url
+                ? (study.featuredImage.url.startsWith('http') ? study.featuredImage.url : `${baseUrl}${study.featuredImage.url}`)
                 : '/images/placeholder.jpg';
-                
+
               return (
                 <SwiperSlide key={index} className="h-auto">
                   <Link href={`/portfolio/${study.slug}`} className="block h-[450px] group relative rounded-3xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-500">

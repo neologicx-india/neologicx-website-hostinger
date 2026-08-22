@@ -42,7 +42,7 @@ const internationalLocations: Location[] = [
   },
   {
     city: "Dubai",
-    address: "Office 302, Business Bay Tower, Dubai, UAE – 00000",
+    address: "502, Al Nasr Plaza, Oud Metha , Dubai",
   },
   {
     city: "Malaysia",

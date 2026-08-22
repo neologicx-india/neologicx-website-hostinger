@@ -16,6 +16,7 @@ import {
   ArrowRight
 } from 'lucide-react';
 import PageHero from '@/components/page-hero';
+import CTASection from './cta-section';
 
 const approachSteps = [
   {
@@ -47,7 +48,7 @@ const approachSteps = [
 
 export default function AboutClient() {
   return (
-    <div className="w-full bg-background min-h-screen pb-24">
+    <div className="w-full bg-background min-h-screen">
       {/* Custom Hero Section for About Page */}
       <div className="relative w-full min-h-[600px] lg:min-h-[80vh] flex items-center justify-center overflow-hidden bg-slate-950 pt-[140px] pb-[100px]">
         {/* Background Image */}
@@ -56,7 +57,7 @@ export default function AboutClient() {
             src="/images/about_team.png"
             alt="Neologicx Team"
             fill
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             className="object-cover opacity-80"
             priority
           />
@@ -223,7 +224,7 @@ export default function AboutClient() {
         </div>
 
         {/* Bottom CTA */}
-        <div className="bg-primary/5 border border-primary/10 rounded-3xl p-12 text-center flex flex-col items-center">
+        {/* <div className="bg-primary/5 border border-primary/10 rounded-3xl p-12 text-center flex flex-col items-center">
           <h2 className="text-3xl font-bold text-foreground mb-6">Ready to explore our work?</h2>
           <p className="text-foreground text-lg mb-8 max-w-2xl mx-auto">
             Our new website deliberately avoids generic claims. Instead, explore our case studies to see the business context, workflows and solution scope behind selected projects.
@@ -235,9 +236,16 @@ export default function AboutClient() {
             View Case Studies
             <ArrowRight className="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1" />
           </Link>
-        </div>
+        </div> */}
 
       </div>
+      {/* Final CTA Section */}
+      <CTASection
+        title="Ready to explore our work?"
+        description="Our new website deliberately avoids generic claims. Instead, explore our case studies to see the business context, workflows and solution scope behind selected projects."
+        ctaText="View Case Studies"
+        ctaLink="/portfolio"
+      />
     </div>
   );
 }

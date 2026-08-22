@@ -106,13 +106,13 @@ export default function InsightsSlider({ blogs = [] }: InsightsSliderProps) {
           >
             {blogs.map((blog, index) => {
               const baseUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:1337';
-              const imageUrl = blog.featuredImage?.url 
+              const imageUrl = blog.featuredImage?.url
                 ? (blog.featuredImage.url.startsWith('http') ? blog.featuredImage.url : `${baseUrl}${blog.featuredImage.url}`)
                 : '/images/placeholder.jpg';
-                
+
               const dateObj = new Date(blog.publishedAt || Date.now());
               const formattedDate = dateObj.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
-              
+
               const categoryName = blog.categories?.[0]?.name || 'Technology';
 
               return (

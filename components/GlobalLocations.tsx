@@ -45,7 +45,7 @@ const internationalLocations: Location[] = [
     address: "Office 302, Business Bay Tower, Dubai, UAE – 00000",
   },
   {
-    city: "Kuala Lumpur",
+    city: "Malaysia",
     address:
       "MTECHNIX SDN. BHD. (1411006-H), 3B-10-7, Plaza Sentral, Jalan Stesen Sentral 5, KL Sentral, 50470 Kuala Lumpur, Malaysia",
   },

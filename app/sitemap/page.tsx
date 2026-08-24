@@ -7,6 +7,8 @@ export const metadata: Metadata = {
   description: 'HTML Sitemap for Neologicx Custom Software & Product Engineering',
 };
 
+export const dynamic = 'force-dynamic';
+
 const mainPages = [
   { name: 'Home', url: '/' },
   { name: 'About Us', url: '/about-us' },

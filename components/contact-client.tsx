@@ -62,6 +62,7 @@ export default function ContactClient() {
   });
   const [file, setFile] = useState<File | null>(null);
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const target = e.target;
@@ -72,10 +73,64 @@ export default function ContactClient() {
     }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const getBase64 = (file: File): Promise<string> => {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = () => {
+        let encoded = reader.result as string;
+        encoded = encoded.split(',')[1]; // Remove data:mime/type;base64,
+        resolve(encoded);
+      };
+      reader.onerror = error => reject(error);
+    });
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Form submitted:', formData, 'File:', file);
-    setSubmitted(true);
+    
+    setLoading(true);
+
+    let fileData = null;
+    let fileName = null;
+    let mimeType = null;
+
+    if (file) {
+      try {
+        fileData = await getBase64(file);
+        fileName = file.name;
+        mimeType = file.type || 'application/octet-stream';
+      } catch (err) {
+        console.error("Error encoding file", err);
+      }
+    }
+
+    const payload = {
+      ...formData,
+      fileData,
+      fileName,
+      mimeType
+    };
+
+    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwLRvd22fPlumKunmy1Vb8QCBgLhQH2Jl_ElGJlbhLeyTtCdHSWQG-d-08XHhDyBoyd6Q/exec";
+
+    try {
+      await fetch(SCRIPT_URL, {
+        method: "POST",
+        mode: "no-cors",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
+
+      setSubmitted(true);
+    } catch (error) {
+      console.error(error);
+      alert("Something went wrong. Please try again.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -364,12 +419,12 @@ export default function ContactClient() {
                   {/* Submit */}
                   <button
                     type="submit"
-                    disabled={!formData.privacyConsent}
+                    disabled={!formData.privacyConsent || loading}
                     className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 bg-primary text-primary-foreground rounded-full font-bold text-base hover:bg-primary/90 hover:shadow-xl transition-all hover:-translate-y-0.5 group disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:translate-y-0"
                   >
                     <Send className="w-4 h-4 mr-2" />
-                    Submit Inquiry
-                    <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
+                    {loading ? "Submitting..." : "Submit Inquiry"}
+                    {!loading && <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />}
                   </button>
                 </form>
               </div>

@@ -204,7 +204,7 @@ export default function Navbar() {
                     const ActiveIcon = activeCat.icon;
                     return (
                       <div className="animate-in fade-in slide-in-from-right-4 duration-300 fill-mode-both" key={activeServiceIdx}>
-                        <Link 
+                        <Link
                           href={activeCat.route}
                           onClick={() => setServicesDropdown(false)}
                           className="group flex items-start gap-5 mb-8 p-3 -m-3 rounded-xl hover:bg-muted/30 transition-colors"
@@ -290,7 +290,8 @@ export default function Navbar() {
         {/* RIGHT ACTIONS */}
         <div className="flex items-center gap-4 shrink-0">
           <Link
-            href="/contact"
+            href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ2IeIsn89ZwrzAlQV0dnwjgUe7ZbIphty-0fC8xEzR2MOWpk3P4_lfCMyzKUU-EsGYuec7Zxqaf"
+            target="_blank"
             className="hidden md:inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full bg-primary text-primary-foreground text-sm font-medium hover:bg-primary/90 transition-colors shadow-sm"
           >
             <MessageSquare className="w-4 h-4" />
@@ -383,7 +384,8 @@ export default function Navbar() {
 
           {/* Mobile CTA */}
           <Link
-            href="/contact"
+            href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ2IeIsn89ZwrzAlQV0dnwjgUe7ZbIphty-0fC8xEzR2MOWpk3P4_lfCMyzKUU-EsGYuec7Zxqaf"
+            target="_blank"
             onClick={closeMenu}
             className="mt-4 w-full flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-primary text-primary-foreground text-sm font-semibold hover:bg-primary/90 transition-colors"
           >

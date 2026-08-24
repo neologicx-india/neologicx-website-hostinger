@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useState, useMemo } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
@@ -21,6 +21,30 @@ export default function PortfolioClient() {
   });
 
   const caseStudies = response?.data || [];
+
+  const [activeCategory, setActiveCategory] = useState<string>('All');
+
+  const { categories, categoryCounts } = useMemo(() => {
+    const counts: Record<string, number> = { 'All': caseStudies.length };
+    const cats = new Set<string>();
+    cats.add('All');
+    
+    caseStudies.forEach((study: any) => {
+      const category = study.category || study.clientName || 'Case Study';
+      cats.add(category);
+      counts[category] = (counts[category] || 0) + 1;
+    });
+    
+    return { categories: Array.from(cats), categoryCounts: counts };
+  }, [caseStudies]);
+
+  const filteredCaseStudies = useMemo(() => {
+    if (activeCategory === 'All') return caseStudies;
+    return caseStudies.filter((study: any) => {
+      const category = study.category || study.clientName || 'Case Study';
+      return category === activeCategory;
+    });
+  }, [caseStudies, activeCategory]);
 
   return (
     <div className="w-full bg-background min-h-screen pb-24">
@@ -47,10 +71,36 @@ export default function PortfolioClient() {
           </div>
         )}
 
+        {/* Category Filters */}
+        {!isLoading && !error && caseStudies.length > 0 && (
+          <div className="flex flex-wrap items-center justify-center gap-3 mb-12">
+            {categories.map((category) => (
+              <button
+                key={category}
+                onClick={() => setActiveCategory(category)}
+                className={`flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 ${
+                  activeCategory === category
+                    ? 'bg-primary text-primary-foreground shadow-md'
+                    : 'bg-muted/50 text-muted-foreground hover:bg-muted hover:text-foreground'
+                }`}
+              >
+                {category}
+                <span className={`flex items-center justify-center min-w-[24px] h-6 px-1.5 rounded-full text-[11px] font-bold ${
+                  activeCategory === category
+                    ? 'bg-primary-foreground/20 text-primary-foreground'
+                    : 'bg-background shadow-sm text-muted-foreground'
+                }`}>
+                  {categoryCounts[category]}
+                </span>
+              </button>
+            ))}
+          </div>
+        )}
+
         {/* Case Studies Grid */}
         {!isLoading && !error && (
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
-            {caseStudies.map((study: any, index: number) => {
+            {filteredCaseStudies.map((study: any, index: number) => {
               const num = (index + 1).toString().padStart(2, '0');
               const category = study.category || study.clientName || 'Case Study';
               const link = `/portfolio/${study.slug}`;

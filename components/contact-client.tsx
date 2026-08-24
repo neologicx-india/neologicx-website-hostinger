@@ -322,13 +322,13 @@ export default function ContactClient() {
                       className="w-full px-4 py-3 rounded-xl border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all text-sm appearance-none"
                     >
                       <option value="">Select a service...</option>
-                      <option value="product-engineering">Product Engineering</option>
-                      <option value="custom-software">Custom Software</option>
-                      <option value="web">Web Development</option>
-                      <option value="mobile">Mobile App Development</option>
-                      <option value="ecommerce">E-commerce</option>
-                      <option value="integration-automation">Integration & Automation</option>
-                      <option value="other">Other</option>
+                      <option value="Product Engineering">Product Engineering</option>
+                      <option value="Custom Software">Custom Software</option>
+                      <option value="Web Development">Web Development</option>
+                      <option value="Mobile App Development">Mobile App Development</option>
+                      <option value="E-commerce">E-commerce</option>
+                      <option value="Integration & Automation">Integration & Automation</option>
+                      <option value="Other">Other</option>
                     </select>
                   </div>
 
@@ -359,11 +359,11 @@ export default function ContactClient() {
                         className="w-full px-4 py-3 rounded-xl border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all text-sm appearance-none"
                       >
                         <option value="">Select range...</option>
-                        <option value="under-5l">Under ₹5 Lakh</option>
-                        <option value="5l-15l">₹5 – 15 Lakh</option>
-                        <option value="15l-50l">₹15 – 50 Lakh</option>
-                        <option value="50l+">₹50 Lakh+</option>
-                        <option value="not-sure">Not sure yet</option>
+                        <option value="Under ₹5 Lakh">Under ₹5 Lakh</option>
+                        <option value="₹5 – 15 Lakh">₹5 – 15 Lakh</option>
+                        <option value="₹15 – 50 Lakh">₹15 – 50 Lakh</option>
+                        <option value="₹50 Lakh+">₹50 Lakh+</option>
+                        <option value="Not sure yet">Not sure yet</option>
                       </select>
                     </div>
                     <div>
@@ -376,11 +376,11 @@ export default function ContactClient() {
                         className="w-full px-4 py-3 rounded-xl border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all text-sm appearance-none"
                       >
                         <option value="">Select timeline...</option>
-                        <option value="immediately">Immediately</option>
-                        <option value="1-2-weeks">Within 1–2 weeks</option>
-                        <option value="1-month">Within 1 month</option>
-                        <option value="1-3-months">1–3 months</option>
-                        <option value="flexible">Flexible / Not decided</option>
+                        <option value="Immediately">Immediately</option>
+                        <option value="Within 1–2 weeks">Within 1–2 weeks</option>
+                        <option value="Within 1 month">Within 1 month</option>
+                        <option value="1–3 months">1–3 months</option>
+                        <option value="Flexible / Not decided">Flexible / Not decided</option>
                       </select>
                     </div>
                   </div>

@@ -88,7 +88,7 @@ export default function ContactClient() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     setLoading(true);
 
     let fileData = null;
@@ -112,7 +112,7 @@ export default function ContactClient() {
       mimeType
     };
 
-    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwLRvd22fPlumKunmy1Vb8QCBgLhQH2Jl_ElGJlbhLeyTtCdHSWQG-d-08XHhDyBoyd6Q/exec";
+    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzRr3WJDb1Qa6XhTk-rvQmorerbg3KxXCXapm5BAP8YVJfVch5Yuy-Yp5qYXs12_BdL/exec";
 
     try {
       await fetch(SCRIPT_URL, {

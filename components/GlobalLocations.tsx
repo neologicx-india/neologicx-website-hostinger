@@ -22,7 +22,7 @@ const indiaLocations: Location[] = [
   {
     city: "Mumbai",
     address:
-      "4th floor Plot A-59 Road Number 1 MIDC Marol Industrial Area Andheri East Mumbai - 400093",
+      "4th floor, Plot A-59, Road Number 1, MIDC Marol Industrial Area, Andheri East, Mumbai - 400093",
   },
   {
     city: "Gujarat",

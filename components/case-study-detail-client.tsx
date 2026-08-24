@@ -4,7 +4,7 @@ import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { ArrowLeft, ArrowRight, CheckCircle2, Code2, Clock, Users2, BarChart3 } from 'lucide-react';
+import { ArrowLeft, ArrowRight, CheckCircle2, Code2, Clock, Users2, BarChart3, MessageCircleQuestion, Layers } from 'lucide-react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Autoplay } from 'swiper/modules';
 import 'swiper/css';
@@ -47,12 +47,16 @@ function extractTechNames(blocks: any[]): string[] {
 
 interface CaseStudyDetailClientProps {
   slug: string;
+  initialData?: any;
 }
 
-export default function CaseStudyDetailClient({ slug }: CaseStudyDetailClientProps) {
+export default function CaseStudyDetailClient({ slug, initialData }: CaseStudyDetailClientProps) {
+
   const { data, isLoading, error } = useQuery({
     queryKey: ['caseStudy', slug],
     queryFn: () => strapiService.getCaseStudyBySlug(slug),
+    initialData: initialData,
+    staleTime: 60 * 1000
   });
 
   if (isLoading) {
@@ -93,7 +97,7 @@ export default function CaseStudyDetailClient({ slug }: CaseStudyDetailClientPro
         <div className="absolute inset-0 z-0">
           <Image
             src={heroImageUrl}
-            alt={data.title}
+            alt={`${data.title} — ${data.category} case study by Neologicx`}
             fill
             sizes="100vw"
             className="object-cover"
@@ -208,7 +212,34 @@ export default function CaseStudyDetailClient({ slug }: CaseStudyDetailClientPro
             </div>
           </div>
         </motion.div>
+        {/* Our Approach / Process */}
+        {data.approach && data.approach.length > 0 && (
+          <div className="mb-24">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="text-center mb-12"
+            >
+              <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-primary/50 bg-primary/10 text-sm font-semibold tracking-wider text-primary uppercase mb-4">
+                <Layers className="w-4 h-4" />
+                Overview
+              </span>
+              <h2 className="text-3xl md:text-4xl font-extrabold text-foreground tracking-tight">Project Overview</h2>
+            </motion.div>
 
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="bg-card border border-border/50 rounded-3xl p-8 md:p-10"
+            >
+              <StrapiRichText content={data.approach} />
+            </motion.div>
+          </div>
+        )}
         {/* Challenge & Solution */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-24">
           {data.challenge && (
@@ -382,6 +413,49 @@ export default function CaseStudyDetailClient({ slug }: CaseStudyDetailClientPro
             >
               <StrapiRichText content={data.results} />
             </motion.div>
+          </div>
+        )}
+
+
+
+        {/* FAQs */}
+        {data.faqs && data.faqs.length > 0 && (
+          <div className="mb-24 max-w-4xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="text-center mb-12"
+            >
+              <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-primary/50 bg-primary/10 text-sm font-semibold tracking-wider text-primary uppercase mb-4">
+                <MessageCircleQuestion className="w-4 h-4" />
+                Q&A
+              </span>
+              <h2 className="text-3xl md:text-4xl font-extrabold text-foreground tracking-tight">Project FAQs</h2>
+            </motion.div>
+
+            <div className="space-y-6">
+              {data.faqs.map((faq: { question: string; answer: string }, idx: number) => {
+                return (
+                  <motion.div
+                    key={idx}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: idx * 0.1 }}
+                    className="bg-card border border-border/50 rounded-2xl p-6 md:p-8 shadow-sm hover:shadow-md hover:border-primary/30 transition-all duration-300"
+                  >
+                    <h3 className="text-xl font-bold text-foreground mb-4">
+                      {faq.question}
+                    </h3>
+                    <div className="text-muted-foreground leading-relaxed whitespace-pre-wrap">
+                      {faq.answer}
+                    </div>
+                  </motion.div>
+                );
+              })}
+            </div>
           </div>
         )}
 

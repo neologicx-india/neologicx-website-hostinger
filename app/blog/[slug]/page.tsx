@@ -15,7 +15,7 @@ export async function generateMetadata(
 
   if (!blog) {
     return {
-      title: 'Insight Not Found | Neologicx',
+      title: `Insight: ${slug} | Neologicx`,
     };
   }
 
@@ -27,10 +27,22 @@ export async function generateMetadata(
     title: seo.metaTitle || `${blog.title} | Neologicx Insights`,
     description: seo.metaDescription || blog.excerpt,
     openGraph: {
-      title: seo.ogTitle || blog.title,
-      description: seo.ogDescription || blog.excerpt,
-      images: imgUrl ? [imgUrl] : [],
+      title: seo.ogTitle || seo.metaTitle || blog.title,
+      description: seo.ogDescription || seo.metaDescription || blog.excerpt,
+      images: imgUrl ? [{ url: imgUrl }] : undefined,
+      type: 'article',
     },
+    twitter: {
+      card: 'summary_large_image',
+      title: seo.twitterTitle || seo.metaTitle || blog.title,
+      description: seo.twitterDescription || seo.metaDescription || blog.excerpt,
+      images: imgUrl ? [imgUrl] : undefined,
+    },
+    alternates: {
+      canonical: seo.canonicalUrl || `https://neologicx.com/blog/${slug}/`,
+    },
+    robots: seo.robots || 'index, follow',
+    keywords: blog.categories?.map((cat: any) => cat.name).join(', '),
   };
 }
 
@@ -62,5 +74,15 @@ export default async function InsightDetailPage({ params }: Props) {
     content: blog.content
   };
 
-  return <InsightDetailClient initialInsight={mappedBlog} />;
+  return (
+    <>
+      {blog.seo?.structuredData && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(blog.seo.structuredData) }}
+        />
+      )}
+      <InsightDetailClient initialInsight={mappedBlog} />
+    </>
+  );
 }

@@ -21,17 +21,16 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-import HeroNew from '@/components/hero1'
-import Intro from '@/components/intro'
-import Features from '@/components/features'
-import PortfolioSlider from '@/components/portfolio-slider'
-import Process from '@/components/process'
-import GlobalDelivery from '@/components/global-delivery'
-import CTASection from '@/components/cta-section'
-import InsightsSlider from '@/components/insights-slider'
-import LocationsSection from '@/components/locations-section'
-import GlobalLocations from '@/components/GlobalLocations';
-import OurLocations from '@/components/OurLocations';
+import HeroNew from '@/components/hero1';
+import Intro from '@/components/intro';
+import Features from '@/components/features';
+import dynamic from 'next/dynamic';
+
+const PortfolioSlider = dynamic(() => import('@/components/portfolio-slider'), { ssr: true });
+const Process = dynamic(() => import('@/components/process'), { ssr: true });
+const GlobalDelivery = dynamic(() => import('@/components/global-delivery'), { ssr: true });
+const InsightsSlider = dynamic(() => import('@/components/insights-slider'), { ssr: true });
+const GlobalLocations = dynamic(() => import('@/components/GlobalLocations'), { ssr: true });
 
 export default async function Home() {
   const [caseStudiesRes, blogsRes] = await Promise.all([

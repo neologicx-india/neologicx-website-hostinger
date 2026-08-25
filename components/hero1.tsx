@@ -180,7 +180,7 @@ export default function HeroNew() {
                                                     fill
                                                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                                                     className="object-contain object-center mix-blend-multiply"
-                                                    priority
+                                                    priority={index === 0}
                                                 />
                                             </motion.div>
                                         )}

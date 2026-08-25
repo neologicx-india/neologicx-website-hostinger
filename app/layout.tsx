@@ -2,7 +2,7 @@
 import type { Metadata, Viewport } from 'next'
 import './globals.css'
 import Navbar from '@/components/Navbar'
-import Footer from '@/components/footer'
+
 import QueryProvider from '@/components/QueryProvider'
 export const metadata: Metadata = {
   metadataBase: new URL('https://neologicx.com'),
@@ -13,8 +13,8 @@ export const metadata: Metadata = {
   description: 'Custom software and product engineering for web, mobile, SaaS, business systems, e-commerce and integrations.',
   authors: [{ name: 'Neologicx Resources Pvt Ltd' }],
   icons: {
-    icon: '/icon.png',
-    apple: '/apple-icon.png',
+    icon: '/neo_logo.png',
+    apple: '/neo_logo.png',
   },
 }
 
@@ -26,7 +26,10 @@ export const viewport: Viewport = {
   maximumScale: 1,
 }
 
-import WhatsAppWidget from '@/components/whatsapp-widget'
+import dynamic from 'next/dynamic'
+
+const Footer = dynamic(() => import('@/components/footer'), { ssr: true })
+const WhatsAppWidget = dynamic(() => import('@/components/whatsapp-widget'))
 
 const jsonLd = {
   '@context': 'https://schema.org',

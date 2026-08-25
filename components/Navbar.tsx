@@ -146,7 +146,8 @@ export default function Navbar() {
 
             {/* Mega Menu Dropdown */}
             <div className={cn(
-              "absolute top-[calc(100%-10px)] left-1/2 -translate-x-1/2 w-[900px] bg-background border border-border/50 rounded-xl shadow-2xl transition-all duration-200 overflow-hidden",
+              "absolute left-1/2 -translate-x-1/2 w-[900px] bg-background border border-border/50 rounded-xl shadow-2xl transition-all duration-200 overflow-hidden",
+              isScrolled ? "top-[calc(100%-10px)]" : "top-[calc(100%-22px)]",
               servicesDropdown ? "opacity-100 visible translate-y-0" : "opacity-0 invisible translate-y-4 pointer-events-none"
             )}>
               {/* Invisible bridge to keep hover active */}

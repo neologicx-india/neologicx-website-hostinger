@@ -79,7 +79,7 @@ export default function AiDevelopmentClient() {
         description="Turn business knowledge, documents and repetitive processes into useful AI-enabled experiences. We build intelligent assistants and connected workflows that work with your existing applications, APIs and business data."
         backgroundImage="/images/insights_hero_bg.png"
         actionLinks={[
-          { label: "Discuss Your AI Use Case", href: "/contact/?service=ai" },
+          { label: "Discuss Your AI Use Case", href: "/contact" },
           { label: "Explore Our AI Work", href: "/portfolio" }
         ]}
       />

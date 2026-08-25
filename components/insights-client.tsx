@@ -67,7 +67,7 @@ export default function InsightsClient({ initialCategories = ['All'] }: Insights
         description="Lessons, patterns and decision guides from product delivery, custom software, mobile development, integrations, automation and modernization."
         backgroundImage="/images/insights_hero_bg.png"
         actionLinks={[
-          { label: 'Explore Latest Insights', href: '#insights-grid' },
+          { label: 'Explore Our Work', href: '/portfolio' },
           { label: 'Discuss a Project', href: '/contact' }
         ]}
       />
@@ -119,7 +119,7 @@ export default function InsightsClient({ initialCategories = ['All'] }: Insights
                         src={insight.heroImage}
                         alt={insight.title}
                         fill
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                         className="object-cover transition-transform duration-700 group-hover:scale-110"
                         priority={idx <= 2}
                       />

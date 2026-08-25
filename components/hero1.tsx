@@ -19,7 +19,8 @@ const slides = [
         highlight: "Development",
         subtitle: "End-to-end SaaS and MVP development tailored for scale. We build robust architectures that grow with your business.",
         image: "/iso1-Photoroom.png",
-        link: "/product-engineering"
+        link: "https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ2IeIsn89ZwrzAlQV0dnwjgUe7ZbIphty-0fC8xEzR2MOWpk3P4_lfCMyzKUU-EsGYuec7Zxqaf"
+
     },
     {
         id: 2,
@@ -28,7 +29,8 @@ const slides = [
         highlight: "Systems",
         subtitle: "Streamline operations with custom ERPs, CRMs, and business workflows. Empower your team with intelligent automation.",
         image: "/iso2.png",
-        link: "/custom-software-development"
+        link: "https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ2IeIsn89ZwrzAlQV0dnwjgUe7ZbIphty-0fC8xEzR2MOWpk3P4_lfCMyzKUU-EsGYuec7Zxqaf"
+
     },
     {
         id: 3,
@@ -37,7 +39,8 @@ const slides = [
         highlight: "Engineering",
         subtitle: "Seamless mobile experiences and robust e-commerce architectures. Deliver value to your customers wherever they are.",
         image: "/iso3-Photoroom.png",
-        link: "/mobile-app-development-android-ios-flutter"
+        link: "https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ2IeIsn89ZwrzAlQV0dnwjgUe7ZbIphty-0fC8xEzR2MOWpk3P4_lfCMyzKUU-EsGYuec7Zxqaf"
+
     }
 ];
 
@@ -106,6 +109,7 @@ export default function HeroNew() {
                                                 <div className="flex flex-col gap-4 sm:flex-row sm:items-center mb-14">
                                                     <Link
                                                         href={slide.link}
+                                                        target="_blank"
                                                         className="group inline-flex items-center justify-center gap-2 rounded-full bg-primary px-7 py-3.5 text-sm font-semibold text-primary-foreground transition-all hover:scale-[1.03] hover:bg-primary/90 shadow-lg shadow-primary/20"
                                                     >
                                                         Start Your Project
@@ -124,7 +128,7 @@ export default function HeroNew() {
                                                         </svg>
                                                     </Link>
                                                     <Link
-                                                        href="#work"
+                                                        href="/portfolio"
                                                         className="inline-flex items-center justify-center gap-2 rounded-full border border-border bg-background px-7 py-3.5 text-sm font-semibold text-foreground transition-colors hover:bg-muted"
                                                     >
                                                         View Our Work
@@ -174,7 +178,7 @@ export default function HeroNew() {
                                                     src={slide.image}
                                                     alt={`${slide.title} ${slide.highlight}`}
                                                     fill
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                                                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                                                     className="object-contain object-center mix-blend-multiply"
                                                     priority
                                                 />

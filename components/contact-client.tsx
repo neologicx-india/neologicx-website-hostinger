@@ -15,16 +15,16 @@ const contactInfo = [
   {
     icon: Mail,
     label: 'Email Us',
-    value: 'hello@neologicx.com',
-    href: 'mailto:hello@neologicx.com',
+    value: 'support@neologicx.com',
+    href: 'mailto:support@neologicx.com',
     color: 'text-blue-500',
     bg: 'bg-blue-500/10',
   },
   {
     icon: Phone,
     label: 'Call Us',
-    value: '+91 151 252 4697',
-    href: 'tel:+911512524697',
+    value: '+91 94141 38694',
+    href: 'tel:+919414138694',
     color: 'text-green-500',
     bg: 'bg-green-500/10',
   },
@@ -283,14 +283,13 @@ export default function ContactClient() {
                   {/* Company/Website & Country/Timezone */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                     <div>
-                      <label htmlFor="contact-company-website" className="block text-sm font-semibold text-foreground mb-2">Company / Website *</label>
+                      <label htmlFor="contact-company-website" className="block text-sm font-semibold text-foreground mb-2">Company / Website <span className="text-foreground font-normal">(optional)</span></label>
                       <input
                         id="contact-company-website"
                         type="text"
                         name="companyWebsite"
                         value={formData.companyWebsite}
                         onChange={handleChange}
-                        required
                         placeholder="Your company or website URL"
                         className="w-full px-4 py-3 rounded-xl border border-border bg-background text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all text-sm"
                       />

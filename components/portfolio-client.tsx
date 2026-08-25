@@ -28,13 +28,13 @@ export default function PortfolioClient() {
     const counts: Record<string, number> = { 'All': caseStudies.length };
     const cats = new Set<string>();
     cats.add('All');
-    
+
     caseStudies.forEach((study: any) => {
       const category = study.category || study.clientName || 'Case Study';
       cats.add(category);
       counts[category] = (counts[category] || 0) + 1;
     });
-    
+
     return { categories: Array.from(cats), categoryCounts: counts };
   }, [caseStudies]);
 
@@ -78,18 +78,16 @@ export default function PortfolioClient() {
               <button
                 key={category}
                 onClick={() => setActiveCategory(category)}
-                className={`flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 ${
-                  activeCategory === category
+                className={`flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 ${activeCategory === category
                     ? 'bg-primary text-primary-foreground shadow-md'
                     : 'bg-muted/50 text-muted-foreground hover:bg-muted hover:text-foreground'
-                }`}
+                  }`}
               >
                 {category}
-                <span className={`flex items-center justify-center min-w-[24px] h-6 px-1.5 rounded-full text-[11px] font-bold ${
-                  activeCategory === category
+                <span className={`flex items-center justify-center min-w-[24px] h-6 px-1.5 rounded-full text-[11px] font-bold ${activeCategory === category
                     ? 'bg-primary-foreground/20 text-primary-foreground'
                     : 'bg-background shadow-sm text-muted-foreground'
-                }`}>
+                  }`}>
                   {categoryCounts[category]}
                 </span>
               </button>

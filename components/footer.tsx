@@ -120,8 +120,8 @@ export default function Footer() {
               </div>
               <div className="flex items-center gap-3 text-sm text-muted-foreground mb-4">
                 <Mail className="w-5 h-5 shrink-0 text-primary" />
-                <a href="mailto:contact@neologicx.com" className="hover:text-primary transition-colors font-medium">
-                  contact@neologicx.com
+                <a href="mailto:support@neologicx.com" className="hover:text-primary transition-colors font-medium">
+                  support@neologicx.com
                 </a>
               </div>
 

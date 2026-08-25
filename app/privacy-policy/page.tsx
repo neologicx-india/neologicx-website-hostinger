@@ -67,7 +67,7 @@ export default function PrivacyPolicyPage() {
       content: (
         <>
           <p>
-            Depending on your location, you may have rights regarding your personal data, including the right to access, correct, delete, or restrict the processing of your data. To exercise any of these rights, please contact us at <a href="mailto:hello@neologicx.com">hello@neologicx.com</a>.
+            Depending on your location, you may have rights regarding your personal data, including the right to access, correct, delete, or restrict the processing of your data. To exercise any of these rights, please contact us at <a href="mailto:support@neologicx.com">support@neologicx.com</a>.
           </p>
         </>
       ),

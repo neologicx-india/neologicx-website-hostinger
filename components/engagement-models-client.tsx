@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { Target, Users, Clock, Wrench, CheckCircle2, ArrowRight } from 'lucide-react';
 import PageHero from '@/components/page-hero';
 import CTASection from '@/components/cta-section';
+import Image from 'next/image';
 
 const engagementModels = [
   {
@@ -135,10 +136,13 @@ export default function EngagementModelsClient() {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="relative aspect-square lg:h-[600px] w-full rounded-[2.5rem] overflow-hidden border border-border/50 shadow-2xl"
             >
-              <img
+              <Image
                 src="/images/solution_engagement.png"
                 alt="Engagement Kickoff Alignment"
-                className="w-full h-full object-cover"
+                fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                priority
+                className="object-cover"
               />
               <div className="absolute inset-0 bg-primary/10 mix-blend-overlay" />
             </motion.div>

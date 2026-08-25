@@ -28,6 +28,22 @@ export const viewport: Viewport = {
 
 import WhatsAppWidget from '@/components/whatsapp-widget'
 
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'Neologicx',
+  url: 'https://neologicx.com',
+  logo: 'https://neologicx.com/neo_logo.png',
+  description: 'Custom software and product engineering for web, mobile, SaaS, business systems, e-commerce and integrations.',
+  contactPoint: {
+    '@type': 'ContactPoint',
+    telephone: '+91-94141-38694',
+    contactType: 'customer support',
+    areaServed: 'IN',
+    availableLanguage: ['English', 'Hindi']
+  }
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -37,6 +53,10 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning data-scroll-behavior="smooth">
       <body className="antialiased" suppressHydrationWarning>
         <QueryProvider>
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+          />
           <Navbar />
           {children}
           <Footer />

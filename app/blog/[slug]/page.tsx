@@ -29,17 +29,17 @@ export async function generateMetadata(
     openGraph: {
       title: seo.ogTitle || seo.metaTitle || blog.title,
       description: seo.ogDescription || seo.metaDescription || blog.excerpt,
-      images: imgUrl ? [{ url: imgUrl }] : undefined,
+      images: imgUrl ? [{ url: imgUrl }] : [{ url: '/neo_logo.png', width: 1200, height: 630 }],
       type: 'article',
     },
     twitter: {
       card: 'summary_large_image',
       title: seo.twitterTitle || seo.metaTitle || blog.title,
       description: seo.twitterDescription || seo.metaDescription || blog.excerpt,
-      images: imgUrl ? [imgUrl] : undefined,
+      images: imgUrl ? [imgUrl] : ['/neo_logo.png'],
     },
     alternates: {
-      canonical: seo.canonicalUrl || `https://neologicx.com/blog/${slug}/`,
+      canonical: seo.canonicalUrl || `https://neologicx.com/blog/${slug}`,
     },
     robots: seo.robots || 'index, follow',
     keywords: blog.categories?.map((cat: any) => cat.name).join(', '),

@@ -25,11 +25,14 @@ export default function WhatsAppWidget() {
           >
             {/* Header / Illustration Area */}
             <div className="bg-white pt-6 pb-2 px-6 flex justify-center items-center">
-              <img
-                src="/images/widget-image-support-1.svg"
-                alt="Chat with us"
-                className="w-auto h-[150px] object-contain"
-              />
+              <div className="relative h-[150px] w-full max-w-[200px]">
+                <Image
+                  src="/images/widget-image-support-1.svg"
+                  alt="Chat with us"
+                  fill
+                  className="object-contain"
+                />
+              </div>
             </div>
 
             {/* Content Area */}

@@ -15,29 +15,29 @@ const slides = [
     {
         id: 1,
         badge: "Built for scale",
-        title: "Software",
-        highlight: "Development",
-        subtitle: "End-to-end SaaS and MVP development tailored for scale. We build robust architectures that grow with your business.",
+        title: "Custom Software & Product Engineering",
+        highlight: "for Growing Businesses",
+        subtitle: "Custom software and product engineering for web, mobile, SaaS, business systems, e-commerce and integrations.",
         image: "/iso1-Photoroom.png",
         link: "https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ2IeIsn89ZwrzAlQV0dnwjgUe7ZbIphty-0fC8xEzR2MOWpk3P4_lfCMyzKUU-EsGYuec7Zxqaf"
 
     },
     {
         id: 2,
-        badge: "Intelligent automation",
-        title: "Custom Business",
-        highlight: "Systems",
-        subtitle: "Streamline operations with custom ERPs, CRMs, and business workflows. Empower your team with intelligent automation.",
+        badge: "Intelligent Automation",
+        title: "Enterprise Solutions &",
+        highlight: "Business Automation",
+        subtitle: "Accelerate your growth with scalable ERPs, CRMs, and AI-driven workflows. We transform complex operations into seamless, automated systems.",
         image: "/iso2.png",
         link: "https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ2IeIsn89ZwrzAlQV0dnwjgUe7ZbIphty-0fC8xEzR2MOWpk3P4_lfCMyzKUU-EsGYuec7Zxqaf"
 
     },
     {
         id: 3,
-        badge: "Seamless experiences",
-        title: "Mobile App",
-        highlight: "Engineering",
-        subtitle: "Seamless mobile experiences and robust e-commerce architectures. Deliver value to your customers wherever they are.",
+        badge: "Next-Gen Experiences",
+        title: "Mobile & ",
+        highlight: "Web Applications",
+        subtitle: "Deliver seamless mobile experiences and robust e-commerce architectures. We engineer fast, intuitive mobile apps and scalable architectures that captivate users.",
         image: "/iso3-Photoroom.png",
         link: "https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ2IeIsn89ZwrzAlQV0dnwjgUe7ZbIphty-0fC8xEzR2MOWpk3P4_lfCMyzKUU-EsGYuec7Zxqaf"
 
@@ -135,24 +135,7 @@ export default function HeroNew() {
                                                     </Link>
                                                 </div>
 
-                                                {/* Trust row stats */}
-                                                <div className="flex flex-wrap items-center gap-x-8 gap-y-4">
-                                                    {[
-                                                        ["50+", "Projects shipped"],
-                                                        ["100%", "Quality code"],
-                                                        ["Fast", "Avg. launch time"],
-                                                    ].map(([stat, label], i) => (
-                                                        <div key={label} className="flex items-center gap-8">
-                                                            <div>
-                                                                <div className="text-2xl font-bold text-foreground">
-                                                                    {stat}
-                                                                </div>
-                                                                <div className="mt-0.5 text-xs text-muted-foreground font-medium">{label}</div>
-                                                            </div>
-                                                            {i < 2 && <div className="hidden h-9 w-px bg-border sm:block" />}
-                                                        </div>
-                                                    ))}
-                                                </div>
+
                                             </motion.div>
                                         )}
                                     </AnimatePresence>

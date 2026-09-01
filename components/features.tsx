@@ -10,6 +10,7 @@ import {
   Smartphone, 
   ShoppingCart, 
   Webhook,
+  BrainCircuit,
   ArrowRight
 } from 'lucide-react';
 
@@ -45,10 +46,10 @@ const features = [
     link: "/ecommerce-website-development-shoppingcart"
   },
   {
-    title: "Integration & Automation",
-    description: "APIs, payment and third-party integrations, WhatsApp Business Platform workflows and automation that reduce disconnected manual work.",
-    icon: Webhook,
-    link: "/api-development-services"
+    title: "AI & Intelligent Automation",
+    description: "Implement machine learning models, conversational AI, and advanced workflow automation to optimize operations and drive smarter decisions.",
+    icon: BrainCircuit,
+    link: "/ai-automation-services"
   }
 ];
 

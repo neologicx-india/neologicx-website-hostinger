@@ -1,3 +1,4 @@
+import DynamicStructuredData from '@/components/DynamicStructuredData';
 import { Metadata } from 'next';
 import { strapiService } from '@/services/strapiService';
 import PortfolioClient from '@/components/portfolio-client';
@@ -24,7 +25,8 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 export default function PortfolioPage() {
   return (
-    <main className="w-full overflow-x-hidden">
+  <main className="w-full overflow-x-hidden">
+      <DynamicStructuredData slug="portfolio" />
       <PortfolioClient />
       <CTASection
         title="Have a similar workflow?"

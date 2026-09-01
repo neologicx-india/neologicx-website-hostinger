@@ -1,3 +1,4 @@
+import DynamicStructuredData from '@/components/DynamicStructuredData';
 import LegalPageLayout from '@/components/legal-page-layout';
 import { Metadata } from 'next';
 
@@ -60,11 +61,12 @@ export default function CookiePolicyPage() {
   ];
 
   return (
-    <LegalPageLayout
+  <LegalPageLayout
       title="Cookie Policy"
       description="Understand how Neologicx uses cookies and tracking technologies to improve your experience."
       lastUpdated="August 10, 2026"
       sections={sections}
     />
+      <DynamicStructuredData slug="cookie-policy" />
   );
 }

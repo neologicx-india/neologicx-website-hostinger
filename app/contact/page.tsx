@@ -1,3 +1,4 @@
+import DynamicStructuredData from '@/components/DynamicStructuredData';
 import { Metadata } from 'next';
 import { strapiService } from '@/services/strapiService';
 import ContactClient from '@/components/contact-client';
@@ -23,7 +24,8 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 export default function ContactPage() {
   return (
-    <main className="w-full overflow-x-hidden">
+  <main className="w-full overflow-x-hidden">
+      <DynamicStructuredData slug="contact" />
       <ContactClient />
     </main>
   );

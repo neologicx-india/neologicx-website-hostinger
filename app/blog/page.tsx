@@ -1,3 +1,4 @@
+import DynamicStructuredData from '@/components/DynamicStructuredData';
 import InsightsClient from '@/components/insights-client';
 import { Metadata } from 'next';
 import { strapiService } from '@/services/strapiService';
@@ -42,5 +43,10 @@ export default async function BlogPage() {
     });
   }
 
-  return <InsightsClient initialCategories={categories} />;
+  return (
+  <>
+    <DynamicStructuredData slug="blog" />
+    <InsightsClient initialCategories={categories} />
+  </>
+);
 }

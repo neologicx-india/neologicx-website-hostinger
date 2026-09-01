@@ -1,3 +1,4 @@
+import DynamicStructuredData from '@/components/DynamicStructuredData';
 import { getDynamicMetadata } from '@/lib/metadata';
 
 export async function generateMetadata() {
@@ -5,7 +6,14 @@ export async function generateMetadata() {
 }
 
 import SchoolClient from '@/components/school-client';
+import RelatedSolutions from '@/components/related-solutions';
 
 export default function SchoolManagementSoftwarePage() {
-  return <SchoolClient />;
+  return (
+  <>
+    <DynamicStructuredData slug="school-management-software" />
+    <SchoolClient />
+    <RelatedSolutions currentPath="/school-management-software" />
+  </>
+);
 }

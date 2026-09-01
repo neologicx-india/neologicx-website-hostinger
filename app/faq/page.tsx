@@ -1,3 +1,4 @@
+import DynamicStructuredData from '@/components/DynamicStructuredData';
 import { Metadata } from 'next';
 import FAQClient from '@/components/faq-client';
 import { getDynamicMetadata } from '@/lib/metadata';
@@ -21,5 +22,10 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default function FAQPage() {
-  return <FAQClient />;
+  return (
+  <>
+    <DynamicStructuredData slug="faq" />
+    <FAQClient />
+  </>
+);
 }

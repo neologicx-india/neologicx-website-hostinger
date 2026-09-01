@@ -1,3 +1,4 @@
+import DynamicStructuredData from '@/components/DynamicStructuredData';
 import { getDynamicMetadata } from '@/lib/metadata';
 
 export async function generateMetadata() {
@@ -5,7 +6,14 @@ export async function generateMetadata() {
 }
 
 import ComplaintClient from '@/components/complaint-client';
+import RelatedSolutions from '@/components/related-solutions';
 
 export default function ComplaintManagementSoftwarePage() {
-  return <ComplaintClient />;
+  return (
+  <>
+    <DynamicStructuredData slug="complaint-management-software" />
+    <ComplaintClient />
+    <RelatedSolutions currentPath="/complaint-management-software" />
+  </>
+);
 }

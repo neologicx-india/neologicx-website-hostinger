@@ -1,3 +1,4 @@
+import DynamicStructuredData from '@/components/DynamicStructuredData';
 import { getDynamicMetadata } from '@/lib/metadata';
 
 export async function generateMetadata() {
@@ -7,5 +8,10 @@ export async function generateMetadata() {
 import CrmClient from '@/components/crm-client';
 
 export default function CrmDevelopmentCustomSoftwarePage() {
-  return <CrmClient />;
+  return (
+  <>
+    <DynamicStructuredData slug="crm-development-custom-software" />
+    <CrmClient />
+  </>
+);
 }

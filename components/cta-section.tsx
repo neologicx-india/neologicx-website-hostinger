@@ -25,11 +25,11 @@ export default function CTASection({
     <section className="relative w-full py-16 md:py-20 overflow-hidden flex items-center justify-center">
       {/* Background Image */}
       <div className="absolute inset-0 w-full h-full z-0">
-        <Image 
+        <Image
           src="/images/cta.jpg"
           alt="Call to action background"
           fill
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           className="object-cover opacity-80"
         />
         {/* Premium Dark Overlay */}
@@ -47,8 +47,8 @@ export default function CTASection({
         <p className="text-base md:text-lg text-white/80 mb-8 max-w-2xl mx-auto leading-relaxed font-medium">
           {description}
         </p>
-        
-        <Link 
+
+        <Link
           href={ctaLink}
           className="inline-flex items-center justify-center px-8 py-3.5 bg-white text-slate-900 border-2 border-transparent rounded-full font-bold text-lg hover:bg-slate-100 hover:shadow-2xl transition-all hover:-translate-y-1 shadow-xl group"
         >

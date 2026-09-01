@@ -168,7 +168,7 @@ export default function SchoolClient() {
                   src="/images/school_dashboard_mockup.png"
                   alt="Education portal showing attendance and timetables"
                   fill
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   className="object-cover"
                   priority
                 />

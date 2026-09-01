@@ -1,3 +1,4 @@
+import DynamicStructuredData from '@/components/DynamicStructuredData';
 import { getDynamicMetadata } from '@/lib/metadata';
 
 export async function generateMetadata() {
@@ -7,5 +8,10 @@ export async function generateMetadata() {
 import MvpClient from '@/components/mvp-client';
 
 export default function MvpDevelopmentStartupPage() {
-  return <MvpClient />;
+  return (
+  <>
+    <DynamicStructuredData slug="mvp-development-startup" />
+    <MvpClient />
+  </>
+);
 }

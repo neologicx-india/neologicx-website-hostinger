@@ -1,3 +1,4 @@
+import DynamicStructuredData from '@/components/DynamicStructuredData';
 import { getDynamicMetadata } from '@/lib/metadata';
 
 export async function generateMetadata() {
@@ -5,7 +6,14 @@ export async function generateMetadata() {
 }
 
 import ConstructionClient from '@/components/construction-client';
+import RelatedSolutions from '@/components/related-solutions';
 
 export default function ConstructionSoftwareMobileappPage() {
-  return <ConstructionClient />;
+  return (
+  <>
+    <DynamicStructuredData slug="construction-software-mobileapp" />
+    <ConstructionClient />
+    <RelatedSolutions currentPath="/construction-software-mobileapp" />
+  </>
+);
 }

@@ -1,3 +1,4 @@
+import DynamicStructuredData from '@/components/DynamicStructuredData';
 import ServicesClient from '@/components/services-client';
 import { Metadata } from 'next';
 import { strapiService } from '@/services/strapiService';
@@ -22,5 +23,10 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 export default function ServicesPage() {
-  return <ServicesClient />;
+  return (
+  <>
+    <DynamicStructuredData slug="services" />
+    <ServicesClient />
+  </>
+);
 }

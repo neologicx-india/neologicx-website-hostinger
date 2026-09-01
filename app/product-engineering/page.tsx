@@ -1,3 +1,4 @@
+import DynamicStructuredData from '@/components/DynamicStructuredData';
 import ProductEngineeringClient from '@/components/product-engineering-client';
 import { Metadata } from 'next';
 
@@ -7,5 +8,10 @@ export const metadata: Metadata = {
 };
 
 export default function ProductEngineeringPage() {
-  return <ProductEngineeringClient />;
+  return (
+  <>
+    <DynamicStructuredData slug="product-engineering" />
+    <ProductEngineeringClient />
+  </>
+);
 }

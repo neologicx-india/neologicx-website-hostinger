@@ -1,3 +1,4 @@
+import DynamicStructuredData from '@/components/DynamicStructuredData';
 import { getDynamicMetadata } from '@/lib/metadata';
 
 export async function generateMetadata() {
@@ -7,5 +8,10 @@ export async function generateMetadata() {
 import WebDevelopmentClient from '@/components/web-development-client';
 
 export default function WebDevelopmentDesignWebsitePage() {
-  return <WebDevelopmentClient />;
+  return (
+  <>
+    <DynamicStructuredData slug="web-development-design-website" />
+    <WebDevelopmentClient />
+  </>
+);
 }

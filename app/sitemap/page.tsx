@@ -1,3 +1,4 @@
+import DynamicStructuredData from '@/components/DynamicStructuredData';
 import Link from 'next/link';
 import { strapiService } from '@/services/strapiService';
 import { Metadata } from 'next';
@@ -51,7 +52,8 @@ export default async function SitemapPage() {
   const blogs = blogsRes?.data || [];
 
   return (
-    <div className="w-full bg-slate-50 py-24 px-6 min-h-screen">
+  <div className="w-full bg-slate-50 py-24 px-6 min-h-screen">
+      <DynamicStructuredData slug="sitemap" />
       <div className="max-w-6xl mx-auto bg-white p-10 md:p-14 rounded-3xl shadow-sm border border-slate-200/60">
         <div className="mb-12 border-b border-slate-100 pb-6">
           <h1 className="text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight">Site Map</h1>

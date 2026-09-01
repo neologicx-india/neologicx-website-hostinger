@@ -223,26 +223,11 @@ export default function AboutClient() {
           </div>
         </div>
 
-        {/* Bottom CTA */}
-        {/* <div className="bg-primary/5 border border-primary/10 rounded-3xl p-12 text-center flex flex-col items-center">
-          <h2 className="text-3xl font-bold text-foreground mb-6">Ready to explore our work?</h2>
-          <p className="text-foreground text-lg mb-8 max-w-2xl mx-auto">
-            Our new website deliberately avoids generic claims. Instead, explore our case studies to see the business context, workflows and solution scope behind selected projects.
-          </p>
-          <Link
-            href="/portfolio"
-            className="inline-flex items-center bg-primary text-primary-foreground px-8 py-4 rounded-full font-bold shadow-lg hover:shadow-xl transition-all hover:-translate-y-1 group"
-          >
-            View Case Studies
-            <ArrowRight className="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1" />
-          </Link>
-        </div> */}
-
       </div>
       {/* Final CTA Section */}
       <CTASection
-        title="Ready to explore our work?"
-        description="Our new website deliberately avoids generic claims. Instead, explore our case studies to see the business context, workflows and solution scope behind selected projects."
+        title="Ready to see our work?"
+        description="Explore our portfolio of custom software, business systems, and mobile applications to see how we solve real operational challenges."
         ctaText="View Case Studies"
         ctaLink="/portfolio"
       />

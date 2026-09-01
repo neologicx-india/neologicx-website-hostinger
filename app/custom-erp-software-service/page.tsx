@@ -1,3 +1,4 @@
+import DynamicStructuredData from '@/components/DynamicStructuredData';
 import { getDynamicMetadata } from '@/lib/metadata';
 
 export async function generateMetadata() {
@@ -7,5 +8,10 @@ export async function generateMetadata() {
 import ErpClient from '@/components/erp-client';
 
 export default function CustomErpSoftwareServicePage() {
-  return <ErpClient />;
+  return (
+  <>
+    <DynamicStructuredData slug="custom-erp-software-service" />
+    <ErpClient />
+  </>
+);
 }

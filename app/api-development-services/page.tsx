@@ -1,3 +1,4 @@
+import DynamicStructuredData from '@/components/DynamicStructuredData';
 import { getDynamicMetadata } from '@/lib/metadata';
 
 export async function generateMetadata() {
@@ -7,5 +8,10 @@ export async function generateMetadata() {
 import ApiIntegrationClient from '@/components/api-integration-client';
 
 export default function ApiDevelopmentServicesPage() {
-  return <ApiIntegrationClient />;
+  return (
+  <>
+    <DynamicStructuredData slug="api-development-services" />
+    <ApiIntegrationClient />
+  </>
+);
 }

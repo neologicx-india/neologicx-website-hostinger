@@ -33,16 +33,26 @@ const InsightsSlider = dynamic(() => import('@/components/insights-slider'), { s
 const GlobalLocations = dynamic(() => import('@/components/GlobalLocations'), { ssr: true });
 
 export default async function Home() {
-  const [caseStudiesRes, blogsRes] = await Promise.all([
+  const [caseStudiesRes, blogsRes, seoDataRes] = await Promise.all([
     strapiService.getAllCaseStudies(),
-    strapiService.getAllBlogs(1, 10, 'All')
+    strapiService.getAllBlogs(1, 10, 'All'),
+    strapiService.getPageSeo('home').catch(e => { console.error("Error fetching home SEO data:", e); return null; })
   ]);
 
   const caseStudies = caseStudiesRes?.data || [];
   const blogs = blogsRes?.data || [];
+  const dynamicJsonLd = seoDataRes?.seo?.structuredData;
 
   return (
     <main className="w-full overflow-x-hidden flex flex-col items-center justify-center">
+      {dynamicJsonLd && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ 
+            __html: typeof dynamicJsonLd === 'string' ? dynamicJsonLd : JSON.stringify(dynamicJsonLd) 
+          }}
+        />
+      )}
       <HeroNew />
       <Intro />
       <Features />

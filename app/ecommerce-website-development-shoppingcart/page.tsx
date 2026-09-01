@@ -1,3 +1,4 @@
+import DynamicStructuredData from '@/components/DynamicStructuredData';
 import { getDynamicMetadata } from '@/lib/metadata';
 
 export async function generateMetadata() {
@@ -7,5 +8,10 @@ export async function generateMetadata() {
 import EcommerceClient from '@/components/ecommerce-client';
 
 export default function EcommerceWebsiteDevelopmentShoppingcartPage() {
-  return <EcommerceClient />;
+  return (
+  <>
+    <DynamicStructuredData slug="ecommerce-website-development-shoppingcart" />
+    <EcommerceClient />
+  </>
+);
 }

@@ -1,3 +1,4 @@
+import DynamicStructuredData from '@/components/DynamicStructuredData';
 import { getDynamicMetadata } from '@/lib/metadata';
 
 export async function generateMetadata() {
@@ -7,5 +8,10 @@ export async function generateMetadata() {
 import MobileAppClient from '@/components/mobile-app-client';
 
 export default function MobileAppDevelopmentPage() {
-  return <MobileAppClient />;
+  return (
+  <>
+    <DynamicStructuredData slug="mobile-app-development-android-ios-flutter" />
+    <MobileAppClient />
+  </>
+);
 }

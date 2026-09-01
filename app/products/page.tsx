@@ -1,3 +1,4 @@
+import DynamicStructuredData from '@/components/DynamicStructuredData';
 import ProductsClient from '@/components/products-client';
 import { Metadata } from 'next';
 import { strapiService } from '@/services/strapiService';
@@ -10,6 +11,9 @@ export async function generateMetadata(): Promise<Metadata> {
       return {
         title: seoData.seo.metaTitle || 'Configurable Business Software Solutions | Neologicx',
         description: seoData.seo.metaDescription || 'Explore configurable software foundations for construction operations, complaint management, order workflows and education administration.',
+        alternates: {
+          canonical: 'https://neologicx.com/products',
+        },
       };
     }
   } catch (error) {
@@ -19,8 +23,41 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     title: 'Configurable Business Software Solutions | Neologicx',
     description: 'Explore configurable software foundations for construction operations, complaint management, order workflows and education administration.',
+    alternates: {
+      canonical: 'https://neologicx.com/products',
+    },
   };
 }
 export default function ProductsPage() {
-  return <ProductsClient />;
+  const breadcrumbJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Home',
+        item: 'https://neologicx.com/',
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: 'Solutions',
+        item: 'https://neologicx.com/products',
+      },
+    ],
+  };
+
+
+
+  return (
+    <main className="w-full overflow-x-hidden">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
+      <DynamicStructuredData slug="solutions" />
+      <ProductsClient />
+    </main>
+  );
 }

@@ -144,6 +144,7 @@ export default function IndustriesClient() {
         title="Talk Through Your Workflow"
         description="Tell us about the operational challenges in your industry. We will help you identify the right technical approach and a practical path to delivery."
         ctaText="Discuss Your Industry"
+        ctaLink="/contact"
       />
     </div>
   );

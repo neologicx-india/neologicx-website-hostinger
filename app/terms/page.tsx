@@ -1,3 +1,4 @@
+import DynamicStructuredData from '@/components/DynamicStructuredData';
 import LegalPageLayout from '@/components/legal-page-layout';
 import { Metadata } from 'next';
 
@@ -66,11 +67,12 @@ export default function TermsPage() {
   ];
 
   return (
-    <LegalPageLayout
+  <LegalPageLayout
       title="Terms & Conditions"
       description="Read the terms and conditions that govern the use of our website, materials, and consultation services."
       lastUpdated="August 10, 2026"
       sections={sections}
     />
+      <DynamicStructuredData slug="terms" />
   );
 }

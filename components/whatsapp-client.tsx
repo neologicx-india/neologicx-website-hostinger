@@ -63,7 +63,7 @@ export default function WhatsappClient() {
       {/* Hero Section */}
       <PageHero
         badge="WhatsApp Business Platform"
-        title={<>WhatsApp Integration & <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-emerald-600 drop-shadow-md">Automation</span></>}
+        title={<>WhatsApp Business Platform Integration & <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-emerald-600 drop-shadow-md">Automation</span></>}
         description="Turn WhatsApp from a standalone inbox into part of the business workflow. We connect customer conversations with ordering, support, notifications, payments and internal systems so the channel can do useful operational work."
         backgroundImage="/images/insights_hero_bg.png"
         actionLinks={[

@@ -1,3 +1,4 @@
+import DynamicStructuredData from '@/components/DynamicStructuredData';
 import { getDynamicMetadata } from '@/lib/metadata';
 
 export async function generateMetadata() {
@@ -7,5 +8,10 @@ export async function generateMetadata() {
 import WhatsappClient from '@/components/whatsapp-client';
 
 export default function WhatsappChatbotDevelopmentPage() {
-  return <WhatsappClient />;
+  return (
+  <>
+    <DynamicStructuredData slug="whatsapp-chatbot-development" />
+    <WhatsappClient />
+  </>
+);
 }

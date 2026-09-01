@@ -1,3 +1,4 @@
+import DynamicStructuredData from '@/components/DynamicStructuredData';
 import { getDynamicMetadata } from '@/lib/metadata';
 
 export async function generateMetadata() {
@@ -7,5 +8,10 @@ export async function generateMetadata() {
 import WordpressClient from '@/components/wordpress-client';
 
 export default function WordpressDevelopmentServicesPage() {
-  return <WordpressClient />;
+  return (
+  <>
+    <DynamicStructuredData slug="wordpress-development-services" />
+    <WordpressClient />
+  </>
+);
 }

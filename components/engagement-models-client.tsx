@@ -151,12 +151,16 @@ export default function EngagementModelsClient() {
       </section>
 
       {/* Final CTA Section */}
-      <CTASection
-        title="Not sure which model fits?"
-        description="Start with the uncertainty. If scope is clear, we can discuss a defined delivery plan; if the product is still evolving, a more flexible model is usually more realistic."
-        ctaText="Book a Discovery Conversation"
-        ctaLink="/contact"
-      />
+      <div className="py-12 container mx-auto px-6 max-w-7xl">
+        <div className="w-full rounded-[3rem] overflow-hidden shadow-2xl border border-border/50">
+          <CTASection
+            title="Not sure which model fits?"
+            description="Start with the uncertainty. If scope is clear, we can discuss a defined delivery plan; if the product is still evolving, a more flexible model is usually more realistic."
+            ctaText="Book a Discovery Conversation"
+            ctaLink="/contact"
+          />
+        </div>
+      </div>
     </div>
   );
 }

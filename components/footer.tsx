@@ -63,7 +63,7 @@ export default function Footer() {
               Neologicx Resources Pvt Ltd
             </h3>
             <p className="text-sm text-primary font-medium mb-4">
-              Custom Software & Product Engineering • Established 2000 <br />
+              Custom Software & Product Engineering • Established 2000
               Bikaner, Rajasthan, India
             </p>
             <p className="text-sm text-muted-foreground mb-8 leading-relaxed">

@@ -76,12 +76,14 @@ export default function PrivacyPolicyPage() {
   ];
 
   return (
-  <LegalPageLayout
-      title="Privacy Policy"
-      description="Learn how Neologicx collects, uses, and protects your data when you use our website and services."
-      lastUpdated="August 10, 2026"
-      sections={sections}
-    />
+    <>
+      <LegalPageLayout
+        title="Privacy Policy"
+        description="Learn how Neologicx collects, uses, and protects your data when you use our website and services."
+        lastUpdated="August 10, 2026"
+        sections={sections}
+      />
       <DynamicStructuredData slug="privacy-policy" />
+    </>
   );
 }

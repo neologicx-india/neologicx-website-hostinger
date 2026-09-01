@@ -67,12 +67,14 @@ export default function TermsPage() {
   ];
 
   return (
-  <LegalPageLayout
-      title="Terms & Conditions"
-      description="Read the terms and conditions that govern the use of our website, materials, and consultation services."
-      lastUpdated="August 10, 2026"
-      sections={sections}
-    />
+    <>
+      <LegalPageLayout
+        title="Terms & Conditions"
+        description="Read the terms and conditions that govern the use of our website, materials, and consultation services."
+        lastUpdated="August 10, 2026"
+        sections={sections}
+      />
       <DynamicStructuredData slug="terms" />
+    </>
   );
 }

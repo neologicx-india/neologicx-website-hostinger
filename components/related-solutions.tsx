@@ -12,17 +12,12 @@ interface RelatedSolutionsProps {
 }
 
 export default function RelatedSolutions({ currentPath }: RelatedSolutionsProps) {
-  // Randomly pick 3 solutions excluding the current one
+  // Pick 3 solutions excluding the current one deterministically to prevent hydration mismatch
   const selectedSolutions = useMemo(() => {
     // Exact match for current page to exclude it
-    const filtered = solutionsData.filter(s => s.href !== currentPath);
-    // Shuffle using Fisher-Yates
-    const shuffled = [...filtered];
-    for (let i = shuffled.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
-    }
-    return shuffled.slice(0, 3);
+    return solutionsData
+      .filter(s => s.href !== currentPath)
+      .slice(0, 3);
   }, [currentPath]);
 
   if (selectedSolutions.length === 0) return null;

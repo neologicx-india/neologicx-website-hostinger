@@ -57,7 +57,7 @@ const GlobalLocations: FC = () => {
       <div className="mx-auto max-w-7xl">
         <div className="mb-16 text-center">
           <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight text-slate-900 mb-4">
-            Our Global Presence
+            Delivery & Business Presence
           </h2>
           <p className="text-lg text-slate-600 max-w-2xl mx-auto">
             Spanning across major cities in India and key international hubs, we

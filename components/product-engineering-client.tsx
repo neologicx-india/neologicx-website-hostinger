@@ -18,6 +18,7 @@ import {
 import PageHero from '@/components/page-hero';
 import CTASection from '@/components/cta-section';
 import Image from 'next/image';
+import Link from 'next/link';
 
 const capabilities = [
   {
@@ -120,6 +121,14 @@ export default function ProductEngineeringClient() {
       {/* Lifecycle Visual */}
       <section className="py-20 bg-muted/30 border-y border-border/50">
         <div className="container mx-auto px-6 max-w-7xl">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold font-serif text-foreground mb-6">
+              Our Product Lifecycle
+            </h2>
+            <p className="text-lg text-muted-foreground">
+              A structured, iterative approach to turning your vision into a scalable digital product.
+            </p>
+          </div>
           <div className="flex flex-col md:flex-row items-center justify-between gap-8 md:gap-4 relative">
             {/* Connecting Line for desktop */}
             <div className="hidden md:block absolute top-1/2 left-0 w-full h-[2px] bg-border -translate-y-1/2 z-0" />
@@ -192,7 +201,7 @@ export default function ProductEngineeringClient() {
                   src="/images/insights_integration.png"
                   alt="Product Engineering Flow"
                   fill
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   className="object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent flex items-end p-10">
@@ -253,11 +262,15 @@ export default function ProductEngineeringClient() {
               transition={{ delay: 0.3 }}
               className="flex flex-wrap justify-center gap-4"
             >
-              {['Event Marketplaces', 'Alumni Platforms', 'Conference Portals'].map((tag, idx) => (
-                <div key={idx} className="px-5 py-2.5 rounded-lg bg-background border border-border shadow-sm text-sm font-semibold text-foreground flex items-center gap-2">
+              {[
+                { label: 'Event Marketplaces', href: '/portfolio/event-marketplace-india-singapore' },
+                { label: 'Alumni Platforms', href: '/portfolio/rtu-alumni-mobile-app' },
+                { label: 'Conference Portals', href: '/portfolio/jazz-cafe' }
+              ].map((tag, idx) => (
+                <Link key={idx} href={tag.href} className="px-5 py-2.5 rounded-lg bg-background border border-border shadow-sm text-sm font-semibold text-foreground flex items-center gap-2 hover:bg-primary/5 hover:border-primary/30 transition-colors cursor-pointer">
                   <CheckCircle2 className="w-4 h-4 text-primary" />
-                  {tag}
-                </div>
+                  {tag.label}
+                </Link>
               ))}
             </motion.div>
           </div>

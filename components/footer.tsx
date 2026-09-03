@@ -62,8 +62,11 @@ export default function Footer() {
             <h3 className="text-lg font-semibold text-foreground mb-1">
               Neologicx Resources Pvt Ltd
             </h3>
-            <p className="text-sm text-primary font-medium mb-4">
+            <p className="text-sm text-primary font-medium mb-2">
               Custom Software & Product Engineering • Established 2000
+            </p>
+
+            <p className="text-sm text-muted-foreground mb-2">
               Bikaner, Rajasthan, India
             </p>
             <p className="text-sm text-muted-foreground mb-8 leading-relaxed">
@@ -166,6 +169,6 @@ export default function Footer() {
         </div>
 
       </div>
-    </footer>
+    </footer >
   );
 }

@@ -41,6 +41,22 @@ export default function InsightDetailClient({ initialInsight }: { initialInsight
     })
     : [];
 
+  const handleShare = async () => {
+    if (navigator.share) {
+      try {
+        await navigator.share({
+          title: insight?.title,
+          url: window.location.href,
+        });
+      } catch (error) {
+        console.error('Error sharing:', error);
+      }
+    } else {
+      navigator.clipboard.writeText(window.location.href);
+      alert('Link copied to clipboard!');
+    }
+  };
+
   if (!insight) {
     return (
       <div className="min-h-[70vh] flex flex-col items-center justify-center text-center px-6">
@@ -126,7 +142,7 @@ export default function InsightDetailClient({ initialInsight }: { initialInsight
               <div className="mt-16 pt-10 border-t border-border/50 flex flex-col sm:flex-row items-center justify-between gap-6">
                 <div className="flex items-center gap-4">
                   <span className="text-sm font-bold text-foreground">Share this insight:</span>
-                  <button className="w-10 h-10 rounded-full bg-card border border-border/50 flex items-center justify-center text-foreground hover:text-primary hover:border-primary/50 transition-all shadow-sm">
+                  <button onClick={handleShare} className="w-10 h-10 rounded-full bg-card border border-border/50 flex items-center justify-center text-foreground hover:text-primary hover:border-primary/50 transition-all shadow-sm">
                     <Share2 className="w-4 h-4" />
                   </button>
                 </div>

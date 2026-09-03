@@ -77,8 +77,8 @@ export default function PortfolioSlider({ caseStudies = [] }: PortfolioSliderPro
             }}
             breakpoints={{
               640: { slidesPerView: 1.2, spaceBetween: 24 },
-              1024: { slidesPerView: 2.2, spaceBetween: 32 },
-              1280: { slidesPerView: 2.8, spaceBetween: 32 },
+              1024: { slidesPerView: 2, spaceBetween: 32 },
+              1280: { slidesPerView: 2, spaceBetween: 32 },
             }}
             className="w-full pb-16 px-4 sm:px-0"
           >
@@ -90,7 +90,7 @@ export default function PortfolioSlider({ caseStudies = [] }: PortfolioSliderPro
 
               return (
                 <SwiperSlide key={index} className="h-auto">
-                  <Link href={`/portfolio/${study.slug}`} className="block h-[450px] group relative rounded-3xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-500">
+                  <Link href={`/portfolio/${study.slug}`} className="block aspect-video w-full group relative rounded-3xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-500">
                     {/* Background Image */}
                     <Image
                       src={imageUrl}

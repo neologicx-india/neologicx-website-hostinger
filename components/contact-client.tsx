@@ -191,7 +191,7 @@ export default function ContactClient() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="grid grid-cols-2 md:grid-cols-4 gap-4"
+          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4"
         >
           {contactInfo.map((info, idx) => (
             <a

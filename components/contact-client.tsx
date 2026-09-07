@@ -472,7 +472,7 @@ export default function ContactClient() {
                 <h3 className="text-lg font-extrabold text-foreground">Direct Contact</h3>
               </div>
 
-              <p className="text-sm font-bold text-foreground mb-5">Neologicx Resources Pvt Ltd</p>
+              <p className="text-sm font-bold text-foreground mb-5">Neologicx Resources India Pvt Ltd</p>
               {/* <p className="text-sm text-foreground mb-5">Bikaner, Rajasthan, India</p> */}
 
               <div className="space-y-3">

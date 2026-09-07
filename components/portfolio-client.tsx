@@ -115,7 +115,7 @@ export default function PortfolioClient() {
                   className="group flex flex-col bg-card border border-border/50 rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300"
                 >
                   {/* Image Section (Top) */}
-                  <div className="relative w-full h-64 sm:h-72 overflow-hidden bg-muted/20">
+                  <Link href={link} className="relative block w-full h-64 sm:h-72 overflow-hidden bg-muted/20">
                     <Image
                       src={imageUrl}
                       alt={study.title || 'Case Study'}
@@ -127,7 +127,7 @@ export default function PortfolioClient() {
                     <div className="absolute top-5 left-5 bg-background/95 backdrop-blur-md px-3.5 py-1.5 rounded-full font-bold text-sm text-foreground shadow-sm">
                       {num}
                     </div>
-                  </div>
+                  </Link>
 
                   {/* Content Section (Bottom) */}
                   <div className="p-8 md:p-10 flex flex-col flex-grow">
@@ -146,9 +146,11 @@ export default function PortfolioClient() {
                     </div>
 
                     {/* Title & Description */}
-                    <h3 className="text-2xl font-extrabold text-foreground mb-3 leading-tight group-hover:text-primary transition-colors">
-                      {study.title}
-                    </h3>
+                    <Link href={link}>
+                      <h3 className="text-2xl font-extrabold text-foreground mb-3 leading-tight group-hover:text-primary transition-colors">
+                        {study.title}
+                      </h3>
+                    </Link>
                     <p className="text-muted-foreground leading-relaxed mb-8 text-[15px] line-clamp-3">
                       {study.summary}
                     </p>

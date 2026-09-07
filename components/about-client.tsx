@@ -92,7 +92,7 @@ export default function AboutClient() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="text-lg md:text-xl text-white/90 leading-relaxed font-medium drop-shadow-lg max-w-3xl mb-12"
           >
-            Neologicx Resources Pvt Ltd is a software engineering company established in 2000 in Bikaner, Rajasthan, India. We build digital products and business systems for organizations that need technology to fit the way they actually operate.
+            Neologicx Resources India Pvt Ltd is a software engineering company established in 2000 in Bikaner, Rajasthan, India. We build digital products and business systems for organizations that need technology to fit the way they actually operate.
           </motion.p>
 
           <motion.div

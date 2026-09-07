@@ -4,7 +4,7 @@ import { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Privacy Policy | Neologicx',
-  description: 'Learn how Neologicx Resources Pvt Ltd collects, uses, and protects your personal data.',
+  description: 'Learn how Neologicx Resources India Pvt Ltd collects, uses, and protects your personal data.',
 };
 
 export default function PrivacyPolicyPage() {

@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     default: 'Neologicx | Custom Software & Product Engineering Company',
   },
   description: 'Custom software and product engineering for web, mobile, SaaS, business systems, e-commerce and integrations.',
-  authors: [{ name: 'Neologicx Resources Pvt Ltd' }],
+  authors: [{ name: 'Neologicx Resources India Pvt Ltd' }],
   icons: {
     icon: '/icon.ico',
     apple: '/icon.ico',

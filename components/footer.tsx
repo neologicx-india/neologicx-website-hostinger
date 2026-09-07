@@ -53,14 +53,14 @@ export default function Footer() {
           <div className="flex flex-col items-start">
             <Image
               src="/neo_logo.png"
-              alt="Neologicx Resources Pvt Ltd"
+              alt="Neologicx Resources India Pvt Ltd"
               width={180}
               height={50}
               className="h-8 md:h-10 w-auto mb-6"
               priority
             />
             <h3 className="text-lg font-semibold text-foreground mb-1">
-              Neologicx Resources Pvt Ltd
+              Neologicx Resources India Pvt Ltd
             </h3>
             <p className="text-sm text-primary font-medium mb-2">
               Custom Software & Product Engineering • Established 2000
@@ -151,7 +151,7 @@ export default function Footer() {
         {/* BOTTOM BAR */}
         <div className="border-t border-border py-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-sm text-muted-foreground">
-            &copy; {currentYear} Neologicx Resources Pvt Ltd. All rights reserved.
+            &copy; {currentYear} Neologicx Resources India Pvt Ltd. All rights reserved.
           </p>
           <div className="flex items-center gap-4 md:gap-6 flex-wrap justify-center">
             {legalLinks.map((link, idx) => (

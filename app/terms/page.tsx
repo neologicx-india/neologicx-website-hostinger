@@ -26,7 +26,7 @@ export default function TermsPage() {
       content: (
         <>
           <p>
-            The content, design, and graphics on this website are owned by Neologicx Resources Pvt Ltd and are protected by applicable copyright and trademark laws. You may not copy, reproduce, or distribute any part of this site without our express written permission.
+            The content, design, and graphics on this website are owned by Neologicx Resources India Pvt Ltd and are protected by applicable copyright and trademark laws. You may not copy, reproduce, or distribute any part of this site without our express written permission.
           </p>
         </>
       ),

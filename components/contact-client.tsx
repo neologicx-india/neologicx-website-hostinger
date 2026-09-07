@@ -28,22 +28,6 @@ const contactInfo = [
     color: 'text-green-500',
     bg: 'bg-green-500/10',
   },
-  {
-    icon: MapPin,
-    label: 'Visit Us',
-    value: 'Bikaner, Rajasthan, India',
-    href: '#',
-    color: 'text-red-500',
-    bg: 'bg-red-500/10',
-  },
-  {
-    icon: Clock,
-    label: 'Business Hours',
-    value: 'Mon – Sat, 10:00 AM – 7:00 PM IST',
-    href: '#',
-    color: 'text-amber-500',
-    bg: 'bg-amber-500/10',
-  },
 ];
 
 
@@ -191,7 +175,7 @@ export default function ContactClient() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4"
+          className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-3xl mx-auto"
         >
           {contactInfo.map((info, idx) => (
             <a
@@ -488,8 +472,8 @@ export default function ContactClient() {
                 <h3 className="text-lg font-extrabold text-foreground">Direct Contact</h3>
               </div>
 
-              <p className="text-sm font-bold text-foreground mb-1">Neologicx Resources Pvt Ltd</p>
-              <p className="text-sm text-foreground mb-5">Bikaner, Rajasthan, India</p>
+              <p className="text-sm font-bold text-foreground mb-5">Neologicx Resources Pvt Ltd</p>
+              {/* <p className="text-sm text-foreground mb-5">Bikaner, Rajasthan, India</p> */}
 
               <div className="space-y-3">
                 <div className="flex items-start gap-3">

@@ -66,9 +66,7 @@ export default function Footer() {
               Custom Software & Product Engineering • Established 2000
             </p>
 
-            <p className="text-sm text-muted-foreground mb-2">
-              Bikaner, Rajasthan, India
-            </p>
+
             <p className="text-sm text-muted-foreground mb-8 leading-relaxed">
               We help businesses transform and grow by engineering robust, scalable, and innovative software solutions tailored to your unique vision.
             </p>
@@ -119,8 +117,8 @@ export default function Footer() {
             </h4>
             <div className="flex flex-col gap-5">
               <div className="flex items-start gap-3 text-sm text-muted-foreground">
-                <MapPin className="w-5 h-5 mt-0.5 shrink-0 text-primary" />
-                <span className="leading-relaxed">Bikaner, Rajasthan, India</span>
+                <Phone className="w-5 h-5 mt-0.5 shrink-0 text-primary" />
+                <span className="leading-relaxed">+91 94141 38694 / +91 94141 38620</span>
               </div>
               <div className="flex items-center gap-3 text-sm text-muted-foreground mb-4">
                 <Mail className="w-5 h-5 shrink-0 text-primary" />

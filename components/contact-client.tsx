@@ -10,6 +10,8 @@ import {
 } from 'lucide-react';
 import OurLocations from './OurLocations';
 import GlobalLocations from './GlobalLocations';
+import PhoneInput, { isValidPhoneNumber } from 'react-phone-number-input';
+import 'react-phone-number-input/style.css';
 
 const contactInfo = [
   {
@@ -36,6 +38,7 @@ export default function ContactClient() {
   const [formData, setFormData] = useState({
     name: '',
     workEmail: '',
+    phoneNumber: '',
     companyWebsite: '',
     countryTimezone: '',
     projectNeed: '',
@@ -47,6 +50,7 @@ export default function ContactClient() {
   const [file, setFile] = useState<File | null>(null);
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [phoneError, setPhoneError] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const target = e.target;
@@ -72,6 +76,12 @@ export default function ContactClient() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    if (formData.phoneNumber && !isValidPhoneNumber(formData.phoneNumber)) {
+      setPhoneError(true);
+      return;
+    }
+    setPhoneError(false);
 
     setLoading(true);
 
@@ -217,7 +227,7 @@ export default function ContactClient() {
                   Thank you for reaching out. We will review your requirement and get back to you within one business day.
                 </p>
                 <button
-                  onClick={() => { setSubmitted(false); setFile(null); setFormData({ name: '', workEmail: '', companyWebsite: '', countryTimezone: '', projectNeed: '', projectDescription: '', budget: '', startWindow: '', privacyConsent: false }); }}
+                  onClick={() => { setSubmitted(false); setFile(null); setFormData({ name: '', workEmail: '', phoneNumber: '', companyWebsite: '', countryTimezone: '', projectNeed: '', projectDescription: '', budget: '', startWindow: '', privacyConsent: false }); }}
                   className="inline-flex items-center px-6 py-3 bg-primary text-primary-foreground rounded-full font-bold hover:bg-primary/90 transition-all"
                 >
                   Send Another Message
@@ -234,7 +244,7 @@ export default function ContactClient() {
 
                 <form onSubmit={handleSubmit} className="space-y-6">
 
-                  {/* Name & Work Email */}
+                  {/* Name & Email */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                     <div>
                       <label htmlFor="contact-name" className="block text-sm font-semibold text-foreground mb-2">Name *</label>
@@ -250,7 +260,7 @@ export default function ContactClient() {
                       />
                     </div>
                     <div>
-                      <label htmlFor="contact-work-email" className="block text-sm font-semibold text-foreground mb-2">Work Email *</label>
+                      <label htmlFor="contact-work-email" className="block text-sm font-semibold text-foreground mb-2">Email *</label>
                       <input
                         id="contact-work-email"
                         type="email"
@@ -264,19 +274,52 @@ export default function ContactClient() {
                     </div>
                   </div>
 
-                  {/* Company/Website & Country/Timezone */}
+                  {/* Phone & Country/Timezone */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                     <div>
-                      <label htmlFor="contact-company-website" className="block text-sm font-semibold text-foreground mb-2">Company / Website <span className="text-foreground font-normal">(optional)</span></label>
-                      <input
-                        id="contact-company-website"
-                        type="text"
-                        name="companyWebsite"
-                        value={formData.companyWebsite}
-                        onChange={handleChange}
-                        placeholder="Your company or website URL"
-                        className="w-full px-4 py-3 rounded-xl border border-border bg-background text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all text-sm"
+                      <label htmlFor="contact-phone" className="block text-sm font-semibold text-foreground mb-2">Phone Number*</label>
+                      <PhoneInput
+                        id="contact-phone"
+                        international
+                        defaultCountry="IN"
+                        name="phoneNumber"
+                        value={formData.phoneNumber}
+                        limitMaxLength={true}
+                        onChange={(value) => {
+                          setFormData(prev => ({ ...prev, phoneNumber: value || '' }));
+                          if (phoneError) setPhoneError(false);
+                        }}
+                        onBlur={() => {
+                          if (formData.phoneNumber && !isValidPhoneNumber(formData.phoneNumber)) {
+                            setPhoneError(true);
+                          }
+                        }}
+                        required
+                        className={`w-full px-4 py-3 rounded-xl border bg-background text-foreground placeholder:text-muted-foreground/50 focus-within:ring-2 focus-within:ring-primary/50 focus-within:border-primary transition-all text-sm flex items-center ${phoneError ? 'border-red-500 focus-within:border-red-500 focus-within:ring-red-500/50' : 'border-border'}`}
+                        style={{ outline: 'none' }}
                       />
+                      {phoneError && (
+                        <p className="text-red-500 text-xs mt-1.5 font-medium">Please enter a valid phone number</p>
+                      )}
+                      <style jsx global>{`
+                        .PhoneInputInput {
+                          background: transparent;
+                          border: none;
+                          outline: none;
+                          flex: 1;
+                          min-width: 0;
+                          color: inherit;
+                        }
+                        .PhoneInputCountry {
+                          margin-right: 0.75rem;
+                        }
+                        .PhoneInputCountryIcon {
+                          width: 1.5rem;
+                          height: 1rem;
+                          box-shadow: none;
+                          border: 1px solid var(--border);
+                        }
+                      `}</style>
                     </div>
                     <div>
                       <label htmlFor="contact-country" className="block text-sm font-semibold text-foreground mb-2">Country & Time Zone *</label>
@@ -291,6 +334,20 @@ export default function ContactClient() {
                         className="w-full px-4 py-3 rounded-xl border border-border bg-background text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all text-sm"
                       />
                     </div>
+                  </div>
+
+                  {/* Company/Website */}
+                  <div>
+                    <label htmlFor="contact-company-website" className="block text-sm font-semibold text-foreground mb-2">Company / Website <span className="text-foreground font-normal">(optional)</span></label>
+                    <input
+                      id="contact-company-website"
+                      type="text"
+                      name="companyWebsite"
+                      value={formData.companyWebsite}
+                      onChange={handleChange}
+                      placeholder="Your company or website URL"
+                      className="w-full px-4 py-3 rounded-xl border border-border bg-background text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all text-sm"
+                    />
                   </div>
 
                   {/* What do you need? */}

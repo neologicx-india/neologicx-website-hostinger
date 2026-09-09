@@ -47,7 +47,8 @@ const CustomSelect = ({
   onChange, 
   options, 
   placeholder, 
-  required 
+  required,
+  hasError
 }: { 
   id: string, 
   name: string, 
@@ -55,7 +56,8 @@ const CustomSelect = ({
   onChange: (e: any) => void, 
   options: string[], 
   placeholder: string, 
-  required?: boolean 
+  required?: boolean,
+  hasError?: boolean
 }) => {
   const [open, setOpen] = useState(false);
   
@@ -65,7 +67,7 @@ const CustomSelect = ({
         type="button"
         id={id}
         onClick={() => setOpen(!open)}
-        className={`w-full px-4 py-3 rounded-xl border border-border bg-background focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all text-sm flex items-center justify-between ${!value ? 'text-muted-foreground/50' : 'text-foreground'}`}
+        className={`w-full px-4 py-3 rounded-xl border bg-background focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all text-sm flex items-center justify-between ${!value ? 'text-muted-foreground/50' : 'text-foreground'} ${hasError ? 'border-red-500 focus:border-red-500' : 'border-border focus:border-primary'}`}
       >
         <span className="truncate">{value || placeholder}</span>
         <ChevronDown className={`w-4 h-4 opacity-50 transition-transform flex-shrink-0 ${open ? 'rotate-180' : ''}`} />
@@ -122,15 +124,18 @@ export default function ContactClient() {
   const [file, setFile] = useState<File | null>(null);
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
-  const [phoneError, setPhoneError] = useState(false);
+  const [errors, setErrors] = useState<Record<string, boolean>>({});
   const [countryDropdownOpen, setCountryDropdownOpen] = useState(false);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  const handleChange = (e: any) => {
     const target = e.target;
-    if (target instanceof HTMLInputElement && target.type === 'checkbox') {
-      setFormData(prev => ({ ...prev, [target.name]: target.checked }));
-    } else {
-      setFormData(prev => ({ ...prev, [target.name]: target.value }));
+    const name = target.name;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
+    
+    setFormData(prev => ({ ...prev, [name]: value }));
+    
+    if (errors[name]) {
+      setErrors(prev => ({ ...prev, [name]: false }));
     }
   };
 
@@ -150,11 +155,22 @@ export default function ContactClient() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (!formData.phoneNumber || !isValidPhoneNumber(formData.phoneNumber)) {
-      setPhoneError(true);
+    let newErrors: Record<string, boolean> = {};
+    let isValid = true;
+
+    if (!formData.name.trim()) { newErrors.name = true; isValid = false; }
+    if (!formData.workEmail.trim() || !/^\S+@\S+\.\S+$/.test(formData.workEmail)) { newErrors.workEmail = true; isValid = false; }
+    if (!formData.phoneNumber || !isValidPhoneNumber(formData.phoneNumber)) { newErrors.phoneNumber = true; isValid = false; }
+    if (!formData.countryTimezone) { newErrors.countryTimezone = true; isValid = false; }
+    if (!formData.projectNeed) { newErrors.projectNeed = true; isValid = false; }
+    if (!formData.projectDescription.trim()) { newErrors.projectDescription = true; isValid = false; }
+    if (!formData.privacyConsent) { newErrors.privacyConsent = true; isValid = false; }
+
+    setErrors(newErrors);
+
+    if (!isValid) {
       return;
     }
-    setPhoneError(false);
 
     setLoading(true);
 
@@ -315,7 +331,7 @@ export default function ContactClient() {
                   <h2 className="text-2xl font-extrabold text-foreground">Project Inquiry Form</h2>
                 </div>
 
-                <form onSubmit={handleSubmit} className="space-y-6">
+                <form onSubmit={handleSubmit} noValidate className="space-y-6">
 
                   {/* Name & Email */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
@@ -329,7 +345,7 @@ export default function ContactClient() {
                         onChange={handleChange}
                         required
                         placeholder="Your full name"
-                        className="w-full px-4 py-3 rounded-xl border border-border bg-background text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all text-sm"
+                        className={`w-full px-4 py-3 rounded-xl border bg-background text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all text-sm ${errors.name ? 'border-red-500 focus:border-red-500' : 'border-border focus:border-primary'}`}
                       />
                     </div>
                     <div>
@@ -342,7 +358,7 @@ export default function ContactClient() {
                         onChange={handleChange}
                         required
                         placeholder="you@company.com"
-                        className="w-full px-4 py-3 rounded-xl border border-border bg-background text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all text-sm"
+                        className={`w-full px-4 py-3 rounded-xl border bg-background text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all text-sm ${errors.workEmail ? 'border-red-500 focus:border-red-500' : 'border-border focus:border-primary'}`}
                       />
                     </div>
                   </div>
@@ -361,20 +377,20 @@ export default function ContactClient() {
                         onChange={(value) => {
                           console.log("PhoneInput value:", value);
                           setFormData(prev => ({ ...prev, phoneNumber: value || '' }));
-                          if (phoneError) setPhoneError(false);
+                          if (errors.phoneNumber) setErrors(prev => ({ ...prev, phoneNumber: false }));
                         }}
                         onBlur={() => {
                           if (!formData.phoneNumber || !isValidPhoneNumber(formData.phoneNumber)) {
-                            setPhoneError(true);
+                            setErrors(prev => ({ ...prev, phoneNumber: true }));
                           } else {
-                            setPhoneError(false);
+                            setErrors(prev => ({ ...prev, phoneNumber: false }));
                           }
                         }}
                         required
-                        className={`w-full px-4 py-3 rounded-xl border bg-background text-foreground placeholder:text-muted-foreground/50 focus-within:ring-2 focus-within:ring-primary/50 focus-within:border-primary transition-all text-sm flex items-center ${phoneError ? 'border-red-500 focus-within:border-red-500 focus-within:ring-red-500/50' : 'border-border'}`}
+                        className={`w-full px-4 py-3 rounded-xl border bg-background text-foreground placeholder:text-muted-foreground/50 focus-within:ring-2 focus-within:ring-primary/50 transition-all text-sm flex items-center ${errors.phoneNumber ? 'border-red-500 focus-within:border-red-500 focus-within:ring-red-500/50' : 'border-border focus-within:border-primary'}`}
                         style={{ outline: 'none' }}
                       />
-                      {phoneError && (
+                      {errors.phoneNumber && (
                         <p className="text-red-500 text-xs mt-1.5 font-medium">Please enter a valid phone number with country code</p>
                       )}
                       <style jsx global>{`
@@ -405,7 +421,7 @@ export default function ContactClient() {
                         id="contact-country"
                         type="button"
                         onClick={() => setCountryDropdownOpen(!countryDropdownOpen)}
-                        className={`w-full px-4 py-3 rounded-xl border border-border bg-background focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all text-sm flex items-center justify-between ${!formData.countryTimezone ? 'text-muted-foreground/50' : 'text-foreground'}`}
+                        className={`w-full px-4 py-3 rounded-xl border bg-background focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all text-sm flex items-center justify-between ${!formData.countryTimezone ? 'text-muted-foreground/50' : 'text-foreground'} ${errors.countryTimezone ? 'border-red-500 focus:border-red-500' : 'border-border focus:border-primary'}`}
                       >
                         {formData.countryTimezone ? (
                           <div className="flex items-center gap-3">
@@ -433,6 +449,7 @@ export default function ContactClient() {
                                 onClick={() => {
                                   setFormData(prev => ({ ...prev, countryTimezone: country.name }));
                                   setCountryDropdownOpen(false);
+                                  if (errors.countryTimezone) setErrors(prev => ({ ...prev, countryTimezone: false }));
                                 }}
                                 className="w-full flex items-center gap-3 px-4 py-2.5 text-sm text-left hover:bg-primary/10 transition-colors"
                               >
@@ -494,6 +511,7 @@ export default function ContactClient() {
                       ]}
                       placeholder="Select a service..."
                       required
+                      hasError={errors.projectNeed}
                     />
                   </div>
 
@@ -508,7 +526,7 @@ export default function ContactClient() {
                       required
                       rows={5}
                       placeholder="Describe the problem you are solving, the users involved, and what you expect the software to do..."
-                      className="w-full px-4 py-3 rounded-xl border border-border bg-background text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all text-sm resize-none"
+                      className={`w-full px-4 py-3 rounded-xl border bg-background text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all text-sm resize-none ${errors.projectDescription ? 'border-red-500 focus:border-red-500' : 'border-border focus:border-primary'}`}
                     />
                   </div>
 
@@ -574,9 +592,9 @@ export default function ContactClient() {
                       checked={formData.privacyConsent as unknown as boolean}
                       onChange={handleChange}
                       required
-                      className="mt-1 w-4 h-4 rounded border-border text-primary focus:ring-primary/50 cursor-pointer accent-primary"
+                      className={`mt-1 w-4 h-4 rounded text-primary focus:ring-primary/50 cursor-pointer accent-primary ${errors.privacyConsent ? 'outline outline-2 outline-red-500' : 'border-border'}`}
                     />
-                    <label htmlFor="contact-privacy" className="text-sm text-foreground leading-snug cursor-pointer">
+                    <label htmlFor="contact-privacy" className={`text-sm leading-snug cursor-pointer ${errors.privacyConsent ? 'text-red-500' : 'text-foreground'}`}>
                       I agree that Neologicx may store and process my data to respond to this inquiry. We will not share your information with third parties. *
                     </label>
                   </div>

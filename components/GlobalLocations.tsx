@@ -38,7 +38,7 @@ const indiaLocations: Location[] = [
 const internationalLocations: Location[] = [
   {
     city: "Singapore",
-    address: "177 TANJONG RHU ROAD, #07-13, SINGAPORE - 436607",
+    address: "177 TANJONG RHU ROAD, #11-13, SINGAPORE - 436607",
   },
   {
     city: "Dubai",

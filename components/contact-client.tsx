@@ -1,16 +1,17 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import {
   Mail, Phone, MapPin, Clock, Send, ArrowRight,
-  MessageSquare, Building2, Globe2, CheckCircle2
+  MessageSquare, Building2, Globe2, CheckCircle2, ChevronDown
 } from 'lucide-react';
 import OurLocations from './OurLocations';
 import GlobalLocations from './GlobalLocations';
-import PhoneInput, { isValidPhoneNumber } from 'react-phone-number-input';
+import PhoneInput, { isValidPhoneNumber, getCountries, getCountryCallingCode } from 'react-phone-number-input';
+import enLabels from 'react-phone-number-input/locale/en.json';
 import 'react-phone-number-input/style.css';
 
 const contactInfo = [
@@ -32,7 +33,12 @@ const contactInfo = [
   },
 ];
 
-
+const countries = getCountries().map(code => ({
+  code,
+  name: (enLabels as Record<string, string>)[code],
+  callingCode: '+' + getCountryCallingCode(code),
+  flag: code.toUpperCase().replace(/./g, char => String.fromCodePoint(char.charCodeAt(0) + 127397))
+}));
 
 export default function ContactClient() {
   const [formData, setFormData] = useState({
@@ -51,6 +57,7 @@ export default function ContactClient() {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [phoneError, setPhoneError] = useState(false);
+  const [countryDropdownOpen, setCountryDropdownOpen] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const target = e.target;
@@ -277,7 +284,7 @@ export default function ContactClient() {
                   {/* Phone & Country/Timezone */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                     <div>
-                      <label htmlFor="contact-phone" className="block text-sm font-semibold text-foreground mb-2">Phone Number*</label>
+                      <label htmlFor="contact-phone" className="block text-sm font-semibold text-foreground mb-2">Phone Number (inc. Country Code) *</label>
                       <PhoneInput
                         id="contact-phone"
                         international
@@ -286,6 +293,7 @@ export default function ContactClient() {
                         value={formData.phoneNumber}
                         limitMaxLength={true}
                         onChange={(value) => {
+                          console.log("PhoneInput value:", value);
                           setFormData(prev => ({ ...prev, phoneNumber: value || '' }));
                           if (phoneError) setPhoneError(false);
                         }}
@@ -312,6 +320,8 @@ export default function ContactClient() {
                         }
                         .PhoneInputCountry {
                           margin-right: 0.75rem;
+                          padding-right: 0.75rem;
+                          border-right: 1px solid var(--border);
                         }
                         .PhoneInputCountryIcon {
                           width: 1.5rem;
@@ -321,17 +331,64 @@ export default function ContactClient() {
                         }
                       `}</style>
                     </div>
-                    <div>
-                      <label htmlFor="contact-country" className="block text-sm font-semibold text-foreground mb-2">Country & Time Zone *</label>
-                      <input
+                    <div className="relative">
+                      <label htmlFor="contact-country" className="block text-sm font-semibold text-foreground mb-2">Country *</label>
+                      <button
                         id="contact-country"
+                        type="button"
+                        onClick={() => setCountryDropdownOpen(!countryDropdownOpen)}
+                        className={`w-full px-4 py-3 rounded-xl border border-border bg-background focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all text-sm flex items-center justify-between ${!formData.countryTimezone ? 'text-muted-foreground/50' : 'text-foreground'}`}
+                      >
+                        {formData.countryTimezone ? (
+                          <div className="flex items-center gap-3">
+                            <img 
+                              src={`https://purecatamphetamine.github.io/country-flag-icons/3x2/${countries.find(c => c.name === formData.countryTimezone)?.code || 'UN'}.svg`} 
+                              alt="" 
+                              className="w-[1.5rem] h-[1rem] object-cover border border-border shadow-sm rounded-sm" 
+                            />
+                            <span className="font-medium">{formData.countryTimezone}</span>
+                          </div>
+                        ) : (
+                          <span>Select your country...</span>
+                        )}
+                        <ChevronDown className={`w-4 h-4 opacity-50 transition-transform ${countryDropdownOpen ? 'rotate-180' : ''}`} />
+                      </button>
+
+                      {countryDropdownOpen && (
+                        <>
+                          <div className="fixed inset-0 z-40" onClick={() => setCountryDropdownOpen(false)}></div>
+                          <div className="absolute z-50 w-full mt-2 max-h-64 overflow-y-auto bg-card border border-border rounded-xl shadow-xl py-2 custom-scrollbar">
+                            {countries.map(country => (
+                              <button
+                                key={country.code}
+                                type="button"
+                                onClick={() => {
+                                  setFormData(prev => ({ ...prev, countryTimezone: country.name }));
+                                  setCountryDropdownOpen(false);
+                                }}
+                                className="w-full flex items-center gap-3 px-4 py-2.5 text-sm text-left hover:bg-primary/10 transition-colors"
+                              >
+                                <img 
+                                  src={`https://purecatamphetamine.github.io/country-flag-icons/3x2/${country.code}.svg`} 
+                                  alt="" 
+                                  className="w-[1.5rem] h-[1rem] object-cover border border-border shadow-sm rounded-sm flex-shrink-0" 
+                                />
+                                <span className="font-medium">{country.name}</span>
+                              </button>
+                            ))}
+                          </div>
+                        </>
+                      )}
+                      
+                      {/* Hidden input to ensure HTML5 validation works smoothly */}
+                      <input 
                         type="text"
-                        name="countryTimezone"
-                        value={formData.countryTimezone}
+                        name="countryTimezone" 
+                        value={formData.countryTimezone} 
                         onChange={handleChange}
-                        required
-                        placeholder="e.g. India, IST (UTC+5:30)"
-                        className="w-full px-4 py-3 rounded-xl border border-border bg-background text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all text-sm"
+                        required 
+                        className="opacity-0 absolute bottom-0 left-1/2 pointer-events-none w-px h-px"
+                        tabIndex={-1}
                       />
                     </div>
                   </div>

@@ -40,6 +40,72 @@ const countries = getCountries().map(code => ({
   flag: code.toUpperCase().replace(/./g, char => String.fromCodePoint(char.charCodeAt(0) + 127397))
 }));
 
+const CustomSelect = ({ 
+  id, 
+  name, 
+  value, 
+  onChange, 
+  options, 
+  placeholder, 
+  required 
+}: { 
+  id: string, 
+  name: string, 
+  value: string, 
+  onChange: (e: any) => void, 
+  options: string[], 
+  placeholder: string, 
+  required?: boolean 
+}) => {
+  const [open, setOpen] = useState(false);
+  
+  return (
+    <div className="relative">
+      <button
+        type="button"
+        id={id}
+        onClick={() => setOpen(!open)}
+        className={`w-full px-4 py-3 rounded-xl border border-border bg-background focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all text-sm flex items-center justify-between ${!value ? 'text-muted-foreground/50' : 'text-foreground'}`}
+      >
+        <span className="truncate">{value || placeholder}</span>
+        <ChevronDown className={`w-4 h-4 opacity-50 transition-transform flex-shrink-0 ${open ? 'rotate-180' : ''}`} />
+      </button>
+
+      {open && (
+        <>
+          <div className="fixed inset-0 z-40" onClick={() => setOpen(false)}></div>
+          <div className="absolute z-50 w-full mt-2 max-h-64 overflow-y-auto bg-card border border-border rounded-xl shadow-xl py-2 custom-scrollbar">
+            {options.map((opt: string) => (
+              <button
+                key={opt}
+                type="button"
+                onClick={() => {
+                  onChange({ target: { name, value: opt } });
+                  setOpen(false);
+                }}
+                className={`w-full flex items-center px-4 py-2.5 text-sm text-left hover:bg-primary/10 transition-colors ${value === opt ? 'bg-primary/5 font-medium text-primary' : ''}`}
+              >
+                {opt}
+              </button>
+            ))}
+          </div>
+        </>
+      )}
+
+      {/* Hidden input for native validation */}
+      <input 
+        type="text"
+        name={name} 
+        value={value} 
+        onChange={() => {}}
+        required={required}
+        className="opacity-0 absolute bottom-0 left-1/2 pointer-events-none w-px h-px"
+        tabIndex={-1}
+      />
+    </div>
+  );
+};
+
 export default function ContactClient() {
   const [formData, setFormData] = useState({
     name: '',
@@ -84,7 +150,7 @@ export default function ContactClient() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (formData.phoneNumber && !isValidPhoneNumber(formData.phoneNumber)) {
+    if (!formData.phoneNumber || !isValidPhoneNumber(formData.phoneNumber)) {
       setPhoneError(true);
       return;
     }
@@ -298,8 +364,10 @@ export default function ContactClient() {
                           if (phoneError) setPhoneError(false);
                         }}
                         onBlur={() => {
-                          if (formData.phoneNumber && !isValidPhoneNumber(formData.phoneNumber)) {
+                          if (!formData.phoneNumber || !isValidPhoneNumber(formData.phoneNumber)) {
                             setPhoneError(true);
+                          } else {
+                            setPhoneError(false);
                           }
                         }}
                         required
@@ -307,7 +375,7 @@ export default function ContactClient() {
                         style={{ outline: 'none' }}
                       />
                       {phoneError && (
-                        <p className="text-red-500 text-xs mt-1.5 font-medium">Please enter a valid phone number</p>
+                        <p className="text-red-500 text-xs mt-1.5 font-medium">Please enter a valid phone number with country code</p>
                       )}
                       <style jsx global>{`
                         .PhoneInputInput {
@@ -410,23 +478,23 @@ export default function ContactClient() {
                   {/* What do you need? */}
                   <div>
                     <label htmlFor="contact-project-need" className="block text-sm font-semibold text-foreground mb-2">What do you need? *</label>
-                    <select
+                    <CustomSelect
                       id="contact-project-need"
                       name="projectNeed"
                       value={formData.projectNeed}
                       onChange={handleChange}
+                      options={[
+                        "Product Engineering",
+                        "Custom Software",
+                        "Web Development",
+                        "Mobile App Development",
+                        "E-commerce",
+                        "Integration & Automation",
+                        "Other"
+                      ]}
+                      placeholder="Select a service..."
                       required
-                      className="w-full px-4 py-3 rounded-xl border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all text-sm appearance-none"
-                    >
-                      <option value="">Select a service...</option>
-                      <option value="Product Engineering">Product Engineering</option>
-                      <option value="Custom Software">Custom Software</option>
-                      <option value="Web Development">Web Development</option>
-                      <option value="Mobile App Development">Mobile App Development</option>
-                      <option value="E-commerce">E-commerce</option>
-                      <option value="Integration & Automation">Integration & Automation</option>
-                      <option value="Other">Other</option>
-                    </select>
+                    />
                   </div>
 
                   {/* Project Description */}
@@ -448,37 +516,37 @@ export default function ContactClient() {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                     <div>
                       <label htmlFor="contact-budget" className="block text-sm font-semibold text-foreground mb-2">Indicative Budget Range <span className="text-foreground font-normal">(optional)</span></label>
-                      <select
+                      <CustomSelect
                         id="contact-budget"
                         name="budget"
                         value={formData.budget}
                         onChange={handleChange}
-                        className="w-full px-4 py-3 rounded-xl border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all text-sm appearance-none"
-                      >
-                        <option value="">Select range...</option>
-                        <option value="Under ₹5 Lakh">Under ₹5 Lakh</option>
-                        <option value="₹5 – 15 Lakh">₹5 – 15 Lakh</option>
-                        <option value="₹15 – 50 Lakh">₹15 – 50 Lakh</option>
-                        <option value="₹50 Lakh+">₹50 Lakh+</option>
-                        <option value="Not sure yet">Not sure yet</option>
-                      </select>
+                        options={[
+                          "Under ₹5 Lakh",
+                          "₹5 – 15 Lakh",
+                          "₹15 – 50 Lakh",
+                          "₹50 Lakh+",
+                          "Not sure yet"
+                        ]}
+                        placeholder="Select range..."
+                      />
                     </div>
                     <div>
                       <label htmlFor="contact-start-window" className="block text-sm font-semibold text-foreground mb-2">Expected Start Window <span className="text-foreground font-normal">(optional)</span></label>
-                      <select
+                      <CustomSelect
                         id="contact-start-window"
                         name="startWindow"
                         value={formData.startWindow}
                         onChange={handleChange}
-                        className="w-full px-4 py-3 rounded-xl border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all text-sm appearance-none"
-                      >
-                        <option value="">Select timeline...</option>
-                        <option value="Immediately">Immediately</option>
-                        <option value="Within 1–2 weeks">Within 1–2 weeks</option>
-                        <option value="Within 1 month">Within 1 month</option>
-                        <option value="1–3 months">1–3 months</option>
-                        <option value="Flexible / Not decided">Flexible / Not decided</option>
-                      </select>
+                        options={[
+                          "Immediately",
+                          "Within 1–2 weeks",
+                          "Within 1 month",
+                          "1–3 months",
+                          "Flexible / Not decided"
+                        ]}
+                        placeholder="Select timeline..."
+                      />
                     </div>
                   </div>
 

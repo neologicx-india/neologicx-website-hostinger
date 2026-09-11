@@ -40,27 +40,27 @@ const countries = getCountries().map(code => ({
   flag: code.toUpperCase().replace(/./g, char => String.fromCodePoint(char.charCodeAt(0) + 127397))
 }));
 
-const CustomSelect = ({ 
-  id, 
-  name, 
-  value, 
-  onChange, 
-  options, 
-  placeholder, 
+const CustomSelect = ({
+  id,
+  name,
+  value,
+  onChange,
+  options,
+  placeholder,
   required,
   hasError
-}: { 
-  id: string, 
-  name: string, 
-  value: string, 
-  onChange: (e: any) => void, 
-  options: string[], 
-  placeholder: string, 
+}: {
+  id: string,
+  name: string,
+  value: string,
+  onChange: (e: any) => void,
+  options: string[],
+  placeholder: string,
   required?: boolean,
   hasError?: boolean
 }) => {
   const [open, setOpen] = useState(false);
-  
+
   return (
     <div className="relative">
       <button
@@ -95,11 +95,11 @@ const CustomSelect = ({
       )}
 
       {/* Hidden input for native validation */}
-      <input 
+      <input
         type="text"
-        name={name} 
-        value={value} 
-        onChange={() => {}}
+        name={name}
+        value={value}
+        onChange={() => { }}
         required={required}
         className="opacity-0 absolute bottom-0 left-1/2 pointer-events-none w-px h-px"
         tabIndex={-1}
@@ -131,9 +131,9 @@ export default function ContactClient() {
     const target = e.target;
     const name = target.name;
     const value = target.type === 'checkbox' ? target.checked : target.value;
-    
+
     setFormData(prev => ({ ...prev, [name]: value }));
-    
+
     if (errors[name]) {
       setErrors(prev => ({ ...prev, [name]: false }));
     }
@@ -425,10 +425,10 @@ export default function ContactClient() {
                       >
                         {formData.countryTimezone ? (
                           <div className="flex items-center gap-3">
-                            <img 
-                              src={`https://purecatamphetamine.github.io/country-flag-icons/3x2/${countries.find(c => c.name === formData.countryTimezone)?.code || 'UN'}.svg`} 
-                              alt="" 
-                              className="w-[1.5rem] h-[1rem] object-cover border border-border shadow-sm rounded-sm" 
+                            <img
+                              src={`https://purecatamphetamine.github.io/country-flag-icons/3x2/${countries.find(c => c.name === formData.countryTimezone)?.code || 'UN'}.svg`}
+                              alt=""
+                              className="w-[1.5rem] h-[1rem] object-cover border border-border shadow-sm rounded-sm"
                             />
                             <span className="font-medium">{formData.countryTimezone}</span>
                           </div>
@@ -453,10 +453,10 @@ export default function ContactClient() {
                                 }}
                                 className="w-full flex items-center gap-3 px-4 py-2.5 text-sm text-left hover:bg-primary/10 transition-colors"
                               >
-                                <img 
-                                  src={`https://purecatamphetamine.github.io/country-flag-icons/3x2/${country.code}.svg`} 
-                                  alt="" 
-                                  className="w-[1.5rem] h-[1rem] object-cover border border-border shadow-sm rounded-sm flex-shrink-0" 
+                                <img
+                                  src={`https://purecatamphetamine.github.io/country-flag-icons/3x2/${country.code}.svg`}
+                                  alt=""
+                                  className="w-[1.5rem] h-[1rem] object-cover border border-border shadow-sm rounded-sm flex-shrink-0"
                                 />
                                 <span className="font-medium">{country.name}</span>
                               </button>
@@ -464,14 +464,14 @@ export default function ContactClient() {
                           </div>
                         </>
                       )}
-                      
+
                       {/* Hidden input to ensure HTML5 validation works smoothly */}
-                      <input 
+                      <input
                         type="text"
-                        name="countryTimezone" 
-                        value={formData.countryTimezone} 
+                        name="countryTimezone"
+                        value={formData.countryTimezone}
                         onChange={handleChange}
-                        required 
+                        required
                         className="opacity-0 absolute bottom-0 left-1/2 pointer-events-none w-px h-px"
                         tabIndex={-1}
                       />
@@ -679,7 +679,7 @@ export default function ContactClient() {
                 <div className="flex items-start gap-3">
                   <Mail className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
                   <a href="mailto:rajeev@neologicx.com" className="text-sm text-foreground/80 hover:text-primary transition-colors">
-                    rajeev@neologicx.com
+                    support@neologicx.com
                   </a>
                 </div>
                 <div className="flex items-start gap-3">

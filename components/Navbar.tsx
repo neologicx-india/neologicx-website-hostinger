@@ -24,7 +24,12 @@ const navLinks = [
   { label: 'Industries', route: '/industries' },
   { label: 'Case Studies', route: '/portfolio' },
   { label: 'Insights', route: '/blog' },
-  { label: 'About', route: '/about-us' },
+];
+
+const aboutLinks = [
+  { label: 'About Neologicx', route: '/about-us' },
+  { label: 'Engagement Models', route: '/engagement-models' },
+  { label: 'Contact', route: '/contact' },
 ];
 
 const serviceCategories = [
@@ -97,6 +102,9 @@ export default function Navbar() {
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
   const [activeServiceIdx, setActiveServiceIdx] = useState(0);
 
+  const [aboutDropdown, setAboutDropdown] = useState(false);
+  const [mobileAboutOpen, setMobileAboutOpen] = useState(false);
+
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 30);
@@ -109,6 +117,7 @@ export default function Navbar() {
   const closeMenu = () => {
     setIsMenuOpen(false);
     setMobileServicesOpen(false);
+    setMobileAboutOpen(false);
   };
 
   return (
@@ -274,6 +283,37 @@ export default function Navbar() {
               </Link>
             </li>
           ))}
+          
+          {/* About Dropdown */}
+          <li className="relative" onMouseEnter={() => setAboutDropdown(true)} onMouseLeave={() => setAboutDropdown(false)}>
+            <button className={cn(
+              "group relative inline-flex items-center gap-1.5 px-4 py-2 rounded-md text-sm font-medium transition-colors",
+              "text-foreground hover:text-muted-foreground hover:bg-muted/50",
+              (aboutDropdown || pathname.includes('/about') || pathname.includes('/engagement')) && "text-foreground bg-muted/50"
+            )}>
+              <Link href="/about-us" onClick={() => setAboutDropdown(false)}>About</Link>
+              <ChevronDown className={cn("w-4 h-4 opacity-50 transition-transform duration-200", aboutDropdown && "rotate-180")} />
+            </button>
+            <div className={cn(
+              "absolute left-0 w-56 bg-background border border-border/50 rounded-xl shadow-xl transition-all duration-200 overflow-hidden z-50",
+              isScrolled ? "top-[calc(100%-10px)]" : "top-[calc(100%-22px)]",
+              aboutDropdown ? "opacity-100 visible translate-y-0" : "opacity-0 invisible translate-y-4 pointer-events-none"
+            )}>
+              <div className="absolute -top-16 left-0 right-0 h-16 bg-transparent" />
+              <div className="flex flex-col p-2 gap-1 relative z-10 bg-background">
+                {aboutLinks.map((sub, idx) => (
+                  <Link
+                    key={idx}
+                    href={sub.route}
+                    onClick={() => setAboutDropdown(false)}
+                    className="px-4 py-2 text-sm font-medium text-foreground hover:bg-muted/50 hover:text-primary rounded-md transition-colors"
+                  >
+                    {sub.label}
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </li>
           <li>
             <Link
               href="/contact"
@@ -374,6 +414,34 @@ export default function Navbar() {
               {link.label}
             </Link>
           ))}
+
+          {/* Mobile About Accordion */}
+          <div className="flex flex-col rounded-lg border border-border overflow-hidden">
+            <button
+              onClick={() => setMobileAboutOpen(!mobileAboutOpen)}
+              className="flex items-center justify-between p-4 bg-muted/30 text-sm font-medium text-foreground"
+            >
+              About
+              <ChevronDown className={cn("w-4 h-4 transition-transform duration-200", mobileAboutOpen && "rotate-180")} />
+            </button>
+            <div className={cn(
+              "overflow-hidden transition-all duration-300 bg-background",
+              mobileAboutOpen ? "max-h-[500px] border-t border-border/50" : "max-h-0"
+            )}>
+              <div className="p-2 flex flex-col gap-1">
+                {aboutLinks.map((sub, idx) => (
+                  <Link
+                    key={idx}
+                    href={sub.route}
+                    onClick={closeMenu}
+                    className="flex items-center gap-3 p-3 rounded-md text-sm font-medium text-foreground hover:bg-muted/50"
+                  >
+                    {sub.label}
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </div>
 
           <Link
             href="/contact"

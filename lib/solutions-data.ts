@@ -1,15 +1,15 @@
 import { Building2, MessagesSquare, ShoppingBag, GraduationCap, Users } from 'lucide-react';
 
 export const solutionsData = [
-  {
-    title: 'Engagement Models',
-    description: 'A well-structured software engagement makes ownership, priorities, communication and cost easier to manage.',
-    icon: Users,
-    image: '/images/solution_engagement.png',
-    features: ['Defined Scope', 'Dedicated Team', 'Time & Materials'],
-    targetUser: 'Product Owners & Business Leaders',
-    href: '/engagement-models'
-  },
+  // {
+  //   title: 'Engagement Models',
+  //   description: 'A well-structured software engagement makes ownership, priorities, communication and cost easier to manage.',
+  //   icon: Users,
+  //   image: '/images/solution_engagement.png',
+  //   features: ['Defined Scope', 'Dedicated Team', 'Time & Materials'],
+  //   targetUser: 'Product Owners & Business Leaders',
+  //   href: '/engagement-models'
+  // },
   {
     title: 'Construction Operations',
     description: 'Coordinate multiple sites, material movement, workforce records, petty expenses and vendor payments from a shared operational view.',

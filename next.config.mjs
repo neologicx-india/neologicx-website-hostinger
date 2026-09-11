@@ -1,3 +1,5 @@
+import customRedirects from './redirects.mjs';
+
 /** @type {import('next').NextConfig} */
 
 // Safely parse the Strapi URL from environment variables
@@ -10,6 +12,9 @@ try {
 }
 
 const nextConfig = {
+  async redirects() {
+    return customRedirects();
+  },
   typescript: {
     ignoreBuildErrors: true,
   },

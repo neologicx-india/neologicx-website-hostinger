@@ -16,14 +16,19 @@ import { Phone } from 'lucide-react';
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
-  const footerLinks = [
+  const companyLinks = [
+    { label: 'About Us', href: '/about-us' },
+    { label: 'Engagement Models', href: '/engagement-models' },
+    { label: 'Case Studies', href: '/portfolio' },
+    { label: 'Portfolio', href: '/Neologicx_Enterprise_Solutions_Portfolio.pdf', external: true },
+    { label: 'Insights', href: '/blog' },
+    { label: 'Contact', href: '/contact' },
+  ];
+
+  const moreLinks = [
     { label: 'Services', href: '/services' },
     { label: 'Solutions', href: '/products' },
     { label: 'Industries', href: '/industries' },
-    { label: 'Case Studies', href: '/portfolio' },
-    { label: 'Insights', href: '/blog' },
-    { label: 'About', href: '/about-us' },
-    { label: 'Contact', href: '/contact' },
     { label: 'FAQs', href: '/faq' },
   ];
 
@@ -78,14 +83,25 @@ export default function Footer() {
               Company
             </h4>
             <ul className="space-y-3">
-              {footerLinks.slice(0, 4).map((link, idx) => (
+              {companyLinks.map((link, idx) => (
                 <li key={idx}>
-                  <Link
-                    href={link.href}
-                    className="text-sm text-muted-foreground hover:text-primary transition-colors"
-                  >
-                    {link.label}
-                  </Link>
+                  {link.external ? (
+                    <a
+                      href={link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                    >
+                      {link.label}
+                    </a>
+                  ) : (
+                    <Link
+                      href={link.href}
+                      className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                    >
+                      {link.label}
+                    </Link>
+                  )}
                 </li>
               ))}
             </ul>
@@ -97,7 +113,7 @@ export default function Footer() {
               More
             </h4>
             <ul className="space-y-3">
-              {footerLinks.slice(4).map((link, idx) => (
+              {moreLinks.map((link, idx) => (
                 <li key={idx}>
                   <Link
                     href={link.href}

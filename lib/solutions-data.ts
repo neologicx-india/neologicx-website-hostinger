@@ -2,6 +2,15 @@ import { Building2, MessagesSquare, ShoppingBag, GraduationCap, Users } from 'lu
 
 export const solutionsData = [
   {
+    title: 'Engagement Models',
+    description: 'A well-structured software engagement makes ownership, priorities, communication and cost easier to manage.',
+    icon: Users,
+    image: '/images/solution_engagement.png',
+    features: ['Defined Scope', 'Dedicated Team', 'Time & Materials'],
+    targetUser: 'Product Owners & Business Leaders',
+    href: '/engagement-models'
+  },
+  {
     title: 'Construction Operations',
     description: 'Coordinate multiple sites, material movement, workforce records, petty expenses and vendor payments from a shared operational view.',
     icon: Building2,
@@ -38,13 +47,5 @@ export const solutionsData = [
     conditional: true, // Display conditionally based on the spec
     href: '/school-management-software'
   },
-  {
-    title: 'Engagement Models',
-    description: 'A well-structured software engagement makes ownership, priorities, communication and cost easier to manage.',
-    icon: Users,
-    image: '/images/solution_engagement.png',
-    features: ['Defined Scope', 'Dedicated Team', 'Time & Materials'],
-    targetUser: 'Product Owners & Business Leaders',
-    href: '/engagement-models'
-  }
+
 ];

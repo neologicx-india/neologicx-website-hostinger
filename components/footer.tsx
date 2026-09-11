@@ -27,7 +27,7 @@ export default function Footer() {
     { label: 'Solutions', href: '/products' },
     { label: 'Industries', href: '/industries' },
     { label: 'Case Studies', href: '/portfolio' },
-    { label: 'Neologicx_Enterprise_Solutions_Portfolio', href: '/Neologicx_Enterprise_Solutions_Portfolio.pdf', external: true },
+    { label: 'Enterprise Solutions Portfolio', href: '/Neologicx_Enterprise_Solutions_Portfolio.pdf', external: true },
   ];
 
   const companyLinks: FooterLink[] = [

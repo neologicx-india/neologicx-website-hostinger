@@ -13,23 +13,29 @@ const Linkedin = (props: any) => <svg {...props} xmlns="http://www.w3.org/2000/s
 
 import { Phone } from 'lucide-react';
 
+type FooterLink = {
+  label: string;
+  href: string;
+  external?: boolean;
+};
+
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
-  const companyLinks = [
-    { label: 'About Us', href: '/about-us' },
-    { label: 'Engagement Models', href: '/engagement-models' },
-    { label: 'Case Studies', href: '/portfolio' },
-    { label: 'Portfolio', href: '/Neologicx_Enterprise_Solutions_Portfolio.pdf', external: true },
-    { label: 'Insights', href: '/blog' },
-    { label: 'Contact', href: '/contact' },
-  ];
-
-  const moreLinks = [
+  const servicesSolutionsLinks: FooterLink[] = [
     { label: 'Services', href: '/services' },
     { label: 'Solutions', href: '/products' },
     { label: 'Industries', href: '/industries' },
+    { label: 'Case Studies', href: '/portfolio' },
+    { label: 'Neologicx_Enterprise_Solutions_Portfolio', href: '/Neologicx_Enterprise_Solutions_Portfolio.pdf', external: true },
+  ];
+
+  const companyLinks: FooterLink[] = [
+    { label: 'About', href: '/about-us' },
+    { label: 'Engagement Models', href: '/engagement-models' },
+    { label: 'Insights', href: '/blog' },
     { label: 'FAQs', href: '/faq' },
+    { label: 'Contact', href: '/contact' },
   ];
 
   const legalLinks = [
@@ -80,10 +86,10 @@ export default function Footer() {
           {/* Column 2: Quick Links */}
           <div>
             <h4 className="text-sm font-bold text-foreground uppercase tracking-wider mb-6">
-              Company
+              SERVICES & SOLUTIONS
             </h4>
             <ul className="space-y-3">
-              {companyLinks.map((link, idx) => (
+              {servicesSolutionsLinks.map((link, idx) => (
                 <li key={idx}>
                   {link.external ? (
                     <a
@@ -110,17 +116,28 @@ export default function Footer() {
           {/* Column 3: More Links */}
           <div>
             <h4 className="text-sm font-bold text-foreground uppercase tracking-wider mb-6">
-              More
+              COMPANY
             </h4>
             <ul className="space-y-3">
-              {moreLinks.map((link, idx) => (
+              {companyLinks.map((link, idx) => (
                 <li key={idx}>
-                  <Link
-                    href={link.href}
-                    className="text-sm text-muted-foreground hover:text-primary transition-colors"
-                  >
-                    {link.label}
-                  </Link>
+                  {link.external ? (
+                    <a
+                      href={link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                    >
+                      {link.label}
+                    </a>
+                  ) : (
+                    <Link
+                      href={link.href}
+                      className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                    >
+                      {link.label}
+                    </Link>
+                  )}
                 </li>
               ))}
             </ul>

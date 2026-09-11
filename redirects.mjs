@@ -31,6 +31,36 @@ export default async function customRedirects() {
       destination: '/custom-erp-software-service',
       permanent: true,
     },
+    {
+      source: '/home/contact',
+      destination: '/contact',
+      permanent: true,
+    },
+    {
+      source: '/home/services-we-offer',
+      destination: '/services',
+      permanent: true,
+    },
+    {
+      source: '/home/our-portfolio',
+      destination: '/portfolio',
+      permanent: true,
+    },
+    {
+      source: '/home/our-products',
+      destination: '/products',
+      permanent: true,
+    },
+    {
+      source: '/portfolio-category/website',
+      destination: '/portfolio',
+      permanent: true,
+    },
+    {
+      source: '/neologicx-whatsapp-chatbot-development',
+      destination: '/whatsapp-chatbot-development',
+      permanent: true,
+    },
     // {
     //   source: '/old-route',
     //   destination: '/new-route',

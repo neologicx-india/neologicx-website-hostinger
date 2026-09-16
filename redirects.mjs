@@ -61,6 +61,52 @@ export default async function customRedirects() {
       destination: '/whatsapp-chatbot-development',
       permanent: true,
     },
+    {
+      source: '/a-smart-app-idea-that-saves-time-for-caterers-and-halwais',
+      destination: '/blog/a-smart-app-idea-that-saves-time-for-caterers-and-halwais',
+      permanent: true,
+    },
+    {
+      source: '/daily-struggle-in-bikaner-with-railway-crossing-problems-now',
+      destination: '/blog/daily-struggle-in-bikaner-with-railway-crossing-problems-now',
+      permanent: true,
+    },
+    {
+      source: '/portfolio/swami-keshwanand-rajasthan-agricultural-university-skrau',
+      destination: '/portfolio/rajuvas',
+      permanent: true,
+    },
+    {
+      source: '/the-complete-digital-routine-from-website-to-automation',
+      destination: '/blog/the-complete-digital-routine-from-website-to-automation',
+      permanent: true,
+    },
+    {
+      source: '/startup-saathi-yojna-lets-build-your-idea-together',
+      destination: '/blog/startup-saathi-yojna-lets-build-your-idea-together',
+      permanent: true,
+    },
+    {
+      source: '/your-website-gets-visitors-but-conversations-never-start',
+      destination: '/blog/your-website-gets-visitors-but-conversations-never-start',
+      permanent: true,
+    },
+    {
+      source: '/new-rules-of-online-branding-every-business-should-know',
+      destination: '/blog/new-rules-of-online-branding-every-business-should-know',
+      permanent: true,
+    },
+    {
+      source: '/portfolio/eck-alumni-connect',
+      destination: '/portfolio/rtu-alumni-mobile-app',
+      permanent: true,
+    },
+    {
+      source: '/online-quiz-application-software',
+      destination: '/portfolio/culture-heritage',
+      permanent: true,
+    },
+
     // {
     //   source: '/old-route',
     //   destination: '/new-route',

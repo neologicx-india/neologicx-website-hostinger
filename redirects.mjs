@@ -97,6 +97,12 @@ export default async function customRedirects() {
       permanent: true,
     },
     {
+      source: '/from-an-idea-to-a-nationwide-change-the-story-behind-the-swachh-bharat-toilet-locator-app',
+      destination: '/blog/from-an-idea-to-a-nationwide-change-the-story-behind-the-swachh-bharat-toilet-locator-app',
+      permanent: true,
+
+    },
+    {
       source: '/portfolio/eck-alumni-connect',
       destination: '/portfolio/rtu-alumni-mobile-app',
       permanent: true,

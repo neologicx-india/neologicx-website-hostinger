@@ -112,6 +112,31 @@ export default async function customRedirects() {
       destination: '/portfolio/culture-heritage',
       permanent: true,
     },
+    {
+      source: '/the-new-rules-of-online-branding-every-business-should-know',
+      destination: '/blog/new-rules-of-online-branding-every-business-should-know',
+      permanent: true,
+    },
+    {
+      source: '/neologicx-introduces-dedicated-website-development-hub-now',
+      destination: '/blog/neologicx-introduces-dedicated-website-development-hub-now',
+      permanent: true,
+    },
+    {
+      source: '/home',
+      destination: '/',
+      permanent: true,
+    },
+    {
+      source: '/e-commerce-shopping-portal',
+      destination: '/ecommerce-website-development-shoppingcart',
+      permanent: true,
+    },
+    {
+      source: '/project-showcaseold',
+      destination: '/portfolio',
+      permanent: true,
+    },
 
     // {
     //   source: '/old-route',

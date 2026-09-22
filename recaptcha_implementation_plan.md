@@ -1,91 +1,105 @@
-# Google reCAPTCHA Implementation Plan
+# Google reCAPTCHA v3 Implementation Plan
 
-Here is the complete, step-by-step solution to add Google reCAPTCHA to your contact form to prevent spam. Since your backend is running on Google Apps Script (GAS), we have to configure both the Next.js frontend and the GAS backend.
+Provide a brief description of the problem, any background context, and what the change accomplishes.
+You mentioned that you want reCAPTCHA on the **entire website**, and that your backend is mostly Strapi (GET APIs) with the only POST action being the contact form pointing to a Google Sheet.
 
-We recommend using **reCAPTCHA v2 (Checkbox "I'm not a robot")** because it's very reliable and easy to integrate with Apps Script.
+The best approach here is **Google reCAPTCHA v3**.
+reCAPTCHA v3 runs invisibly in the background. By adding it to your entire website, it tracks user behavior across all pages and accurately determines if the visitor is a human or a bot without interrupting them. When the user finally submits the Contact Form, a background token is generated and sent to your Google Sheet (via Google Apps Script) for verification.
+
+## User Review Required
+> [!IMPORTANT]
+> Since we are switching to v3, you will need to generate new keys in the Google reCAPTCHA console specifically for **reCAPTCHA v3**. Old v2 keys will not work.
+
+## Open Questions
+> [!NOTE]
+> Are there any other forms on the website (like Newsletter or Careers) that also submit data to Google Sheets? If so, they will need the exact same token logic as the Contact form.
+
+## Proposed Changes
 
 ---
 
-### Step 1: Generate API Keys
+### 1. Generate API Keys for v3
 1. Go to the [Google reCAPTCHA Admin Console](https://www.google.com/recaptcha/admin/create).
-2. Create a new site, choose **reCAPTCHA v2 (Checkbox)**.
+2. Create a new site, choose **reCAPTCHA v3**.
 3. Add your domains (e.g., `localhost` and `neologicx.com`).
 4. Copy the **Site Key** (for Frontend) and **Secret Key** (for Backend).
 
-### Step 2: Frontend Implementation (Next.js)
+### 2. Frontend Implementation (Next.js)
 
-#### 1. Install Dependencies
-Run the following command in your terminal to install the react wrapper for reCAPTCHA:
-```bash
-npm install react-google-recaptcha
-npm install --save-dev @types/react-google-recaptcha
-```
-
-#### 2. Update Environment Variables
-Add the Site Key to your `.env.local` file:
+#### [MODIFY] `.env.local`
+Add your new v3 Site Key.
 ```env
-NEXT_PUBLIC_RECAPTCHA_SITE_KEY=your_site_key_here
+NEXT_PUBLIC_RECAPTCHA_SITE_KEY=your_v3_site_key_here
 ```
 
-#### 3. Update `contact-client.tsx`
-We will modify the form to include the ReCAPTCHA widget and block submission until it's verified.
+#### [NEW] Dependencies
+We will use a popular library for v3 integration in React/Next.js.
+```bash
+npm install react-google-recaptcha-v3
+```
 
+#### [MODIFY] `app/layout.tsx`
+We will wrap your entire application in the reCAPTCHA provider so that Google can track interactions across all pages.
 ```tsx
-import ReCAPTCHA from "react-google-recaptcha";
+import { GoogleReCaptchaProvider } from 'react-google-recaptcha-v3';
 
-export default function ContactClient() {
-  // Add a state to store the token
-  const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null);
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!recaptchaToken) {
-       alert("Please complete the reCAPTCHA");
-       return;
-    }
-    
-    // ... inside payload, pass the token to your backend ...
-    const payload = {
-      ...formData,
-      fileData,
-      fileName,
-      mimeType,
-      recaptchaToken // <--- Send this to Apps Script
-    };
-    // ... fetch(SCRIPT_URL, ...)
-  }
-
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <form onSubmit={handleSubmit}>
-      {/* ... other form fields ... */}
-      
-      {/* Add reCAPTCHA before the submit button */}
-      <div className="mb-6">
-        <ReCAPTCHA
-          sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!}
-          onChange={(token) => setRecaptchaToken(token)}
-        />
-      </div>
-
-      <button disabled={!recaptchaToken || loading}>
-         Submit
-      </button>
-    </form>
-  )
+    <html lang="en">
+      <body>
+        <GoogleReCaptchaProvider reCaptchaKey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!}>
+          {/* Your existing Navbar, Providers, etc */}
+          {children}
+        </GoogleReCaptchaProvider>
+      </body>
+    </html>
+  );
 }
 ```
 
-### Step 3: Backend Implementation (Google Apps Script)
+#### [MODIFY] `components/contact-client.tsx`
+We will use the hook to generate a token instantly when the user hits "Submit", and send it to your Google Apps Script backend.
 
-You must verify the token securely on your server (Apps Script). If you only verify on the frontend, hackers can easily bypass it.
+```tsx
+import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
 
-Modify your `doPost(e)` function in the Google Apps Script editor:
+export default function ContactClient() {
+  const { executeRecaptcha } = useGoogleReCaptcha();
 
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    if (!executeRecaptcha) {
+      console.log("Execute recaptcha not yet available");
+      return;
+    }
+
+    // Generate the v3 token in the background
+    const token = await executeRecaptcha('contact_form_submit');
+
+    // ... your existing code ...
+    const payload = {
+      ...formData,
+      recaptchaToken: token // Send this to Google Sheets / Apps Script
+    };
+
+    // fetch(SCRIPT_URL, { method: "POST", body: JSON.stringify(payload) })
+  };
+  
+  // ... rest of the component
+}
+```
+
+### 3. Backend Verification (Google Apps Script)
+
+Since Strapi is only used for GET requests, the only place we need to verify the token is inside your Google Apps Script `doPost` function. If the token's score is too low (meaning it's a bot), the script will reject the request.
+
+#### [MODIFY] Google Apps Script (`Code.gs`)
 ```javascript
 function doPost(e) {
   var data = JSON.parse(e.postData.contents);
   var recaptchaToken = data.recaptchaToken;
-  var secretKey = "YOUR_SECRET_KEY_HERE"; // Put your secret key here
+  var secretKey = "YOUR_V3_SECRET_KEY_HERE"; // Put your secret key here
   
   // 1. Verify reCAPTCHA token with Google
   var verifyUrl = "https://www.google.com/recaptcha/api/siteverify";
@@ -100,15 +114,24 @@ function doPost(e) {
   var response = UrlFetchApp.fetch(verifyUrl, options);
   var json = JSON.parse(response.getContentText());
   
-  // 2. Check if verification failed
-  if (!json.success) {
+  // 2. Check if verification failed or score is too low (bots get low scores like 0.1)
+  // Usually, a score >= 0.5 is considered human.
+  if (!json.success || json.score < 0.5) {
     return ContentService.createTextOutput(JSON.stringify({
       "result": "error",
-      "message": "reCAPTCHA verification failed."
+      "message": "Spam detected by reCAPTCHA."
     })).setMimeType(ContentService.MimeType.JSON);
   }
   
-  // 3. If success, continue saving the data to your Google Sheet...
-  // (Your existing code goes here)
+  // 3. If success and score is good, continue saving data to Google Sheet
+  // ... your existing sheet code ...
 }
 ```
+
+## Verification Plan
+
+### Manual Verification
+1. Open the website, ensure the reCAPTCHA badge appears on all pages (bottom right corner).
+2. Go to the Contact page, fill out the form.
+3. Submit the form, verify that the data successfully appears in the Google Sheet.
+4. Intentionally send an invalid token via Postman or curl, verify that the Google Apps Script rejects it with a "Spam detected" message.

@@ -47,6 +47,8 @@ const jsonLd = {
   }
 };
 
+import ReCaptchaProvider from '@/components/ReCaptchaProvider'
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -56,14 +58,16 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning data-scroll-behavior="smooth">
       <body className="antialiased" suppressHydrationWarning>
         <QueryProvider>
-          <script
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-          />
-          <Navbar />
-          {children}
-          <Footer />
-          <WhatsAppWidget />
+          <ReCaptchaProvider>
+            <script
+              type="application/ld+json"
+              dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+            />
+            <Navbar />
+            {children}
+            <Footer />
+            <WhatsAppWidget />
+          </ReCaptchaProvider>
         </QueryProvider>
       </body>
     </html>

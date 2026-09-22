@@ -13,6 +13,7 @@ import GlobalLocations from './GlobalLocations';
 import PhoneInput, { isValidPhoneNumber, getCountries, getCountryCallingCode } from 'react-phone-number-input';
 import enLabels from 'react-phone-number-input/locale/en.json';
 import 'react-phone-number-input/style.css';
+import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
 
 const contactInfo = [
   {
@@ -109,6 +110,7 @@ const CustomSelect = ({
 };
 
 export default function ContactClient() {
+  const { executeRecaptcha } = useGoogleReCaptcha();
   const [formData, setFormData] = useState({
     name: '',
     workEmail: '',
@@ -192,8 +194,14 @@ export default function ContactClient() {
       ...formData,
       fileData,
       fileName,
-      mimeType
+      mimeType,
+      recaptchaToken: ''
     };
+
+    if (executeRecaptcha) {
+      const token = await executeRecaptcha('contact_form_submit');
+      payload.recaptchaToken = token;
+    }
 
     const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzRr3WJDb1Qa6XhTk-rvQmorerbg3KxXCXapm5BAP8YVJfVch5Yuy-Yp5qYXs12_BdL/exec";
 

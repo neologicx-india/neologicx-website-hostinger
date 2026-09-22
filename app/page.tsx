@@ -6,10 +6,21 @@ export async function generateMetadata(): Promise<Metadata> {
     const seoData = await strapiService.getPageSeo('home');
 
     if (seoData && seoData.seo) {
-      return {
+      const metadata: Metadata = {
         title: seoData.seo.metaTitle || 'Neologicx | Custom Software & Product Engineering',
         description: seoData.seo.metaDescription || 'Neologicx builds scalable software solutions for businesses.',
       };
+
+      if (seoData.seo.canonicalUrl) {
+        metadata.alternates = {
+          canonical: seoData.seo.canonicalUrl,
+        };
+      } else {
+        metadata.alternates = {
+          canonical: 'https://neologicx.com',
+        };
+      }
+      return metadata;
     }
   } catch (error) {
     console.error("Error fetching SEO data for home:", error);
@@ -18,6 +29,9 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     title: 'Neologicx | Custom Software & Product Engineering',
     description: 'Neologicx builds scalable software solutions for businesses.',
+    alternates: {
+      canonical: 'https://neologicx.com',
+    },
   };
 }
 

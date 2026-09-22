@@ -8,10 +8,21 @@ export async function generateMetadata(): Promise<Metadata> {
     const seoData = await strapiService.getPageSeo('services');
 
     if (seoData && seoData.seo) {
-      return {
+      const metadata: Metadata = {
         title: seoData.seo.metaTitle || 'Software Engineering Services | Neologicx',
         description: seoData.seo.metaDescription || 'Product engineering, custom software, web and mobile development, e-commerce, APIs, integrations and automation from Neologicx.',
       };
+      
+      if (seoData.seo.canonicalUrl) {
+        metadata.alternates = {
+          canonical: seoData.seo.canonicalUrl,
+        };
+      } else {
+        metadata.alternates = {
+          canonical: 'https://neologicx.com/services',
+        };
+      }
+      return metadata;
     }
   } catch (error) {
     console.error("Error fetching SEO data for services:", error);
@@ -20,6 +31,9 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     title: 'Software Engineering Services | Neologicx',
     description: 'Product engineering, custom software, web and mobile development, e-commerce, APIs, integrations and automation from Neologicx.',
+    alternates: {
+      canonical: 'https://neologicx.com/services',
+    },
   };
 }
 export default function ServicesPage() {

@@ -23,7 +23,7 @@ const navLinks = [
   { label: 'Solutions', route: '/products' },
   { label: 'Industries', route: '/industries' },
   { label: 'Case Studies', route: '/portfolio' },
-  // { label: 'Testimonials', route: '/testimonials' },
+  // { label: 'Testimonials', route: '/testimonials ' },
   { label: 'Insights', route: '/blog' },
 ];
 

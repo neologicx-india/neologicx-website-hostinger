@@ -47,7 +47,7 @@ const internationalLocations: Location[] = [
   {
     city: "Malaysia",
     address:
-      "3B-10-7, Plaza Sentral, Jalan Stesen Sentral 5, KL Sentral, 50470 Kuala Lumpur, Malaysia <br/> (1411006-H)",
+      "3B-10-7, Plaza Sentral, Jalan Stesen Sentral 5, KL Sentral, 50470 Kuala Lumpur, Malaysia  (1411006-H)",
   },
 ];
 

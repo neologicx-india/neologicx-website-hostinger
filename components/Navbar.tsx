@@ -29,7 +29,7 @@ const navLinks = [
 const aboutLinks = [
   { label: 'About Neologicx', route: '/about-us' },
   { label: 'Engagement Models', route: '/engagement-models' },
-  { label: 'Contact', route: '/contact' },
+  // { label: 'Contact', route: '/contact' },
 ];
 
 const serviceCategories = [
@@ -283,7 +283,7 @@ export default function Navbar() {
               </Link>
             </li>
           ))}
-          
+
           {/* About Dropdown */}
           <li className="relative" onMouseEnter={() => setAboutDropdown(true)} onMouseLeave={() => setAboutDropdown(false)}>
             <button className={cn(

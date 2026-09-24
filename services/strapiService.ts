@@ -41,7 +41,7 @@ export const strapiService = {
 
   // --- CASE STUDIES API ---
   async getAllCaseStudies() {
-    return await fetchAPI('/api/case-studies?populate=*&sort=createdAt:desc');
+    return await fetchAPI('/api/case-studies?populate=*&sort=updatedAt:desc');
   },
 
   async getCaseStudyBySlug(slug: string) {

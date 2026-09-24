@@ -17,6 +17,7 @@ import {
 } from 'lucide-react';
 import PageHero from '@/components/page-hero';
 import CTASection from './cta-section';
+// import LocationsSection from './locations-section';
 
 const approachSteps = [
   {
@@ -224,6 +225,10 @@ export default function AboutClient() {
         </div>
 
       </div>
+
+      {/* Locations Section */}
+      {/* <LocationsSection /> */}
+      
       {/* Final CTA Section */}
       <CTASection
         title="Ready to see our work?"

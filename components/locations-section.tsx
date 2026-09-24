@@ -1,66 +1,171 @@
 import React from 'react';
-import { MapPin, Phone } from 'lucide-react';
+import { MapPin, Globe } from 'lucide-react';
 
-const locations = [
+const indiaLocations = [
   {
-    city: "Rajasthan",
+    city: "Bikaner",
+    address: "1st Floor, Ishwar Maya, Old Ginani, Bikaner Fort, Bikaner, Rajasthan - 334001",
+    active: true,
+  },
+  {
+    city: "Jaipur",
     address: "T-11128, Rangoli Garden, Near Vaishali Nagar, Maharana Pratap Road, Jaipur - 302034",
-    phone: "+91-9414138694/620"
   },
   {
     city: "Mumbai",
-    address: "4th floor Plot A-59 Road Number 1 MIDC Marol Industrial Area Andheri East Mumbai 400093",
-    phone: "+91-7014156602"
+    address: "4th floor, Plot A-59, Road Number 1, MIDC Marol Industrial Area, Andheri East, Mumbai - 400093",
   },
   {
-    city: "Gujrat",
-    address: "1107, STC(Shivam Trade Centre), NH147, Ambli, Ahmedabad 380058",
-    phone: "+91-9099960099"
+    city: "Gujarat",
+    address: "1107, STC(Shivam Trade Centre), NH147, Ambli, Ahmedabad - 380058",
   },
   {
     city: "Gurgaon",
-    address: "Building No, 1970, 2nd floor, Block A, Greenwood City, Sector 45, Gurugram, Haryana 122003",
-    phone: "+91-9414138694"
+    address: "Building No. 1970, 2nd floor, Block A, Greenwood City, Sector 45, Gurugram, Haryana - 122003",
+  }
+];
+
+const internationalLocations = [
+  {
+    country: "Singapore",
+    address: "177 TANJONG RHU ROAD, #11-13, SINGAPORE - 436607",
+    flagCode: "sg"
   },
   {
-    city: "Singapore",
-    address: "177 TANJONG RHU ROAD, #07-13, SINGAPORE-436607",
-    phone: "+65 91294058"
+    country: "Dubai",
+    address: "502, Al Nasr Plaza, Oud Metha, Dubai",
+    flagCode: "ae"
+  },
+  {
+    country: "Malaysia",
+    address: "3B-10-7, Plaza Sentral, Jalan Stesen Sentral 5, KL Sentral, 50470 Kuala Lumpur, Malaysia (1411006-H)",
+    flagCode: "my"
+  },
+  {
+    country: "UK (London)",
+    address: "71-75 Shelton Street, Covent Garden, London, WC2H 9JQ",
+    flagCode: "gb"
+  },
+  {
+    country: "Australia (Sydney)",
+    address: "Level 12, 275 George St, Sydney NSW 2000",
+    flagCode: "au"
   }
 ];
 
 export default function LocationsSection() {
   return (
-    <section className="w-full bg-muted/10 py-20 relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-extrabold text-[#0B1A3A] tracking-tight mb-3">Our Locations</h2>
-          <p className="text-muted-foreground text-[15px]">Find us across key cities to serve you better.</p>
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5">
-          {locations.map((loc, idx) => (
-            <div key={idx} className="bg-white rounded-2xl p-6 border border-border/60 shadow-[0_2px_10px_-4px_rgba(0,0,0,0.05)] hover:shadow-lg transition-shadow duration-300 flex flex-col h-full">
-              <div className="w-10 h-10 rounded-xl bg-muted flex items-center justify-center mb-5 shrink-0">
-                <MapPin className="w-5 h-5 text-primary" />
-              </div>
-              <h3 className="text-lg font-bold text-[#0B1A3A] mb-3">{loc.city}</h3>
-              <p className="text-[13px] text-muted-foreground leading-relaxed mb-6 flex-grow">{loc.address}</p>
-              {/* <div className="flex items-center gap-2 text-[13px] font-semibold text-[#0B1A3A] mt-auto pt-4 border-t border-border/30">
-                <Phone className="w-4 h-4 text-muted-foreground" />
-                <span>{loc.phone}</span>
-              </div> */}
-            </div>
-          ))}
-        </div>
-        <div className="mt-4 flex justify-end">
-          <p className="text-sm text-muted-foreground italic">* Representative Office</p>
-        </div>
+    <section className="w-full bg-muted/10 py-20 relative overflow-hidden font-sans">
+      {/* Map Background Image */}
+      <div className="absolute top-0 right-0 w-full h-full z-0 pointer-events-none flex justify-end items-start pt-10 pr-10">
+        <img 
+          src="/map.png" 
+          alt="World Map" 
+          className="w-full max-w-[800px] object-contain object-right-top opacity-60 md:opacity-100" 
+        />
       </div>
 
-      {/* Glowing Faded Bottom Border */}
-      <div className="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-primary to-transparent opacity-50 z-20" />
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1/2 h-[2px] bg-gradient-to-r from-transparent via-primary/50 to-transparent blur-[2px] z-20" />
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        {/* Header Section */}
+        <div className="flex flex-col lg:flex-row lg:justify-between lg:items-end mb-12 relative">
+          <div className="max-w-2xl">
+            <p className="text-primary font-bold tracking-widest text-xs uppercase mb-3">Our Locations</p>
+            <h2 className="text-4xl md:text-5xl font-extrabold text-[#0B1A3A] tracking-tight mb-4">
+              Global Presence, Local Support
+            </h2>
+            <p className="text-muted-foreground text-lg md:text-xl">
+              With offices in India and across the globe, we are always close to our clients, no matter where you are.
+            </p>
+          </div>
+          
+          {/* Cursive Handwriting Decoration */}
+          <div className="hidden lg:flex flex-col items-center absolute right-0 top-0 -mt-2 mr-4 rotate-[-6deg]">
+            <span className="text-primary font-medium text-3xl" style={{ fontFamily: "'Caveat', 'Brush Script MT', cursive" }}>Let's Build</span>
+            <span className="text-primary font-medium text-3xl -mt-1 ml-6" style={{ fontFamily: "'Caveat', 'Brush Script MT', cursive" }}>Together</span>
+            <svg width="100" height="24" viewBox="0 0 100 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-primary mt-1 ml-4">
+               <path d="M5 12Q50 24 95 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" fill="none"/>
+               <path d="M85 2L95 6L88 14" stroke="currentColor" strokeWidth="2" strokeLinecap="round" fill="none"/>
+            </svg>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8">
+          {/* Left Column - India */}
+          <div className="lg:col-span-7 flex flex-col gap-5">
+            {/* National Header Card */}
+            <div className="bg-background/80 backdrop-blur-sm rounded-2xl p-5 md:p-6 flex flex-col sm:flex-row sm:items-center justify-between border border-border shadow-sm gap-4">
+               <div className="flex items-center gap-4">
+                  <div className="w-14 h-14 rounded-full overflow-hidden border-2 border-border shadow-sm shrink-0">
+                     <img src="https://flagcdn.com/w80/in.png" alt="India Flag" className="w-full h-full object-cover" />
+                  </div>
+                  <div>
+                     <h3 className="text-xl md:text-2xl font-extrabold text-[#0B1A3A]">National (India)</h3>
+                     <p className="text-sm text-muted-foreground font-medium mt-0.5">Our offices across India</p>
+                  </div>
+               </div>
+               <div className="w-12 h-12 bg-primary/10 text-primary rounded-full flex items-center justify-center shrink-0 self-end sm:self-auto">
+                  <MapPin className="w-6 h-6" />
+               </div>
+            </div>
+
+            {/* India Locations Grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+               {indiaLocations.map((loc, idx) => (
+                  <div key={idx} className={`bg-background rounded-xl p-5 border shadow-sm relative flex flex-col group hover:shadow-md transition-all duration-300 ${loc.active ? 'border-primary/30 bg-primary/5' : 'border-border/60'}`}>
+                     {loc.active && <div className="absolute left-0 top-0 bottom-0 w-1.5 bg-primary rounded-l-xl"></div>}
+                     <div className="flex items-start justify-between mb-3">
+                        <div className="flex items-center gap-3">
+                           <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center shrink-0 group-hover:bg-primary/20 transition-colors">
+                              <MapPin className="w-4 h-4 text-primary" />
+                           </div>
+                           <h4 className="font-bold text-[#0B1A3A] text-base">{loc.city}</h4>
+                        </div>
+                     </div>
+                     <p className="text-[13px] text-muted-foreground leading-relaxed pl-11">{loc.address}</p>
+                  </div>
+               ))}
+            </div>
+          </div>
+
+          {/* Right Column - International */}
+          <div className="lg:col-span-5">
+            <div className="bg-[#0B1A3A] rounded-2xl p-6 md:p-8 h-full flex flex-col relative overflow-hidden shadow-xl">
+               {/* Decorative map bg inside the card */}
+               <div className="absolute top-0 right-0 opacity-5 pointer-events-none">
+                  <Globe className="w-64 h-64 -mt-16 -mr-16 text-white" />
+               </div>
+               
+               <div className="flex items-center gap-4 mb-8 relative z-10">
+                  <div className="w-14 h-14 rounded-full bg-white/10 flex items-center justify-center shrink-0 border border-white/10">
+                     <Globe className="w-7 h-7 text-white" />
+                  </div>
+                  <div>
+                     <h3 className="text-xl md:text-2xl font-extrabold text-white">International</h3>
+                     <p className="text-white/70 text-sm font-medium mt-0.5">Our global offices</p>
+                  </div>
+                  <div className="ml-auto">
+                     <MapPin className="w-6 h-6 text-white/20" />
+                  </div>
+               </div>
+
+               <div className="flex flex-col gap-3 relative z-10 flex-grow justify-center">
+                  {internationalLocations.map((loc, idx) => (
+                     <div key={idx} className="bg-white/5 hover:bg-white/10 border border-white/5 hover:border-white/10 rounded-xl p-4 flex items-center gap-4 transition-all group cursor-default">
+                        <div className="w-10 h-10 rounded-full overflow-hidden shrink-0 border border-white/20 shadow-sm bg-[#0B1A3A]">
+                           <img src={`https://flagcdn.com/w40/${loc.flagCode}.png`} alt={`${loc.country} Flag`} className="w-full h-full object-cover" />
+                        </div>
+                        <div className="flex-grow min-w-0">
+                           <h4 className="text-white font-bold text-sm mb-0.5">{loc.country}</h4>
+                           <p className="text-white/60 text-[11px] md:text-xs leading-relaxed">{loc.address}</p>
+                        </div>
+                     </div>
+                  ))}
+               </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
   );
 }
+

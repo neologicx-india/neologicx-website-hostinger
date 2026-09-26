@@ -92,8 +92,8 @@ export default function LocationsSection() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8">
           {/* Left Column - India */}
           <div className="lg:col-span-7 flex flex-col gap-5">
-            {/* National Header Card */}
-            <div className="bg-background/80 backdrop-blur-sm rounded-2xl p-5 md:p-6 flex flex-col sm:flex-row sm:items-center justify-between border border-border shadow-sm gap-4">
+            {/* National Header Card */} 
+            <div className="bg-background/80 backdrop-blur-sm rounded-2xl p-5 py-2 md:p-6 md:py-2 flex flex-col sm:flex-row sm:items-center justify-between border border-border shadow-sm gap-4">
                <div className="flex items-center gap-4">
                   <div className="w-14 h-14 rounded-full overflow-hidden border-2 border-border shadow-sm shrink-0">
                      <img src="https://flagcdn.com/w80/in.png" alt="India Flag" className="w-full h-full object-cover" />
@@ -103,8 +103,8 @@ export default function LocationsSection() {
                      <p className="text-sm text-muted-foreground font-medium mt-0.5">Our offices across India</p>
                   </div>
                </div>
-               <div className="w-12 h-12 bg-primary/10 text-primary rounded-full flex items-center justify-center shrink-0 self-end sm:self-auto">
-                  <MapPin className="w-6 h-6" />
+               <div className="w-28 h-24 shrink-0 self-end sm:self-auto ml-2">
+                  <img src="/india_global_theme.svg" alt="India Map" className="w-full h-full object-contain" />
                </div>
             </div>
 
@@ -135,7 +135,7 @@ export default function LocationsSection() {
                   <Globe className="w-64 h-64 -mt-16 -mr-16 text-white" />
                </div>
                
-               <div className="flex items-center gap-4 mb-8 relative z-10">
+               <div className="flex items-center gap-4 mb-1 relative z-10">
                   <div className="w-14 h-14 rounded-full bg-white/10 flex items-center justify-center shrink-0 border border-white/10">
                      <Globe className="w-7 h-7 text-white" />
                   </div>
@@ -143,8 +143,8 @@ export default function LocationsSection() {
                      <h3 className="text-xl md:text-2xl font-extrabold text-white">International</h3>
                      <p className="text-white/70 text-sm font-medium mt-0.5">Our global offices</p>
                   </div>
-                  <div className="ml-auto">
-                     <MapPin className="w-6 h-6 text-white/20" />
+                  <div className="ml-auto w-32 h-24">
+                     <img src="/global_presence_world_map.png" alt="World Map" className="w-full h-full object-contain opacity-90" />
                   </div>
                </div>
 

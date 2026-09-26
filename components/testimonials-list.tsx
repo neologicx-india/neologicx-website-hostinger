@@ -19,7 +19,7 @@ const TestimonialCard = ({ testimonial }: { testimonial: any }) => (
       ))}
     </div>
 
-    <p className="text-foreground/80 text-lg mb-8 relative z-10 font-medium italic">
+    <p className="text-justify text-foreground/80 text-lg mb-8 relative z-10 font-medium italic">
       "{testimonial.content}"
     </p>
 
@@ -99,10 +99,9 @@ export default function TestimonialsList({ initialTestimonials = [] }: { initial
 
   const displayTestimonials = initialTestimonials;
 
-  const third = Math.ceil(displayTestimonials.length / 3);
-  const col1 = displayTestimonials.slice(0, third);
-  const col2 = displayTestimonials.slice(third, third * 2);
-  const col3 = displayTestimonials.slice(third * 2);
+  const col1 = displayTestimonials.filter((_, i) => i % 3 === 0);
+  const col2 = displayTestimonials.filter((_, i) => i % 3 === 1);
+  const col3 = displayTestimonials.filter((_, i) => i % 3 === 2);
 
   return (
     <section className="py-20 md:py-32 relative overflow-hidden bg-background">

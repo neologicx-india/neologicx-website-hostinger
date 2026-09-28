@@ -32,6 +32,7 @@ export default function Footer() {
 
   const companyLinks: FooterLink[] = [
     { label: 'About', href: '/about-us' },
+    { label: 'Careers', href: '/careers' },
     { label: 'Engagement Models', href: '/engagement-models' },
     // { label: 'Testimonials', href: '/testimonials' },
     { label: 'Insights', href: '/blog' },

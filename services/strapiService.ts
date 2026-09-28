@@ -58,6 +58,11 @@ export const strapiService = {
   // --- TESTIMONIALS API ---
   async getAllTestimonials() {
     return await fetchAPI('/api/testimonials?populate=*');
+  },
+
+  // --- CAREERS API ---
+  async getAllCareers() {
+    return await fetchAPI('/api/careers?populate=*&sort=createdAt:desc');
   }
 };
 

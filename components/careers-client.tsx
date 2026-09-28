@@ -17,16 +17,15 @@ import CTASection from '@/components/cta-section';
 
 type Career = {
   id: number;
-  attributes: {
-    title: string;
-    type: string;
-    location: string;
-    experience: string;
-    description: string;
-    accepting: boolean;
-    applyLink: string;
-    createdAt: string;
-  };
+  documentId: string;
+  title: string;
+  type: string;
+  location: string;
+  experience: string;
+  description: any; // RichText in Strapi 5 comes as an array of blocks
+  accepting: boolean;
+  applyLink: string;
+  createdAt: string;
 };
 
 export default function CareersClient({ initialCareers }: { initialCareers: Career[] }) {
@@ -77,7 +76,7 @@ export default function CareersClient({ initialCareers }: { initialCareers: Care
                   key={job.id}
                   variants={itemVariants}
                   className={`relative p-8 rounded-2xl border transition-all duration-300 ${
-                    job.attributes.accepting
+                    job.accepting
                       ? 'bg-card border-border hover:border-primary/50 shadow-sm hover:shadow-md'
                       : 'bg-muted/30 border-border/50 opacity-80'
                   }`}
@@ -85,31 +84,31 @@ export default function CareersClient({ initialCareers }: { initialCareers: Care
                   <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-6">
                     <div>
                       <h3 className="text-xl font-bold mb-2 text-foreground">
-                        {job.attributes.title}
+                        {job.title}
                       </h3>
                       <div className="flex flex-wrap gap-3 text-sm text-muted-foreground">
-                        {job.attributes.experience && (
+                        {job.experience && (
                           <span className="flex items-center gap-1.5 bg-background px-2.5 py-1 rounded-md border">
                             <Briefcase className="w-4 h-4 text-primary" />
-                            {job.attributes.experience}
+                            {job.experience}
                           </span>
                         )}
-                        {job.attributes.location && (
+                        {job.location && (
                           <span className="flex items-center gap-1.5 bg-background px-2.5 py-1 rounded-md border">
                             <MapPin className="w-4 h-4 text-primary" />
-                            {job.attributes.location}
+                            {job.location}
                           </span>
                         )}
-                        {job.attributes.type && (
+                        {job.type && (
                           <span className="flex items-center gap-1.5 bg-background px-2.5 py-1 rounded-md border">
                             <Clock className="w-4 h-4 text-primary" />
-                            {job.attributes.type}
+                            {job.type}
                           </span>
                         )}
                       </div>
                     </div>
                     <div>
-                      {job.attributes.accepting ? (
+                      {job.accepting ? (
                         <span className="inline-flex items-center gap-1.5 px-3 py-1 text-xs font-medium text-green-700 bg-green-100 rounded-full dark:bg-green-900/30 dark:text-green-400">
                           <CheckCircle className="w-3.5 h-3.5" />
                           Accepting
@@ -124,13 +123,18 @@ export default function CareersClient({ initialCareers }: { initialCareers: Care
                   </div>
 
                   <div className="prose prose-sm dark:prose-invert text-muted-foreground mb-8 line-clamp-3">
-                    {job.attributes.description}
+                    {/* Handle Strapi Rich text rendering or simply extract text */}
+                    {Array.isArray(job.description) 
+                      ? job.description.map((p: any, i: number) => (
+                          <p key={i}>{p.children?.map((c: any) => c.text).join('')}</p>
+                        ))
+                      : job.description}
                   </div>
 
                   <div className="pt-6 border-t border-border flex items-center justify-between">
-                    {job.attributes.accepting ? (
+                    {job.accepting ? (
                       <a
-                        href={job.attributes.applyLink || "mailto:support@neologicx.com"}
+                        href={job.applyLink || "mailto:support@neologicx.com"}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="inline-flex items-center justify-center h-10 px-6 text-sm font-medium transition-colors rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"

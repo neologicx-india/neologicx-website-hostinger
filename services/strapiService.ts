@@ -9,8 +9,9 @@ async function fetchAPI(endpoint: string, options = {}) {
         'Content-Type': 'application/json',
       },
       ...options,
-      // Added revalidation so the page updates periodically if backend changes
-      next: { revalidate: 60 }
+      // Added cache: 'no-store' to stop aggressive caching during development
+      cache: 'no-store',
+      // next: { revalidate: 60 }
     });
 
     if (!res.ok) {
@@ -62,7 +63,7 @@ export const strapiService = {
 
   // --- CAREERS API ---
   async getAllCareers() {
-    return await fetchAPI('/api/careers?populate=*&sort=createdAt:desc');
+    return await fetchAPI('/api/careers?populate=*');
   }
 };
 

@@ -9,9 +9,8 @@ async function fetchAPI(endpoint: string, options = {}) {
         'Content-Type': 'application/json',
       },
       ...options,
-      // Added cache: 'no-store' to stop aggressive caching during development
-      cache: 'no-store',
-      // next: { revalidate: 60 }
+      // Added revalidation so the page updates periodically if backend changes
+      next: { revalidate: 60 }
     });
 
     if (!res.ok) {

@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import { Briefcase, MapPin, Clock, CheckCircle, XCircle, ArrowRight } from 'lucide-react';
 import PageHero from '@/components/page-hero';
 import CTASection from '@/components/cta-section';
+import JobApplicationModal from '@/components/job-application-modal';
 
 // Strapi Content Type Requirements for "Career":
 // - title (Text)
@@ -44,6 +45,14 @@ export default function CareersClient({ initialCareers }: { initialCareers: Care
       y: 0,
       transition: { duration: 0.5 }
     }
+  };
+
+  const [isModalOpen, setIsModalOpen] = React.useState(false);
+  const [selectedJobTitle, setSelectedJobTitle] = React.useState('');
+
+  const openApplyModal = (title: string) => {
+    setSelectedJobTitle(title);
+    setIsModalOpen(true);
   };
 
   return (
@@ -133,15 +142,13 @@ export default function CareersClient({ initialCareers }: { initialCareers: Care
 
                   <div className="pt-6 border-t border-border flex items-center justify-between">
                     {job.accepting ? (
-                      <a
-                        href={job.applyLink || "mailto:support@neologicx.com"}
-                        target="_blank"
-                        rel="noopener noreferrer"
+                      <button
+                        onClick={() => openApplyModal(job.title)}
                         className="inline-flex items-center justify-center h-10 px-6 text-sm font-medium transition-colors rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
                       >
                         Apply Now
                         <ArrowRight className="w-4 h-4 ml-2" />
-                      </a>
+                      </button>
                     ) : (
                       <span className="inline-flex items-center justify-center h-10 px-6 text-sm font-medium transition-colors rounded-lg bg-muted text-muted-foreground cursor-not-allowed">
                         Closed
@@ -160,6 +167,12 @@ export default function CareersClient({ initialCareers }: { initialCareers: Care
       </section>
 
       <CTASection />
+
+      <JobApplicationModal 
+        isOpen={isModalOpen} 
+        onClose={() => setIsModalOpen(false)} 
+        jobTitle={selectedJobTitle} 
+      />
     </main>
   );
 }

@@ -17,6 +17,7 @@ import {
 } from 'lucide-react';
 import PageHero from '@/components/page-hero';
 import CTASection from './cta-section';
+import Testimonials from './testimonials';
 // import LocationsSection from './locations-section';
 
 const approachSteps = [
@@ -224,6 +225,25 @@ export default function AboutClient() {
           </div>
         </div>
 
+      </div>
+
+      {/* Testimonials Section */}
+      <Testimonials />
+
+      {/* Strategic Partners Section */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-32">
+        <div className="bg-primary/5 rounded-3xl p-8 md:p-12 border border-primary/10 flex flex-col md:flex-row items-center justify-between gap-8 shadow-sm">
+          <div className="max-w-2xl">
+            <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-4">Our Strategic Partners</h3>
+            <p className="text-foreground leading-relaxed text-lg">
+              We work with a small group of strategic partners whose capabilities complement our software engineering work, bringing specialized expertise in branding, AI, and cybersecurity to relevant engagements.
+            </p>
+          </div>
+          <Link href="/strategic-partners" className="bg-primary text-primary-foreground px-8 py-4 rounded-full font-bold shadow-xl hover:shadow-2xl hover:bg-primary/90 transition-all shrink-0 hover:-translate-y-1 inline-flex items-center">
+            Meet Our Partners
+            <ArrowRight className="w-5 h-5 ml-2" />
+          </Link>
+        </div>
       </div>
 
       {/* Locations Section */}

@@ -23,14 +23,14 @@ const navLinks = [
   { label: 'Solutions', route: '/products' },
   { label: 'Industries', route: '/industries' },
   { label: 'Case Studies', route: '/portfolio' },
-  // { label: 'Testimonials', route: '/testimonials ' },
   { label: 'Insights', route: '/blog' },
 ];
 
 const aboutLinks = [
   { label: 'About Neologicx', route: '/about-us' },
   { label: 'Engagement Models', route: '/engagement-models' },
-  // { label: 'Contact', route: '/contact' },
+  { label: 'Strategic Partners', route: '/strategic-partners' },
+   { label: 'Testimonials', route: '/testimonials' },
 ];
 
 const serviceCategories = [

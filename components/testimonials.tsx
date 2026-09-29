@@ -129,7 +129,7 @@ export default function Testimonials() {
                 autoplay={{ delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true }}
                 breakpoints={{
                   768: { slidesPerView: 1 },
-                  1024: { slidesPerView: 2 },
+                  1024: { slidesPerView: 1 },
                 }}
                 onSwiper={setSwiperInstance}
                 onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}

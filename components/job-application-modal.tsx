@@ -64,8 +64,51 @@ export default function JobApplicationModal({ isOpen, onClose, jobTitle }: JobAp
     setIsSubmitting(true);
 
     try {
-      // Simulate API call for now (you can replace this with actual form submission to Strapi/Email provider)
-      await new Promise((resolve) => setTimeout(resolve, 1500));
+      
+      let fileData = '';
+      let fileName = '';
+      let mimeType = '';
+
+      if (file) {
+        fileName = file.name;
+        mimeType = file.type;
+        fileData = await new Promise<string>((resolve, reject) => {
+          const reader = new FileReader();
+          reader.onload = () => {
+            const result = reader.result as string;
+            const base64 = result.split(',')[1];
+            resolve(base64);
+          };
+          reader.onerror = error => reject(error);
+          reader.readAsDataURL(file);
+        });
+      }
+
+      const payload = {
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        location: formData.location,
+        jobTitle: jobTitle,
+        fileData: fileData,
+        fileName: fileName,
+        mimeType: mimeType,
+        formType: 'job_application'
+      };
+
+      // URL from the unified Contact & Careers Apps Script Deployment
+      const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzRr3WJDb1Qa6XhTk-rvQmorerbg3KxXCXapm5BAP8YVJfVch5Yuy-Yp5qYXs12_BdL/exec';
+
+      await fetch(SCRIPT_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(payload)
+      });
+      
+      // With no-cors, we cannot read the JSON response, so we assume success if no network error occurred.
       setIsSuccess(true);
       // Reset form
       setFormData({ name: '', email: '', phone: '', location: '' });

@@ -6,6 +6,7 @@ import { Briefcase, MapPin, Clock, CheckCircle, XCircle, ArrowRight } from 'luci
 import PageHero from '@/components/page-hero';
 import CTASection from '@/components/cta-section';
 import JobApplicationModal from '@/components/job-application-modal';
+import { BlocksRenderer } from '@strapi/blocks-react-renderer';
 
 // Strapi Content Type Requirements for "Career":
 // - title (Text)
@@ -49,6 +50,13 @@ export default function CareersClient({ initialCareers }: { initialCareers: Care
 
   const [isModalOpen, setIsModalOpen] = React.useState(false);
   const [selectedJobTitle, setSelectedJobTitle] = React.useState('');
+  const [expandedJobs, setExpandedJobs] = React.useState<number[]>([]);
+
+  const toggleJobDescription = (id: number) => {
+    setExpandedJobs(prev => 
+      prev.includes(id) ? prev.filter(jobId => jobId !== id) : [...prev, id]
+    );
+  };
 
   const openApplyModal = (title: string) => {
     setSelectedJobTitle(title);
@@ -131,14 +139,19 @@ export default function CareersClient({ initialCareers }: { initialCareers: Care
                     </div>
                   </div>
 
-                  <div className="prose prose-sm dark:prose-invert text-muted-foreground mb-8 line-clamp-3">
-                    {/* Handle Strapi Rich text rendering or simply extract text */}
-                    {Array.isArray(job.description) 
-                      ? job.description.map((p: any, i: number) => (
-                          <p key={i}>{p.children?.map((c: any) => c.text).join('')}</p>
-                        ))
-                      : job.description}
+                  <div className={`prose prose-sm dark:prose-invert text-muted-foreground mb-2 ${expandedJobs.includes(job.id) ? '' : 'line-clamp-3'}`}>
+                    {Array.isArray(job.description) ? (
+                      <BlocksRenderer content={job.description} />
+                    ) : (
+                      job.description
+                    )}
                   </div>
+                  <button 
+                    onClick={() => toggleJobDescription(job.id)}
+                    className="text-primary text-sm font-medium hover:underline mb-6 text-left"
+                  >
+                    {expandedJobs.includes(job.id) ? 'View Less' : 'View More'}
+                  </button>
 
                   <div className="pt-6 border-t border-border flex items-center justify-between">
                     {job.accepting ? (

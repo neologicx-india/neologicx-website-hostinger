@@ -1,6 +1,7 @@
 "use client";
 
-import { motion, Variants } from "framer-motion";
+import { motion, useAnimationFrame, useMotionValue } from "framer-motion";
+import React from "react";
 import { Star, Quote, User } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -41,38 +42,69 @@ const TestimonialCard = ({ testimonial }: { testimonial: any }) => (
   </div>
 );
 
-const MarqueeStyles = () => (
-  <style dangerouslySetInnerHTML={{
-    __html: `
-    @keyframes marquee-up {
-      0% { transform: translateY(0%); }
-      100% { transform: translateY(-50%); }
-    }
-    @keyframes marquee-down {
-      0% { transform: translateY(-50%); }
-      100% { transform: translateY(0%); }
-    }
-    .animate-marquee-up {
-      animation: marquee-up var(--duration) linear infinite;
-    }
-    .animate-marquee-down {
-      animation: marquee-down var(--duration) linear infinite;
-    }
-    .pause-on-hover:hover .animate-marquee-up,
-    .pause-on-hover:hover .animate-marquee-down {
-      animation-play-state: paused !important;
-    }
-  `}} />
-);
+
 
 const MarqueeColumn = ({ testimonials, duration, reverse = false }: { testimonials: any[], duration: number, reverse?: boolean }) => {
+  const [isHovered, setIsHovered] = React.useState(false);
+  const [isDragging, setIsDragging] = React.useState(false);
+  const y = useMotionValue(0);
+  const contentRef = React.useRef<HTMLDivElement>(null);
+  const heightRef = React.useRef(0);
+
+  useAnimationFrame((time, delta) => {
+    if (!contentRef.current) return;
+    
+    if (heightRef.current === 0) {
+      heightRef.current = contentRef.current.offsetHeight;
+    }
+    
+    const h = heightRef.current;
+    if (h === 0) return;
+
+    let currentY = y.get();
+
+    // Always enforce seamless looping
+    if (currentY >= 0) {
+      currentY -= h;
+      y.set(currentY);
+    } else if (currentY <= -h) {
+      currentY += h;
+      y.set(currentY);
+    }
+
+    if (isHovered || isDragging) return;
+
+    const speed = h / (duration * 1000); 
+    const moveBy = reverse ? speed * delta : -speed * delta;
+    y.set(currentY + moveBy);
+  });
+
+  React.useEffect(() => {
+    const updateHeight = () => {
+      if (contentRef.current) {
+        heightRef.current = contentRef.current.offsetHeight;
+      }
+    };
+    window.addEventListener('resize', updateHeight);
+    return () => window.removeEventListener('resize', updateHeight);
+  }, []);
+
   return (
     <div
-      className="relative h-full overflow-hidden flex flex-col pause-on-hover cursor-pointer"
-      style={{ "--duration": `${duration}s` } as React.CSSProperties}
+      className="relative h-full overflow-hidden flex flex-col cursor-grab active:cursor-grabbing"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
     >
-      <div className={`flex flex-col w-full ${reverse ? 'animate-marquee-down' : 'animate-marquee-up'}`}>
-        <div className="flex flex-col w-full">
+      <motion.div 
+        className="flex flex-col w-full"
+        style={{ y }}
+        drag="y"
+        dragConstraints={{ top: -100000, bottom: 100000 }} // large constraints for infinite scroll
+        dragElastic={0}
+        onDragStart={() => setIsDragging(true)}
+        onDragEnd={() => setIsDragging(false)}
+      >
+        <div className="flex flex-col w-full" ref={contentRef}>
           {testimonials.map((t, idx) => (
             <TestimonialCard key={`set1-${t.id}-${idx}`} testimonial={t} />
           ))}
@@ -82,7 +114,12 @@ const MarqueeColumn = ({ testimonials, duration, reverse = false }: { testimonia
             <TestimonialCard key={`set2-${t.id}-${idx}`} testimonial={t} />
           ))}
         </div>
-      </div>
+        <div className="flex flex-col w-full">
+          {testimonials.map((t, idx) => (
+            <TestimonialCard key={`set3-${t.id}-${idx}`} testimonial={t} />
+          ))}
+        </div>
+      </motion.div>
     </div>
   );
 };
@@ -105,7 +142,6 @@ export default function TestimonialsList({ initialTestimonials = [] }: { initial
 
   return (
     <section className="py-20 md:py-32 relative overflow-hidden bg-background">
-      <MarqueeStyles />
       {/* Background Elements */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden z-0 pointer-events-none">
         <div className="absolute -top-[10%] -right-[10%] w-[50%] h-[50%] rounded-full bg-primary/5 blur-3xl" />

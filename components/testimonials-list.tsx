@@ -1,125 +1,62 @@
 "use client";
 
-import { motion, useAnimationFrame, useMotionValue } from "framer-motion";
-import React from "react";
-import { Star, Quote, User } from "lucide-react";
+import { motion } from "framer-motion";
+import React, { useState } from "react";
+import { Star, Quote } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
-
-
-const TestimonialCard = ({ testimonial }: { testimonial: any }) => (
-  <div className="bg-card border border-border/50 rounded-2xl p-8 shadow-sm hover:shadow-xl hover:border-primary/30 transition-all duration-300 relative group mb-8">
-    <div className="absolute top-8 right-8 text-primary/10 group-hover:text-primary/20 transition-colors duration-300">
-      <Quote size={64} className="rotate-180" />
-    </div>
-
-    <div className="flex items-center gap-1 mb-6">
-      {[...Array(testimonial.rating)].map((_, i) => (
-        <Star key={i} className="w-5 h-5 fill-[#F59E0B] text-[#F59E0B]" />
-      ))}
-    </div>
-
-    <p className="text-justify text-foreground/80 text-lg mb-8 relative z-10 font-medium italic">
-      "{testimonial.content}"
-    </p>
-
-    <div className="flex items-center gap-4 mt-auto">
-      <div className="w-14 h-14 rounded-full overflow-hidden border-2 border-primary/20 relative shrink-0">
-        <Image
-          src={testimonial.image}
-          alt={testimonial.name}
-          fill
-          sizes="56px"
-          className="object-cover"
-        />
-      </div>
-      <div>
-        <h4 className="font-bold text-foreground text-lg">{testimonial.name}</h4>
-        <p className="text-sm text-muted-foreground">{testimonial.role}</p>
-      </div>
-    </div>
-  </div>
-);
-
-
-
-const MarqueeColumn = ({ testimonials, duration, reverse = false }: { testimonials: any[], duration: number, reverse?: boolean }) => {
-  const [isHovered, setIsHovered] = React.useState(false);
-  const [isDragging, setIsDragging] = React.useState(false);
-  const y = useMotionValue(0);
-  const contentRef = React.useRef<HTMLDivElement>(null);
-  const heightRef = React.useRef(0);
-
-  useAnimationFrame((time, delta) => {
-    if (!contentRef.current) return;
-    
-    if (heightRef.current === 0) {
-      heightRef.current = contentRef.current.offsetHeight;
-    }
-    
-    const h = heightRef.current;
-    if (h === 0) return;
-
-    let currentY = y.get();
-
-    // Always enforce seamless looping
-    if (currentY >= 0) {
-      currentY -= h;
-      y.set(currentY);
-    } else if (currentY <= -h) {
-      currentY += h;
-      y.set(currentY);
-    }
-
-    if (isHovered || isDragging) return;
-
-    const speed = h / (duration * 1000); 
-    const moveBy = reverse ? speed * delta : -speed * delta;
-    y.set(currentY + moveBy);
-  });
-
-  React.useEffect(() => {
-    const updateHeight = () => {
-      if (contentRef.current) {
-        heightRef.current = contentRef.current.offsetHeight;
-      }
-    };
-    window.addEventListener('resize', updateHeight);
-    return () => window.removeEventListener('resize', updateHeight);
-  }, []);
+const TestimonialCard = ({ testimonial }: { testimonial: any }) => {
+  const [isExpanded, setIsExpanded] = useState(false);
+  const maxLength = 180;
+  const content = testimonial.content || "";
+  const isLong = content.length > maxLength;
+  
+  const displayContent = isLong && !isExpanded 
+    ? `${content.substring(0, maxLength)}...` 
+    : content;
 
   return (
-    <div
-      className="relative h-full overflow-hidden flex flex-col cursor-grab active:cursor-grabbing"
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-    >
-      <motion.div 
-        className="flex flex-col w-full"
-        style={{ y }}
-        drag="y"
-        dragConstraints={{ top: -100000, bottom: 100000 }} // large constraints for infinite scroll
-        dragElastic={0}
-        onDragStart={() => setIsDragging(true)}
-        onDragEnd={() => setIsDragging(false)}
-      >
-        <div className="flex flex-col w-full" ref={contentRef}>
-          {testimonials.map((t, idx) => (
-            <TestimonialCard key={`set1-${t.id}-${idx}`} testimonial={t} />
-          ))}
+    <div className="bg-card border border-border/50 rounded-2xl p-8 shadow-sm hover:shadow-xl hover:border-primary/30 transition-all duration-300 relative group flex flex-col h-full">
+      <div className="absolute top-8 right-8 text-primary/10 group-hover:text-primary/20 transition-colors duration-300 pointer-events-none">
+        <Quote size={64} className="rotate-180" />
+      </div>
+
+      <div className="flex items-center gap-1 mb-6">
+        {[...Array(testimonial.rating || 5)].map((_, i) => (
+          <Star key={i} className="w-5 h-5 fill-[#F59E0B] text-[#F59E0B]" />
+        ))}
+      </div>
+
+      <div className="mb-8 relative z-10 flex-grow">
+        <p className="text-left text-foreground/80 text-lg font-medium italic whitespace-pre-wrap">
+          "{displayContent}"
+        </p>
+        {isLong && (
+          <button 
+            onClick={() => setIsExpanded(!isExpanded)}
+            className="text-primary mt-3 text-sm font-semibold hover:underline inline-block focus:outline-none"
+          >
+            {isExpanded ? 'View less' : 'View more'}
+          </button>
+        )}
+      </div>
+
+      <div className="flex items-center gap-4 mt-auto pt-4 border-t border-border/50">
+        <div className="w-14 h-14 rounded-full overflow-hidden border-2 border-primary/20 relative shrink-0">
+          <Image
+            src={testimonial.image}
+            alt={testimonial.name}
+            fill
+            sizes="56px"
+            className="object-cover"
+          />
         </div>
-        <div className="flex flex-col w-full">
-          {testimonials.map((t, idx) => (
-            <TestimonialCard key={`set2-${t.id}-${idx}`} testimonial={t} />
-          ))}
+        <div>
+          <h4 className="font-bold text-foreground text-lg leading-tight">{testimonial.name}</h4>
+          <p className="text-sm text-muted-foreground mt-1">{testimonial.role}</p>
         </div>
-        <div className="flex flex-col w-full">
-          {testimonials.map((t, idx) => (
-            <TestimonialCard key={`set3-${t.id}-${idx}`} testimonial={t} />
-          ))}
-        </div>
-      </motion.div>
+      </div>
     </div>
   );
 };
@@ -133,12 +70,6 @@ export default function TestimonialsList({ initialTestimonials = [] }: { initial
       </section>
     );
   }
-
-  const displayTestimonials = initialTestimonials;
-
-  const col1 = displayTestimonials.filter((_, i) => i % 3 === 0);
-  const col2 = displayTestimonials.filter((_, i) => i % 3 === 1);
-  const col3 = displayTestimonials.filter((_, i) => i % 3 === 2);
 
   return (
     <section className="py-20 md:py-32 relative overflow-hidden bg-background">
@@ -168,21 +99,19 @@ export default function TestimonialsList({ initialTestimonials = [] }: { initial
           </p>
         </motion.div>
 
-        {/* Desktop Vertical Marquee */}
-        <div className="hidden md:grid grid-cols-1 md:grid-cols-3 gap-8 h-[750px] relative overflow-hidden rounded-3xl p-4">
-          <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-background to-transparent z-10 pointer-events-none" />
-
-          <MarqueeColumn testimonials={col1} duration={40} />
-          <MarqueeColumn testimonials={col2} duration={45} reverse />
-          <MarqueeColumn testimonials={col3} duration={42} />
-
-          <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-background to-transparent z-10 pointer-events-none" />
-        </div>
-
-        {/* Mobile static view */}
-        <div className="md:hidden grid grid-cols-1 gap-8 mt-12">
-          {displayTestimonials.slice(0, 4).map((t: any) => (
-            <TestimonialCard key={t.id} testimonial={t} />
+        {/* Grid Layout */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {initialTestimonials.map((t: any, idx: number) => (
+            <motion.div
+              key={t.id}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.5, delay: idx * 0.1 }}
+              className="h-full"
+            >
+              <TestimonialCard testimonial={t} />
+            </motion.div>
           ))}
         </div>
 

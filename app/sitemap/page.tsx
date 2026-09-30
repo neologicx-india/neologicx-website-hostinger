@@ -16,6 +16,8 @@ const mainPages = [
   { name: 'Contact', url: '/contact' },
   { name: 'FAQ', url: '/faq' },
   { name: 'Engagement Models', url: '/engagement-models' },
+  { name: 'Strategic Partners', url: '/strategic-partners' },
+  { name: 'Testimonials', url: '/testimonials' },
   { name: 'Industries', url: '/industries' },
   { name: 'Privacy Policy', url: '/privacy-policy' },
   { name: 'Cookie Policy', url: '/cookie-policy' },

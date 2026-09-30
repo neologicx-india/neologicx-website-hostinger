@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import React, { useState } from "react";
-import { Star, Quote } from "lucide-react";
+import { Star, Quote, ChevronDown, ChevronUp } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -35,9 +35,10 @@ const TestimonialCard = ({ testimonial }: { testimonial: any }) => {
         {isLong && (
           <button 
             onClick={() => setIsExpanded(!isExpanded)}
-            className="text-primary mt-3 text-sm font-semibold hover:underline inline-block focus:outline-none"
+            className="text-primary mt-3 text-sm font-semibold hover:underline inline-flex items-center gap-1 focus:outline-none"
           >
             {isExpanded ? 'View less' : 'View more'}
+            {isExpanded ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
           </button>
         )}
       </div>

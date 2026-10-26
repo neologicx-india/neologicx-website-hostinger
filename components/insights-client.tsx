@@ -114,13 +114,13 @@ export default function InsightsClient({ initialCategories = ['All'] }: Insights
                   transition={{ duration: 0.4, delay: idx * 0.05 }}
                 >
                   <Link href={`/blog/${insight.slug}`} className="group h-full flex flex-col bg-card hover:bg-card/80 rounded-3xl overflow-hidden border border-border/50 hover:border-primary/50 transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
-                    <div className="relative h-56 overflow-hidden">
+                    <div className="relative w-full aspect-video overflow-hidden bg-muted/20">
                       <Image
                         src={insight.heroImage}
                         alt={insight.title}
                         fill
                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                        className="object-cover transition-transform duration-700 group-hover:scale-110"
+                        className="object-cover transition-transform duration-700 group-hover:scale-105"
                         priority={idx <= 2}
                       />
                       <div className="absolute bottom-4 left-6">

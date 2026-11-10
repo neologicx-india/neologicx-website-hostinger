@@ -120,7 +120,7 @@ export default function InsightsSlider({ blogs = [] }: InsightsSliderProps) {
                   <div className="h-full group flex flex-col rounded-3xl bg-card border border-border/50 shadow-sm hover:shadow-2xl hover:border-primary/30 transition-all duration-500 overflow-hidden">
 
                     {/* Image Container */}
-                    <div className="relative w-full h-60 overflow-hidden">
+                    <div className="relative w-full aspect-video shrink-0 overflow-hidden bg-muted/20">
                       <div className="absolute inset-0 bg-primary/10 group-hover:bg-transparent transition-colors duration-500 z-10"></div>
                       <Image
                         src={imageUrl}

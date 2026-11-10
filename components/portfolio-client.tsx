@@ -1,20 +1,24 @@
-'use client';
+"use client";
 
-import React, { useState, useMemo } from 'react';
-import Image from 'next/image';
-import Link from 'next/link';
-import { motion } from 'framer-motion';
-import { ArrowRight, CheckCircle2, ShoppingCart } from 'lucide-react';
-import PageHero from '@/components/page-hero';
-import Loader from '@/components/loader';
-import { useQuery } from '@tanstack/react-query';
-import { strapiService } from '@/services/strapiService';
+import React, { useState, useMemo } from "react";
+import Image from "next/image";
+import Link from "next/link";
+import { motion } from "framer-motion";
+import { ArrowRight, CheckCircle2, ShoppingCart } from "lucide-react";
+import PageHero from "@/components/page-hero";
+import Loader from "@/components/loader";
+import { useQuery } from "@tanstack/react-query";
+import { strapiService } from "@/services/strapiService";
 
-const STRAPI_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:1337';
+const STRAPI_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:1337";
 
 export default function PortfolioClient() {
-  const { data: response, isLoading, error } = useQuery({
-    queryKey: ['caseStudies'],
+  const {
+    data: response,
+    isLoading,
+    error,
+  } = useQuery({
+    queryKey: ["caseStudies"],
     queryFn: () => strapiService.getAllCaseStudies(),
     retry: false,
     refetchOnWindowFocus: false,
@@ -22,15 +26,15 @@ export default function PortfolioClient() {
 
   const caseStudies = response?.data || [];
 
-  const [activeCategory, setActiveCategory] = useState<string>('All');
+  const [activeCategory, setActiveCategory] = useState<string>("All");
 
   const { categories, categoryCounts } = useMemo(() => {
-    const counts: Record<string, number> = { 'All': caseStudies.length };
+    const counts: Record<string, number> = { All: caseStudies.length };
     const cats = new Set<string>();
-    cats.add('All');
+    cats.add("All");
 
     caseStudies.forEach((study: any) => {
-      const category = study.category || study.clientName || 'Case Study';
+      const category = study.category || study.clientName || "Case Study";
       cats.add(category);
       counts[category] = (counts[category] || 0) + 1;
     });
@@ -39,9 +43,9 @@ export default function PortfolioClient() {
   }, [caseStudies]);
 
   const filteredCaseStudies = useMemo(() => {
-    if (activeCategory === 'All') return caseStudies;
+    if (activeCategory === "All") return caseStudies;
     return caseStudies.filter((study: any) => {
-      const category = study.category || study.clientName || 'Case Study';
+      const category = study.category || study.clientName || "Case Study";
       return category === activeCategory;
     });
   }, [caseStudies, activeCategory]);
@@ -50,11 +54,18 @@ export default function PortfolioClient() {
     <div className="w-full bg-background min-h-screen pb-24">
       <PageHero
         badge="Case Studies Hub"
-        title={<>Software Built for <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-200 to-blue-400 drop-shadow-md">Real-World Workflows</span></>}
+        title={
+          <>
+            Software Built for{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-200 to-blue-400 drop-shadow-md">
+              Real-World Workflows
+            </span>
+          </>
+        }
         description="Selected projects from more than two decades of software delivery—shown through the business problem, the workflow we helped digitize and the solution that was delivered."
         actionLinks={[
           { label: "Discuss a Similar Project", href: "/contact" },
-          { label: "Explore Services", href: "/services" }
+          { label: "Explore Services", href: "/services" },
         ]}
       />
 
@@ -78,16 +89,20 @@ export default function PortfolioClient() {
               <button
                 key={category}
                 onClick={() => setActiveCategory(category)}
-                className={`flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 ${activeCategory === category
-                    ? 'bg-primary text-primary-foreground shadow-md'
-                    : 'bg-muted/50 text-muted-foreground hover:bg-muted hover:text-foreground'
-                  }`}
+                className={`flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 ${
+                  activeCategory === category
+                    ? "bg-primary text-primary-foreground shadow-md"
+                    : "bg-muted/50 text-muted-foreground hover:bg-muted hover:text-foreground"
+                }`}
               >
                 {category}
-                <span className={`flex items-center justify-center min-w-[24px] h-6 px-1.5 rounded-full text-[11px] font-bold ${activeCategory === category
-                    ? 'bg-primary-foreground/20 text-primary-foreground'
-                    : 'bg-background shadow-sm text-muted-foreground'
-                  }`}>
+                <span
+                  className={`flex items-center justify-center min-w-[24px] h-6 px-1.5 rounded-full text-[11px] font-bold ${
+                    activeCategory === category
+                      ? "bg-primary-foreground/20 text-primary-foreground"
+                      : "bg-background shadow-sm text-muted-foreground"
+                  }`}
+                >
                   {categoryCounts[category]}
                 </span>
               </button>
@@ -99,11 +114,16 @@ export default function PortfolioClient() {
         {!isLoading && !error && (
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
             {filteredCaseStudies.map((study: any, index: number) => {
-              const num = (index + 1).toString().padStart(2, '0');
-              const category = study.category || study.clientName || 'Case Study';
+              const num = (index + 1).toString().padStart(2, "0");
+              const category =
+                study.category || study.clientName || "Case Study";
               const link = `/portfolio/${study.slug}`;
-              const imageUrl = study.featuredImage?.url ? `${STRAPI_URL}${study.featuredImage.url}` : '/images/og-default.jpg';
-              const iconUrl = study.categoryIcon?.url ? `${STRAPI_URL}${study.categoryIcon.url}` : null;
+              const imageUrl = study.featuredImage?.url
+                ? `${STRAPI_URL}${study.featuredImage.url}`
+                : "/images/og-default.jpg";
+              const iconUrl = study.categoryIcon?.url
+                ? `${STRAPI_URL}${study.categoryIcon.url}`
+                : null;
 
               return (
                 <motion.div
@@ -111,14 +131,21 @@ export default function PortfolioClient() {
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-50px" }}
-                  transition={{ duration: 0.5, delay: index * 0.1, ease: "easeOut" }}
+                  transition={{
+                    duration: 0.5,
+                    delay: index * 0.1,
+                    ease: "easeOut",
+                  }}
                   className="group flex flex-col bg-card border border-border/50 rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300"
                 >
                   {/* Image Section (Top) */}
-                  <Link href={link} className="relative block w-full h-64 sm:h-72 overflow-hidden bg-muted/20">
+                  <Link
+                    href={link}
+                    className="relative block w-full aspect-video overflow-hidden bg-muted/20"
+                  >
                     <Image
                       src={imageUrl}
-                      alt={study.title || 'Case Study'}
+                      alt={study.title || "Case Study"}
                       fill
                       sizes="(max-width: 768px) 100vw, 50vw"
                       className="object-cover transition-transform duration-700 group-hover:scale-105"
@@ -135,7 +162,13 @@ export default function PortfolioClient() {
                     <div className="flex items-center gap-3 mb-6">
                       <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary flex-shrink-0">
                         {iconUrl ? (
-                          <Image src={iconUrl} alt="category" width={20} height={20} className="object-contain" />
+                          <Image
+                            src={iconUrl}
+                            alt="category"
+                            width={20}
+                            height={20}
+                            className="object-contain"
+                          />
                         ) : (
                           <ShoppingCart className="w-5 h-5" />
                         )}
@@ -158,23 +191,32 @@ export default function PortfolioClient() {
                     {/* Features Grid */}
                     {study.keyFeatures && study.keyFeatures.length > 0 && (
                       <div className="grid grid-cols-1 gap-y-3 mb-8">
-                        {study.keyFeatures.slice(0, 3).map((feature: string, idx: number) => (
-                          <div key={idx} className="flex items-start gap-3">
-                            <CheckCircle2 className="w-4 h-4 text-primary shrink-0 mt-0.5" />
-                            <span className="text-sm text-foreground/80 leading-snug line-clamp-1">{feature}</span>
-                          </div>
-                        ))}
+                        {study.keyFeatures
+                          .slice(0, 3)
+                          .map((feature: string, idx: number) => (
+                            <div key={idx} className="flex items-start gap-3">
+                              <CheckCircle2 className="w-4 h-4 text-primary shrink-0 mt-0.5" />
+                              <span className="text-sm text-foreground/80 leading-snug line-clamp-1">
+                                {feature}
+                              </span>
+                            </div>
+                          ))}
                       </div>
                     )}
 
                     {/* Pill Tags */}
                     {study.tags && study.tags.length > 0 && (
                       <div className="flex flex-wrap gap-2 mb-8 mt-auto">
-                        {study.tags.slice(0, 3).map((tag: string, idx: number) => (
-                          <span key={idx} className="px-3 py-1 bg-muted/50 text-muted-foreground text-[11px] font-semibold rounded-full border border-border/50">
-                            {tag}
-                          </span>
-                        ))}
+                        {study.tags
+                          .slice(0, 3)
+                          .map((tag: string, idx: number) => (
+                            <span
+                              key={idx}
+                              className="px-3 py-1 bg-muted/50 text-muted-foreground text-[11px] font-semibold rounded-full border border-border/50"
+                            >
+                              {tag}
+                            </span>
+                          ))}
                       </div>
                     )}
 
@@ -194,7 +236,6 @@ export default function PortfolioClient() {
             })}
           </div>
         )}
-
       </div>
     </div>
   );

@@ -1,21 +1,23 @@
 "use client";
 
-import React, { useRef } from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination, Autoplay } from 'swiper/modules';
-import { ChevronLeft, ChevronRight, ArrowRight } from 'lucide-react';
-import Link from 'next/link';
-import Image from 'next/image';
+import React, { useRef } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination, Autoplay } from "swiper/modules";
+import { ChevronLeft, ChevronRight, ArrowRight } from "lucide-react";
+import Link from "next/link";
+import Image from "next/image";
 
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 
 interface PortfolioSliderProps {
   caseStudies?: any[];
 }
 
-export default function PortfolioSlider({ caseStudies = [] }: PortfolioSliderProps) {
+export default function PortfolioSlider({
+  caseStudies = [],
+}: PortfolioSliderProps) {
   const prevRef = useRef<HTMLButtonElement>(null);
   const nextRef = useRef<HTMLButtonElement>(null);
 
@@ -25,13 +27,16 @@ export default function PortfolioSlider({ caseStudies = [] }: PortfolioSliderPro
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
           <div className="max-w-3xl">
             <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6 tracking-tight">
-              Experience grounded in <span className="text-primary">real operations</span>
+              Experience grounded in{" "}
+              <span className="text-primary">real operations</span>
             </h2>
             <div className="h-1.5 w-16 bg-primary rounded-full mb-8"></div>
             <p className="text-muted-foreground text-lg leading-relaxed">
-              Our portfolio spans education and public institutions, FMCG and manufacturing, retail and e-commerce,
-              construction, hospitality, events and professional services. The common thread is operational complexity:
-              multiple users, approvals, data, transactions and systems that need to work together.
+              Our portfolio spans education and public institutions, FMCG and
+              manufacturing, retail and e-commerce, construction, hospitality,
+              events and professional services. The common thread is operational
+              complexity: multiple users, approvals, data, transactions and
+              systems that need to work together.
             </p>
           </div>
 
@@ -83,41 +88,53 @@ export default function PortfolioSlider({ caseStudies = [] }: PortfolioSliderPro
             className="w-full pb-16 px-4 sm:px-0"
           >
             {caseStudies.map((study, index) => {
-              const baseUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:1337';
+              const baseUrl =
+                process.env.NEXT_PUBLIC_API_URL || "http://localhost:1337";
               const imageUrl = study.featuredImage?.url
-                ? (study.featuredImage.url.startsWith('http') ? study.featuredImage.url : `${baseUrl}${study.featuredImage.url}`)
-                : '/images/placeholder.jpg';
+                ? study.featuredImage.url.startsWith("http")
+                  ? study.featuredImage.url
+                  : `${baseUrl}${study.featuredImage.url}`
+                : "/images/placeholder.jpg";
 
               return (
                 <SwiperSlide key={index} className="h-auto">
-                  <Link href={`/portfolio/${study.slug}`} className="block aspect-video w-full group relative rounded-3xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-500">
+                  <Link
+                    href={`/portfolio/${study.slug}`}
+                    className="block aspect-video w-full group relative rounded-3xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-500"
+                  >
                     {/* Background Image */}
                     <Image
                       src={imageUrl}
-                      alt={study.title || 'Case Study'}
+                      alt={study.title || "Case Study"}
                       fill
                       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                       className="object-cover transition-transform duration-700 group-hover:scale-110"
                     />
 
                     {/* Gradient Overlay for Text Readability */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-500"></div>
+                    {/* <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-500"></div> */}
 
                     {/* Content Container */}
                     <div className="absolute inset-0 p-8 flex flex-col justify-end z-10">
                       <div className="transform transition-transform duration-500 translate-y-4 group-hover:translate-y-0">
                         <span className="inline-block px-4 py-1.5 rounded-full bg-white/20 backdrop-blur-md text-white text-xs font-bold tracking-wider uppercase mb-4 border border-white/20">
-                          {study.category || 'Case Study'}
+                          {study.category || "Case Study"}
                         </span>
-                        <h3 className="text-3xl font-extrabold text-white mb-3 drop-shadow-sm">{study.clientName || study.title}</h3>
+                        <h3 className="text-3xl font-extrabold text-white mb-3 drop-shadow-sm">
+                          {study.clientName || study.title}
+                        </h3>
                         <p className="text-white/80 leading-relaxed mb-6 line-clamp-3 text-sm md:text-base">
                           {study.title}
                         </p>
 
                         <div className="inline-flex items-center text-sm font-bold text-white group/btn">
                           <span className="relative overflow-hidden flex h-5 items-center">
-                            <span className="inline-block transition-transform duration-300 group-hover/btn:-translate-y-full">View Case Study</span>
-                            <span className="absolute top-0 left-0 inline-block transition-transform duration-300 translate-y-full group-hover/btn:translate-y-0 text-primary-300">View Case Study</span>
+                            <span className="inline-block transition-transform duration-300 group-hover/btn:-translate-y-full">
+                              View Case Study
+                            </span>
+                            <span className="absolute top-0 left-0 inline-block transition-transform duration-300 translate-y-full group-hover/btn:translate-y-0 text-primary-300">
+                              View Case Study
+                            </span>
                           </span>
                           <ArrowRight className="w-5 h-5 ml-2 transition-transform duration-300 group-hover/btn:translate-x-2 text-primary-300" />
                         </div>

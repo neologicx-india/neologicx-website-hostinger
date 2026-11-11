@@ -130,7 +130,8 @@ export default function InsightsSlider({ blogs = [] }: InsightsSliderProps) {
                 day: "numeric",
               });
 
-              const categoryName = blog.categories?.[0]?.name || "Technology";
+              const categoryName =
+                blog.categories?.[0]?.name || "Innovation Hub";
 
               return (
                 <SwiperSlide key={index} className="h-auto">

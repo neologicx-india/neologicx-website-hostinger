@@ -146,11 +146,6 @@ export default function InsightsSlider({ blogs = [] }: InsightsSliderProps) {
                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                         className="object-cover transform transition-transform duration-700 group-hover:scale-110"
                       />
-                      <div className="absolute top-4 left-4 z-20">
-                        <span className="inline-block px-3 py-1.5 rounded-full bg-background/80 backdrop-blur-md text-foreground text-xs font-bold tracking-wider uppercase border border-border/50 shadow-sm">
-                          {categoryName}
-                        </span>
-                      </div>
                     </div>
 
                     {/* Content Container */}
@@ -158,15 +153,20 @@ export default function InsightsSlider({ blogs = [] }: InsightsSliderProps) {
                       {/* Subtle gradient hover background */}
                       <div className="absolute inset-0 bg-gradient-to-b from-transparent to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
 
-                      <div className="flex items-center gap-4 text-xs font-medium text-muted-foreground mb-4">
-                        <div className="flex items-center gap-1.5">
-                          <Calendar className="w-3.5 h-3.5" />
-                          <span>{formattedDate}</span>
+                      <div className="flex flex-wrap items-center justify-between gap-x-3 gap-y-2 text-xs font-medium text-muted-foreground mb-4">
+                        <div className="flex items-center gap-3">
+                          <div className="flex items-center gap-1.5 whitespace-nowrap">
+                            <Calendar className="w-3.5 h-3.5 shrink-0" />
+                            <span>{formattedDate}</span>
+                          </div>
+                          <div className="flex items-center gap-1.5 whitespace-nowrap">
+                            <Clock className="w-3.5 h-3.5 shrink-0" />
+                            <span>{blog.readTime || "5 min read"}</span>
+                          </div>
                         </div>
-                        <div className="flex items-center gap-1.5">
-                          <Clock className="w-3.5 h-3.5" />
-                          <span>{blog.readTime || "5 min read"}</span>
-                        </div>
+                        <span className="inline-block px-2.5 py-0.5 rounded-full bg-primary/10 text-primary text-[10px] font-bold tracking-wider uppercase border border-primary/20 whitespace-nowrap">
+                          {categoryName}
+                        </span>
                       </div>
 
                       <h3 className="text-2xl font-bold text-foreground mb-4 group-hover:text-primary transition-colors duration-300 line-clamp-2">

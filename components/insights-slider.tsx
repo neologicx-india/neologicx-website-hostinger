@@ -1,16 +1,22 @@
-'use client';
+"use client";
 
-import React, { useRef } from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination, Autoplay } from 'swiper/modules';
-import { ChevronLeft, ChevronRight, ArrowRight, Clock, Calendar } from 'lucide-react';
-import Link from 'next/link';
-import Image from 'next/image';
-import { motion } from 'framer-motion';
+import React, { useRef } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination, Autoplay } from "swiper/modules";
+import {
+  ChevronLeft,
+  ChevronRight,
+  ArrowRight,
+  Clock,
+  Calendar,
+} from "lucide-react";
+import Link from "next/link";
+import Image from "next/image";
+import { motion } from "framer-motion";
 
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 
 interface InsightsSliderProps {
   blogs?: any[];
@@ -37,11 +43,15 @@ export default function InsightsSlider({ blogs = [] }: InsightsSliderProps) {
             className="max-w-2xl"
           >
             <h2 className="text-4xl md:text-5xl font-extrabold text-foreground mb-6 tracking-tight">
-              Latest <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-blue-600">Insights</span>
+              Latest{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-blue-600">
+                Insights
+              </span>
             </h2>
             <div className="h-1.5 w-16 bg-primary rounded-full mb-6"></div>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              Explore our thoughts on software engineering, product design, business strategy, and the future of digital innovation.
+              Explore our thoughts on software engineering, product design,
+              business strategy, and the future of digital innovation.
             </p>
           </motion.div>
 
@@ -105,26 +115,32 @@ export default function InsightsSlider({ blogs = [] }: InsightsSliderProps) {
             className="w-full !pb-12 !pt-4 -mt-4 px-4 sm:px-0"
           >
             {blogs.map((blog, index) => {
-              const baseUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:1337';
+              const baseUrl =
+                process.env.NEXT_PUBLIC_API_URL || "http://localhost:1337";
               const imageUrl = blog.featuredImage?.url
-                ? (blog.featuredImage.url.startsWith('http') ? blog.featuredImage.url : `${baseUrl}${blog.featuredImage.url}`)
-                : '/images/placeholder.jpg';
+                ? blog.featuredImage.url.startsWith("http")
+                  ? blog.featuredImage.url
+                  : `${baseUrl}${blog.featuredImage.url}`
+                : "/images/placeholder.jpg";
 
               const dateObj = new Date(blog.publishedAt || Date.now());
-              const formattedDate = dateObj.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
+              const formattedDate = dateObj.toLocaleDateString("en-US", {
+                year: "numeric",
+                month: "short",
+                day: "numeric",
+              });
 
-              const categoryName = blog.categories?.[0]?.name || 'Technology';
+              const categoryName = blog.categories?.[0]?.name || "Technology";
 
               return (
                 <SwiperSlide key={index} className="h-auto">
                   <div className="h-full group flex flex-col rounded-3xl bg-card border border-border/50 shadow-sm hover:shadow-2xl hover:border-primary/30 transition-all duration-500 overflow-hidden">
-
                     {/* Image Container */}
                     <div className="relative w-full aspect-video shrink-0 overflow-hidden bg-muted/20">
-                      <div className="absolute inset-0 bg-primary/10 group-hover:bg-transparent transition-colors duration-500 z-10"></div>
+                      {/* <div className="absolute inset-0 bg-primary/10 group-hover:bg-transparent transition-colors duration-500 z-10"></div> */}
                       <Image
                         src={imageUrl}
-                        alt={blog.title || 'Blog Post'}
+                        alt={blog.title || "Blog Post"}
                         fill
                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                         className="object-cover transform transition-transform duration-700 group-hover:scale-110"
@@ -148,7 +164,7 @@ export default function InsightsSlider({ blogs = [] }: InsightsSliderProps) {
                         </div>
                         <div className="flex items-center gap-1.5">
                           <Clock className="w-3.5 h-3.5" />
-                          <span>{blog.readTime || '5 min read'}</span>
+                          <span>{blog.readTime || "5 min read"}</span>
                         </div>
                       </div>
 
@@ -157,7 +173,7 @@ export default function InsightsSlider({ blogs = [] }: InsightsSliderProps) {
                       </h3>
 
                       <p className="text-muted-foreground leading-relaxed flex-grow mb-8 line-clamp-3 text-[15px]">
-                        {blog.excerpt || 'Read more about this topic...'}
+                        {blog.excerpt || "Read more about this topic..."}
                       </p>
 
                       <Link
@@ -165,8 +181,12 @@ export default function InsightsSlider({ blogs = [] }: InsightsSliderProps) {
                         className="inline-flex items-center text-sm font-bold text-primary mt-auto group/btn"
                       >
                         <span className="relative overflow-hidden flex h-5 items-center">
-                          <span className="inline-block transition-transform duration-300 group-hover/btn:-translate-y-full">Read Article</span>
-                          <span className="absolute top-0 left-0 inline-block transition-transform duration-300 translate-y-full group-hover/btn:translate-y-0 text-primary/80">Read Article</span>
+                          <span className="inline-block transition-transform duration-300 group-hover/btn:-translate-y-full">
+                            Read Article
+                          </span>
+                          <span className="absolute top-0 left-0 inline-block transition-transform duration-300 translate-y-full group-hover/btn:translate-y-0 text-primary/80">
+                            Read Article
+                          </span>
                         </span>
                         <ArrowRight className="w-5 h-5 ml-2 transition-transform duration-300 group-hover/btn:translate-x-2" />
                       </Link>
@@ -178,6 +198,6 @@ export default function InsightsSlider({ blogs = [] }: InsightsSliderProps) {
           </Swiper>
         </motion.div>
       </div>
-    </section >
+    </section>
   );
 }

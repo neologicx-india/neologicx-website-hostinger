@@ -112,7 +112,7 @@ export default function PortfolioSlider({
                     />
 
                     {/* Gradient Overlay for Text Readability */}
-                    {/* <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-500"></div> */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-500"></div>
 
                     {/* Content Container */}
                     <div className="absolute inset-0 p-8 flex flex-col justify-end z-10">

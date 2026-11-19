@@ -42,7 +42,7 @@ const internationalLocations: Location[] = [
   },
   {
     city: "Dubai",
-    address: "502, Al Nasr Plaza, Oud Metha , Dubai",
+    address: "MBL Royal, Cluster K, JLT, Dubai , UAE",
   },
   {
     city: "Malaysia",
@@ -84,10 +84,11 @@ const GlobalLocations: FC = () => {
               {indiaLocations.map((loc, idx) => (
                 <div
                   key={idx}
-                  className={`group relative p-6 rounded-2xl transition-all duration-300 hover:shadow-md ${loc.isHQ
-                    ? "bg-gradient-to-br from-amber-50 to-orange-50 border border-amber-200"
-                    : "bg-slate-50 hover:bg-white border border-slate-100 hover:border-slate-200"
-                    }`}
+                  className={`group relative p-6 rounded-2xl transition-all duration-300 hover:shadow-md ${
+                    loc.isHQ
+                      ? "bg-gradient-to-br from-amber-50 to-orange-50 border border-amber-200"
+                      : "bg-slate-50 hover:bg-white border border-slate-100 hover:border-slate-200"
+                  }`}
                 >
                   <div className="flex items-start justify-between mb-3">
                     <h4 className="text-xl font-bold text-slate-900 flex items-center gap-2">
@@ -99,10 +100,11 @@ const GlobalLocations: FC = () => {
                       )}
                     </h4>
                     <MapPin
-                      className={`w-5 h-5 ${loc.isHQ
-                        ? "text-amber-500"
-                        : "text-slate-400 group-hover:text-blue-500 transition-colors"
-                        }`}
+                      className={`w-5 h-5 ${
+                        loc.isHQ
+                          ? "text-amber-500"
+                          : "text-slate-400 group-hover:text-blue-500 transition-colors"
+                      }`}
                     />
                   </div>
                   <p className="text-slate-600 text-sm leading-relaxed">

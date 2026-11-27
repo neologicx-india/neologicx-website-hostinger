@@ -18,7 +18,7 @@ export const ACTION_THEME_CLASSES: Record<ActionLinkTheme, string> = {
   whatsapp:
     "bg-[#25D366] text-white border-2 border-transparent hover:bg-[#20bd5a]",
   outline:
-    "bg-white text-[#25D366] border-2 border-[#25D366]/60 backdrop-blur-sm hover:bg-[#25D366]/30 hover:border-[#25D366] hover:text-white",
+    "bg-white text-[#25D366] border-2 border-[#25D366]/60 backdrop-blur-sm hover:bg-[#25D366] hover:border-[#25D366] hover:text-white",
 };
 
 export const WhatsAppCtaIcon = () => (
@@ -39,7 +39,10 @@ interface ActionLinkButtonProps {
 }
 
 /** Shared themed CTA button that opens external URLs in a new tab and internal routes via Next.js Link. */
-export function ActionLinkButton({ link, defaultTheme }: ActionLinkButtonProps) {
+export function ActionLinkButton({
+  link,
+  defaultTheme,
+}: ActionLinkButtonProps) {
   const resolvedTheme = link.theme ?? defaultTheme;
   const className = `inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full font-bold shadow-xl hover:shadow-2xl transition-all hover:-translate-y-1 text-center whitespace-nowrap w-full sm:w-auto ${ACTION_THEME_CLASSES[resolvedTheme]}`;
   const iconNode =

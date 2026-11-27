@@ -2,12 +2,14 @@ import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { ArrowRight } from 'lucide-react';
+import { ActionLinkButton, ActionLinkItem } from '@/components/action-link';
 
 interface CTASectionProps {
   title?: React.ReactNode;
   description?: string;
   ctaText?: string;
   ctaLink?: string;
+  actionLinks?: ActionLinkItem[];
 }
 
 export default function CTASection({
@@ -19,7 +21,8 @@ export default function CTASection({
   ),
   description = "Tell us what you are trying to improve. We will help you identify the right starting point and a practical path to delivery.",
   ctaText = "Discuss Your Project",
-  ctaLink = "/contact"
+  ctaLink = "/contact",
+  actionLinks
 }: CTASectionProps) {
   return (
     <section className="relative w-full py-16 md:py-20 overflow-hidden flex items-center justify-center">
@@ -48,13 +51,25 @@ export default function CTASection({
           {description}
         </p>
 
-        <Link
-          href={ctaLink}
-          className="inline-flex items-center justify-center px-8 py-3.5 bg-white text-slate-900 border-2 border-transparent rounded-full font-bold text-lg hover:bg-slate-100 hover:shadow-2xl transition-all hover:-translate-y-1 shadow-xl group"
-        >
-          {ctaText}
-          <ArrowRight className="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1 text-primary" />
-        </Link>
+        {actionLinks && actionLinks.length > 0 ? (
+          <div className="flex flex-col sm:flex-row flex-wrap items-center justify-center gap-4 w-full">
+            {actionLinks.map((link, idx) => (
+              <ActionLinkButton
+                key={idx}
+                link={link}
+                defaultTheme={idx === 0 ? "secondary" : "whatsapp"}
+              />
+            ))}
+          </div>
+        ) : (
+          <Link
+            href={ctaLink}
+            className="inline-flex items-center justify-center px-8 py-3.5 bg-white text-slate-900 border-2 border-transparent rounded-full font-bold text-lg hover:bg-slate-100 hover:shadow-2xl transition-all hover:-translate-y-1 shadow-xl group"
+          >
+            {ctaText}
+            <ArrowRight className="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1 text-primary" />
+          </Link>
+        )}
       </div>
     </section>
   );

@@ -1,6 +1,6 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
+import { motion } from "framer-motion";
 import {
   Lightbulb,
   Target,
@@ -13,55 +13,80 @@ import {
   Search,
   CheckSquare,
   Wrench,
-  TrendingUp
-} from 'lucide-react';
-import PageHero from '@/components/page-hero';
-import CTASection from '@/components/cta-section';
-import Image from 'next/image';
-import Link from 'next/link';
+  TrendingUp,
+} from "lucide-react";
+import PageHero from "@/components/page-hero";
+import CTASection from "@/components/cta-section";
+import Image from "next/image";
+import Link from "next/link";
 
 const capabilities = [
   {
-    title: 'Product Discovery',
-    description: 'Clarify users, workflows, product risks, priorities, assumptions and what must be learned before committing to a large build.',
-    icon: Search
+    title: "Product Discovery",
+    description:
+      "Clarify users, workflows, product risks, priorities, assumptions and what must be learned before committing to a large build.",
+    icon: Search,
   },
   {
-    title: 'MVP Development',
-    description: "Define a focused first release that tests the product's core value without treating 'minimum' as an excuse for fragile engineering.",
-    icon: Target
+    title: "MVP Development",
+    description:
+      "Define a focused first release that tests the product's core value without treating 'minimum' as an excuse for fragile engineering.",
+    icon: Target,
   },
   {
-    title: 'SaaS Engineering',
-    description: 'Build role-based platforms, subscription/payment integrations, workflows, reporting and APIs around the product\'s operating model.',
-    icon: Layers
+    title: "SaaS Engineering",
+    description:
+      "Build role-based platforms, subscription/payment integrations, workflows, reporting and APIs around the product's operating model.",
+    icon: Layers,
   },
   {
-    title: 'Product Modernization',
-    description: 'Improve an existing product through staged UX, architecture, performance, integration and maintainability work rather than an automatic big-bang rewrite.',
-    icon: RefreshCw
+    title: "Product Modernization",
+    description:
+      "Improve an existing product through staged UX, architecture, performance, integration and maintainability work rather than an automatic big-bang rewrite.",
+    icon: RefreshCw,
   },
   {
-    title: 'Ongoing Product Delivery',
-    description: 'Maintain a prioritized roadmap, ship reviewable increments and continue improving the product after launch.',
-    icon: Rocket
-  }
+    title: "Ongoing Product Delivery",
+    description:
+      "Maintain a prioritized roadmap, ship reviewable increments and continue improving the product after launch.",
+    icon: Rocket,
+  },
 ];
 
 const productionSteps = [
-  'Frame the problem and identify the riskiest assumptions.',
-  'Map the primary user journeys, roles and business rules.',
-  'Prioritize the release and define acceptance criteria.',
-  'Design and build in increments that can be demonstrated and reviewed.',
-  'Validate critical flows and integrations before release.',
-  'Use feedback and operating data to shape the next roadmap decisions.'
+  "Frame the problem and identify the riskiest assumptions.",
+  "Map the primary user journeys, roles and business rules.",
+  "Prioritize the release and define acceptance criteria.",
+  "Design and build in increments that can be demonstrated and reviewed.",
+  "Validate critical flows and integrations before release.",
+  "Use feedback and operating data to shape the next roadmap decisions.",
 ];
 
 const lifecycleStages = [
-  { title: 'Discover', icon: Search, color: 'text-blue-500', bg: 'bg-blue-500/10' },
-  { title: 'Validate', icon: CheckSquare, color: 'text-indigo-500', bg: 'bg-indigo-500/10' },
-  { title: 'Build', icon: Wrench, color: 'text-purple-500', bg: 'bg-purple-500/10' },
-  { title: 'Scale', icon: TrendingUp, color: 'text-emerald-500', bg: 'bg-emerald-500/10' }
+  {
+    title: "Discover",
+    icon: Search,
+    color: "text-blue-500",
+    bg: "bg-blue-500/10",
+  },
+  {
+    title: "Validate",
+    icon: CheckSquare,
+    color: "text-indigo-500",
+    bg: "bg-indigo-500/10",
+  },
+  {
+    title: "Build",
+    icon: Wrench,
+    color: "text-purple-500",
+    bg: "bg-purple-500/10",
+  },
+  {
+    title: "Scale",
+    icon: TrendingUp,
+    color: "text-emerald-500",
+    bg: "bg-emerald-500/10",
+  },
 ];
 
 export default function ProductEngineeringClient() {
@@ -70,12 +95,24 @@ export default function ProductEngineeringClient() {
       {/* Hero Section */}
       <PageHero
         badge="Product Engineering"
-        title={<>Product Engineering for SaaS, MVPs & <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-200 to-blue-400 drop-shadow-md">Digital Platforms</span></>}
+        title={
+          <>
+            Product Engineering for SaaS, MVPs &{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-200 to-blue-400 drop-shadow-md">
+              Digital Platforms
+            </span>
+          </>
+        }
         description="Turn a product idea, an evolving SaaS platform or an aging digital product into a clear roadmap and a maintainable software system. We can support the full journey from discovery and UX through engineering, release and iteration."
         backgroundImage="/images/insights_hero_bg.png"
         actionLinks={[
           { label: "Discuss Your Product", href: "/contact" },
-          { label: "Explore Case Studies", href: "/portfolio" }
+          { label: "Explore Case Studies", href: "/portfolio" },
+          {
+            label: "Discuss on WhatsApp",
+            href: "https://wa.me/919414138694",
+            theme: "outline",
+          },
         ]}
       />
 
@@ -101,7 +138,7 @@ export default function ProductEngineeringClient() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
-                className={`bg-card rounded-2xl p-8 border border-border/50 shadow-sm hover:shadow-xl hover:border-primary/30 transition-all duration-300 group flex flex-col ${idx === 3 || idx === 4 ? 'lg:col-span-1.5' : ''}`}
+                className={`bg-card rounded-2xl p-8 border border-border/50 shadow-sm hover:shadow-xl hover:border-primary/30 transition-all duration-300 group flex flex-col ${idx === 3 || idx === 4 ? "lg:col-span-1.5" : ""}`}
               >
                 <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center text-primary mb-6 group-hover:scale-110 group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300">
                   <cap.icon className="w-7 h-7" />
@@ -126,7 +163,8 @@ export default function ProductEngineeringClient() {
               Our Product Lifecycle
             </h2>
             <p className="text-lg text-muted-foreground">
-              A structured, iterative approach to turning your vision into a scalable digital product.
+              A structured, iterative approach to turning your vision into a
+              scalable digital product.
             </p>
           </div>
           <div className="flex flex-col md:flex-row items-center justify-between gap-8 md:gap-4 relative">
@@ -142,10 +180,14 @@ export default function ProductEngineeringClient() {
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
                 className="relative z-10 flex flex-col items-center gap-4 bg-background p-6 rounded-2xl border border-border/50 shadow-sm md:w-48 text-center"
               >
-                <div className={`w-16 h-16 rounded-full flex items-center justify-center ${stage.bg} ${stage.color}`}>
+                <div
+                  className={`w-16 h-16 rounded-full flex items-center justify-center ${stage.bg} ${stage.color}`}
+                >
                   <stage.icon className="w-8 h-8" />
                 </div>
-                <h4 className="font-bold text-foreground text-lg">{stage.title}</h4>
+                <h4 className="font-bold text-foreground text-lg">
+                  {stage.title}
+                </h4>
                 {idx < lifecycleStages.length - 1 && (
                   <ArrowRight className="md:hidden w-6 h-6 text-muted-foreground mt-2" />
                 )}
@@ -208,10 +250,13 @@ export default function ProductEngineeringClient() {
                   <div className="bg-background/80 backdrop-blur-md border border-border/50 rounded-2xl p-6 shadow-xl max-w-sm">
                     <div className="flex items-center gap-3 mb-3">
                       <Lightbulb className="w-6 h-6 text-primary" />
-                      <h4 className="font-bold text-foreground">Iterative Delivery</h4>
+                      <h4 className="font-bold text-foreground">
+                        Iterative Delivery
+                      </h4>
                     </div>
                     <p className="text-sm text-muted-foreground leading-relaxed">
-                      We focus on delivering reviewable increments and actionable feedback loops.
+                      We focus on delivering reviewable increments and
+                      actionable feedback loops.
                     </p>
                   </div>
                 </div>
@@ -252,7 +297,12 @@ export default function ProductEngineeringClient() {
               transition={{ delay: 0.2 }}
               className="text-lg text-muted-foreground leading-relaxed mb-12"
             >
-              Our portfolio includes platforms for organizers and attendees, institutions and students, alumni communities, authors and editors, and operational teams with role-based responsibilities. Those projects reinforce an important product lesson: the difficult part is often not the screen—it is the interaction between roles, rules, transactions and information.
+              Our portfolio includes platforms for organizers and attendees,
+              institutions and students, alumni communities, authors and
+              editors, and operational teams with role-based responsibilities.
+              Those projects reinforce an important product lesson: the
+              difficult part is often not the screen—it is the interaction
+              between roles, rules, transactions and information.
             </motion.p>
 
             <motion.div
@@ -263,11 +313,21 @@ export default function ProductEngineeringClient() {
               className="flex flex-wrap justify-center gap-4"
             >
               {[
-                { label: 'Event Marketplaces', href: '/portfolio/event-marketplace-india-singapore' },
-                { label: 'Alumni Platforms', href: '/portfolio/rtu-alumni-mobile-app' },
-                { label: 'Conference Portals', href: '/portfolio/jazz-cafe' }
+                {
+                  label: "Event Marketplaces",
+                  href: "/portfolio/event-marketplace-india-singapore",
+                },
+                {
+                  label: "Alumni Platforms",
+                  href: "/portfolio/rtu-alumni-mobile-app",
+                },
+                { label: "Conference Portals", href: "/portfolio/jazz-cafe" },
               ].map((tag, idx) => (
-                <Link key={idx} href={tag.href} className="px-5 py-2.5 rounded-lg bg-background border border-border shadow-sm text-sm font-semibold text-foreground flex items-center gap-2 hover:bg-primary/5 hover:border-primary/30 transition-colors cursor-pointer">
+                <Link
+                  key={idx}
+                  href={tag.href}
+                  className="px-5 py-2.5 rounded-lg bg-background border border-border shadow-sm text-sm font-semibold text-foreground flex items-center gap-2 hover:bg-primary/5 hover:border-primary/30 transition-colors cursor-pointer"
+                >
                   <CheckCircle2 className="w-4 h-4 text-primary" />
                   {tag.label}
                 </Link>

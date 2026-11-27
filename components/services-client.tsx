@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
-import Link from 'next/link';
+import { motion } from "framer-motion";
+import Link from "next/link";
 import {
   Cpu,
   Code2,
@@ -11,86 +11,116 @@ import {
   Zap,
   ArrowRight,
   CheckCircle2,
-  Bot
-} from 'lucide-react';
-import PageHero from '@/components/page-hero';
-import CTASection from '@/components/cta-section';
+  Bot,
+} from "lucide-react";
+import PageHero from "@/components/page-hero";
+import CTASection from "@/components/cta-section";
 
 const coreCapabilities = [
   {
-    title: 'Product Engineering',
-    description: 'Discovery, MVP development, SaaS engineering, product modernization and ongoing product enhancement.',
+    title: "Product Engineering",
+    description:
+      "Discovery, MVP development, SaaS engineering, product modernization and ongoing product enhancement.",
     icon: Cpu,
-    href: '/product-engineering'
+    href: "/product-engineering",
   },
   {
-    title: 'Custom Software Development',
-    description: 'Business applications, ERP-style platforms, CRM workflows, operational dashboards, portals and workflow automation.',
+    title: "Custom Software Development",
+    description:
+      "Business applications, ERP-style platforms, CRM workflows, operational dashboards, portals and workflow automation.",
     icon: Code2,
-    href: '/custom-software-development'
+    href: "/custom-software-development",
   },
   {
-    title: 'Web Application Development',
-    description: 'Customer-facing platforms, enterprise portals, institutional websites, content platforms and responsive web applications.',
+    title: "Web Application Development",
+    description:
+      "Customer-facing platforms, enterprise portals, institutional websites, content platforms and responsive web applications.",
     icon: Globe,
-    href: '/web-development-design-website'
+    href: "/web-development-design-website",
   },
   {
-    title: 'Mobile App Development',
-    description: 'iOS, Android and Flutter applications for customers, communities, field teams and business operations.',
+    title: "Mobile App Development",
+    description:
+      "iOS, Android and Flutter applications for customers, communities, field teams and business operations.",
     icon: Smartphone,
-    href: '/mobile-app-development-android-ios-flutter'
+    href: "/mobile-app-development-android-ios-flutter",
   },
   {
-    title: 'E-commerce Engineering',
-    description: 'Commerce platforms, catalogs, checkout, payments, order and inventory integrations, and platform modernization.',
+    title: "E-commerce Engineering",
+    description:
+      "Commerce platforms, catalogs, checkout, payments, order and inventory integrations, and platform modernization.",
     icon: ShoppingCart,
-    href: '/ecommerce-website-development-shoppingcart'
+    href: "/ecommerce-website-development-shoppingcart",
   },
   {
-    title: 'API, Integration & Automation',
-    description: 'APIs, webhooks, third-party systems, payments, WhatsApp Business Platform workflows and data synchronization.',
+    title: "API, Integration & Automation",
+    description:
+      "APIs, webhooks, third-party systems, payments, WhatsApp Business Platform workflows and data synchronization.",
     icon: Zap,
-    href: '/api-development-services'
+    href: "/api-development-services",
   },
   {
-    title: 'AI Solutions & Intelligent Automation',
-    description: 'AI knowledge assistants, connected workflows, document intelligence and AI features integrated with business systems.',
+    title: "AI Solutions & Intelligent Automation",
+    description:
+      "AI knowledge assistants, connected workflows, document intelligence and AI features integrated with business systems.",
     icon: Bot,
-    href: '/ai-development-services'
-  }
+    href: "/ai-development-services",
+  },
 ];
 
 const specialistServices = [
-  { title: 'SaaS product development and modernization', href: '/saas-development-services' },
-  { title: 'MVP development for startups and new initiatives', href: '/mvp-development-startup' },
-  { title: 'Custom CRM and sales workflow automation', href: '/crm-development-custom-software' },
-  { title: 'Custom business software and ERP development', href: '/custom-erp-software-service' },
-  { title: 'WhatsApp Business Platform integration and automation', href: '/whatsapp-chatbot-development' },
-  { title: 'WordPress and WooCommerce development for content and commerce use cases', href: '/wordpress-development-services' }
+  {
+    title: "SaaS product development and modernization",
+    href: "/saas-development-services",
+  },
+  {
+    title: "MVP development for startups and new initiatives",
+    href: "/mvp-development-startup",
+  },
+  {
+    title: "Custom CRM and sales workflow automation",
+    href: "/crm-development-custom-software",
+  },
+  {
+    title: "Custom business software and ERP development",
+    href: "/custom-erp-software-service",
+  },
+  {
+    title: "WhatsApp Business Platform integration and automation",
+    href: "/whatsapp-chatbot-development",
+  },
+  {
+    title:
+      "WordPress and WooCommerce development for content and commerce use cases",
+    href: "/wordpress-development-services",
+  },
 ];
 
 const engagementSteps = [
   {
-    title: 'Discovery and requirements',
-    description: 'users, workflows, priorities, constraints and success criteria.'
+    title: "Discovery and requirements",
+    description:
+      "users, workflows, priorities, constraints and success criteria.",
   },
   {
-    title: 'UX and solution definition',
-    description: 'journeys, interfaces, data, integrations and technical approach.'
+    title: "UX and solution definition",
+    description:
+      "journeys, interfaces, data, integrations and technical approach.",
   },
   {
-    title: 'Incremental engineering',
-    description: 'reviewable builds, demos and transparent issue tracking.'
+    title: "Incremental engineering",
+    description: "reviewable builds, demos and transparent issue tracking.",
   },
   {
-    title: 'Quality engineering',
-    description: 'functional, integration, device/browser and release validation matched to project risk.'
+    title: "Quality engineering",
+    description:
+      "functional, integration, device/browser and release validation matched to project risk.",
   },
   {
-    title: 'Deployment and support',
-    description: 'release planning, production handover, monitoring and agreed maintenance.'
-  }
+    title: "Deployment and support",
+    description:
+      "release planning, production handover, monitoring and agreed maintenance.",
+  },
 ];
 
 export default function ServicesClient() {
@@ -99,12 +129,29 @@ export default function ServicesClient() {
       {/* Hero Section */}
       <PageHero
         badge="Services Hub"
-        title={<>Software Engineering Services from <br className="hidden md:block" /> <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-200 to-blue-400 drop-shadow-md">Discovery to Support</span></>}
+        title={
+          <>
+            Software Engineering Services from{" "}
+            <br className="hidden md:block" />{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-200 to-blue-400 drop-shadow-md">
+              Discovery to Support
+            </span>
+          </>
+        }
         description="Whether you are validating a new product, replacing a legacy workflow or connecting systems that no longer work well together, we can take responsibility for the path from discovery and UX through engineering, release and ongoing improvement."
         backgroundImage="/images/insights_hero_bg.png"
         actionLinks={[
-          { label: "Discuss Your Project", href: "/contact" },
-          { label: "View Case Studies", href: "/portfolio" }
+          { label: "Discuss Your Project", href: "/contact", theme: "primary" },
+          {
+            label: "View Case Studies",
+            href: "/portfolio",
+            theme: "secondary",
+          },
+          {
+            label: "Discuss on WhatsApp",
+            href: "https://wa.me/919414138694",
+            theme: "whatsapp",
+          },
         ]}
       />
 
@@ -129,7 +176,8 @@ export default function ServicesClient() {
               transition={{ delay: 0.1 }}
               className="text-lg text-muted-foreground"
             >
-              Comprehensive engineering services tailored to modern business requirements.
+              Comprehensive engineering services tailored to modern business
+              requirements.
             </motion.p>
           </div>
 
@@ -232,7 +280,8 @@ export default function ServicesClient() {
               How an engagement moves
             </h2>
             <p className="text-lg text-muted-foreground">
-              A structured, transparent approach to delivering reliable software solutions.
+              A structured, transparent approach to delivering reliable software
+              solutions.
             </p>
           </div>
 
@@ -246,7 +295,7 @@ export default function ServicesClient() {
                   key={idx}
                   initial={{ opacity: 0, x: -20 }}
                   whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true, margin: '-50px' }}
+                  viewport={{ once: true, margin: "-50px" }}
                   transition={{ duration: 0.5, delay: idx * 0.1 }}
                   className="flex flex-col md:flex-row gap-6 md:gap-8 group"
                 >

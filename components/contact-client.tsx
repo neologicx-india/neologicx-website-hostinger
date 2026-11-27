@@ -61,16 +61,16 @@ const contactInfo = [
     icon: WhatsAppIcon,
     label: "Discuss On Whatsapp",
     href: "https://wa.me/919414138620",
-    color: "text-green-500",
-    bg: "bg-green-500/10",
+    color: "text-blue-500",
+    bg: "bg-blue-500/10",
     iconClassName: "w-6 h-6",
   },
   {
     icon: Phone,
     label: "Call Us",
     href: "tel:+919414138694",
-    color: "text-green-500",
-    bg: "bg-green-500/10",
+    color: "text-blue-500",
+    bg: "bg-blue-500/10",
   },
 ];
 

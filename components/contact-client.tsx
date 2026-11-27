@@ -948,6 +948,17 @@ export default function ContactClient() {
                     </a>
                   </div>
                 </div>
+                <div className="flex items-start gap-3">
+                  <WhatsAppIcon className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
+                  <a
+                    href="https://wa.me/919414138694 "
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-sm text-foreground/80 hover:text-primary transition-colors"
+                  >
+                    Discuss on WhatsApp
+                  </a>
+                </div>
               </div>
 
               <p className="text-xs text-foreground mt-5 leading-relaxed">

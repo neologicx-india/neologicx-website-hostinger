@@ -53,7 +53,6 @@ const contactInfo = [
   {
     icon: Mail,
     label: "Email Us",
-    value: "support@neologicx.com",
     href: "mailto:support@neologicx.com",
     color: "text-blue-500",
     bg: "bg-blue-500/10",
@@ -61,15 +60,14 @@ const contactInfo = [
   {
     icon: WhatsAppIcon,
     label: "Discuss On Whatsapp",
-    value: "+91 94141 38620",
     href: "https://wa.me/919414138620",
     color: "text-green-500",
     bg: "bg-green-500/10",
+    iconClassName: "w-6 h-6",
   },
   {
     icon: Phone,
     label: "Call Us",
-    value: "+91 94141 38694",
     href: "tel:+919414138694",
     color: "text-green-500",
     bg: "bg-green-500/10",
@@ -372,19 +370,19 @@ export default function ContactClient() {
                 : {})}
               className="bg-card border border-border/50 rounded-2xl p-5 shadow-lg hover:shadow-xl hover:border-primary/30 transition-all duration-300 group"
             >
-              <div className="flex items-center gap-3 mb-3">
+              <div className="flex items-center gap-3">
                 <div
                   className={`w-10 h-10 rounded-xl ${info.bg} flex items-center justify-center ${info.color} group-hover:scale-110 transition-transform duration-300`}
                 >
-                  <info.icon className="w-5 h-5" />
+                  <info.icon className={info.iconClassName || "w-5 h-5"} />
                 </div>
                 <span className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">
                   {info.label}
                 </span>
               </div>
-              <p className="text-sm font-bold text-foreground leading-snug">
+              {/* <p className="text-sm font-bold text-foreground leading-snug">
                 {info.value}
-              </p>
+              </p> */}
             </a>
           ))}
         </motion.div>

@@ -1,6 +1,6 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
+import { motion } from "framer-motion";
 import {
   ShoppingCart,
   PackageSearch,
@@ -9,42 +9,48 @@ import {
   Plug,
   LineChart,
   ArrowRight,
-  GitMerge
-} from 'lucide-react';
-import PageHero from '@/components/page-hero';
-import Image from 'next/image';
+  GitMerge,
+} from "lucide-react";
+import PageHero from "@/components/page-hero";
+import Image from "next/image";
 
 const workflowFeatures = [
   {
-    title: 'Order Processing',
-    description: 'Capture and manage orders through clear states from placement through fulfillment and delivery.',
-    icon: ShoppingCart
+    title: "Order Processing",
+    description:
+      "Capture and manage orders through clear states from placement through fulfillment and delivery.",
+    icon: ShoppingCart,
   },
   {
-    title: 'Inventory Visibility',
-    description: 'Connect stock information to order decisions and surface low-stock conditions where configured.',
-    icon: PackageSearch
+    title: "Inventory Visibility",
+    description:
+      "Connect stock information to order decisions and surface low-stock conditions where configured.",
+    icon: PackageSearch,
   },
   {
-    title: 'Fulfillment & Dispatch',
-    description: 'Track processing and shipping status so internal teams and trading partners share the same operational view.',
-    icon: Truck
+    title: "Fulfillment & Dispatch",
+    description:
+      "Track processing and shipping status so internal teams and trading partners share the same operational view.",
+    icon: Truck,
   },
   {
-    title: 'Returns',
-    description: 'Manage return requests through a defined status workflow where the business process requires it.',
-    icon: RotateCcw
+    title: "Returns",
+    description:
+      "Manage return requests through a defined status workflow where the business process requires it.",
+    icon: RotateCcw,
   },
   {
-    title: 'Connected Systems',
-    description: 'Integrate e-commerce, CRM, accounting or other systems when they need to exchange order/customer information.',
-    icon: Plug
+    title: "Connected Systems",
+    description:
+      "Integrate e-commerce, CRM, accounting or other systems when they need to exchange order/customer information.",
+    icon: Plug,
   },
   {
-    title: 'Reporting',
-    description: 'Review order volume, status and exceptions through role-appropriate operational reports.',
-    icon: LineChart
-  }
+    title: "Reporting",
+    description:
+      "Review order volume, status and exceptions through role-appropriate operational reports.",
+    icon: LineChart,
+  },
 ];
 
 export default function OrderClient() {
@@ -53,12 +59,32 @@ export default function OrderClient() {
       {/* Hero Section */}
       <PageHero
         badge="Operations Software"
-        title={<>Distributor–Retailer <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-200 to-blue-400 drop-shadow-md">Order Management System</span></>}
+        title={
+          <>
+            Distributor–Retailer{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-200 to-blue-400 drop-shadow-md">
+              Order Management System
+            </span>
+          </>
+        }
         description="Centralize the order lifecycle between distributors and retailers so teams can see orders, stock context, fulfillment status and exceptions without coordinating everything through calls, spreadsheets and disconnected messages."
         backgroundImage="/images/insights_hero_bg.png"
         actionLinks={[
-          { label: "Request a Product Demo", href: "/contact" },
-          { label: "Discuss Your Order Flow", href: "/contact" }
+          {
+            label: "Request a Product Demo",
+            href: "/contact",
+            theme: "secondary",
+          },
+          {
+            label: "Discuss Your Order Flow",
+            href: "/contact",
+            theme: "primary",
+          },
+          {
+            label: "Discuss on WhatsApp",
+            href: "https://wa.me/919414138694",
+            theme: "secondary",
+          },
         ]}
       />
 
@@ -128,7 +154,10 @@ export default function OrderClient() {
                 transition={{ delay: 0.1 }}
                 className="text-lg text-foreground font-medium leading-relaxed mb-10"
               >
-                Distributor, dealer and retailer networks differ in pricing, territories, approvals and fulfillment rules. We begin by mapping those rules so the configured product reflects the way orders actually move through your business.
+                Distributor, dealer and retailer networks differ in pricing,
+                territories, approvals and fulfillment rules. We begin by
+                mapping those rules so the configured product reflects the way
+                orders actually move through your business.
               </motion.p>
 
               <motion.div

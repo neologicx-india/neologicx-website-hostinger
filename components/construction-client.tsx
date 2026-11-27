@@ -63,12 +63,20 @@ export default function ConstructionClient() {
         description="Give owners and supervisors a shared operational view across multiple construction sites—covering materials, workforce records, daily expenses and vendor payments without relying on disconnected registers and spreadsheets."
         backgroundImage="/images/insights_hero_bg.png"
         actionLinks={[
-          { label: "Request a Walkthrough", href: "/contact" },
-          { label: "Discuss Your Workflow", href: "/contact" },
+          {
+            label: "Request a Walkthrough",
+            href: "/contact",
+            theme: "secondary",
+          },
+          {
+            label: "Discuss Your Workflow",
+            href: "/contact",
+            theme: "primary",
+          },
           {
             label: "Discuss on WhatsApp",
             href: "https://wa.me/919414138620",
-            theme: "outline",
+            theme: "secondary",
           },
         ]}
       />

@@ -60,7 +60,6 @@ export function ActionLinkButton({
         rel="noopener noreferrer"
         className={className}
       >
-        {iconNode}
         <span>{link.label}</span>
       </a>
     );

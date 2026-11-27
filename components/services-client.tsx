@@ -141,16 +141,20 @@ export default function ServicesClient() {
         description="Whether you are validating a new product, replacing a legacy workflow or connecting systems that no longer work well together, we can take responsibility for the path from discovery and UX through engineering, release and ongoing improvement."
         backgroundImage="/images/insights_hero_bg.png"
         actionLinks={[
-          { label: "Discuss Your Project", href: "/contact", theme: "primary" },
+          {
+            label: "Discuss Your Project",
+            href: "/contact",
+            theme: "secondary",
+          },
           {
             label: "View Case Studies",
             href: "/portfolio",
-            theme: "secondary",
+            theme: "primary",
           },
           {
             label: "Discuss on WhatsApp",
             href: "https://wa.me/919414138694",
-            theme: "whatsapp",
+            theme: "secondary",
           },
         ]}
       />

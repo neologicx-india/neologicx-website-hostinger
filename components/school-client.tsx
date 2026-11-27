@@ -1,6 +1,6 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
+import { motion } from "framer-motion";
 import {
   Users,
   CreditCard,
@@ -9,48 +9,54 @@ import {
   Clock,
   Eye,
   ArrowRight,
-  BookOpen
-} from 'lucide-react';
-import PageHero from '@/components/page-hero';
-import Image from 'next/image';
+  BookOpen,
+} from "lucide-react";
+import PageHero from "@/components/page-hero";
+import Image from "next/image";
 
 const workflowFeatures = [
   {
-    title: 'Admissions & Student Records',
-    description: 'Manage application/admission information, documents and centralized student records.',
+    title: "Admissions & Student Records",
+    description:
+      "Manage application/admission information, documents and centralized student records.",
     icon: Users,
-    role: 'Administrator'
+    role: "Administrator",
   },
   {
-    title: 'Fees & Communication',
-    description: 'Connect fee status and institutional notifications where payment/communication functions are configured.',
+    title: "Fees & Communication",
+    description:
+      "Connect fee status and institutional notifications where payment/communication functions are configured.",
     icon: CreditCard,
-    role: 'Administrator'
+    role: "Administrator",
   },
   {
-    title: 'Attendance',
-    description: 'Record and report attendance through configured digital workflows and keep relevant stakeholders informed.',
+    title: "Attendance",
+    description:
+      "Record and report attendance through configured digital workflows and keep relevant stakeholders informed.",
     icon: CalendarCheck,
-    role: 'Teacher'
+    role: "Teacher",
   },
   {
-    title: 'Academic Progress',
-    description: 'Manage grades/results and share appropriate progress information with students and parents.',
+    title: "Academic Progress",
+    description:
+      "Manage grades/results and share appropriate progress information with students and parents.",
     icon: GraduationCap,
-    role: 'Teacher'
+    role: "Teacher",
   },
   {
-    title: 'Teacher & Timetable Workflows',
-    description: 'Support classes, scheduling and teacher-facing administration where included in scope.',
+    title: "Teacher & Timetable Workflows",
+    description:
+      "Support classes, scheduling and teacher-facing administration where included in scope.",
     icon: Clock,
-    role: 'Teacher'
+    role: "Teacher",
   },
   {
-    title: 'Parent Access',
-    description: 'Provide parents with appropriate visibility into attendance, progress, fees and announcements.',
+    title: "Parent Access",
+    description:
+      "Provide parents with appropriate visibility into attendance, progress, fees and announcements.",
     icon: Eye,
-    role: 'Parent'
-  }
+    role: "Parent",
+  },
 ];
 
 export default function SchoolClient() {
@@ -59,12 +65,32 @@ export default function SchoolClient() {
       {/* Hero Section */}
       <PageHero
         badge="Operations Software"
-        title={<>School Management System for <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-200 to-blue-400 drop-shadow-md">Connected Administration</span></>}
+        title={
+          <>
+            School Management System for{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-200 to-blue-400 drop-shadow-md">
+              Connected Administration
+            </span>
+          </>
+        }
         description="Bring student administration, attendance, academic information, communication and parent/teacher workflows into one configurable platform designed around the way your institution operates."
         backgroundImage="/images/insights_hero_bg.png"
         actionLinks={[
-          { label: "Request a Walkthrough", href: "/contact" },
-          { label: "Discuss Your Institution", href: "/contact" }
+          {
+            label: "Request a Walkthrough",
+            href: "/contact",
+            theme: "secondary",
+          },
+          {
+            label: "Discuss Your Institution",
+            href: "/contact",
+            theme: "primary",
+          },
+          {
+            label: "Discuss on WhatsApp",
+            href: "https://wa.me/919414138694",
+            theme: "secondary",
+          },
         ]}
       />
 
@@ -78,7 +104,8 @@ export default function SchoolClient() {
               Core workflow areas
             </h2>
             <p className="text-lg text-foreground">
-              Explore the system capabilities based on user roles within your institution.
+              Explore the system capabilities based on user roles within your
+              institution.
             </p>
           </div>
 
@@ -137,7 +164,11 @@ export default function SchoolClient() {
                 transition={{ delay: 0.1 }}
                 className="text-lg text-foreground font-medium leading-relaxed mb-10"
               >
-                Neologicx&apos;s portfolio also includes institute operations, university websites and portals, alumni engagement, online assessment/heritage learning and public-sector education workflows. That experience can inform configuration without assuming every institution follows the same process.
+                Neologicx&apos;s portfolio also includes institute operations,
+                university websites and portals, alumni engagement, online
+                assessment/heritage learning and public-sector education
+                workflows. That experience can inform configuration without
+                assuming every institution follows the same process.
               </motion.p>
 
               <motion.div

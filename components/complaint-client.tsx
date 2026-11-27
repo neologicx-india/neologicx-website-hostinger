@@ -1,6 +1,6 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
+import { motion } from "framer-motion";
 import {
   FileText,
   AlertCircle,
@@ -8,37 +8,42 @@ import {
   Bell,
   BarChart,
   ArrowRight,
-  ShieldCheck
-} from 'lucide-react';
-import PageHero from '@/components/page-hero';
-import Image from 'next/image';
+  ShieldCheck,
+} from "lucide-react";
+import PageHero from "@/components/page-hero";
+import Image from "next/image";
 
 const resolutionFeatures = [
   {
-    title: 'Complaint Capture',
-    description: 'Create a structured record with the information your team needs to understand and act on the issue.',
-    icon: FileText
+    title: "Complaint Capture",
+    description:
+      "Create a structured record with the information your team needs to understand and act on the issue.",
+    icon: FileText,
   },
   {
-    title: 'Category & Severity',
-    description: 'Classify complaints so teams can prioritize, route and report on recurring types of problems.',
-    icon: AlertCircle
+    title: "Category & Severity",
+    description:
+      "Classify complaints so teams can prioritize, route and report on recurring types of problems.",
+    icon: AlertCircle,
   },
   {
-    title: 'Ownership & Status',
-    description: 'Track who is responsible, what stage the complaint has reached and where follow-up is required.',
-    icon: UserCheck
+    title: "Ownership & Status",
+    description:
+      "Track who is responsible, what stage the complaint has reached and where follow-up is required.",
+    icon: UserCheck,
   },
   {
-    title: 'Customer Notifications',
-    description: 'Keep customers informed through configured notification channels, including WhatsApp workflows where implemented and approved.',
-    icon: Bell
+    title: "Customer Notifications",
+    description:
+      "Keep customers informed through configured notification channels, including WhatsApp workflows where implemented and approved.",
+    icon: Bell,
   },
   {
-    title: 'Administration & Reporting',
-    description: 'Use dashboards to review complaint status, categories, patterns and unresolved work.',
-    icon: BarChart
-  }
+    title: "Administration & Reporting",
+    description:
+      "Use dashboards to review complaint status, categories, patterns and unresolved work.",
+    icon: BarChart,
+  },
 ];
 
 export default function ComplaintClient() {
@@ -47,12 +52,32 @@ export default function ComplaintClient() {
       {/* Hero Section */}
       <PageHero
         badge="Operations Software"
-        title={<>Complaint Management Software for <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-200 to-blue-400 drop-shadow-md">Structured Customer Service</span></>}
+        title={
+          <>
+            Complaint Management Software for{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-200 to-blue-400 drop-shadow-md">
+              Structured Customer Service
+            </span>
+          </>
+        }
         description="Move complaints out of scattered calls, messages and spreadsheets into a workflow where each issue can be captured, categorized, prioritized, assigned, tracked and communicated to the customer."
         backgroundImage="/images/insights_hero_bg.png"
         actionLinks={[
-          { label: "Request a Walkthrough", href: "/contact" },
-          { label: "Discuss Your Complaint Workflow", href: "/contact" }
+          {
+            label: "Request a Walkthrough",
+            href: "/contact",
+            theme: "secondary",
+          },
+          {
+            label: "Discuss Your Complaint Workflow",
+            href: "/contact",
+            theme: "primary",
+          },
+          {
+            label: "Discuss on WhatsApp",
+            href: "https://wa.me/919414138694",
+            theme: "secondary",
+          },
         ]}
       />
 
@@ -66,7 +91,8 @@ export default function ComplaintClient() {
               A clear path from complaint to resolution
             </h2>
             <p className="text-lg text-foreground">
-              Structured workflows ensure no customer issue falls through the cracks.
+              Structured workflows ensure no customer issue falls through the
+              cracks.
             </p>
           </div>
 
@@ -78,7 +104,7 @@ export default function ComplaintClient() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
-                className={`bg-card rounded-2xl p-8 border border-border/50 shadow-sm hover:shadow-xl hover:border-primary/30 transition-all duration-300 group flex flex-col ${idx >= 3 && idx < 5 ? 'lg:col-span-1.5' : ''}`}
+                className={`bg-card rounded-2xl p-8 border border-border/50 shadow-sm hover:shadow-xl hover:border-primary/30 transition-all duration-300 group flex flex-col ${idx >= 3 && idx < 5 ? "lg:col-span-1.5" : ""}`}
               >
                 <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center text-primary mb-6 group-hover:scale-110 group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300">
                   <feature.icon className="w-7 h-7" />
@@ -122,7 +148,10 @@ export default function ComplaintClient() {
                 transition={{ delay: 0.1 }}
                 className="text-lg text-foreground font-medium leading-relaxed mb-10"
               >
-                The portfolio includes a complaint-management portal for BIKAJI in which customers could raise complaints, administrators could categorize and track severity/status, and WhatsApp notifications were used to keep the customer informed.
+                The portfolio includes a complaint-management portal for BIKAJI
+                in which customers could raise complaints, administrators could
+                categorize and track severity/status, and WhatsApp notifications
+                were used to keep the customer informed.
               </motion.p>
 
               <motion.div

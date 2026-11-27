@@ -1,44 +1,71 @@
-'use client';
+"use client";
 
-import React, { useState, useEffect } from 'react';
-import Image from 'next/image';
-import Link from 'next/link';
-import { motion } from 'framer-motion';
+import React, { useState, useEffect } from "react";
+import Image from "next/image";
+import Link from "next/link";
+import { motion } from "framer-motion";
 import {
-  Mail, Phone, MapPin, Clock, Send, ArrowRight,
-  MessageSquare, Building2, Globe2, CheckCircle2, ChevronDown
-} from 'lucide-react';
-import OurLocations from './OurLocations';
-import GlobalLocations from './GlobalLocations';
-import PhoneInput, { isValidPhoneNumber, getCountries, getCountryCallingCode } from 'react-phone-number-input';
-import enLabels from 'react-phone-number-input/locale/en.json';
-import 'react-phone-number-input/style.css';
-import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
+  Mail,
+  Phone,
+  MapPin,
+  Clock,
+  Send,
+  ArrowRight,
+  MessageSquare,
+  Building2,
+  Globe2,
+  CheckCircle2,
+  ChevronDown,
+} from "lucide-react";
+import OurLocations from "./OurLocations";
+import GlobalLocations from "./GlobalLocations";
+import PhoneInput, {
+  isValidPhoneNumber,
+  getCountries,
+  getCountryCallingCode,
+} from "react-phone-number-input";
+import enLabels from "react-phone-number-input/locale/en.json";
+import "react-phone-number-input/style.css";
+import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 
 const contactInfo = [
   {
     icon: Mail,
-    label: 'Email Us',
-    value: 'support@neologicx.com',
-    href: 'mailto:support@neologicx.com',
-    color: 'text-blue-500',
-    bg: 'bg-blue-500/10',
+    label: "Email Us",
+    value: "support@neologicx.com",
+    href: "mailto:support@neologicx.com",
+    color: "text-blue-500",
+    bg: "bg-blue-500/10",
+  },
+  {
+    icon: `<svg class="w-6 h-6 text-green-500 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+  <path fill="currentColor" fill-rule="evenodd" d="M12 4a8 8 0 0 0-6.895 12.06l.569.718-.697 2.359 2.32-.648.379.243A8 8 0 1 0 12 4ZM2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10a9.96 9.96 0 0 1-5.016-1.347l-4.948 1.382 1.426-4.829-.006-.007-.033-.055A9.958 9.958 0 0 1 2 12Z" clip-rule="evenodd"/>
+  <path fill="currentColor" d="M16.735 13.492c-.038-.018-1.497-.736-1.756-.83a1.008 1.008 0 0 0-.34-.075c-.196 0-.362.098-.49.291-.146.217-.587.732-.723.886-.018.02-.042.045-.057.045-.013 0-.239-.093-.307-.123-1.564-.68-2.751-2.313-2.914-2.589-.023-.04-.024-.057-.024-.057.005-.021.058-.074.085-.101.08-.079.166-.182.249-.283l.117-.14c.121-.14.175-.25.237-.375l.033-.066a.68.68 0 0 0-.02-.64c-.034-.069-.65-1.555-.715-1.711-.158-.377-.366-.552-.655-.552-.027 0 0 0-.112.005-.137.005-.883.104-1.213.311-.35.22-.94.924-.94 2.16 0 1.112.705 2.162 1.008 2.561l.041.06c1.161 1.695 2.608 2.951 4.074 3.537 1.412.564 2.081.63 2.461.63.16 0 .288-.013.4-.024l.072-.007c.488-.043 1.56-.599 1.804-1.276.192-.534.243-1.117.115-1.329-.088-.144-.239-.216-.43-.308Z"/>
+</svg>
+`,
+    label: "WhatsApp Us",
+    value: "+91 94141 38620",
+    href: "https://wa.me/919414138620",
+    color: "text-green-500",
+    bg: "bg-green-500/10",
   },
   {
     icon: Phone,
-    label: 'Call Us',
-    value: '+91 94141 38694',
-    href: 'tel:+919414138694',
-    color: 'text-green-500',
-    bg: 'bg-green-500/10',
+    label: "Call Us",
+    value: "+91 94141 38694",
+    href: "tel:+919414138694",
+    color: "text-green-500",
+    bg: "bg-green-500/10",
   },
 ];
 
-const countries = getCountries().map(code => ({
+const countries = getCountries().map((code) => ({
   code,
   name: (enLabels as Record<string, string>)[code],
-  callingCode: '+' + getCountryCallingCode(code),
-  flag: code.toUpperCase().replace(/./g, char => String.fromCodePoint(char.charCodeAt(0) + 127397))
+  callingCode: "+" + getCountryCallingCode(code),
+  flag: code
+    .toUpperCase()
+    .replace(/./g, (char) => String.fromCodePoint(char.charCodeAt(0) + 127397)),
 }));
 
 const CustomSelect = ({
@@ -49,16 +76,16 @@ const CustomSelect = ({
   options,
   placeholder,
   required,
-  hasError
+  hasError,
 }: {
-  id: string,
-  name: string,
-  value: string,
-  onChange: (e: any) => void,
-  options: string[],
-  placeholder: string,
-  required?: boolean,
-  hasError?: boolean
+  id: string;
+  name: string;
+  value: string;
+  onChange: (e: any) => void;
+  options: string[];
+  placeholder: string;
+  required?: boolean;
+  hasError?: boolean;
 }) => {
   const [open, setOpen] = useState(false);
 
@@ -68,15 +95,20 @@ const CustomSelect = ({
         type="button"
         id={id}
         onClick={() => setOpen(!open)}
-        className={`w-full px-4 py-3 rounded-xl border bg-background focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all text-sm flex items-center justify-between ${!value ? 'text-muted-foreground/50' : 'text-foreground'} ${hasError ? 'border-red-500 focus:border-red-500' : 'border-border focus:border-primary'}`}
+        className={`w-full px-4 py-3 rounded-xl border bg-background focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all text-sm flex items-center justify-between ${!value ? "text-muted-foreground/50" : "text-foreground"} ${hasError ? "border-red-500 focus:border-red-500" : "border-border focus:border-primary"}`}
       >
         <span className="truncate">{value || placeholder}</span>
-        <ChevronDown className={`w-4 h-4 opacity-50 transition-transform flex-shrink-0 ${open ? 'rotate-180' : ''}`} />
+        <ChevronDown
+          className={`w-4 h-4 opacity-50 transition-transform flex-shrink-0 ${open ? "rotate-180" : ""}`}
+        />
       </button>
 
       {open && (
         <>
-          <div className="fixed inset-0 z-40" onClick={() => setOpen(false)}></div>
+          <div
+            className="fixed inset-0 z-40"
+            onClick={() => setOpen(false)}
+          ></div>
           <div className="absolute z-50 w-full mt-2 max-h-64 overflow-y-auto bg-card border border-border rounded-xl shadow-xl py-2 custom-scrollbar">
             {options.map((opt: string) => (
               <button
@@ -86,7 +118,7 @@ const CustomSelect = ({
                   onChange({ target: { name, value: opt } });
                   setOpen(false);
                 }}
-                className={`w-full flex items-center px-4 py-2.5 text-sm text-left hover:bg-primary/10 transition-colors ${value === opt ? 'bg-primary/5 font-medium text-primary' : ''}`}
+                className={`w-full flex items-center px-4 py-2.5 text-sm text-left hover:bg-primary/10 transition-colors ${value === opt ? "bg-primary/5 font-medium text-primary" : ""}`}
               >
                 {opt}
               </button>
@@ -100,7 +132,7 @@ const CustomSelect = ({
         type="text"
         name={name}
         value={value}
-        onChange={() => { }}
+        onChange={() => {}}
         required={required}
         className="opacity-0 absolute bottom-0 left-1/2 pointer-events-none w-px h-px"
         tabIndex={-1}
@@ -112,15 +144,15 @@ const CustomSelect = ({
 export default function ContactClient() {
   const { executeRecaptcha } = useGoogleReCaptcha();
   const [formData, setFormData] = useState({
-    name: '',
-    workEmail: '',
-    phoneNumber: '',
-    companyWebsite: '',
-    countryTimezone: '',
-    projectNeed: '',
-    projectDescription: '',
-    budget: '',
-    startWindow: '',
+    name: "",
+    workEmail: "",
+    phoneNumber: "",
+    companyWebsite: "",
+    countryTimezone: "",
+    projectNeed: "",
+    projectDescription: "",
+    budget: "",
+    startWindow: "",
     privacyConsent: false,
   });
   const [file, setFile] = useState<File | null>(null);
@@ -132,12 +164,12 @@ export default function ContactClient() {
   const handleChange = (e: any) => {
     const target = e.target;
     const name = target.name;
-    const value = target.type === 'checkbox' ? target.checked : target.value;
+    const value = target.type === "checkbox" ? target.checked : target.value;
 
-    setFormData(prev => ({ ...prev, [name]: value }));
+    setFormData((prev) => ({ ...prev, [name]: value }));
 
     if (errors[name]) {
-      setErrors(prev => ({ ...prev, [name]: false }));
+      setErrors((prev) => ({ ...prev, [name]: false }));
     }
   };
 
@@ -147,10 +179,10 @@ export default function ContactClient() {
       reader.readAsDataURL(file);
       reader.onload = () => {
         let encoded = reader.result as string;
-        encoded = encoded.split(',')[1]; // Remove data:mime/type;base64,
+        encoded = encoded.split(",")[1]; // Remove data:mime/type;base64,
         resolve(encoded);
       };
-      reader.onerror = error => reject(error);
+      reader.onerror = (error) => reject(error);
     });
   };
 
@@ -160,13 +192,37 @@ export default function ContactClient() {
     let newErrors: Record<string, boolean> = {};
     let isValid = true;
 
-    if (!formData.name.trim()) { newErrors.name = true; isValid = false; }
-    if (!formData.workEmail.trim() || !/^\S+@\S+\.\S+$/.test(formData.workEmail)) { newErrors.workEmail = true; isValid = false; }
-    if (!formData.phoneNumber || !isValidPhoneNumber(formData.phoneNumber)) { newErrors.phoneNumber = true; isValid = false; }
-    if (!formData.countryTimezone) { newErrors.countryTimezone = true; isValid = false; }
-    if (!formData.projectNeed) { newErrors.projectNeed = true; isValid = false; }
-    if (!formData.projectDescription.trim()) { newErrors.projectDescription = true; isValid = false; }
-    if (!formData.privacyConsent) { newErrors.privacyConsent = true; isValid = false; }
+    if (!formData.name.trim()) {
+      newErrors.name = true;
+      isValid = false;
+    }
+    if (
+      !formData.workEmail.trim() ||
+      !/^\S+@\S+\.\S+$/.test(formData.workEmail)
+    ) {
+      newErrors.workEmail = true;
+      isValid = false;
+    }
+    if (!formData.phoneNumber || !isValidPhoneNumber(formData.phoneNumber)) {
+      newErrors.phoneNumber = true;
+      isValid = false;
+    }
+    if (!formData.countryTimezone) {
+      newErrors.countryTimezone = true;
+      isValid = false;
+    }
+    if (!formData.projectNeed) {
+      newErrors.projectNeed = true;
+      isValid = false;
+    }
+    if (!formData.projectDescription.trim()) {
+      newErrors.projectDescription = true;
+      isValid = false;
+    }
+    if (!formData.privacyConsent) {
+      newErrors.privacyConsent = true;
+      isValid = false;
+    }
 
     setErrors(newErrors);
 
@@ -184,7 +240,7 @@ export default function ContactClient() {
       try {
         fileData = await getBase64(file);
         fileName = file.name;
-        mimeType = file.type || 'application/octet-stream';
+        mimeType = file.type || "application/octet-stream";
       } catch (err) {
         console.error("Error encoding file", err);
       }
@@ -195,15 +251,16 @@ export default function ContactClient() {
       fileData,
       fileName,
       mimeType,
-      recaptchaToken: ''
+      recaptchaToken: "",
     };
 
     if (executeRecaptcha) {
-      const token = await executeRecaptcha('contact_form_submit');
+      const token = await executeRecaptcha("contact_form_submit");
       payload.recaptchaToken = token;
     }
 
-    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzRr3WJDb1Qa6XhTk-rvQmorerbg3KxXCXapm5BAP8YVJfVch5Yuy-Yp5qYXs12_BdL/exec";
+    const SCRIPT_URL =
+      "https://script.google.com/macros/s/AKfycbzRr3WJDb1Qa6XhTk-rvQmorerbg3KxXCXapm5BAP8YVJfVch5Yuy-Yp5qYXs12_BdL/exec";
 
     try {
       await fetch(SCRIPT_URL, {
@@ -226,7 +283,6 @@ export default function ContactClient() {
 
   return (
     <div className="w-full bg-background min-h-screen">
-
       {/* Hero Section */}
       <div className="relative w-full min-h-[400px] md:min-h-[480px] lg:min-h-[50vh] flex flex-col items-center justify-center overflow-hidden bg-slate-950 pt-24 pb-16">
         <div className="absolute inset-0 w-full h-full z-0">
@@ -249,7 +305,9 @@ export default function ContactClient() {
             transition={{ duration: 0.5 }}
             className="mb-6 inline-flex items-center justify-center px-4 py-1.5 rounded-full border border-primary/50 bg-primary/10 backdrop-blur-sm"
           >
-            <span className="text-sm font-semibold tracking-wider text-blue-200 uppercase">Start a Conversation</span>
+            <span className="text-sm font-semibold tracking-wider text-blue-200 uppercase">
+              Start a Conversation
+            </span>
           </motion.div>
 
           <motion.h1
@@ -258,7 +316,10 @@ export default function ContactClient() {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-white mb-6 tracking-tight drop-shadow-lg leading-tight"
           >
-            Tell Us What You Are <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-600">Building</span>
+            Tell Us What You Are{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-600">
+              Building
+            </span>
           </motion.h1>
 
           <motion.p
@@ -267,7 +328,8 @@ export default function ContactClient() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="text-base md:text-lg text-white/80 leading-relaxed font-medium max-w-3xl"
           >
-            Tell Neologicx about your software, mobile, SaaS, e‑commerce or integration requirement and start a discovery conversation.
+            Tell Neologicx about your software, mobile, SaaS, e‑commerce or
+            integration requirement and start a discovery conversation.
           </motion.p>
         </div>
 
@@ -291,12 +353,18 @@ export default function ContactClient() {
               className="bg-card border border-border/50 rounded-2xl p-5 shadow-lg hover:shadow-xl hover:border-primary/30 transition-all duration-300 group"
             >
               <div className="flex items-center gap-3 mb-3">
-                <div className={`w-10 h-10 rounded-xl ${info.bg} flex items-center justify-center ${info.color} group-hover:scale-110 transition-transform duration-300`}>
+                <div
+                  className={`w-10 h-10 rounded-xl ${info.bg} flex items-center justify-center ${info.color} group-hover:scale-110 transition-transform duration-300`}
+                >
                   <info.icon className="w-5 h-5" />
                 </div>
-                <span className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">{info.label}</span>
+                <span className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">
+                  {info.label}
+                </span>
               </div>
-              <p className="text-sm font-bold text-foreground leading-snug">{info.value}</p>
+              <p className="text-sm font-bold text-foreground leading-snug">
+                {info.value}
+              </p>
             </a>
           ))}
         </motion.div>
@@ -305,7 +373,6 @@ export default function ContactClient() {
       {/* Main Content: Form + Side Info */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24">
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
-
           {/* Contact Form — 3 columns */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -319,12 +386,30 @@ export default function ContactClient() {
                 <div className="w-20 h-20 rounded-full bg-green-500/10 flex items-center justify-center text-green-500 mx-auto mb-6">
                   <CheckCircle2 className="w-10 h-10" />
                 </div>
-                <h2 className="text-3xl font-extrabold text-foreground mb-4">Message Sent!</h2>
+                <h2 className="text-3xl font-extrabold text-foreground mb-4">
+                  Message Sent!
+                </h2>
                 <p className="text-muted-foreground leading-relaxed mb-8 max-w-md mx-auto">
-                  Thank you for reaching out. We will review your requirement and get back to you within one business day.
+                  Thank you for reaching out. We will review your requirement
+                  and get back to you within one business day.
                 </p>
                 <button
-                  onClick={() => { setSubmitted(false); setFile(null); setFormData({ name: '', workEmail: '', phoneNumber: '', companyWebsite: '', countryTimezone: '', projectNeed: '', projectDescription: '', budget: '', startWindow: '', privacyConsent: false }); }}
+                  onClick={() => {
+                    setSubmitted(false);
+                    setFile(null);
+                    setFormData({
+                      name: "",
+                      workEmail: "",
+                      phoneNumber: "",
+                      companyWebsite: "",
+                      countryTimezone: "",
+                      projectNeed: "",
+                      projectDescription: "",
+                      budget: "",
+                      startWindow: "",
+                      privacyConsent: false,
+                    });
+                  }}
                   className="inline-flex items-center px-6 py-3 bg-primary text-primary-foreground rounded-full font-bold hover:bg-primary/90 transition-all"
                 >
                   Send Another Message
@@ -336,15 +421,21 @@ export default function ContactClient() {
                   <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
                     <MessageSquare className="w-5 h-5" />
                   </div>
-                  <h2 className="text-2xl font-extrabold text-foreground">Project Inquiry Form</h2>
+                  <h2 className="text-2xl font-extrabold text-foreground">
+                    Project Inquiry Form
+                  </h2>
                 </div>
 
                 <form onSubmit={handleSubmit} noValidate className="space-y-6">
-
                   {/* Name & Email */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                     <div>
-                      <label htmlFor="contact-name" className="block text-sm font-semibold text-foreground mb-2">Name *</label>
+                      <label
+                        htmlFor="contact-name"
+                        className="block text-sm font-semibold text-foreground mb-2"
+                      >
+                        Name *
+                      </label>
                       <input
                         id="contact-name"
                         type="text"
@@ -353,11 +444,16 @@ export default function ContactClient() {
                         onChange={handleChange}
                         required
                         placeholder="Your full name"
-                        className={`w-full px-4 py-3 rounded-xl border bg-background text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all text-sm ${errors.name ? 'border-red-500 focus:border-red-500' : 'border-border focus:border-primary'}`}
+                        className={`w-full px-4 py-3 rounded-xl border bg-background text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all text-sm ${errors.name ? "border-red-500 focus:border-red-500" : "border-border focus:border-primary"}`}
                       />
                     </div>
                     <div>
-                      <label htmlFor="contact-work-email" className="block text-sm font-semibold text-foreground mb-2">Email *</label>
+                      <label
+                        htmlFor="contact-work-email"
+                        className="block text-sm font-semibold text-foreground mb-2"
+                      >
+                        Email *
+                      </label>
                       <input
                         id="contact-work-email"
                         type="email"
@@ -366,7 +462,7 @@ export default function ContactClient() {
                         onChange={handleChange}
                         required
                         placeholder="you@company.com"
-                        className={`w-full px-4 py-3 rounded-xl border bg-background text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all text-sm ${errors.workEmail ? 'border-red-500 focus:border-red-500' : 'border-border focus:border-primary'}`}
+                        className={`w-full px-4 py-3 rounded-xl border bg-background text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all text-sm ${errors.workEmail ? "border-red-500 focus:border-red-500" : "border-border focus:border-primary"}`}
                       />
                     </div>
                   </div>
@@ -374,7 +470,12 @@ export default function ContactClient() {
                   {/* Phone & Country/Timezone */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                     <div>
-                      <label htmlFor="contact-phone" className="block text-sm font-semibold text-foreground mb-2">Phone Number (inc. Country Code) *</label>
+                      <label
+                        htmlFor="contact-phone"
+                        className="block text-sm font-semibold text-foreground mb-2"
+                      >
+                        Phone Number (inc. Country Code) *
+                      </label>
                       <PhoneInput
                         id="contact-phone"
                         international
@@ -384,22 +485,40 @@ export default function ContactClient() {
                         limitMaxLength={true}
                         onChange={(value) => {
                           console.log("PhoneInput value:", value);
-                          setFormData(prev => ({ ...prev, phoneNumber: value || '' }));
-                          if (errors.phoneNumber) setErrors(prev => ({ ...prev, phoneNumber: false }));
+                          setFormData((prev) => ({
+                            ...prev,
+                            phoneNumber: value || "",
+                          }));
+                          if (errors.phoneNumber)
+                            setErrors((prev) => ({
+                              ...prev,
+                              phoneNumber: false,
+                            }));
                         }}
                         onBlur={() => {
-                          if (!formData.phoneNumber || !isValidPhoneNumber(formData.phoneNumber)) {
-                            setErrors(prev => ({ ...prev, phoneNumber: true }));
+                          if (
+                            !formData.phoneNumber ||
+                            !isValidPhoneNumber(formData.phoneNumber)
+                          ) {
+                            setErrors((prev) => ({
+                              ...prev,
+                              phoneNumber: true,
+                            }));
                           } else {
-                            setErrors(prev => ({ ...prev, phoneNumber: false }));
+                            setErrors((prev) => ({
+                              ...prev,
+                              phoneNumber: false,
+                            }));
                           }
                         }}
                         required
-                        className={`w-full px-4 py-3 rounded-xl border bg-background text-foreground placeholder:text-muted-foreground/50 focus-within:ring-2 focus-within:ring-primary/50 transition-all text-sm flex items-center ${errors.phoneNumber ? 'border-red-500 focus-within:border-red-500 focus-within:ring-red-500/50' : 'border-border focus-within:border-primary'}`}
-                        style={{ outline: 'none' }}
+                        className={`w-full px-4 py-3 rounded-xl border bg-background text-foreground placeholder:text-muted-foreground/50 focus-within:ring-2 focus-within:ring-primary/50 transition-all text-sm flex items-center ${errors.phoneNumber ? "border-red-500 focus-within:border-red-500 focus-within:ring-red-500/50" : "border-border focus-within:border-primary"}`}
+                        style={{ outline: "none" }}
                       />
                       {errors.phoneNumber && (
-                        <p className="text-red-500 text-xs mt-1.5 font-medium">Please enter a valid phone number with country code</p>
+                        <p className="text-red-500 text-xs mt-1.5 font-medium">
+                          Please enter a valid phone number with country code
+                        </p>
                       )}
                       <style jsx global>{`
                         .PhoneInputInput {
@@ -424,40 +543,61 @@ export default function ContactClient() {
                       `}</style>
                     </div>
                     <div className="relative">
-                      <label htmlFor="contact-country" className="block text-sm font-semibold text-foreground mb-2">Country *</label>
+                      <label
+                        htmlFor="contact-country"
+                        className="block text-sm font-semibold text-foreground mb-2"
+                      >
+                        Country *
+                      </label>
                       <button
                         id="contact-country"
                         type="button"
-                        onClick={() => setCountryDropdownOpen(!countryDropdownOpen)}
-                        className={`w-full px-4 py-3 rounded-xl border bg-background focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all text-sm flex items-center justify-between ${!formData.countryTimezone ? 'text-muted-foreground/50' : 'text-foreground'} ${errors.countryTimezone ? 'border-red-500 focus:border-red-500' : 'border-border focus:border-primary'}`}
+                        onClick={() =>
+                          setCountryDropdownOpen(!countryDropdownOpen)
+                        }
+                        className={`w-full px-4 py-3 rounded-xl border bg-background focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all text-sm flex items-center justify-between ${!formData.countryTimezone ? "text-muted-foreground/50" : "text-foreground"} ${errors.countryTimezone ? "border-red-500 focus:border-red-500" : "border-border focus:border-primary"}`}
                       >
                         {formData.countryTimezone ? (
                           <div className="flex items-center gap-3">
                             <img
-                              src={`https://purecatamphetamine.github.io/country-flag-icons/3x2/${countries.find(c => c.name === formData.countryTimezone)?.code || 'UN'}.svg`}
+                              src={`https://purecatamphetamine.github.io/country-flag-icons/3x2/${countries.find((c) => c.name === formData.countryTimezone)?.code || "UN"}.svg`}
                               alt=""
                               className="w-[1.5rem] h-[1rem] object-cover border border-border shadow-sm rounded-sm"
                             />
-                            <span className="font-medium">{formData.countryTimezone}</span>
+                            <span className="font-medium">
+                              {formData.countryTimezone}
+                            </span>
                           </div>
                         ) : (
                           <span>Select your country...</span>
                         )}
-                        <ChevronDown className={`w-4 h-4 opacity-50 transition-transform ${countryDropdownOpen ? 'rotate-180' : ''}`} />
+                        <ChevronDown
+                          className={`w-4 h-4 opacity-50 transition-transform ${countryDropdownOpen ? "rotate-180" : ""}`}
+                        />
                       </button>
 
                       {countryDropdownOpen && (
                         <>
-                          <div className="fixed inset-0 z-40" onClick={() => setCountryDropdownOpen(false)}></div>
+                          <div
+                            className="fixed inset-0 z-40"
+                            onClick={() => setCountryDropdownOpen(false)}
+                          ></div>
                           <div className="absolute z-50 w-full mt-2 max-h-64 overflow-y-auto bg-card border border-border rounded-xl shadow-xl py-2 custom-scrollbar">
-                            {countries.map(country => (
+                            {countries.map((country) => (
                               <button
                                 key={country.code}
                                 type="button"
                                 onClick={() => {
-                                  setFormData(prev => ({ ...prev, countryTimezone: country.name }));
+                                  setFormData((prev) => ({
+                                    ...prev,
+                                    countryTimezone: country.name,
+                                  }));
                                   setCountryDropdownOpen(false);
-                                  if (errors.countryTimezone) setErrors(prev => ({ ...prev, countryTimezone: false }));
+                                  if (errors.countryTimezone)
+                                    setErrors((prev) => ({
+                                      ...prev,
+                                      countryTimezone: false,
+                                    }));
                                 }}
                                 className="w-full flex items-center gap-3 px-4 py-2.5 text-sm text-left hover:bg-primary/10 transition-colors"
                               >
@@ -466,7 +606,9 @@ export default function ContactClient() {
                                   alt=""
                                   className="w-[1.5rem] h-[1rem] object-cover border border-border shadow-sm rounded-sm flex-shrink-0"
                                 />
-                                <span className="font-medium">{country.name}</span>
+                                <span className="font-medium">
+                                  {country.name}
+                                </span>
                               </button>
                             ))}
                           </div>
@@ -488,7 +630,15 @@ export default function ContactClient() {
 
                   {/* Company/Website */}
                   <div>
-                    <label htmlFor="contact-company-website" className="block text-sm font-semibold text-foreground mb-2">Company / Website <span className="text-foreground font-normal">(optional)</span></label>
+                    <label
+                      htmlFor="contact-company-website"
+                      className="block text-sm font-semibold text-foreground mb-2"
+                    >
+                      Company / Website{" "}
+                      <span className="text-foreground font-normal">
+                        (optional)
+                      </span>
+                    </label>
                     <input
                       id="contact-company-website"
                       type="text"
@@ -502,7 +652,12 @@ export default function ContactClient() {
 
                   {/* What do you need? */}
                   <div>
-                    <label htmlFor="contact-project-need" className="block text-sm font-semibold text-foreground mb-2">What do you need? *</label>
+                    <label
+                      htmlFor="contact-project-need"
+                      className="block text-sm font-semibold text-foreground mb-2"
+                    >
+                      What do you need? *
+                    </label>
                     <CustomSelect
                       id="contact-project-need"
                       name="projectNeed"
@@ -515,7 +670,7 @@ export default function ContactClient() {
                         "Mobile App Development",
                         "E-commerce",
                         "Integration & Automation",
-                        "Other"
+                        "Other",
                       ]}
                       placeholder="Select a service..."
                       required
@@ -525,7 +680,12 @@ export default function ContactClient() {
 
                   {/* Project Description */}
                   <div>
-                    <label htmlFor="contact-description" className="block text-sm font-semibold text-foreground mb-2">Briefly describe the problem or project *</label>
+                    <label
+                      htmlFor="contact-description"
+                      className="block text-sm font-semibold text-foreground mb-2"
+                    >
+                      Briefly describe the problem or project *
+                    </label>
                     <textarea
                       id="contact-description"
                       name="projectDescription"
@@ -534,14 +694,22 @@ export default function ContactClient() {
                       required
                       rows={5}
                       placeholder="Describe the problem you are solving, the users involved, and what you expect the software to do..."
-                      className={`w-full px-4 py-3 rounded-xl border bg-background text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all text-sm resize-none ${errors.projectDescription ? 'border-red-500 focus:border-red-500' : 'border-border focus:border-primary'}`}
+                      className={`w-full px-4 py-3 rounded-xl border bg-background text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all text-sm resize-none ${errors.projectDescription ? "border-red-500 focus:border-red-500" : "border-border focus:border-primary"}`}
                     />
                   </div>
 
                   {/* Budget & Start Window (both optional) */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                     <div>
-                      <label htmlFor="contact-budget" className="block text-sm font-semibold text-foreground mb-2">Indicative Budget Range <span className="text-foreground font-normal">(optional)</span></label>
+                      <label
+                        htmlFor="contact-budget"
+                        className="block text-sm font-semibold text-foreground mb-2"
+                      >
+                        Indicative Budget Range{" "}
+                        <span className="text-foreground font-normal">
+                          (optional)
+                        </span>
+                      </label>
                       <CustomSelect
                         id="contact-budget"
                         name="budget"
@@ -552,13 +720,21 @@ export default function ContactClient() {
                           "₹5 – 15 Lakh",
                           "₹15 – 50 Lakh",
                           "₹50 Lakh+",
-                          "Not sure yet"
+                          "Not sure yet",
                         ]}
                         placeholder="Select range..."
                       />
                     </div>
                     <div>
-                      <label htmlFor="contact-start-window" className="block text-sm font-semibold text-foreground mb-2">Expected Start Window <span className="text-foreground font-normal">(optional)</span></label>
+                      <label
+                        htmlFor="contact-start-window"
+                        className="block text-sm font-semibold text-foreground mb-2"
+                      >
+                        Expected Start Window{" "}
+                        <span className="text-foreground font-normal">
+                          (optional)
+                        </span>
+                      </label>
                       <CustomSelect
                         id="contact-start-window"
                         name="startWindow"
@@ -569,7 +745,7 @@ export default function ContactClient() {
                           "Within 1–2 weeks",
                           "Within 1 month",
                           "1–3 months",
-                          "Flexible / Not decided"
+                          "Flexible / Not decided",
                         ]}
                         placeholder="Select timeline..."
                       />
@@ -578,7 +754,15 @@ export default function ContactClient() {
 
                   {/* File Upload (optional) */}
                   <div>
-                    <label htmlFor="contact-file" className="block text-sm font-semibold text-foreground mb-2">File or Brief Upload <span className="text-foreground font-normal">(optional)</span></label>
+                    <label
+                      htmlFor="contact-file"
+                      className="block text-sm font-semibold text-foreground mb-2"
+                    >
+                      File or Brief Upload{" "}
+                      <span className="text-foreground font-normal">
+                        (optional)
+                      </span>
+                    </label>
                     <div className="relative">
                       <input
                         id="contact-file"
@@ -588,7 +772,9 @@ export default function ContactClient() {
                         className="w-full px-4 py-3 rounded-xl border border-border bg-background text-foreground text-sm file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-primary/10 file:text-primary hover:file:bg-primary/20 transition-all cursor-pointer"
                       />
                     </div>
-                    <p className="text-xs text-foreground mt-1.5">PDF, DOC, PPT, images or ZIP — max 10 MB</p>
+                    <p className="text-xs text-foreground mt-1.5">
+                      PDF, DOC, PPT, images or ZIP — max 10 MB
+                    </p>
                   </div>
 
                   {/* Privacy Consent */}
@@ -600,10 +786,15 @@ export default function ContactClient() {
                       checked={formData.privacyConsent as unknown as boolean}
                       onChange={handleChange}
                       required
-                      className={`mt-1 w-4 h-4 rounded text-primary focus:ring-primary/50 cursor-pointer accent-primary ${errors.privacyConsent ? 'outline outline-2 outline-red-500' : 'border-border'}`}
+                      className={`mt-1 w-4 h-4 rounded text-primary focus:ring-primary/50 cursor-pointer accent-primary ${errors.privacyConsent ? "outline outline-2 outline-red-500" : "border-border"}`}
                     />
-                    <label htmlFor="contact-privacy" className={`text-sm leading-snug cursor-pointer ${errors.privacyConsent ? 'text-red-500' : 'text-foreground'}`}>
-                      I agree that Neologicx may store and process my data to respond to this inquiry. We will not share your information with third parties. *
+                    <label
+                      htmlFor="contact-privacy"
+                      className={`text-sm leading-snug cursor-pointer ${errors.privacyConsent ? "text-red-500" : "text-foreground"}`}
+                    >
+                      I agree that Neologicx may store and process my data to
+                      respond to this inquiry. We will not share your
+                      information with third parties. *
                     </label>
                   </div>
 
@@ -615,7 +806,9 @@ export default function ContactClient() {
                   >
                     <Send className="w-4 h-4 mr-2" />
                     {loading ? "Submitting..." : "Submit Inquiry"}
-                    {!loading && <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />}
+                    {!loading && (
+                      <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
+                    )}
                   </button>
                 </form>
               </div>
@@ -632,20 +825,38 @@ export default function ContactClient() {
           >
             {/* What Happens Next */}
             <div className="bg-card border border-border/50 rounded-3xl p-8">
-              <h3 className="text-xl font-extrabold text-foreground mb-6">What Happens Next</h3>
+              <h3 className="text-xl font-extrabold text-foreground mb-6">
+                What Happens Next
+              </h3>
               <div className="space-y-6">
                 {[
-                  { step: '01', title: 'We Review Your Requirement', desc: 'Our team reads through your brief and identifies the right expertise to respond.' },
-                  { step: '02', title: 'Discovery Conversation', desc: 'We schedule a call to understand your users, workflows, constraints and timelines.' },
-                  { step: '03', title: 'Scoping & Proposal', desc: 'We share a tailored scope, timeline and engagement model that fits your context.' },
+                  {
+                    step: "01",
+                    title: "We Review Your Requirement",
+                    desc: "Our team reads through your brief and identifies the right expertise to respond.",
+                  },
+                  {
+                    step: "02",
+                    title: "Discovery Conversation",
+                    desc: "We schedule a call to understand your users, workflows, constraints and timelines.",
+                  },
+                  {
+                    step: "03",
+                    title: "Scoping & Proposal",
+                    desc: "We share a tailored scope, timeline and engagement model that fits your context.",
+                  },
                 ].map((item, idx) => (
                   <div key={idx} className="flex gap-4">
                     <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary font-extrabold text-sm flex-shrink-0">
                       {item.step}
                     </div>
                     <div>
-                      <h4 className="text-sm font-bold text-foreground mb-1">{item.title}</h4>
-                      <p className="text-xs text-foreground leading-relaxed">{item.desc}</p>
+                      <h4 className="text-sm font-bold text-foreground mb-1">
+                        {item.title}
+                      </h4>
+                      <p className="text-xs text-foreground leading-relaxed">
+                        {item.desc}
+                      </p>
                     </div>
                   </div>
                 ))}
@@ -654,18 +865,22 @@ export default function ContactClient() {
 
             {/* Why Neologicx */}
             <div className="bg-card border border-border/50 rounded-3xl p-8">
-              <h3 className="text-xl font-extrabold text-foreground mb-6">Why Neologicx</h3>
+              <h3 className="text-xl font-extrabold text-foreground mb-6">
+                Why Neologicx
+              </h3>
               <div className="space-y-4">
                 {[
-                  '25+ years of software delivery',
-                  'Full-stack web, mobile & backend capabilities',
-                  'Government, FMCG, education & international projects',
-                  'Transparent engagement models',
-                  'Long-term partnerships, not one-off contracts',
+                  "25+ years of software delivery",
+                  "Full-stack web, mobile & backend capabilities",
+                  "Government, FMCG, education & international projects",
+                  "Transparent engagement models",
+                  "Long-term partnerships, not one-off contracts",
                 ].map((point, idx) => (
                   <div key={idx} className="flex items-start gap-3">
                     <CheckCircle2 className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
-                    <span className="text-sm text-foreground/80 leading-snug">{point}</span>
+                    <span className="text-sm text-foreground/80 leading-snug">
+                      {point}
+                    </span>
                   </div>
                 ))}
               </div>
@@ -677,36 +892,52 @@ export default function ContactClient() {
                 <div className="w-9 h-9 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
                   <Building2 className="w-4 h-4" />
                 </div>
-                <h3 className="text-lg font-extrabold text-foreground">Direct Contact</h3>
+                <h3 className="text-lg font-extrabold text-foreground">
+                  Direct Contact
+                </h3>
               </div>
 
-              <p className="text-sm font-bold text-foreground mb-5">Neologicx Resources India Pvt Ltd</p>
+              <p className="text-sm font-bold text-foreground mb-5">
+                Neologicx Resources India Pvt Ltd
+              </p>
               {/* <p className="text-sm text-foreground mb-5">Bikaner, Rajasthan, India</p> */}
 
               <div className="space-y-3">
                 <div className="flex items-start gap-3">
                   <Mail className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
-                  <a href="mailto:rajeev@neologicx.com" className="text-sm text-foreground/80 hover:text-primary transition-colors">
+                  <a
+                    href="mailto:rajeev@neologicx.com"
+                    className="text-sm text-foreground/80 hover:text-primary transition-colors"
+                  >
                     support@neologicx.com
                   </a>
                 </div>
                 <div className="flex items-start gap-3">
                   <Phone className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
                   <div className="text-sm text-foreground/80">
-                    <a href="tel:+919414138694" className="hover:text-primary transition-colors">+91 94141 38694</a>
-                    {' / '}
-                    <a href="tel:+919414138620" className="hover:text-primary transition-colors">+91 94141 38620</a>
+                    <a
+                      href="tel:+919414138694"
+                      className="hover:text-primary transition-colors"
+                    >
+                      +91 94141 38694
+                    </a>
+                    {" / "}
+                    <a
+                      href="tel:+919414138620"
+                      className="hover:text-primary transition-colors"
+                    >
+                      +91 94141 38620
+                    </a>
                   </div>
                 </div>
               </div>
 
               <p className="text-xs text-foreground mt-5 leading-relaxed">
-                For international calls, use the scheduling link to choose a mutually workable time.
+                For international calls, use the scheduling link to choose a
+                mutually workable time.
               </p>
             </div>
-
           </motion.div>
-
         </div>
       </div>
 

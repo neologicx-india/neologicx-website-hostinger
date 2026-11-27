@@ -1,6 +1,6 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
+import { motion } from "framer-motion";
 import {
   Globe,
   Package,
@@ -8,37 +8,42 @@ import {
   Wallet,
   Landmark,
   ArrowRight,
-  Settings
-} from 'lucide-react';
-import PageHero from '@/components/page-hero';
-import Image from 'next/image';
+  Settings,
+} from "lucide-react";
+import PageHero from "@/components/page-hero";
+import Image from "next/image";
 
 const operationsFeatures = [
   {
-    title: 'Multi-site Visibility',
-    description: 'View project/site activity from a centralized administration layer while supervisors work with their assigned site data.',
-    icon: Globe
+    title: "Multi-site Visibility",
+    description:
+      "View project/site activity from a centralized administration layer while supervisors work with their assigned site data.",
+    icon: Globe,
   },
   {
-    title: 'Materials',
-    description: 'Record and review material supplied, procured or used across sites so operational teams have a consistent trail.',
-    icon: Package
+    title: "Materials",
+    description:
+      "Record and review material supplied, procured or used across sites so operational teams have a consistent trail.",
+    icon: Package,
   },
   {
-    title: 'Workforce Records',
-    description: 'Manage attendance and related workforce information such as salary/leave workflows where configured.',
-    icon: HardHat
+    title: "Workforce Records",
+    description:
+      "Manage attendance and related workforce information such as salary/leave workflows where configured.",
+    icon: HardHat,
   },
   {
-    title: 'Petty Expenses',
-    description: 'Capture routine site expenses by category instead of reconstructing them later from cash notes and messages.',
-    icon: Wallet
+    title: "Petty Expenses",
+    description:
+      "Capture routine site expenses by category instead of reconstructing them later from cash notes and messages.",
+    icon: Wallet,
   },
   {
-    title: 'Vendors & Payments',
-    description: 'Track vendor/subcontractor payment information and project-level expenses in the same operational context.',
-    icon: Landmark
-  }
+    title: "Vendors & Payments",
+    description:
+      "Track vendor/subcontractor payment information and project-level expenses in the same operational context.",
+    icon: Landmark,
+  },
 ];
 
 export default function ConstructionClient() {
@@ -47,12 +52,24 @@ export default function ConstructionClient() {
       {/* Hero Section */}
       <PageHero
         badge="Operations Software"
-        title={<>Construction Site Operations & <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-200 to-blue-400 drop-shadow-md">Project Control Software</span></>}
+        title={
+          <>
+            Construction Site Operations &{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-200 to-blue-400 drop-shadow-md">
+              Project Control Software
+            </span>
+          </>
+        }
         description="Give owners and supervisors a shared operational view across multiple construction sites—covering materials, workforce records, daily expenses and vendor payments without relying on disconnected registers and spreadsheets."
         backgroundImage="/images/insights_hero_bg.png"
         actionLinks={[
           { label: "Request a Walkthrough", href: "/contact" },
-          { label: "Discuss Your Workflow", href: "/contact" }
+          { label: "Discuss Your Workflow", href: "/contact" },
+          {
+            label: "Discuss on WhatsApp",
+            href: "https://wa.me/919414138620",
+            theme: "outline",
+          },
         ]}
       />
 
@@ -78,7 +95,7 @@ export default function ConstructionClient() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
-                className={`bg-card rounded-2xl p-8 border border-border/50 shadow-sm hover:shadow-xl hover:border-primary/30 transition-all duration-300 group flex flex-col ${idx >= 3 && idx < 5 ? 'lg:col-span-1.5' : ''}`}
+                className={`bg-card rounded-2xl p-8 border border-border/50 shadow-sm hover:shadow-xl hover:border-primary/30 transition-all duration-300 group flex flex-col ${idx >= 3 && idx < 5 ? "lg:col-span-1.5" : ""}`}
               >
                 <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center text-primary mb-6 group-hover:scale-110 group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300">
                   <feature.icon className="w-7 h-7" />
@@ -122,7 +139,8 @@ export default function ConstructionClient() {
                 transition={{ delay: 0.1 }}
                 className="text-lg text-foreground leading-relaxed mb-6"
               >
-                Construction businesses differ in cost heads, approval rules, reporting and responsibility across sites.
+                Construction businesses differ in cost heads, approval rules,
+                reporting and responsibility across sites.
               </motion.p>
 
               <motion.p
@@ -132,7 +150,9 @@ export default function ConstructionClient() {
                 transition={{ delay: 0.2 }}
                 className="text-lg text-foreground font-medium leading-relaxed mb-10"
               >
-                The implementation begins by mapping your current registers and approvals, then configuring the system around the controls that matter to management and site teams.
+                The implementation begins by mapping your current registers and
+                approvals, then configuring the system around the controls that
+                matter to management and site teams.
               </motion.p>
 
               <motion.div

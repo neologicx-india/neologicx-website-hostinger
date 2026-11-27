@@ -110,7 +110,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
             theme: "secondary",
           },
           {
-            label: "Chat on WhatsApp",
+            label: "Discuss on WhatsApp",
             href: "https://wa.me/919414138620",
             theme: "whatsapp",
           },

@@ -1,6 +1,6 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
+import { motion } from "framer-motion";
 import {
   Users,
   Layers,
@@ -8,37 +8,42 @@ import {
   BarChart,
   Wrench,
   ArrowRight,
-  Server
-} from 'lucide-react';
-import PageHero from '@/components/page-hero';
-import Image from 'next/image';
+  Server,
+} from "lucide-react";
+import PageHero from "@/components/page-hero";
+import Image from "next/image";
 
 const capabilities = [
   {
-    title: 'Product & Workflow Definition',
-    description: 'Clarify user roles, core jobs, permissions, plan boundaries and the workflows that create value.',
-    icon: Users
+    title: "Product & Workflow Definition",
+    description:
+      "Clarify user roles, core jobs, permissions, plan boundaries and the workflows that create value.",
+    icon: Users,
   },
   {
-    title: 'Platform Architecture',
-    description: 'Choose data, tenancy and application patterns that fit the product’s current stage and expected growth.',
-    icon: Layers
+    title: "Platform Architecture",
+    description:
+      "Choose data, tenancy and application patterns that fit the product’s current stage and expected growth.",
+    icon: Layers,
   },
   {
-    title: 'Billing & Third-party Integrations',
-    description: 'Connect subscription/payment services and the external tools the product requires.',
-    icon: CreditCard
+    title: "Billing & Third-party Integrations",
+    description:
+      "Connect subscription/payment services and the external tools the product requires.",
+    icon: CreditCard,
   },
   {
-    title: 'Administration & Reporting',
-    description: 'Give operators the visibility and controls needed to manage users, configuration, exceptions and product activity.',
-    icon: BarChart
+    title: "Administration & Reporting",
+    description:
+      "Give operators the visibility and controls needed to manage users, configuration, exceptions and product activity.",
+    icon: BarChart,
   },
   {
-    title: 'Modernization',
-    description: 'Improve older SaaS applications through staged architecture, UX, performance and maintainability work.',
-    icon: Wrench
-  }
+    title: "Modernization",
+    description:
+      "Improve older SaaS applications through staged architecture, UX, performance and maintainability work.",
+    icon: Wrench,
+  },
 ];
 
 export default function SaasDevelopmentClient() {
@@ -47,12 +52,32 @@ export default function SaasDevelopmentClient() {
       {/* Hero Section */}
       <PageHero
         badge="SaaS Engineering"
-        title={<>SaaS Product Development & <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-600 drop-shadow-md">Modernization</span></>}
+        title={
+          <>
+            SaaS Product Development &{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-600 drop-shadow-md">
+              Modernization
+            </span>
+          </>
+        }
         description="Build a SaaS product around the users, roles, workflows and commercial model it actually needs—from an early release through ongoing product evolution."
         backgroundImage="/images/insights_hero_bg.png"
         actionLinks={[
-          { label: "Discuss Your SaaS Product", href: "/contact" },
-          { label: "Explore Product Engineering", href: "/product-engineering" }
+          {
+            label: "Discuss Your SaaS Product",
+            href: "/contact",
+            theme: "secondary",
+          },
+          {
+            label: "Explore Product Engineering",
+            href: "/product-engineering",
+            theme: "primary",
+          },
+          {
+            label: "Discuss on WhatsApp",
+            href: "https://wa.me/919414138694",
+            theme: "secondary",
+          },
         ]}
       />
 
@@ -78,7 +103,7 @@ export default function SaasDevelopmentClient() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
-                className={`bg-card rounded-2xl p-8 border border-border/50 shadow-sm hover:shadow-xl hover:border-primary/30 transition-all duration-300 group flex flex-col ${idx >= 3 && idx < 5 ? 'lg:col-span-1.5' : ''}`}
+                className={`bg-card rounded-2xl p-8 border border-border/50 shadow-sm hover:shadow-xl hover:border-primary/30 transition-all duration-300 group flex flex-col ${idx >= 3 && idx < 5 ? "lg:col-span-1.5" : ""}`}
               >
                 <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center text-primary mb-6 group-hover:scale-110 group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300">
                   <cap.icon className="w-7 h-7" />
@@ -109,7 +134,8 @@ export default function SaasDevelopmentClient() {
                 viewport={{ once: true }}
                 className="text-3xl md:text-5xl font-bold font-serif text-foreground mb-6"
               >
-                Start with the <span className="text-primary">product model</span>
+                Start with the{" "}
+                <span className="text-primary">product model</span>
               </motion.h2>
 
               <motion.p
@@ -119,7 +145,8 @@ export default function SaasDevelopmentClient() {
                 transition={{ delay: 0.1 }}
                 className="text-lg text-muted-foreground leading-relaxed mb-6"
               >
-                The right SaaS architecture depends on more than expected traffic.
+                The right SaaS architecture depends on more than expected
+                traffic.
               </motion.p>
 
               <motion.p
@@ -129,7 +156,9 @@ export default function SaasDevelopmentClient() {
                 transition={{ delay: 0.2 }}
                 className="text-lg text-foreground font-medium leading-relaxed mb-10"
               >
-                Tenant boundaries, permissions, data isolation, billing, integrations, onboarding and support workflows should be understood before engineering decisions harden.
+                Tenant boundaries, permissions, data isolation, billing,
+                integrations, onboarding and support workflows should be
+                understood before engineering decisions harden.
               </motion.p>
 
               <motion.div

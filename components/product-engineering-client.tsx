@@ -106,12 +106,20 @@ export default function ProductEngineeringClient() {
         description="Turn a product idea, an evolving SaaS platform or an aging digital product into a clear roadmap and a maintainable software system. We can support the full journey from discovery and UX through engineering, release and iteration."
         backgroundImage="/images/insights_hero_bg.png"
         actionLinks={[
-          { label: "Discuss Your Product", href: "/contact" },
-          { label: "Explore Case Studies", href: "/portfolio" },
+          {
+            label: "Discuss Your Product",
+            href: "/contact",
+            theme: "secondary",
+          },
+          {
+            label: "Explore Case Studies",
+            href: "/portfolio",
+            theme: "primary",
+          },
           {
             label: "Discuss on WhatsApp",
             href: "https://wa.me/919414138694",
-            theme: "outline",
+            theme: "secondary",
           },
         ]}
       />

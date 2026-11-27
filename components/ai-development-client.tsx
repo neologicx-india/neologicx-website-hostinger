@@ -1,6 +1,6 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
+import { motion } from "framer-motion";
 import {
   BookOpen,
   MessageSquare,
@@ -11,62 +11,72 @@ import {
   ArrowRight,
   CheckCircle2,
   Quote,
-  ShieldCheck
-} from 'lucide-react';
-import PageHero from '@/components/page-hero';
-import CTASection from '@/components/cta-section';
-import Image from 'next/image';
+  ShieldCheck,
+} from "lucide-react";
+import PageHero from "@/components/page-hero";
+import CTASection from "@/components/cta-section";
+import Image from "next/image";
 
 const capabilities = [
   {
-    title: 'AI Knowledge Assistants',
-    description: 'Assistants grounded in approved company documents, policies, manuals and knowledge bases.',
-    icon: BookOpen
+    title: "AI Knowledge Assistants",
+    description:
+      "Assistants grounded in approved company documents, policies, manuals and knowledge bases.",
+    icon: BookOpen,
   },
   {
-    title: 'Customer Support AI',
-    description: 'Conversational systems for answering questions, classifying requests, drafting responses and escalating complex cases.',
-    icon: MessageSquare
+    title: "Customer Support AI",
+    description:
+      "Conversational systems for answering questions, classifying requests, drafting responses and escalating complex cases.",
+    icon: MessageSquare,
   },
   {
-    title: 'AI Workflow Automation',
-    description: 'Workflows that interpret unstructured information, trigger controlled actions and connect with existing business systems.',
-    icon: Workflow
+    title: "AI Workflow Automation",
+    description:
+      "Workflows that interpret unstructured information, trigger controlled actions and connect with existing business systems.",
+    icon: Workflow,
   },
   {
-    title: 'Intelligent Document Processing',
-    description: 'Extract, classify, summarize and route information from forms, invoices, applications and other documents.',
-    icon: FileText
+    title: "Intelligent Document Processing",
+    description:
+      "Extract, classify, summarize and route information from forms, invoices, applications and other documents.",
+    icon: FileText,
   },
   {
-    title: 'AI Features for Existing Software',
-    description: 'Add search, recommendations, summarization or intelligent assistance to web, mobile, SaaS, CRM and ERP platforms.',
-    icon: Sparkles
+    title: "AI Features for Existing Software",
+    description:
+      "Add search, recommendations, summarization or intelligent assistance to web, mobile, SaaS, CRM and ERP platforms.",
+    icon: Sparkles,
   },
   {
-    title: 'AI Agents & System Integration',
-    description: 'Connect AI with approved APIs and tools so it can retrieve information or perform controlled actions.',
-    icon: Bot
-  }
+    title: "AI Agents & System Integration",
+    description:
+      "Connect AI with approved APIs and tools so it can retrieve information or perform controlled actions.",
+    icon: Bot,
+  },
 ];
 
 const flowSteps = [
   {
-    title: 'Understand Intent',
-    description: 'Interpret user questions, unstructured emails or incoming documents using natural language processing.'
+    title: "Understand Intent",
+    description:
+      "Interpret user questions, unstructured emails or incoming documents using natural language processing.",
   },
   {
-    title: 'Retrieve Grounding Data',
-    description: 'Fetch approved facts from your private knowledge base, APIs or existing software systems.'
+    title: "Retrieve Grounding Data",
+    description:
+      "Fetch approved facts from your private knowledge base, APIs or existing software systems.",
   },
   {
-    title: 'Process & Generate',
-    description: 'Synthesize the retrieved information into a helpful response, summary or structured data object.'
+    title: "Process & Generate",
+    description:
+      "Synthesize the retrieved information into a helpful response, summary or structured data object.",
   },
   {
-    title: 'Execute & Escalate',
-    description: 'Trigger a downstream workflow, update a system of record or escalate to a human reviewer.'
-  }
+    title: "Execute & Escalate",
+    description:
+      "Trigger a downstream workflow, update a system of record or escalate to a human reviewer.",
+  },
 ];
 
 export default function AiDevelopmentClient() {
@@ -75,12 +85,32 @@ export default function AiDevelopmentClient() {
       {/* Hero Section */}
       <PageHero
         badge="AI & Intelligent Automation"
-        title={<>AI Solutions & <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-200 to-blue-400 drop-shadow-md">Intelligent Automation</span></>}
+        title={
+          <>
+            AI Solutions &{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-200 to-blue-400 drop-shadow-md">
+              Intelligent Automation
+            </span>
+          </>
+        }
         description="Turn business knowledge, documents and repetitive processes into useful AI-enabled experiences. We build intelligent assistants and connected workflows that work with your existing applications, APIs and business data."
         backgroundImage="/images/insights_hero_bg.png"
         actionLinks={[
-          { label: "Discuss Your AI Use Case", href: "/contact" },
-          { label: "Explore Our AI Work", href: "/portfolio" }
+          {
+            label: "Discuss Your AI Use Case",
+            href: "/contact",
+            theme: "secondary",
+          },
+          {
+            label: "Explore Our AI Work",
+            href: "/portfolio",
+            theme: "primary",
+          },
+          {
+            label: "Discuss on WhatsApp",
+            href: "https://wa.me/919414138694",
+            theme: "secondary",
+          },
         ]}
       />
 
@@ -128,7 +158,8 @@ export default function AiDevelopmentClient() {
                 transition={{ delay: 0.1 }}
                 className="text-3xl md:text-5xl font-bold font-serif text-foreground mb-8 leading-tight"
               >
-                Practical AI for <span className="text-primary">Business Operations</span>
+                Practical AI for{" "}
+                <span className="text-primary">Business Operations</span>
               </motion.h2>
 
               <motion.div
@@ -140,7 +171,10 @@ export default function AiDevelopmentClient() {
               >
                 <Quote className="absolute -top-5 -left-5 w-10 h-10 text-primary/20 rotate-180 bg-background rounded-full p-1" />
                 <p className="text-lg md:text-xl text-foreground font-medium leading-relaxed italic relative z-10">
-                  "Not every process needs AI. Combine deterministic business rules, software integrations and AI where each adds genuine value. Consequential actions require clearly defined control or human approval."
+                  "Not every process needs AI. Combine deterministic business
+                  rules, software integrations and AI where each adds genuine
+                  value. Consequential actions require clearly defined control
+                  or human approval."
                 </p>
               </motion.div>
             </div>
@@ -158,7 +192,8 @@ export default function AiDevelopmentClient() {
               AI Capabilities
             </h2>
             <p className="text-lg text-foreground">
-              We design and implement AI features that solve specific business problems.
+              We design and implement AI features that solve specific business
+              problems.
             </p>
           </div>
 
@@ -195,7 +230,8 @@ export default function AiDevelopmentClient() {
               How Connected AI Works
             </h2>
             <p className="text-lg text-foreground">
-              Moving from standalone chatbots to integrated assistants that take action.
+              Moving from standalone chatbots to integrated assistants that take
+              action.
             </p>
           </div>
 
@@ -213,7 +249,9 @@ export default function AiDevelopmentClient() {
                   <div className="w-16 h-16 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-2xl font-bold mb-6 z-10 shadow-lg">
                     {idx + 1}
                   </div>
-                  <h3 className="text-xl font-bold text-foreground mb-3">{step.title}</h3>
+                  <h3 className="text-xl font-bold text-foreground mb-3">
+                    {step.title}
+                  </h3>
                   <p className="text-foreground">{step.description}</p>
                 </div>
                 {idx < flowSteps.length - 1 && (
@@ -245,12 +283,12 @@ export default function AiDevelopmentClient() {
                 </h3>
                 <ul className="space-y-6 relative z-10">
                   {[
-                    'Approved knowledge sources and retrieval grounding where appropriate.',
-                    'Role-based access and data boundaries inherited from connected systems.',
-                    'Scope limits, fallback responses and human escalation paths.',
-                    'Evaluation of representative questions and failure cases before release.',
-                    'Logging, monitoring and versioned prompts/configuration where implemented.',
-                    'Privacy and sensitive-data review appropriate to the use case.'
+                    "Approved knowledge sources and retrieval grounding where appropriate.",
+                    "Role-based access and data boundaries inherited from connected systems.",
+                    "Scope limits, fallback responses and human escalation paths.",
+                    "Evaluation of representative questions and failure cases before release.",
+                    "Logging, monitoring and versioned prompts/configuration where implemented.",
+                    "Privacy and sensitive-data review appropriate to the use case.",
                   ].map((item, i) => (
                     <li key={i} className="flex items-start gap-4">
                       <CheckCircle2 className="w-6 h-6 text-primary shrink-0 mt-0.5" />
@@ -268,7 +306,8 @@ export default function AiDevelopmentClient() {
                 viewport={{ once: true }}
                 className="text-3xl md:text-5xl font-bold font-serif text-foreground mb-6"
               >
-                Responsible <span className="text-primary">AI Implementation</span>
+                Responsible{" "}
+                <span className="text-primary">AI Implementation</span>
               </motion.h2>
               <motion.p
                 initial={{ opacity: 0, x: 20 }}
@@ -277,7 +316,9 @@ export default function AiDevelopmentClient() {
                 transition={{ delay: 0.1 }}
                 className="text-lg text-foreground leading-relaxed mb-8"
               >
-                We do not publish '100% accurate' or 'fully autonomous' claims. Business AI requires verifiable grounding and a clear understanding of its limits.
+                We do not publish '100% accurate' or 'fully autonomous' claims.
+                Business AI requires verifiable grounding and a clear
+                understanding of its limits.
               </motion.p>
               <motion.p
                 initial={{ opacity: 0, x: 20 }}
@@ -286,7 +327,10 @@ export default function AiDevelopmentClient() {
                 transition={{ delay: 0.2 }}
                 className="text-lg text-foreground leading-relaxed"
               >
-                Our approach ensures that any automated action is controlled, measurable, and easily auditable by your human teams. We implement appropriate guardrails to keep interactions within defined operational scopes.
+                Our approach ensures that any automated action is controlled,
+                measurable, and easily auditable by your human teams. We
+                implement appropriate guardrails to keep interactions within
+                defined operational scopes.
               </motion.p>
             </div>
           </div>
@@ -294,7 +338,12 @@ export default function AiDevelopmentClient() {
       </section>
 
       <CTASection
-        title={<>Ready to integrate AI into your <br className="hidden md:block" />workflows?</>}
+        title={
+          <>
+            Ready to integrate AI into your <br className="hidden md:block" />
+            workflows?
+          </>
+        }
         description="Let's discuss how intelligent assistants and automated processes can help your team work faster."
         ctaText="Discuss Your AI Use Case"
         ctaLink="/contact"

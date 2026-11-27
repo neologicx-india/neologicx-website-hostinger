@@ -1,6 +1,6 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
+import { motion } from "framer-motion";
 import {
   Network,
   Users,
@@ -13,69 +13,78 @@ import {
   Scale,
   GraduationCap,
   ShieldCheck,
-  Workflow
-} from 'lucide-react';
-import PageHero from '@/components/page-hero';
-import CTASection from '@/components/cta-section';
-import Image from 'next/image';
+  Workflow,
+} from "lucide-react";
+import PageHero from "@/components/page-hero";
+import CTASection from "@/components/cta-section";
+import Image from "next/image";
 
 const capabilities = [
   {
-    title: 'Operations & ERP-style Platforms',
-    description: 'Connect processes such as procurement, inventory, production, billing, projects, documents and approvals according to the way your organization runs.',
-    icon: Network
+    title: "Operations & ERP-style Platforms",
+    description:
+      "Connect processes such as procurement, inventory, production, billing, projects, documents and approvals according to the way your organization runs.",
+    icon: Network,
   },
   {
-    title: 'CRM & Customer Workflows',
-    description: 'Bring leads, accounts, conversations, tasks, service requests, pipeline stages and reporting into a workflow your team can actually adopt.',
-    icon: Users
+    title: "CRM & Customer Workflows",
+    description:
+      "Bring leads, accounts, conversations, tasks, service requests, pipeline stages and reporting into a workflow your team can actually adopt.",
+    icon: Users,
   },
   {
-    title: 'Portals & Role-based Systems',
-    description: 'Give staff, customers, vendors, members or partners the right information and actions based on their role.',
-    icon: ShieldCheck
+    title: "Portals & Role-based Systems",
+    description:
+      "Give staff, customers, vendors, members or partners the right information and actions based on their role.",
+    icon: ShieldCheck,
   },
   {
-    title: 'Dashboards & Reporting',
-    description: 'Turn operational data into views that help teams monitor status, exceptions and work that needs attention.',
-    icon: BarChart3
+    title: "Dashboards & Reporting",
+    description:
+      "Turn operational data into views that help teams monitor status, exceptions and work that needs attention.",
+    icon: BarChart3,
   },
   {
-    title: 'Integrations & Automation',
-    description: 'Connect payments, messaging, email, vendors, logistics and existing applications so people are not re-entering the same information across systems.',
-    icon: Zap
-  }
+    title: "Integrations & Automation",
+    description:
+      "Connect payments, messaging, email, vendors, logistics and existing applications so people are not re-entering the same information across systems.",
+    icon: Zap,
+  },
 ];
 
 const portfolioExamples = [
   {
-    title: 'Manufacturing Operations',
-    description: 'Milk collection, inventory, billing and production tracking in a connected web/mobile workflow.',
+    title: "Manufacturing Operations",
+    description:
+      "Milk collection, inventory, billing and production tracking in a connected web/mobile workflow.",
     icon: Factory,
-    color: 'text-orange-500',
-    bg: 'bg-orange-500/10'
+    color: "text-orange-500",
+    bg: "bg-orange-500/10",
   },
   {
-    title: 'Engineering & Consultancy',
-    description: 'Project planning, procurement, documentation, shipping, approvals and cross-department visibility.',
+    title: "Engineering & Consultancy",
+    description:
+      "Project planning, procurement, documentation, shipping, approvals and cross-department visibility.",
     icon: HardHat,
-    color: 'text-blue-500',
-    bg: 'bg-blue-500/10'
+    color: "text-blue-500",
+    bg: "bg-blue-500/10",
   },
   {
-    title: 'Legal Case Management',
-    description: 'Centralized case records, cause-list workflows, team allocation and mobile updates.',
+    title: "Legal Case Management",
+    description:
+      "Centralized case records, cause-list workflows, team allocation and mobile updates.",
     icon: Scale,
-    color: 'text-indigo-500',
-    bg: 'bg-indigo-500/10'
+    color: "text-indigo-500",
+    bg: "bg-indigo-500/10",
   },
   {
-    title: 'Institute Operations',
-    description: 'Inquiries, counseling, tutor availability and matching, scheduling, enrollment, attendance and content workflows.',
+    title: "Institute Operations",
+    description:
+      "Inquiries, counseling, tutor availability and matching, scheduling, enrollment, attendance and content workflows.",
     icon: GraduationCap,
-    color: 'text-emerald-500',
-    bg: 'bg-emerald-500/10'
-  }
+    color: "text-emerald-500",
+    bg: "bg-emerald-500/10",
+  },
 ];
 
 export default function CustomSoftwareClient() {
@@ -84,12 +93,28 @@ export default function CustomSoftwareClient() {
       {/* Hero Section */}
       <PageHero
         badge="Custom Software Development"
-        title={<>Custom Software Development for <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-200 to-blue-400 drop-shadow-md">Complex Business Workflows</span></>}
+        title={
+          <>
+            Custom Software Development for{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-200 to-blue-400 drop-shadow-md">
+              Complex Business Workflows
+            </span>
+          </>
+        }
         description="When spreadsheets, disconnected tools or generic software create more work than they remove, custom software can bring the workflow, data and decisions into one coherent system."
         backgroundImage="/images/insights_hero_bg.png"
         actionLinks={[
-          { label: "Map Your Workflow", href: "/contact" },
-          { label: "View Business Software Work", href: "#portfolio" }
+          { label: "Map Your Workflow", href: "/contact", theme: "secondary" },
+          {
+            label: "View Business Software Work",
+            href: "#portfolio",
+            theme: "primary",
+          },
+          {
+            label: "Discuss on WhatsApp",
+            href: "https://wa.me/919414138694",
+            theme: "secondary",
+          },
         ]}
       />
 
@@ -103,7 +128,8 @@ export default function CustomSoftwareClient() {
               Software shaped around your operations
             </h2>
             <p className="text-lg text-muted-foreground">
-              We engineer custom applications that fit your unique business model, not the other way around.
+              We engineer custom applications that fit your unique business
+              model, not the other way around.
             </p>
           </div>
 
@@ -115,7 +141,7 @@ export default function CustomSoftwareClient() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
-                className={`bg-card rounded-2xl p-8 border border-border/50 shadow-sm hover:shadow-xl hover:border-primary/30 transition-all duration-300 group flex flex-col ${idx >= 3 ? 'lg:col-span-1.5' : ''}`}
+                className={`bg-card rounded-2xl p-8 border border-border/50 shadow-sm hover:shadow-xl hover:border-primary/30 transition-all duration-300 group flex flex-col ${idx >= 3 ? "lg:col-span-1.5" : ""}`}
               >
                 <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center text-primary mb-6 group-hover:scale-110 group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300">
                   <cap.icon className="w-7 h-7" />
@@ -155,7 +181,9 @@ export default function CustomSoftwareClient() {
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
                 className="bg-card rounded-3xl p-8 border border-border/50 shadow-sm hover:shadow-xl hover:border-primary/30 transition-all duration-300 group flex items-start gap-6"
               >
-                <div className={`w-16 h-16 rounded-2xl flex items-center justify-center shrink-0 ${example.bg} ${example.color} group-hover:scale-110 transition-transform duration-300`}>
+                <div
+                  className={`w-16 h-16 rounded-2xl flex items-center justify-center shrink-0 ${example.bg} ${example.color} group-hover:scale-110 transition-transform duration-300`}
+                >
                   <example.icon className="w-8 h-8" />
                 </div>
                 <div>
@@ -186,7 +214,7 @@ export default function CustomSoftwareClient() {
                   src="/iso2.png"
                   alt="System Maps and Workflows"
                   fill
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   className="object-cover mix-blend-multiply bg-background"
                   priority
                 />
@@ -194,10 +222,13 @@ export default function CustomSoftwareClient() {
                   <div className="bg-background/80 backdrop-blur-md border border-border/50 rounded-2xl p-6 shadow-xl max-w-sm">
                     <div className="flex items-center gap-3 mb-3">
                       <Workflow className="w-6 h-6 text-primary" />
-                      <h4 className="font-bold text-foreground">Workflow Mapping</h4>
+                      <h4 className="font-bold text-foreground">
+                        Workflow Mapping
+                      </h4>
                     </div>
                     <p className="text-sm text-muted-foreground leading-relaxed">
-                      We identify what should be retained and stage the migration around business risk.
+                      We identify what should be retained and stage the
+                      migration around business risk.
                     </p>
                   </div>
                 </div>
@@ -211,7 +242,8 @@ export default function CustomSoftwareClient() {
                 viewport={{ once: true }}
                 className="text-3xl md:text-5xl font-bold font-serif text-foreground mb-8 leading-tight"
               >
-                Modernize without losing <span className="text-primary">business knowledge</span>
+                Modernize without losing{" "}
+                <span className="text-primary">business knowledge</span>
               </motion.h2>
 
               <motion.p
@@ -221,7 +253,10 @@ export default function CustomSoftwareClient() {
                 transition={{ delay: 0.1 }}
                 className="text-lg text-muted-foreground leading-relaxed mb-8"
               >
-                If an existing system already contains years of process knowledge, replacement should be planned carefully. We can map current workflows, dependencies and data, identify what should be retained, and stage the migration around business risk.
+                If an existing system already contains years of process
+                knowledge, replacement should be planned carefully. We can map
+                current workflows, dependencies and data, identify what should
+                be retained, and stage the migration around business risk.
               </motion.p>
 
               <motion.div
@@ -242,10 +277,6 @@ export default function CustomSoftwareClient() {
           </div>
         </div>
       </section>
-
-
-
-
     </main>
   );
 }

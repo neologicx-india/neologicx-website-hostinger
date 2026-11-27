@@ -1,6 +1,6 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
+import { motion } from "framer-motion";
 import {
   Settings,
   Package,
@@ -10,65 +10,76 @@ import {
   PieChart,
   ArrowRight,
   Database,
-  CheckCircle2
-} from 'lucide-react';
-import PageHero from '@/components/page-hero';
-import Image from 'next/image';
+  CheckCircle2,
+} from "lucide-react";
+import PageHero from "@/components/page-hero";
+import Image from "next/image";
 
 const workflowAreas = [
   {
-    title: 'Operations & Production',
-    description: 'Production tracking, operational status, resource movement and process visibility matched to the business.',
-    icon: Settings
+    title: "Operations & Production",
+    description:
+      "Production tracking, operational status, resource movement and process visibility matched to the business.",
+    icon: Settings,
   },
   {
-    title: 'Inventory, Procurement & Vendors',
-    description: 'Purchasing, materials, stock, vendor activity and approvals connected to downstream work.',
-    icon: Package
+    title: "Inventory, Procurement & Vendors",
+    description:
+      "Purchasing, materials, stock, vendor activity and approvals connected to downstream work.",
+    icon: Package,
   },
   {
-    title: 'Projects & Documentation',
-    description: 'Planning, milestones, documents, shipping/logistics and cross-department status for project-driven organizations.',
-    icon: FolderKanban
+    title: "Projects & Documentation",
+    description:
+      "Planning, milestones, documents, shipping/logistics and cross-department status for project-driven organizations.",
+    icon: FolderKanban,
   },
   {
-    title: 'Billing & Financial Workflows',
-    description: 'Operational billing, expenses, collections or approvals where they form part of the solution scope.',
-    icon: Receipt
+    title: "Billing & Financial Workflows",
+    description:
+      "Operational billing, expenses, collections or approvals where they form part of the solution scope.",
+    icon: Receipt,
   },
   {
-    title: 'Workforce & HR Workflows',
-    description: 'Attendance, leave, performance or workforce administration where a business system needs these functions.',
-    icon: Users
+    title: "Workforce & HR Workflows",
+    description:
+      "Attendance, leave, performance or workforce administration where a business system needs these functions.",
+    icon: Users,
   },
   {
-    title: 'Dashboards & Reporting',
-    description: 'Role-specific operational visibility, status, exceptions and reports built from the shared workflow data.',
-    icon: PieChart
-  }
+    title: "Dashboards & Reporting",
+    description:
+      "Role-specific operational visibility, status, exceptions and reports built from the shared workflow data.",
+    icon: PieChart,
+  },
 ];
 
 const portfolioExamples = [
   {
-    title: 'Manufacturing',
-    description: 'Mobile milk collection plus inventory, billing and production tracking.'
+    title: "Manufacturing",
+    description:
+      "Mobile milk collection plus inventory, billing and production tracking.",
   },
   {
-    title: 'Engineering & consultancy',
-    description: 'Project planning, procurement, documentation, shipping, role-based approvals and status visibility.'
+    title: "Engineering & consultancy",
+    description:
+      "Project planning, procurement, documentation, shipping, role-based approvals and status visibility.",
   },
   {
-    title: 'Institute operations',
-    description: 'Inquiry, counseling, tutor pool, scheduling, enrollment and attendance.'
+    title: "Institute operations",
+    description:
+      "Inquiry, counseling, tutor pool, scheduling, enrollment and attendance.",
   },
   {
-    title: 'Legal case management',
-    description: 'Case records, cause-list workflows, client/team coordination and daily updates.'
+    title: "Legal case management",
+    description:
+      "Case records, cause-list workflows, client/team coordination and daily updates.",
   },
   {
-    title: 'Club management',
-    description: 'Member services, facilities, bookings, usage charges and monthly billing.'
-  }
+    title: "Club management",
+    description:
+      "Member services, facilities, bookings, usage charges and monthly billing.",
+  },
 ];
 
 export default function ErpClient() {
@@ -77,12 +88,32 @@ export default function ErpClient() {
       {/* Hero Section */}
       <PageHero
         badge="Business Software"
-        title={<>Custom Business Software & <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-200 to-blue-400 drop-shadow-md">ERP Development</span></>}
+        title={
+          <>
+            Custom Business Software &{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-200 to-blue-400 drop-shadow-md">
+              ERP Development
+            </span>
+          </>
+        }
         description="Bring disconnected operational processes into software designed around your roles, approvals and information flow—from inventory and production to projects, documents, workforce workflows and reporting."
         backgroundImage="/images/insights_hero_bg.png"
         actionLinks={[
-          { label: "Discuss Your Operations", href: "/contact" },
-          { label: "View Business Software Examples", href: "/portfolio" }
+          {
+            label: "Discuss Your Operations",
+            href: "/contact",
+            theme: "secondary",
+          },
+          {
+            label: "View Business Software Examples",
+            href: "/portfolio",
+            theme: "primary",
+          },
+          {
+            label: "Discuss on WhatsApp",
+            href: "https://wa.me/919414138694",
+            theme: "secondary",
+          },
         ]}
       />
 
@@ -130,7 +161,6 @@ export default function ErpClient() {
         <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[100px] -z-10 -translate-x-1/4 translate-y-1/4" />
 
         <div className="container mx-auto px-6 max-w-7xl">
-
           <div className="flex flex-col lg:flex-row gap-16 items-start mb-0">
             {/* Left Side: Text and Portfolio */}
             <div className="w-full lg:w-1/2">
@@ -144,7 +174,8 @@ export default function ErpClient() {
                 viewport={{ once: true }}
                 className="text-3xl md:text-5xl font-bold font-serif text-foreground mb-6"
               >
-                Replace spreadsheets <span className="text-primary">in stages</span>
+                Replace spreadsheets{" "}
+                <span className="text-primary">in stages</span>
               </motion.h2>
 
               <motion.p
@@ -154,7 +185,8 @@ export default function ErpClient() {
                 transition={{ delay: 0.1 }}
                 className="text-lg text-foreground leading-relaxed mb-6"
               >
-                Business software succeeds when the rollout respects the people and processes already doing the work.
+                Business software succeeds when the rollout respects the people
+                and processes already doing the work.
               </motion.p>
 
               <motion.p
@@ -164,7 +196,9 @@ export default function ErpClient() {
                 transition={{ delay: 0.2 }}
                 className="text-lg text-foreground font-medium leading-relaxed mb-12"
               >
-                We can prioritize the highest-friction workflow first, integrate what must remain, and expand the system as adoption and requirements become clearer.
+                We can prioritize the highest-friction workflow first, integrate
+                what must remain, and expand the system as adoption and
+                requirements become clearer.
               </motion.p>
 
               <div className="mb-12">
@@ -178,7 +212,7 @@ export default function ErpClient() {
                       initial={{ opacity: 0, x: -20 }}
                       whileInView={{ opacity: 1, x: 0 }}
                       viewport={{ once: true }}
-                      transition={{ delay: 0.3 + (idx * 0.1) }}
+                      transition={{ delay: 0.3 + idx * 0.1 }}
                       className="flex gap-4 items-start"
                     >
                       <div className="mt-1 flex-shrink-0">
@@ -225,7 +259,7 @@ export default function ErpClient() {
                   src="/images/erp_data_core.png"
                   alt="Custom ERP Data Core with Manufacturing and Engineering Modules"
                   fill
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   className="object-cover"
                   priority
                 />

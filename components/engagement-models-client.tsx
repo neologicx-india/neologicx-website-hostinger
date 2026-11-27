@@ -1,41 +1,52 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
-import { Target, Users, Clock, Wrench, CheckCircle2, ArrowRight } from 'lucide-react';
-import PageHero from '@/components/page-hero';
-import CTASection from '@/components/cta-section';
-import Image from 'next/image';
+import { motion } from "framer-motion";
+import {
+  Target,
+  Users,
+  Clock,
+  Wrench,
+  CheckCircle2,
+  ArrowRight,
+} from "lucide-react";
+import PageHero from "@/components/page-hero";
+import CTASection from "@/components/cta-section";
+import Image from "next/image";
 
 const engagementModels = [
   {
-    title: 'Defined Scope',
-    description: 'Best when requirements and acceptance criteria are sufficiently clear. Scope, milestones, assumptions and change control are agreed before delivery begins.',
+    title: "Defined Scope",
+    description:
+      "Best when requirements and acceptance criteria are sufficiently clear. Scope, milestones, assumptions and change control are agreed before delivery begins.",
     icon: Target,
   },
   {
-    title: 'Dedicated Product Team',
-    description: 'Best for products with an ongoing roadmap. A stable team works through prioritized outcomes over successive delivery cycles.',
+    title: "Dedicated Product Team",
+    description:
+      "Best for products with an ongoing roadmap. A stable team works through prioritized outcomes over successive delivery cycles.",
     icon: Users,
   },
   {
-    title: 'Time & Materials',
-    description: 'Best when requirements will evolve or discovery is part of the work. Priorities can change while effort and progress remain visible.',
+    title: "Time & Materials",
+    description:
+      "Best when requirements will evolve or discovery is part of the work. Priorities can change while effort and progress remain visible.",
     icon: Clock,
   },
   {
-    title: 'Support & Modernization',
-    description: 'Best for an existing application that needs maintenance, upgrades, integrations, performance work or a staged modernization plan.',
+    title: "Support & Modernization",
+    description:
+      "Best for an existing application that needs maintenance, upgrades, integrations, performance work or a staged modernization plan.",
     icon: Wrench,
-  }
+  },
 ];
 
 const kickoffChecklist = [
-  'Scope, assumptions, exclusions and acceptance criteria',
-  'Team roles and decision owners on both sides',
-  'Communication rhythm, demonstrations and escalation path',
-  'Source repository, environments and access ownership',
-  'Quality, security and release responsibilities appropriate to the project',
-  'Documentation, IP/code handover and post-launch support expectations'
+  "Scope, assumptions, exclusions and acceptance criteria",
+  "Team roles and decision owners on both sides",
+  "Communication rhythm, demonstrations and escalation path",
+  "Source repository, environments and access ownership",
+  "Quality, security and release responsibilities appropriate to the project",
+  "Documentation, IP/code handover and post-launch support expectations",
 ];
 
 export default function EngagementModelsClient() {
@@ -44,12 +55,28 @@ export default function EngagementModelsClient() {
       {/* Hero Section */}
       <PageHero
         badge="Engagement Models"
-        title={<>A Delivery Model That <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-200 to-blue-400 drop-shadow-md">Fits the Work</span></>}
+        title={
+          <>
+            A Delivery Model That{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-200 to-blue-400 drop-shadow-md">
+              Fits the Work
+            </span>
+          </>
+        }
         description="A well-structured software engagement makes ownership, priorities, communication and cost easier to manage. We can shape the working model around the maturity of your scope and the continuity your product needs."
         backgroundImage="/images/insights_hero_bg.png"
         actionLinks={[
-          { label: 'Discuss the Right Model', href: '/contact' },
-          { label: 'View Our Process', href: '/about-us' }
+          {
+            label: "Discuss the Right Model",
+            href: "/contact",
+            theme: "secondary",
+          },
+          { label: "View Our Process", href: "/about-us", theme: "primary" },
+          {
+            label: "Discuss on WhatsApp",
+            href: "https://wa.me/919414138694",
+            theme: "secondary",
+          },
         ]}
       />
 
@@ -65,7 +92,8 @@ export default function EngagementModelsClient() {
               Ways to Engage
             </h2>
             <p className="text-lg text-muted-foreground">
-              Choose the working model that aligns with your project\'s predictability and scale.
+              Choose the working model that aligns with your project\'s
+              predictability and scale.
             </p>
           </div>
 
@@ -109,7 +137,9 @@ export default function EngagementModelsClient() {
                 What should be clear before kickoff
               </h2>
               <p className="text-lg text-muted-foreground mb-8">
-                Regardless of the engagement model you choose, aligning on these foundational elements ensures a smooth start and transparent delivery.
+                Regardless of the engagement model you choose, aligning on these
+                foundational elements ensures a smooth start and transparent
+                delivery.
               </p>
 
               <ul className="space-y-4">
@@ -123,7 +153,9 @@ export default function EngagementModelsClient() {
                     className="flex gap-4 p-4 rounded-2xl bg-background border border-border/50 items-start"
                   >
                     <CheckCircle2 className="w-6 h-6 text-primary shrink-0 mt-0.5" />
-                    <span className="text-foreground font-medium leading-snug">{item}</span>
+                    <span className="text-foreground font-medium leading-snug">
+                      {item}
+                    </span>
                   </motion.li>
                 ))}
               </ul>

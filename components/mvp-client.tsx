@@ -1,16 +1,16 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
+import { motion } from "framer-motion";
 import {
   Target,
   Map,
   Code2,
   FlaskConical,
   ArrowRight,
-  Lightbulb
-} from 'lucide-react';
-import PageHero from '@/components/page-hero';
-import Image from 'next/image';
+  Lightbulb,
+} from "lucide-react";
+import PageHero from "@/components/page-hero";
+import Image from "next/image";
 
 const FigmaIcon = (props: React.SVGProps<SVGSVGElement>) => (
   <svg
@@ -33,30 +33,33 @@ const FigmaIcon = (props: React.SVGProps<SVGSVGElement>) => (
 
 const mvpPath = [
   {
-    phase: '1. Discovery',
-    description: 'Users, problem, assumptions and constraints.',
-    icon: Target
+    phase: "1. Discovery",
+    description: "Users, problem, assumptions and constraints.",
+    icon: Target,
   },
   {
-    phase: '2. Scope',
-    description: 'Must-have journeys, data, integrations and acceptance criteria.',
-    icon: Map
+    phase: "2. Scope",
+    description:
+      "Must-have journeys, data, integrations and acceptance criteria.",
+    icon: Map,
   },
   {
-    phase: '3. Prototype',
-    description: 'Validate important interaction choices before engineering.',
-    icon: FigmaIcon
+    phase: "3. Prototype",
+    description: "Validate important interaction choices before engineering.",
+    icon: FigmaIcon,
   },
   {
-    phase: '4. Build',
-    description: 'Deliver the smallest coherent release that can test the product premise.',
-    icon: Code2
+    phase: "4. Build",
+    description:
+      "Deliver the smallest coherent release that can test the product premise.",
+    icon: Code2,
   },
   {
-    phase: '5. Release & learn',
-    description: 'Collect feedback and convert what you learn into the next roadmap decision.',
-    icon: FlaskConical
-  }
+    phase: "5. Release & learn",
+    description:
+      "Collect feedback and convert what you learn into the next roadmap decision.",
+    icon: FlaskConical,
+  },
 ];
 
 export default function MvpClient() {
@@ -65,12 +68,28 @@ export default function MvpClient() {
       {/* Hero Section */}
       <PageHero
         badge="MVP Development"
-        title={<>MVP Development for Startups & <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-200 to-blue-400 drop-shadow-md">New Digital Products</span></>}
+        title={
+          <>
+            MVP Development for Startups &{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-200 to-blue-400 drop-shadow-md">
+              New Digital Products
+            </span>
+          </>
+        }
         description="An MVP should reduce uncertainty—not simply reduce the feature list. We help teams identify what the first release must prove, then design and build a focused product that can be tested with real users."
         backgroundImage="/images/insights_hero_bg.png"
         actionLinks={[
-          { label: "Scope Your MVP", href: "/contact" },
-          { label: "Explore Product Engineering", href: "/product-engineering" }
+          { label: "Scope Your MVP", href: "/contact", theme: "secondary" },
+          {
+            label: "Explore Product Engineering",
+            href: "/product-engineering",
+            theme: "primary",
+          },
+          {
+            label: "Discuss on WhatsApp",
+            href: "https://wa.me/919414138694",
+            theme: "secondary",
+          },
         ]}
       />
 
@@ -98,7 +117,9 @@ export default function MvpClient() {
                 transition={{ delay: 0.1 }}
                 className="text-lg text-foreground leading-relaxed mb-6"
               >
-                Before estimating screens, we define the customer problem, target user, critical journey and the assumptions that create the most risk.
+                Before estimating screens, we define the customer problem,
+                target user, critical journey and the assumptions that create
+                the most risk.
               </motion.p>
 
               <motion.p
@@ -108,7 +129,9 @@ export default function MvpClient() {
                 transition={{ delay: 0.2 }}
                 className="text-lg text-foreground font-medium leading-relaxed"
               >
-                That gives the first release a job: validate a behavior, workflow or commercial premise that matters to the product roadmap.
+                That gives the first release a job: validate a behavior,
+                workflow or commercial premise that matters to the product
+                roadmap.
               </motion.p>
             </div>
 
@@ -202,7 +225,8 @@ export default function MvpClient() {
                     Ready to build?
                   </h3>
                   <p className="text-white/80 text-lg mb-10 max-w-md">
-                    Let's identify the assumptions that create risk and scope the perfect MVP to test them.
+                    Let's identify the assumptions that create risk and scope
+                    the perfect MVP to test them.
                   </p>
                   <a
                     href="/contact"
@@ -232,7 +256,9 @@ export default function MvpClient() {
                 transition={{ delay: 0.1 }}
                 className="text-lg text-foreground leading-relaxed mb-6"
               >
-                We make deliberate trade-offs in an MVP, but we also identify which shortcuts are temporary and which architectural decisions will be expensive to reverse.
+                We make deliberate trade-offs in an MVP, but we also identify
+                which shortcuts are temporary and which architectural decisions
+                will be expensive to reverse.
               </motion.p>
 
               <motion.p
@@ -242,7 +268,8 @@ export default function MvpClient() {
                 transition={{ delay: 0.2 }}
                 className="text-lg text-foreground font-medium leading-relaxed"
               >
-                That makes the next phase a planned evolution rather than an emergency rewrite.
+                That makes the next phase a planned evolution rather than an
+                emergency rewrite.
               </motion.p>
             </div>
           </div>

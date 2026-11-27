@@ -1,6 +1,6 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
+import { motion } from "framer-motion";
 import {
   ShoppingCart,
   Code,
@@ -11,37 +11,42 @@ import {
   MessageCircle,
   TrendingUp,
   Store,
-  Box
-} from 'lucide-react';
-import PageHero from '@/components/page-hero';
-import Image from 'next/image';
+  Box,
+} from "lucide-react";
+import PageHero from "@/components/page-hero";
+import Image from "next/image";
 
 const capabilities = [
   {
-    title: 'Storefront Development',
-    description: 'Responsive catalogs, product discovery, cart and checkout experiences aligned to your brand and buying journey.',
-    icon: ShoppingCart
+    title: "Storefront Development",
+    description:
+      "Responsive catalogs, product discovery, cart and checkout experiences aligned to your brand and buying journey.",
+    icon: ShoppingCart,
   },
   {
-    title: 'Platform Engineering',
-    description: 'Implementation and customization across Magento Open Source / Adobe Commerce, WooCommerce, Shopify and custom commerce when appropriate.',
-    icon: Code
+    title: "Platform Engineering",
+    description:
+      "Implementation and customization across Magento Open Source / Adobe Commerce, WooCommerce, Shopify and custom commerce when appropriate.",
+    icon: Code,
   },
   {
-    title: 'Payments & Integrations',
-    description: 'Payment gateways and connections to order, inventory, CRM, messaging or other business systems.',
-    icon: CreditCard
+    title: "Payments & Integrations",
+    description:
+      "Payment gateways and connections to order, inventory, CRM, messaging or other business systems.",
+    icon: CreditCard,
   },
   {
-    title: 'Order & Inventory Workflows',
-    description: 'Operational integration after the purchase so teams can manage fulfillment, stock, status and exceptions with less re-entry.',
-    icon: PackageCheck
+    title: "Order & Inventory Workflows",
+    description:
+      "Operational integration after the purchase so teams can manage fulfillment, stock, status and exceptions with less re-entry.",
+    icon: PackageCheck,
   },
   {
-    title: 'Modernization & Support',
-    description: 'Platform upgrades, performance work, integration changes and staged improvements for existing commerce operations.',
-    icon: Wrench
-  }
+    title: "Modernization & Support",
+    description:
+      "Platform upgrades, performance work, integration changes and staged improvements for existing commerce operations.",
+    icon: Wrench,
+  },
 ];
 
 const portfolioBrands = [
@@ -49,7 +54,7 @@ const portfolioBrands = [
   "Bhikharam Chandmal",
   "Panchranga Garments",
   "Mota's Chips",
-  "God's Treat"
+  "God's Treat",
 ];
 
 export default function EcommerceClient() {
@@ -58,12 +63,32 @@ export default function EcommerceClient() {
       {/* Hero Section */}
       <PageHero
         badge="E-commerce Engineering"
-        title={<>E-commerce Engineering for <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-200 to-blue-400 drop-shadow-md">Growing Retail & D2C Businesses</span></>}
+        title={
+          <>
+            E-commerce Engineering for{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-200 to-blue-400 drop-shadow-md">
+              Growing Retail & D2C Businesses
+            </span>
+          </>
+        }
         description="A commerce site is only one part of the operation. We build and improve storefronts together with the product, payment, order, inventory and integration workflows that keep the business moving after checkout."
         backgroundImage="/images/insights_hero_bg.png"
         actionLinks={[
-          { label: "Discuss Your Commerce Platform", href: "/contact" },
-          { label: "View E-commerce Work", href: "#portfolio" }
+          {
+            label: "Discuss Your Commerce Platform",
+            href: "/contact",
+            theme: "secondary",
+          },
+          {
+            label: "View E-commerce Work",
+            href: "#portfolio",
+            theme: "primary",
+          },
+          {
+            label: "Discuss on WhatsApp",
+            href: "https://wa.me/919414138694",
+            theme: "secondary",
+          },
         ]}
       />
 
@@ -89,7 +114,7 @@ export default function EcommerceClient() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
-                className={`bg-card rounded-2xl p-8 border border-border/50 shadow-sm hover:shadow-xl hover:border-primary/30 transition-all duration-300 group flex flex-col ${idx >= 3 ? 'lg:col-span-1.5' : ''}`}
+                className={`bg-card rounded-2xl p-8 border border-border/50 shadow-sm hover:shadow-xl hover:border-primary/30 transition-all duration-300 group flex flex-col ${idx >= 3 ? "lg:col-span-1.5" : ""}`}
               >
                 <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center text-primary mb-6 group-hover:scale-110 group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300">
                   <cap.icon className="w-7 h-7" />
@@ -107,7 +132,10 @@ export default function EcommerceClient() {
       </section>
 
       {/* Selected Commerce Experience */}
-      <section id="portfolio" className="py-24 relative overflow-hidden bg-muted/20 border-y border-border/50">
+      <section
+        id="portfolio"
+        className="py-24 relative overflow-hidden bg-muted/20 border-y border-border/50"
+      >
         <div className="container mx-auto px-6 max-w-7xl">
           <div className="flex flex-col lg:flex-row gap-16 items-center">
             <div className="w-full lg:w-1/2">
@@ -121,7 +149,7 @@ export default function EcommerceClient() {
                   src="/images/ecommerce_mockups.png"
                   alt="E-commerce Storefront Mockups"
                   fill
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   className="object-cover"
                   priority
                 />
@@ -135,7 +163,8 @@ export default function EcommerceClient() {
                 viewport={{ once: true }}
                 className="text-3xl md:text-5xl font-bold font-serif text-foreground mb-8 leading-tight"
               >
-                Selected <span className="text-primary">commerce experience</span>
+                Selected{" "}
+                <span className="text-primary">commerce experience</span>
               </motion.h2>
 
               <motion.p
@@ -145,7 +174,9 @@ export default function EcommerceClient() {
                 transition={{ delay: 0.1 }}
                 className="text-lg text-muted-foreground leading-relaxed mb-8"
               >
-                Our portfolio includes enterprise and mid-market commerce work for food/FMCG and retail businesses. Present these as evidence of delivered work—not as performance guarantees.
+                Our portfolio includes enterprise and mid-market commerce work
+                for food/FMCG and retail businesses. Present these as evidence
+                of delivered work—not as performance guarantees.
               </motion.p>
 
               <div className="flex flex-wrap gap-4 mb-10">
@@ -155,7 +186,7 @@ export default function EcommerceClient() {
                     initial={{ opacity: 0, scale: 0.9 }}
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
-                    transition={{ delay: 0.2 + (idx * 0.05) }}
+                    transition={{ delay: 0.2 + idx * 0.05 }}
                     className="flex items-center gap-2 px-5 py-3 rounded-full bg-card border border-border/50 shadow-sm font-semibold text-foreground"
                   >
                     <Store className="w-4 h-4 text-primary" />
@@ -204,7 +235,10 @@ export default function EcommerceClient() {
                 transition={{ delay: 0.2 }}
                 className="text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto mb-10"
               >
-                Commerce can also move into conversational channels. Our portfolio includes WhatsApp-based ordering, support and complaint workflows that connect customer conversations to business systems.
+                Commerce can also move into conversational channels. Our
+                portfolio includes WhatsApp-based ordering, support and
+                complaint workflows that connect customer conversations to
+                business systems.
               </motion.p>
 
               <motion.div

@@ -1,96 +1,108 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
-import { 
-  Users, 
-  Briefcase, 
-  Smartphone, 
+import { motion } from "framer-motion";
+import {
+  Users,
+  Briefcase,
+  Smartphone,
   Wrench,
   CheckCircle2,
   ArrowRight,
   GraduationCap,
   Landmark,
   Activity,
-  Award
-} from 'lucide-react';
-import PageHero from '@/components/page-hero';
-import Image from 'next/image';
+  Award,
+} from "lucide-react";
+import PageHero from "@/components/page-hero";
+import Image from "next/image";
 
 const capabilities = [
   {
-    title: 'Customer & Community Apps',
-    description: 'Registration, profiles, discovery, communication, transactions and engagement experiences.',
-    icon: Users
+    title: "Customer & Community Apps",
+    description:
+      "Registration, profiles, discovery, communication, transactions and engagement experiences.",
+    icon: Users,
   },
   {
-    title: 'Field & Operational Apps',
-    description: 'Mobile workflows for teams that need to capture, retrieve or update business information away from a desk.',
-    icon: Briefcase
+    title: "Field & Operational Apps",
+    description:
+      "Mobile workflows for teams that need to capture, retrieve or update business information away from a desk.",
+    icon: Briefcase,
   },
   {
-    title: 'Connected Mobile Products',
-    description: 'Apps integrated with web platforms, APIs, payments, notifications and administration dashboards.',
-    icon: Smartphone
+    title: "Connected Mobile Products",
+    description:
+      "Apps integrated with web platforms, APIs, payments, notifications and administration dashboards.",
+    icon: Smartphone,
   },
   {
-    title: 'App Evolution & Maintenance',
-    description: 'Release updates, UX improvements, compatibility work and backend/integration changes as the product evolves.',
-    icon: Wrench
-  }
+    title: "App Evolution & Maintenance",
+    description:
+      "Release updates, UX improvements, compatibility work and backend/integration changes as the product evolves.",
+    icon: Wrench,
+  },
 ];
 
 const portfolio = [
   {
-    title: 'ECK-RTU Alumni Connect',
-    description: 'Alumni discovery, events, donations and notifications on Android and iOS.',
+    title: "ECK-RTU Alumni Connect",
+    description:
+      "Alumni discovery, events, donations and notifications on Android and iOS.",
     icon: GraduationCap,
-    color: 'text-indigo-500',
-    bg: 'bg-indigo-500/10'
+    color: "text-indigo-500",
+    bg: "bg-indigo-500/10",
   },
   {
-    title: 'Election Commission of India',
-    description: 'A mobile service platform consolidating election information and citizen-facing utilities.',
+    title: "Election Commission of India",
+    description:
+      "A mobile service platform consolidating election information and citizen-facing utilities.",
     icon: Landmark,
-    color: 'text-orange-500',
-    bg: 'bg-orange-500/10'
+    color: "text-orange-500",
+    bg: "bg-orange-500/10",
   },
   {
-    title: 'E-Parchi',
-    description: 'A Red Cross Society pilot mobile initiative intended to improve access to private medical services for underserved users.',
+    title: "E-Parchi",
+    description:
+      "A Red Cross Society pilot mobile initiative intended to improve access to private medical services for underserved users.",
     icon: Activity,
-    color: 'text-rose-500',
-    bg: 'bg-rose-500/10'
+    color: "text-rose-500",
+    bg: "bg-rose-500/10",
   },
   {
-    title: 'Heritage Olympiad',
-    description: 'Culture and heritage learning with quiz-based participation and leaderboards.',
+    title: "Heritage Olympiad",
+    description:
+      "Culture and heritage learning with quiz-based participation and leaderboards.",
     icon: Award,
-    color: 'text-emerald-500',
-    bg: 'bg-emerald-500/10'
-  }
+    color: "text-emerald-500",
+    bg: "bg-emerald-500/10",
+  },
 ];
 
 const deliverySteps = [
   {
-    title: 'Strategy & Use Case',
-    description: 'Define the mobile use case and what must work offline/online.',
+    title: "Strategy & Use Case",
+    description:
+      "Define the mobile use case and what must work offline/online.",
   },
   {
-    title: 'Architecture & Integrations',
-    description: 'Map the backend, data, notifications, payments and external integrations.',
+    title: "Architecture & Integrations",
+    description:
+      "Map the backend, data, notifications, payments and external integrations.",
   },
   {
-    title: 'Prototyping & UX',
-    description: 'Prototype critical journeys and validate them before full engineering.',
+    title: "Prototyping & UX",
+    description:
+      "Prototype critical journeys and validate them before full engineering.",
   },
   {
-    title: 'Engineering & QA',
-    description: 'Build, test on representative devices and prepare store/release assets.',
+    title: "Engineering & QA",
+    description:
+      "Build, test on representative devices and prepare store/release assets.",
   },
   {
-    title: 'Launch & Evolution',
-    description: 'Monitor, maintain and evolve the app after launch.',
-  }
+    title: "Launch & Evolution",
+    description: "Monitor, maintain and evolve the app after launch.",
+  },
 ];
 
 export default function MobileAppClient() {
@@ -99,26 +111,47 @@ export default function MobileAppClient() {
       {/* Hero Section */}
       <PageHero
         badge="Mobile App Development"
-        title={<>Mobile App Development for <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-200 to-blue-400 drop-shadow-md">iOS, Android & Flutter</span></>}
+        title={
+          <>
+            Mobile App Development for{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-200 to-blue-400 drop-shadow-md">
+              iOS, Android & Flutter
+            </span>
+          </>
+        }
         description="We design and build mobile applications for customer experiences, public services, communities and field workflows—with the backend, APIs and administration tools needed to make the app useful in real operations."
         backgroundImage="/images/insights_hero_bg.png"
         actionLinks={[
-          { label: "Discuss Your Mobile App", href: "/contact" },
-          { label: "View Mobile Case Studies", href: "#portfolio" }
+          {
+            label: "Discuss Your Mobile App",
+            href: "/contact",
+            theme: "secondary",
+          },
+          {
+            label: "View Mobile Case Studies",
+            href: "#portfolio",
+            theme: "primary",
+          },
+          {
+            label: "Discuss on WhatsApp",
+            href: "https://wa.me/919414138694",
+            theme: "secondary",
+          },
         ]}
       />
 
       {/* Capabilities */}
       <section className="py-24 relative overflow-hidden">
         <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[120px] -z-10 translate-x-1/3 -translate-y-1/3" />
-        
+
         <div className="container mx-auto px-6 max-w-7xl">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-3xl md:text-5xl font-bold font-serif text-foreground mb-6">
               From the app screen to the system behind it
             </h2>
             <p className="text-lg text-muted-foreground">
-              Delivering complete mobile solutions, not just standalone interfaces.
+              Delivering complete mobile solutions, not just standalone
+              interfaces.
             </p>
           </div>
 
@@ -150,7 +183,10 @@ export default function MobileAppClient() {
       </section>
 
       {/* Selected Mobile Work with Image */}
-      <section id="portfolio" className="py-24 relative overflow-hidden bg-muted/20 border-y border-border/50">
+      <section
+        id="portfolio"
+        className="py-24 relative overflow-hidden bg-muted/20 border-y border-border/50"
+      >
         <div className="container mx-auto px-6 max-w-7xl">
           <div className="flex flex-col lg:flex-row gap-16 items-center">
             <div className="w-full lg:w-1/2">
@@ -159,7 +195,8 @@ export default function MobileAppClient() {
                   Selected <span className="text-primary">mobile work</span>
                 </h2>
                 <p className="text-lg text-muted-foreground">
-                  Transforming field workflows, community engagement, and public services into robust mobile experiences.
+                  Transforming field workflows, community engagement, and public
+                  services into robust mobile experiences.
                 </p>
               </div>
 
@@ -173,7 +210,9 @@ export default function MobileAppClient() {
                     transition={{ delay: idx * 0.1 }}
                     className="flex gap-5 group"
                   >
-                    <div className={`w-12 h-12 rounded-xl flex items-center justify-center shrink-0 ${item.bg} ${item.color} group-hover:scale-110 transition-transform duration-300`}>
+                    <div
+                      className={`w-12 h-12 rounded-xl flex items-center justify-center shrink-0 ${item.bg} ${item.color} group-hover:scale-110 transition-transform duration-300`}
+                    >
                       <item.icon className="w-6 h-6" />
                     </div>
                     <div>
@@ -200,7 +239,7 @@ export default function MobileAppClient() {
                   src="/images/mobile_mockups.png"
                   alt="Mobile Portfolio Examples"
                   fill
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   className="object-contain p-8 drop-shadow-2xl"
                   priority
                 />
@@ -213,7 +252,7 @@ export default function MobileAppClient() {
       {/* Delivery Path Redesigned */}
       <section className="py-24 relative overflow-hidden bg-muted/30">
         <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[100px] -z-10 -translate-x-1/4 translate-y-1/4" />
-        
+
         <div className="container mx-auto px-6 max-w-7xl">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-3xl md:text-5xl font-bold font-serif text-foreground mb-6">
@@ -262,7 +301,8 @@ export default function MobileAppClient() {
                   Ready to start?
                 </h3>
                 <p className="text-primary-foreground/80 mb-8 text-sm">
-                  Let's outline the requirements, architecture and roadmap for your next mobile application.
+                  Let's outline the requirements, architecture and roadmap for
+                  your next mobile application.
                 </p>
                 <a
                   href="/contact"

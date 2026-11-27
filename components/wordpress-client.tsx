@@ -1,6 +1,6 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
+import { motion } from "framer-motion";
 import {
   LayoutTemplate,
   Building2,
@@ -8,37 +8,42 @@ import {
   RefreshCw,
   Wrench,
   ArrowRight,
-  AlertTriangle
-} from 'lucide-react';
-import PageHero from '@/components/page-hero';
-import Image from 'next/image';
+  AlertTriangle,
+} from "lucide-react";
+import PageHero from "@/components/page-hero";
+import Image from "next/image";
 
 const wordpressWork = [
   {
-    title: 'Custom Content Websites',
-    description: 'Information architecture, reusable page components and content models aligned to how editors actually publish.',
-    icon: LayoutTemplate
+    title: "Custom Content Websites",
+    description:
+      "Information architecture, reusable page components and content models aligned to how editors actually publish.",
+    icon: LayoutTemplate,
   },
   {
-    title: 'Institutional Platforms',
-    description: 'Structured public websites for organizations with departments, programs, notices and large content sets.',
-    icon: Building2
+    title: "Institutional Platforms",
+    description:
+      "Structured public websites for organizations with departments, programs, notices and large content sets.",
+    icon: Building2,
   },
   {
-    title: 'WooCommerce',
-    description: 'Product catalogs, checkout, payments and extensions/integrations for suitable commerce use cases.',
-    icon: ShoppingCart
+    title: "WooCommerce",
+    description:
+      "Product catalogs, checkout, payments and extensions/integrations for suitable commerce use cases.",
+    icon: ShoppingCart,
   },
   {
-    title: 'Migration & Redesign',
-    description: 'Move or restructure an existing site while protecting useful content, URLs and search equity.',
-    icon: RefreshCw
+    title: "Migration & Redesign",
+    description:
+      "Move or restructure an existing site while protecting useful content, URLs and search equity.",
+    icon: RefreshCw,
   },
   {
-    title: 'Maintenance & Improvement',
-    description: 'Planned updates, compatibility work, performance improvements and content/system enhancements.',
-    icon: Wrench
-  }
+    title: "Maintenance & Improvement",
+    description:
+      "Planned updates, compatibility work, performance improvements and content/system enhancements.",
+    icon: Wrench,
+  },
 ];
 
 export default function WordpressClient() {
@@ -47,12 +52,32 @@ export default function WordpressClient() {
       {/* Hero Section */}
       <PageHero
         badge="Web Development"
-        title={<>WordPress & WooCommerce <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-200 to-blue-400 drop-shadow-md">Development</span></>}
+        title={
+          <>
+            WordPress & WooCommerce{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-200 to-blue-400 drop-shadow-md">
+              Development
+            </span>
+          </>
+        }
         description="For content-led websites and WooCommerce stores, WordPress can be a practical, maintainable choice when the information architecture, content model, performance and update process are designed properly from the start."
         backgroundImage="/images/insights_hero_bg.png"
         actionLinks={[
-          { label: "Discuss Your WordPress Project", href: "/contact" },
-          { label: "Explore Web Applications", href: "/saas-development-services" }
+          {
+            label: "Discuss Your WordPress Project",
+            href: "/contact",
+            theme: "secondary",
+          },
+          {
+            label: "Explore Web Applications",
+            href: "/saas-development-services",
+            theme: "primary",
+          },
+          {
+            label: "Discuss on WhatsApp",
+            href: "https://wa.me/919414138694",
+            theme: "secondary",
+          },
         ]}
       />
 
@@ -78,7 +103,7 @@ export default function WordpressClient() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
-                className={`bg-card rounded-2xl p-8 border border-border/50 shadow-sm hover:shadow-xl hover:border-primary/30 transition-all duration-300 group flex flex-col ${idx >= 3 && idx < 5 ? 'lg:col-span-1.5' : ''}`}
+                className={`bg-card rounded-2xl p-8 border border-border/50 shadow-sm hover:shadow-xl hover:border-primary/30 transition-all duration-300 group flex flex-col ${idx >= 3 && idx < 5 ? "lg:col-span-1.5" : ""}`}
               >
                 <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center text-primary mb-6 group-hover:scale-110 group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300">
                   <item.icon className="w-7 h-7" />
@@ -112,7 +137,8 @@ export default function WordpressClient() {
                 viewport={{ once: true }}
                 className="text-3xl md:text-5xl font-bold font-serif text-foreground mb-6"
               >
-                When WordPress is <span className="text-destructive">not the right answer</span>
+                When WordPress is{" "}
+                <span className="text-destructive">not the right answer</span>
               </motion.h2>
 
               <motion.p
@@ -122,7 +148,10 @@ export default function WordpressClient() {
                 transition={{ delay: 0.1 }}
                 className="text-lg text-foreground font-medium leading-relaxed mb-10"
               >
-                If the requirement is primarily a workflow-heavy product, complex operational system or deeply integrated application, we will recommend a custom web application instead of forcing the project into a CMS.
+                If the requirement is primarily a workflow-heavy product,
+                complex operational system or deeply integrated application, we
+                will recommend a custom web application instead of forcing the
+                project into a CMS.
               </motion.p>
 
               <motion.div
@@ -153,7 +182,7 @@ export default function WordpressClient() {
                   src="/images/wordpress_cms_mockup.png"
                   alt="Modern Content Management System Mockup"
                   fill
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   className="object-cover"
                   priority
                 />

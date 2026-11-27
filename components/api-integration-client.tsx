@@ -1,42 +1,47 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
+import { motion } from "framer-motion";
 import {
   Code2,
   Workflow,
   RefreshCw,
   Zap,
   ShieldCheck,
-  ArrowRight
-} from 'lucide-react';
-import PageHero from '@/components/page-hero';
-import Image from 'next/image';
+  ArrowRight,
+} from "lucide-react";
+import PageHero from "@/components/page-hero";
+import Image from "next/image";
 const capabilities = [
   {
-    title: 'API Design & Development',
-    description: 'Application interfaces for web, mobile, partner and internal systems with clear data contracts and access rules.',
-    icon: Code2
+    title: "API Design & Development",
+    description:
+      "Application interfaces for web, mobile, partner and internal systems with clear data contracts and access rules.",
+    icon: Code2,
   },
   {
-    title: 'Third-party Integrations',
-    description: 'Connect payments, messaging, email, vendor, logistics and platform services to the workflows that need them.',
-    icon: Workflow
+    title: "Third-party Integrations",
+    description:
+      "Connect payments, messaging, email, vendor, logistics and platform services to the workflows that need them.",
+    icon: Workflow,
   },
   {
-    title: 'Data Synchronization',
-    description: 'Move and reconcile information between systems where teams currently depend on exports, re-entry or manual status updates.',
-    icon: RefreshCw
+    title: "Data Synchronization",
+    description:
+      "Move and reconcile information between systems where teams currently depend on exports, re-entry or manual status updates.",
+    icon: RefreshCw,
   },
   {
-    title: 'Webhooks & Event-driven Workflows',
-    description: 'Trigger downstream actions when orders, payments, messages or operational states change.',
-    icon: Zap
+    title: "Webhooks & Event-driven Workflows",
+    description:
+      "Trigger downstream actions when orders, payments, messages or operational states change.",
+    icon: Zap,
   },
   {
-    title: 'Integration Testing & Support',
-    description: 'Validate failure paths, retries, permissions and real production edge cases—not only the happy-path API call.',
-    icon: ShieldCheck
-  }
+    title: "Integration Testing & Support",
+    description:
+      "Validate failure paths, retries, permissions and real production edge cases—not only the happy-path API call.",
+    icon: ShieldCheck,
+  },
 ];
 
 export default function ApiIntegrationClient() {
@@ -45,12 +50,32 @@ export default function ApiIntegrationClient() {
       {/* Hero Section */}
       <PageHero
         badge="API & Integration"
-        title={<>API Development, Systems <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-200 to-blue-400 drop-shadow-md">Integration & Automation</span></>}
+        title={
+          <>
+            API Development, Systems{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-200 to-blue-400 drop-shadow-md">
+              Integration & Automation
+            </span>
+          </>
+        }
         description="Connect the systems your business already depends on. We design APIs and integration workflows that move data and actions between applications, reduce duplicate manual work and make new digital products possible."
         backgroundImage="/images/insights_hero_bg.png"
         actionLinks={[
-          { label: "Discuss an Integration", href: "/contact" },
-          { label: "Explore WhatsApp Automation", href: "/whatsapp-chatbot-development" }
+          {
+            label: "Discuss an Integration",
+            href: "/contact",
+            theme: "secondary",
+          },
+          {
+            label: "Explore WhatsApp Automation",
+            href: "/whatsapp-chatbot-development",
+            theme: "primary",
+          },
+          {
+            label: "Discuss on WhatsApp",
+            href: "https://wa.me/919414138694",
+            theme: "secondary",
+          },
         ]}
       />
 
@@ -76,7 +101,7 @@ export default function ApiIntegrationClient() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
-                className={`bg-card rounded-2xl p-8 border border-border/50 shadow-sm hover:shadow-xl hover:border-primary/30 transition-all duration-300 group flex flex-col ${idx >= 3 && idx < 5 ? 'lg:col-span-1.5' : ''}`}
+                className={`bg-card rounded-2xl p-8 border border-border/50 shadow-sm hover:shadow-xl hover:border-primary/30 transition-all duration-300 group flex flex-col ${idx >= 3 && idx < 5 ? "lg:col-span-1.5" : ""}`}
               >
                 <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center text-primary mb-6 group-hover:scale-110 group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300">
                   <cap.icon className="w-7 h-7" />
@@ -98,7 +123,6 @@ export default function ApiIntegrationClient() {
         <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[100px] -z-10 -translate-x-1/4 translate-y-1/4" />
 
         <div className="container mx-auto px-6 max-w-7xl">
-
           <div className="flex flex-col lg:flex-row gap-16 items-center mb-0">
             <div className="w-full lg:w-1/2">
               <motion.h2
@@ -117,7 +141,9 @@ export default function ApiIntegrationClient() {
                 transition={{ delay: 0.1 }}
                 className="text-lg text-foreground leading-relaxed mb-8"
               >
-                Our portfolio includes engineering/consultancy workflows connected with vendors, logistics and email, as well as WhatsApp ordering, payment and customer-support flows.
+                Our portfolio includes engineering/consultancy workflows
+                connected with vendors, logistics and email, as well as WhatsApp
+                ordering, payment and customer-support flows.
               </motion.p>
 
               <motion.p
@@ -127,7 +153,9 @@ export default function ApiIntegrationClient() {
                 transition={{ delay: 0.2 }}
                 className="text-lg text-foreground font-medium leading-relaxed mb-10"
               >
-                These are the kinds of cross-system problems where integration becomes part of the product experience rather than a back-office detail.
+                These are the kinds of cross-system problems where integration
+                becomes part of the product experience rather than a back-office
+                detail.
               </motion.p>
 
               <motion.div

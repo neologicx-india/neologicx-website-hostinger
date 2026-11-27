@@ -1,6 +1,6 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
+import { motion } from "framer-motion";
 import {
   Briefcase,
   Users,
@@ -10,38 +10,43 @@ import {
   ArrowRight,
   Monitor,
   Code2,
-  Server
-} from 'lucide-react';
-import PageHero from '@/components/page-hero';
-import CTASection from '@/components/cta-section';
-import Image from 'next/image';
+  Server,
+} from "lucide-react";
+import PageHero from "@/components/page-hero";
+import CTASection from "@/components/cta-section";
+import Image from "next/image";
 
 const capabilities = [
   {
-    title: 'Business Web Applications',
-    description: 'Role-based applications for internal operations, approvals, reporting and cross-team workflows.',
-    icon: Briefcase
+    title: "Business Web Applications",
+    description:
+      "Role-based applications for internal operations, approvals, reporting and cross-team workflows.",
+    icon: Briefcase,
   },
   {
-    title: 'Customer & Partner Portals',
-    description: 'Secure experiences for customers, vendors, members or partners to access information, transactions and services.',
-    icon: Users
+    title: "Customer & Partner Portals",
+    description:
+      "Secure experiences for customers, vendors, members or partners to access information, transactions and services.",
+    icon: Users,
   },
   {
-    title: 'Institutional Web Platforms',
-    description: 'Structured, content-rich platforms for universities, public institutions and organizations with complex information architecture.',
-    icon: Landmark
+    title: "Institutional Web Platforms",
+    description:
+      "Structured, content-rich platforms for universities, public institutions and organizations with complex information architecture.",
+    icon: Landmark,
   },
   {
-    title: 'Dashboards & Administration',
-    description: 'Operational views and admin tools for managing content, users, transactions, exceptions and reporting.',
-    icon: LayoutDashboard
+    title: "Dashboards & Administration",
+    description:
+      "Operational views and admin tools for managing content, users, transactions, exceptions and reporting.",
+    icon: LayoutDashboard,
   },
   {
-    title: 'Modernization',
-    description: 'Incremental redesign, architecture and performance improvements for web applications that have outgrown their original implementation.',
-    icon: RefreshCw
-  }
+    title: "Modernization",
+    description:
+      "Incremental redesign, architecture and performance improvements for web applications that have outgrown their original implementation.",
+    icon: RefreshCw,
+  },
 ];
 
 export default function WebDevelopmentClient() {
@@ -50,12 +55,32 @@ export default function WebDevelopmentClient() {
       {/* Hero Section */}
       <PageHero
         badge="Web Application Development"
-        title={<>Custom Web Application <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-200 to-blue-400 drop-shadow-md">Development</span></>}
+        title={
+          <>
+            Custom Web Application{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-200 to-blue-400 drop-shadow-md">
+              Development
+            </span>
+          </>
+        }
         description="We build web platforms that do more than publish pages—customer portals, operational systems, dashboards, institutional platforms and digital products designed around users, data and integrations."
         backgroundImage="/images/insights_hero_bg.png"
         actionLinks={[
-          { label: "Discuss Your Web Platform", href: "/contact" },
-          { label: "View Web Case Studies", href: "/portfolio" }
+          {
+            label: "Discuss Your Web Platform",
+            href: "/contact",
+            theme: "secondary",
+          },
+          {
+            label: "View Web Case Studies",
+            href: "/portfolio",
+            theme: "primary",
+          },
+          {
+            label: "Discuss on WhatsApp",
+            href: "https://wa.me/919414138694",
+            theme: "secondary",
+          },
         ]}
       />
 
@@ -69,7 +94,8 @@ export default function WebDevelopmentClient() {
               What we build
             </h2>
             <p className="text-lg text-muted-foreground">
-              Robust web applications designed for operational efficiency and user engagement.
+              Robust web applications designed for operational efficiency and
+              user engagement.
             </p>
           </div>
 
@@ -81,7 +107,7 @@ export default function WebDevelopmentClient() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
-                className={`bg-card rounded-2xl p-8 border border-border/50 shadow-sm hover:shadow-xl hover:border-primary/30 transition-all duration-300 group flex flex-col ${idx >= 3 ? 'lg:col-span-1.5' : ''}`}
+                className={`bg-card rounded-2xl p-8 border border-border/50 shadow-sm hover:shadow-xl hover:border-primary/30 transition-all duration-300 group flex flex-col ${idx >= 3 ? "lg:col-span-1.5" : ""}`}
               >
                 <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center text-primary mb-6 group-hover:scale-110 group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300">
                   <cap.icon className="w-7 h-7" />
@@ -109,7 +135,8 @@ export default function WebDevelopmentClient() {
                 viewport={{ once: true }}
                 className="text-3xl md:text-5xl font-bold font-serif text-foreground mb-8 leading-tight"
               >
-                Designed as a system, not a <span className="text-primary">collection of pages</span>
+                Designed as a system, not a{" "}
+                <span className="text-primary">collection of pages</span>
               </motion.h2>
 
               <motion.p
@@ -119,7 +146,11 @@ export default function WebDevelopmentClient() {
                 transition={{ delay: 0.1 }}
                 className="text-lg text-muted-foreground leading-relaxed mb-8"
               >
-                Good web engineering starts with content or data models, user roles, key workflows, integrations, performance needs and the way the application will be operated after launch. The interface should make that underlying system easier to use—not hide complexity behind visual effects.
+                Good web engineering starts with content or data models, user
+                roles, key workflows, integrations, performance needs and the
+                way the application will be operated after launch. The interface
+                should make that underlying system easier to use—not hide
+                complexity behind visual effects.
               </motion.p>
 
               <motion.div
@@ -151,7 +182,7 @@ export default function WebDevelopmentClient() {
                   src="/images/system_architecture.png"
                   alt="System Architecture and Dashboards"
                   fill
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   className="object-cover"
                   priority
                 />
@@ -194,7 +225,11 @@ export default function WebDevelopmentClient() {
               transition={{ delay: 0.2 }}
               className="text-lg text-muted-foreground leading-relaxed mb-12"
             >
-              We choose the implementation around the product's requirements and your team's long-term maintainability. For the new Neologicx capability presentation, the engineering team should approve the exact current stack before publishing named frameworks and cloud platforms.
+              We choose the implementation around the product's requirements and
+              your team's long-term maintainability. For the new Neologicx
+              capability presentation, the engineering team should approve the
+              exact current stack before publishing named frameworks and cloud
+              platforms.
             </motion.p>
 
             <motion.div

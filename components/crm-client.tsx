@@ -1,6 +1,6 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
+import { motion } from "framer-motion";
 import {
   UserPlus,
   Users,
@@ -8,37 +8,42 @@ import {
   HeartHandshake,
   BarChart3,
   ArrowRight,
-  Workflow
-} from 'lucide-react';
-import PageHero from '@/components/page-hero';
-import Image from 'next/image';
+  Workflow,
+} from "lucide-react";
+import PageHero from "@/components/page-hero";
+import Image from "next/image";
 
 const lifecycleStages = [
   {
-    title: 'Lead & Inquiry Management',
-    description: 'Capture, assign, qualify and follow up on inquiries with clear ownership and status.',
-    icon: UserPlus
+    title: "Lead & Inquiry Management",
+    description:
+      "Capture, assign, qualify and follow up on inquiries with clear ownership and status.",
+    icon: UserPlus,
   },
   {
-    title: 'Accounts & Contacts',
-    description: 'Centralize customer context, activities, documents and the information teams need at the point of work.',
-    icon: Users
+    title: "Accounts & Contacts",
+    description:
+      "Centralize customer context, activities, documents and the information teams need at the point of work.",
+    icon: Users,
   },
   {
-    title: 'Pipeline & Tasks',
-    description: 'Model stages, actions, reminders, approvals and exceptions around your actual sales process.',
-    icon: Kanban
+    title: "Pipeline & Tasks",
+    description:
+      "Model stages, actions, reminders, approvals and exceptions around your actual sales process.",
+    icon: Kanban,
   },
   {
-    title: 'Service & Complaint Workflows',
-    description: 'Connect post-sale support and complaint status to a structured customer record where the use case requires it.',
-    icon: HeartHandshake
+    title: "Service & Complaint Workflows",
+    description:
+      "Connect post-sale support and complaint status to a structured customer record where the use case requires it.",
+    icon: HeartHandshake,
   },
   {
-    title: 'Reporting & Integrations',
-    description: 'Create operational views and connect the CRM with messaging, payments, ERP or other business applications.',
-    icon: BarChart3
-  }
+    title: "Reporting & Integrations",
+    description:
+      "Create operational views and connect the CRM with messaging, payments, ERP or other business applications.",
+    icon: BarChart3,
+  },
 ];
 
 export default function CrmClient() {
@@ -47,12 +52,32 @@ export default function CrmClient() {
       {/* Hero Section */}
       <PageHero
         badge="Custom Software"
-        title={<>Custom CRM & <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-200 to-blue-400 drop-shadow-md">Sales Workflow Automation</span></>}
+        title={
+          <>
+            Custom CRM &{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-200 to-blue-400 drop-shadow-md">
+              Sales Workflow Automation
+            </span>
+          </>
+        }
         description="When a standard CRM creates workarounds instead of adoption, a tailored system can align customer information, tasks, pipeline stages and service workflows with the way your team actually sells and supports."
         backgroundImage="/images/insights_hero_bg.png"
         actionLinks={[
-          { label: "Map Your CRM Workflow", href: "/contact" },
-          { label: "Explore Custom Software", href: "/custom-software-development" }
+          {
+            label: "Map Your CRM Workflow",
+            href: "/contact",
+            theme: "secondary",
+          },
+          {
+            label: "Explore Custom Software",
+            href: "/custom-software-development",
+            theme: "primary",
+          },
+          {
+            label: "Discuss on WhatsApp",
+            href: "https://wa.me/919414138694",
+            theme: "secondary",
+          },
         ]}
       />
 
@@ -78,7 +103,7 @@ export default function CrmClient() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
-                className={`bg-card rounded-2xl p-8 border border-border/50 shadow-sm hover:shadow-xl hover:border-primary/30 transition-all duration-300 group flex flex-col ${idx >= 3 && idx < 5 ? 'lg:col-span-1.5' : ''}`}
+                className={`bg-card rounded-2xl p-8 border border-border/50 shadow-sm hover:shadow-xl hover:border-primary/30 transition-all duration-300 group flex flex-col ${idx >= 3 && idx < 5 ? "lg:col-span-1.5" : ""}`}
               >
                 <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center text-primary mb-6 group-hover:scale-110 group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300">
                   <stage.icon className="w-7 h-7" />
@@ -122,7 +147,8 @@ export default function CrmClient() {
                 transition={{ delay: 0.1 }}
                 className="text-lg text-foreground leading-relaxed mb-6"
               >
-                The goal is not to reproduce every feature in a large commercial CRM.
+                The goal is not to reproduce every feature in a large commercial
+                CRM.
               </motion.p>
 
               <motion.p
@@ -132,7 +158,8 @@ export default function CrmClient() {
                 transition={{ delay: 0.2 }}
                 className="text-lg text-foreground font-medium leading-relaxed mb-10"
               >
-                It is to identify the workflows that matter, remove unnecessary steps and give teams a system they can understand and maintain.
+                It is to identify the workflows that matter, remove unnecessary
+                steps and give teams a system they can understand and maintain.
               </motion.p>
 
               <motion.div
@@ -163,7 +190,7 @@ export default function CrmClient() {
                   src="/images/crm_dashboard_pipeline.png"
                   alt="Custom CRM Dashboard and Workflow Pipeline"
                   fill
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   className="object-cover"
                   priority
                 />

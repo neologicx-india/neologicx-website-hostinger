@@ -60,7 +60,7 @@ const contactInfo = [
   },
   {
     icon: WhatsAppIcon,
-    label: "WhatsApp Us",
+    label: "Discuss On Whatsapp",
     value: "+91 94141 38620",
     href: "https://wa.me/919414138620",
     color: "text-green-500",
